@@ -16,6 +16,9 @@ const getElectives = async () => {
     if (!prevValue.includes(`${currentValue.ELECTIVE_2.CODE} ${currentValue.ELECTIVE_2.TITLE}`)) {
         prevValue.push(`${currentValue.ELECTIVE_2.CODE} ${currentValue.ELECTIVE_2.TITLE}`)
     }
+    if (currentValue.MINOR_SPECIALIZATION && !prevValue.includes(`${currentValue.MINOR_SPECIALIZATION}`)) {
+        prevValue.push(`${currentValue.MINOR_SPECIALIZATION}`)
+    }
     return prevValue;
   }, []);
   console.log(electives)
