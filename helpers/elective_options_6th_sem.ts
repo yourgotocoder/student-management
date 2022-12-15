@@ -1,8 +1,8 @@
-const { MongoClient } = require("mongodb");
+import { MongoClient } from "mongodb";
 require("dotenv").config();
 
 const updateElectiveOptions = async () => {
-  const client = await MongoClient.connect(process.env.DB_CONNECTION);
+  const client = await MongoClient.connect(process.env.DB_CONNECTION as string);
   const db = client.db("cse");
   const collection = db.collection("student-data");
   const cse_data = await collection.find().toArray();

@@ -1,15 +1,15 @@
-const { MongoClient } = require("mongodb");
+import { MongoClient } from "mongodb";
 require("dotenv").config();
 
 const getElectives = async () => {
-  const client = await MongoClient.connect(process.env.DB_CONNECTION);
+  const client = await MongoClient.connect(process.env.DB_CONNECTION as string);
   const db = client.db("cse");
   const collection = db.collection("student-data");
   const cse_data = await collection.find().toArray();
   const _6thSemStudents = cse_data.filter(
     (student) => student.CURRENT_SEM === 6
   );
-  const electives = _6thSemStudents.reduce((prevValue, currentValue) => {
+  const electives = _6thSemStudents.reduce((prevValue: any, currentValue) => {
     if (!prevValue.includes(`${currentValue.ELECTIVE_1.CODE} ${currentValue.ELECTIVE_1.TITLE}`)) {
         prevValue.push(`${currentValue.ELECTIVE_1.CODE} ${currentValue.ELECTIVE_1.TITLE}`)
     }
