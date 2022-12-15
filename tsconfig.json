@@ -16,6 +16,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "helpers/build-db.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "helpers/build-db.js", "helpers/update-password.js"],
   "exclude": ["node_modules"]
 }

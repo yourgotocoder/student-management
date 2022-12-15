@@ -20,6 +20,7 @@ export default async function handler(
       const student = await collection.findOne({ REGNO: regno });
       if (student) {
         if (student.ELECTIVE_SELECTIONS) {
+          await client.close();
           res
             .status(200)
             .json({ message: "Selections already submitted", error: true });
@@ -32,14 +33,15 @@ export default async function handler(
               },
             }
           );
+          await client.close();
           res.status(200).json({ message: "Success", error: false });
         }
       } else {
+        await client.close();
         res
           .status(504)
           .json({ message: "Registration number not found", error: true });
       }
-      console.log(student);
     }
   } else {
     res.status(400).json({ message: "Invalid request", error: true });
