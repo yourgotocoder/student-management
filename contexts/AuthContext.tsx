@@ -22,14 +22,16 @@ type UserType = {
 
 type AuthContextType = {
   user: UserType | undefined;
-  login: (regno: string, password: string) => void;
+  setUser: (userData: UserType) => void;
   logout: () => void;
+  loading: boolean;
 };
 
 const AuthContext = createContext<AuthContextType>({
   user: undefined,
-  login(regno: string, password: string) {},
+  setUser(userData: UserType) {},
   logout() {},
+  loading: true,
 });
 
 type Props = {
@@ -53,10 +55,30 @@ export function AuthContextProvider(props: Props) {
     ELECTIVE_5_OPTIONS: undefined,
   });
 
-  const login = async (regno: string, password: string) => {
-    await fetch("/api/students/login", {
-        method: "POST"
-    })
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const _id = localStorage.getItem("_id");
+    if (_id) {
+      fetch("/api/students/fetch-user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: _id }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setUser({ ...data.data });
+          setLoading(false);
+        });
+    } else {
+      setLoading(false);
+    }
+  }, []);
+
+  const setUserData = (userData: UserType) => {
+    setUser({ ...userData });
   };
 
   const logout = () => {
@@ -74,12 +96,14 @@ export function AuthContextProvider(props: Props) {
       ELECTIVE_4_OPTIONS: undefined,
       ELECTIVE_5_OPTIONS: undefined,
     });
+    localStorage.removeItem("_id");
   };
 
   const context = {
     user,
-    login,
+    setUser: setUserData,
     logout,
+    loading,
   };
 
   return (

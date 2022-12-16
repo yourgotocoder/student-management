@@ -23,21 +23,25 @@ export default async function handler(
         const client = await MongoClient.connect(process.env.DB_CONNECTION);
         const db = client.db("cse");
         const collection = db.collection("student-data");
-        const student = await collection.findOne({ REGNO: regno });
-        await client.close()
+        const student = await collection.findOne({ REGNO: +regno });
         if (student) {
           if (student.DEFAULT_PASSWORD_CHANGED) {
             //Do something later
           } else {
             if (student.DEFAULT_PASSWORD === password) {
-              res.status(200).json({ message: "Success", error: false, data: student });
-            } else {
               res
-                .status(200)
+              .status(200)
+              .json({ message: "Success", error: false, data: student });
+              await client.close();
+            } else {
+               client.close();
+              res
+                .status(400)
                 .json({ message: "Invalid password", error: true });
             }
           }
         } else {
+           client.close();
           res.status(404).json({ message: "Regno not found", error: true });
         }
       } else {
