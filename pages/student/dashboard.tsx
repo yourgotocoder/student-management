@@ -18,6 +18,7 @@ import {
   MenuItem,
   Paper,
   Select,
+  SelectChangeEvent,
 } from "@mui/material";
 
 type Props = {};
@@ -27,12 +28,29 @@ interface IOption {
   subjects: Subject[] | undefined;
 }
 
+interface ISelections {
+  [key: string]: {
+    [key: string]: string;
+  };
+}
+
 const Dashboard = (props: Props) => {
   const { user, loading, logout } = useContext(AuthContext);
   const router = useRouter();
 
   const [options, setOptions] = useState<IOption[]>();
-  const [selections, setSelections] = useState()
+  const [selection_1, setSelections_1] = useState({
+    option_1: "",
+    option_2: "",
+    option_3: "",
+    option_4: "",
+  });
+  const [selections_2, setSelections_2] = useState({
+    option_1: "",
+    option_2: "",
+    option_3: "",
+    option_4: "",
+  });
 
   useEffect(() => {
     const id = localStorage.getItem("_id");
@@ -65,14 +83,18 @@ const Dashboard = (props: Props) => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleSubmit = () => {
-    //
+  const handleChange = (selectIndex: number, optionIndex: number, event: SelectChangeEvent) => {
+    console.log(event.target.value)
   };
 
-  const handleChange = () => {};
+  const handleSubmit = () => {};
 
   let sideContent = <></>;
   let mainContent = <></>;
+
+  const _6thSemForm = (
+    <></>
+  )
 
   if (loading) {
     mainContent = (
@@ -111,31 +133,94 @@ const Dashboard = (props: Props) => {
                 <Step key={option.title}>
                   <StepLabel>{option.title}</StepLabel>
                   <StepContent>
-                    {option.subjects &&
-                      option.subjects.map((label, optionIndex) => (
-                        <FormControl
-                          sx={{ m: 1, minWidth: 320 }}
-                          key={label.TITLE}
-                        >
-                          <InputLabel id="demo-simple-select-helper-label">
-                            {`OPTION ${optionIndex + 1}`}
-                          </InputLabel>
-                          <Select
-                            value={""}
-                            onChange={handleChange}
-                            displayEmpty
-                            inputProps={{ "aria-label": "Without label" }}
-                            label="OPTION 1"
-                          >
-                            {option.subjects &&
-                              option.subjects.map((subject) => (
-                                <MenuItem value={`${subject.CODE} ${subject.TITLE}`} key={subject.CODE}>
-                                  {`${subject.CODE} ${subject.TITLE}`}
-                                </MenuItem>
-                              ))}
-                          </Select>
-                        </FormControl>
-                      ))}
+                    <FormControl sx={{ m: 1, minWidth: 200 }}>
+                      <InputLabel id="demo-simple-select-helper-label">
+                        OPTION 1
+                      </InputLabel>
+                      <Select
+                        value={""}
+                        onChange={(e: SelectChangeEvent) => handleChange(index, 1, e)}
+                        displayEmpty
+                        inputProps={{ "aria-label": "Without label" }}
+                        label="OPTION 1"
+                      >
+                        {option.subjects &&
+                          option.subjects.map((subject) => (
+                            <MenuItem
+                              value={`${subject.CODE} ${subject.TITLE}`}
+                              key={subject.CODE}
+                            >
+                              {`${subject.CODE} ${subject.TITLE}`}
+                            </MenuItem>
+                          ))}
+                      </Select>
+                    </FormControl>
+                    <FormControl sx={{ m: 1, minWidth: 200 }}>
+                      <InputLabel id="demo-simple-select-helper-label">
+                        OPTION 2
+                      </InputLabel>
+                      <Select
+                        value={""}
+                        onChange={(e: SelectChangeEvent) => handleChange(index, 1, e)}
+                        displayEmpty
+                        inputProps={{ "aria-label": "Without label" }}
+                        label="OPTION 1"
+                      >
+                        {option.subjects &&
+                          option.subjects.map((subject) => (
+                            <MenuItem
+                              value={`${subject.CODE} ${subject.TITLE}`}
+                              key={subject.CODE}
+                            >
+                              {`${subject.CODE} ${subject.TITLE}`}
+                            </MenuItem>
+                          ))}
+                      </Select>
+                    </FormControl>
+                    <FormControl sx={{ m: 1, minWidth: 200 }}>
+                      <InputLabel id="demo-simple-select-helper-label">
+                        OPTION 3
+                      </InputLabel>
+                      <Select
+                        value={""}
+                        onChange={(e: SelectChangeEvent) => handleChange(index, 1, e)}
+                        displayEmpty
+                        inputProps={{ "aria-label": "Without label" }}
+                        label="OPTION 1"
+                      >
+                        {option.subjects &&
+                          option.subjects.map((subject) => (
+                            <MenuItem
+                              value={`${subject.CODE} ${subject.TITLE}`}
+                              key={subject.CODE}
+                            >
+                              {`${subject.CODE} ${subject.TITLE}`}
+                            </MenuItem>
+                          ))}
+                      </Select>
+                    </FormControl>
+                    <FormControl sx={{ m: 1, minWidth: 200 }}>
+                      <InputLabel id="demo-simple-select-helper-label">
+                        OPTION 4
+                      </InputLabel>
+                      <Select
+                        value={""}
+                        onChange={(e: SelectChangeEvent) => handleChange(index, 1, e)}
+                        displayEmpty
+                        inputProps={{ "aria-label": "Without label" }}
+                        label="OPTION 1"
+                      >
+                        {option.subjects &&
+                          option.subjects.map((subject) => (
+                            <MenuItem
+                              value={`${subject.CODE} ${subject.TITLE}`}
+                              key={subject.CODE}
+                            >
+                              {`${subject.CODE} ${subject.TITLE}`}
+                            </MenuItem>
+                          ))}
+                      </Select>
+                    </FormControl>
                     <Box sx={{ mb: 2 }}>
                       <div>
                         <Button
