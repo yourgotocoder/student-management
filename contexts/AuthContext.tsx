@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 
-type Subject = {
+export type Subject = {
   TITLE: string;
   CODE: string;
 };

@@ -1,0 +1,22 @@
+.container {
+  display: grid;
+  min-width: 100vw;
+  min-height: 100vh;
+  grid-template-columns: 35% 65%;
+  grid-column-gap: 0.5rem;
+  padding: 2rem;
+}
+
+.info-card {
+  width: 350px;
+  height: 300px;
+}
+
+.main-card {
+}
+
+@media  screen  and (max-width: 600px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
