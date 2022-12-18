@@ -116,7 +116,7 @@ const Dashboard = (props: Props) => {
           >
             <Typography variant="h4">Thank you for your time.</Typography>
             <Typography variant="h5">
-              You'll be given your electives soon.
+              You will be given your electives soon.
             </Typography>
           </Box>
         )}

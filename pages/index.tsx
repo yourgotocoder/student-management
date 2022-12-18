@@ -63,11 +63,6 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>CSE, SMIT</title>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-        />
-        u
         <meta
           name="description"
           content="Index page for CSE, SMIT (Computer Science & Engineering), Sikkim Mainpal Institute of Technology"
