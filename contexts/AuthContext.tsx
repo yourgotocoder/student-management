@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { createContext, useEffect, useState } from "react";
 
 export type Subject = {
@@ -18,6 +19,7 @@ type UserType = {
   ELECTIVE_2_OPTIONS?: Subject[];
   ELECTIVE_4_OPTIONS?: Subject[];
   ELECTIVE_5_OPTIONS?: Subject[];
+  ELECTIVE_SELECTIONS?: any;
 };
 
 type AuthContextType = {
@@ -56,6 +58,7 @@ export function AuthContextProvider(props: Props) {
   });
 
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     const _id = localStorage.getItem("_id");
@@ -82,6 +85,7 @@ export function AuthContextProvider(props: Props) {
   };
 
   const logout = () => {
+    localStorage.removeItem("_id");
     setUser({
       REGNO: undefined,
       NAME: undefined,
@@ -96,7 +100,7 @@ export function AuthContextProvider(props: Props) {
       ELECTIVE_4_OPTIONS: undefined,
       ELECTIVE_5_OPTIONS: undefined,
     });
-    localStorage.removeItem("_id");
+    router.replace("/");
   };
 
   const context = {

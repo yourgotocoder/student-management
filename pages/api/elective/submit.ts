@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import { MongoClient } from "mongodb";
+import { MongoClient, ObjectId } from "mongodb";
 
 type Data = {
   message: string;
@@ -13,11 +13,11 @@ export default async function handler(
 ) {
   if (req.method === "POST") {
     if (process.env.DB_CONNECTION) {
-      const { elective_selections, regno } = req.body;
+      const { elective_selections, _id } = req.body;
       const client = await MongoClient.connect(process.env.DB_CONNECTION);
       const db = client.db("cse");
       const collection = db.collection("student-data");
-      const student = await collection.findOne({ REGNO: regno });
+      const student = await collection.findOne({ _id: new ObjectId(_id) });
       if (student) {
         if (student.ELECTIVE_SELECTIONS) {
           await client.close();
@@ -26,7 +26,7 @@ export default async function handler(
             .json({ message: "Selections already submitted", error: true });
         } else {
           await collection.updateOne(
-            { REGNO: regno },
+            { _id: new ObjectId(_id) },
             {
               $set: {
                 ELECTIVE_SELECTIONS: elective_selections,

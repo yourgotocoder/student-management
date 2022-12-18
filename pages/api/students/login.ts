@@ -29,19 +29,19 @@ export default async function handler(
             //Do something later
           } else {
             if (student.DEFAULT_PASSWORD === password) {
-              res
-              .status(200)
-              .json({ message: "Success", error: false, data: student });
               await client.close();
+              res
+                .status(200)
+                .json({ message: "Success", error: false, data: student });
             } else {
-               client.close();
+              client.close();
               res
                 .status(400)
                 .json({ message: "Invalid password", error: true });
             }
           }
         } else {
-           client.close();
+          client.close();
           res.status(404).json({ message: "Regno not found", error: true });
         }
       } else {

@@ -19,6 +19,7 @@ export default async function handler(
       const db = client.db("cse");
       const collection = db.collection("student-data");
       const student = await collection.findOne({ _id: new ObjectId(id) });
+      await client.close();
       res.status(200).json({ message: "Success", error: false, data: student });
     } else {
       res

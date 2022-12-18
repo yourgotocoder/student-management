@@ -11,8 +11,6 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
 import IconButton from "@mui/material/IconButton";
-import Input from "@mui/material/Input";
-import FilledInput from "@mui/material/FilledInput";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -20,6 +18,7 @@ import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import Loading from "../components/UI/Loading";
 
 export default function Home() {
   const { user, setUser, loading } = useContext(AuthContext);
@@ -54,9 +53,7 @@ export default function Home() {
       }
       setUser(data.data);
       if (!response.ok) {
-        console.log(data);
         setErrors(data.message);
-        console.log(errors);
       }
       setSubmitting(false);
     }
@@ -109,7 +106,7 @@ export default function Home() {
               <Box sx={{ width: "350px", margin: "auto", mb: 1 }}>
                 <TextField
                   error={errors === "Regno not found"}
-                  helperText="Regno not found"
+                  helperText={errors === "Regno not found" && "Regno not found"}
                   label="REGNO"
                   type="number"
                   onChange={(
@@ -142,7 +139,11 @@ export default function Home() {
                       event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
                     ) => setPassword(event.target.value)}
                   />
-                  {errors === "Invalid password" && <FormHelperText sx={{color: "red"}}>Wrong Password!</FormHelperText>}
+                  {errors === "Invalid password" && (
+                    <FormHelperText sx={{ color: "red" }}>
+                      Wrong Password!
+                    </FormHelperText>
+                  )}
                 </FormControl>
               </Box>
               <Box sx={{ width: "350px", margin: "auto", mb: 1 }}>
@@ -159,6 +160,7 @@ export default function Home() {
                 >
                   Login
                 </Button>
+                {submitting && <Loading title="Verifying"></Loading>}
               </Box>
               <Box sx={{ mt: 3 }}>
                 <Typography>

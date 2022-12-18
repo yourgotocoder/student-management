@@ -6,20 +6,12 @@ import styles from "./Dashboard.module.css";
 import Stack from "@mui/material/Stack";
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Stepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
-import StepContent from "@mui/material/StepContent";
-import {
-  Button,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Paper,
-  Select,
-  SelectChangeEvent,
-} from "@mui/material";
+import LogoutIcon from "@mui/icons-material/Logout";
+
+import { Box, Button } from "@mui/material";
+import ElectiveForm_6thSem from "../../components/elective/forms/_6thSem";
+import ElectiveForm_4thSem from "../../components/elective/forms/_4thSem";
+import ElectiveSelections from "../../components/elective/ElectiveSelections";
 
 type Props = {};
 
@@ -28,29 +20,13 @@ interface IOption {
   subjects: Subject[] | undefined;
 }
 
-interface ISelections {
-  [key: string]: {
-    [key: string]: string;
-  };
-}
-
 const Dashboard = (props: Props) => {
   const { user, loading, logout } = useContext(AuthContext);
   const router = useRouter();
 
   const [options, setOptions] = useState<IOption[]>();
-  const [selection_1, setSelections_1] = useState({
-    option_1: "",
-    option_2: "",
-    option_3: "",
-    option_4: "",
-  });
-  const [selections_2, setSelections_2] = useState({
-    option_1: "",
-    option_2: "",
-    option_3: "",
-    option_4: "",
-  });
+
+  const [submitted, setSubmitted] = useState<boolean>(false);
 
   useEffect(() => {
     const id = localStorage.getItem("_id");
@@ -73,28 +49,8 @@ const Dashboard = (props: Props) => {
     }
   }, [router, loading, user]);
 
-  const [activeStep, setActiveStep] = React.useState(0);
-
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleChange = (selectIndex: number, optionIndex: number, event: SelectChangeEvent) => {
-    console.log(event.target.value)
-  };
-
-  const handleSubmit = () => {};
-
   let sideContent = <></>;
   let mainContent = <></>;
-
-  const _6thSemForm = (
-    <></>
-  )
 
   if (loading) {
     mainContent = (
@@ -124,138 +80,52 @@ const Dashboard = (props: Props) => {
   if (!loading) {
     mainContent = (
       <Card
-        sx={{ minHeight: "20rem", maxHeight: "30rem", padding: "1rem 2rem" }}
+        sx={{ minHeight: "20rem", maxHeight: "30rem", padding: "1rem 0.4rem" }}
       >
-        <Box sx={{ maxWidth: 600 }}>
-          <Stepper activeStep={activeStep} orientation="vertical">
-            {options &&
-              options.map((option, index) => (
-                <Step key={option.title}>
-                  <StepLabel>{option.title}</StepLabel>
-                  <StepContent>
-                    <FormControl sx={{ m: 1, minWidth: 200 }}>
-                      <InputLabel id="demo-simple-select-helper-label">
-                        OPTION 1
-                      </InputLabel>
-                      <Select
-                        value={""}
-                        onChange={(e: SelectChangeEvent) => handleChange(index, 1, e)}
-                        displayEmpty
-                        inputProps={{ "aria-label": "Without label" }}
-                        label="OPTION 1"
-                      >
-                        {option.subjects &&
-                          option.subjects.map((subject) => (
-                            <MenuItem
-                              value={`${subject.CODE} ${subject.TITLE}`}
-                              key={subject.CODE}
-                            >
-                              {`${subject.CODE} ${subject.TITLE}`}
-                            </MenuItem>
-                          ))}
-                      </Select>
-                    </FormControl>
-                    <FormControl sx={{ m: 1, minWidth: 200 }}>
-                      <InputLabel id="demo-simple-select-helper-label">
-                        OPTION 2
-                      </InputLabel>
-                      <Select
-                        value={""}
-                        onChange={(e: SelectChangeEvent) => handleChange(index, 1, e)}
-                        displayEmpty
-                        inputProps={{ "aria-label": "Without label" }}
-                        label="OPTION 1"
-                      >
-                        {option.subjects &&
-                          option.subjects.map((subject) => (
-                            <MenuItem
-                              value={`${subject.CODE} ${subject.TITLE}`}
-                              key={subject.CODE}
-                            >
-                              {`${subject.CODE} ${subject.TITLE}`}
-                            </MenuItem>
-                          ))}
-                      </Select>
-                    </FormControl>
-                    <FormControl sx={{ m: 1, minWidth: 200 }}>
-                      <InputLabel id="demo-simple-select-helper-label">
-                        OPTION 3
-                      </InputLabel>
-                      <Select
-                        value={""}
-                        onChange={(e: SelectChangeEvent) => handleChange(index, 1, e)}
-                        displayEmpty
-                        inputProps={{ "aria-label": "Without label" }}
-                        label="OPTION 1"
-                      >
-                        {option.subjects &&
-                          option.subjects.map((subject) => (
-                            <MenuItem
-                              value={`${subject.CODE} ${subject.TITLE}`}
-                              key={subject.CODE}
-                            >
-                              {`${subject.CODE} ${subject.TITLE}`}
-                            </MenuItem>
-                          ))}
-                      </Select>
-                    </FormControl>
-                    <FormControl sx={{ m: 1, minWidth: 200 }}>
-                      <InputLabel id="demo-simple-select-helper-label">
-                        OPTION 4
-                      </InputLabel>
-                      <Select
-                        value={""}
-                        onChange={(e: SelectChangeEvent) => handleChange(index, 1, e)}
-                        displayEmpty
-                        inputProps={{ "aria-label": "Without label" }}
-                        label="OPTION 1"
-                      >
-                        {option.subjects &&
-                          option.subjects.map((subject) => (
-                            <MenuItem
-                              value={`${subject.CODE} ${subject.TITLE}`}
-                              key={subject.CODE}
-                            >
-                              {`${subject.CODE} ${subject.TITLE}`}
-                            </MenuItem>
-                          ))}
-                      </Select>
-                    </FormControl>
-                    <Box sx={{ mb: 2 }}>
-                      <div>
-                        <Button
-                          variant="contained"
-                          onClick={handleNext}
-                          sx={{ mt: 1, mr: 1 }}
-                        >
-                          {options && index === options.length - 1
-                            ? "Finish"
-                            : "Continue"}
-                        </Button>
-                        <Button
-                          disabled={index === 0}
-                          onClick={handleBack}
-                          sx={{ mt: 1, mr: 1 }}
-                        >
-                          Back
-                        </Button>
-                      </div>
-                    </Box>
-                  </StepContent>
-                </Step>
-              ))}
-          </Stepper>
-          {options && activeStep === options.length && (
-            <Paper square elevation={0} sx={{ p: 3 }}>
-              <Typography>
-                All steps completed - you&apos;re finished
-              </Typography>
-              <Button onClick={handleSubmit} sx={{ mt: 1, mr: 1 }}>
-                Submit
-              </Button>
-            </Paper>
+        {user &&
+          user.CURRENT_SEM === 6 &&
+          user.ELECTIVE_4_OPTIONS &&
+          user.ELECTIVE_5_OPTIONS &&
+          !user.ELECTIVE_SELECTIONS &&
+          !submitted && (
+            <ElectiveForm_6thSem
+              ELECTIVE_4_OPTIONS={user.ELECTIVE_4_OPTIONS}
+              ELECTIVE_5_OPTIONS={user.ELECTIVE_5_OPTIONS}
+              setSubmitted={(value) => setSubmitted(value)}
+            />
           )}
-        </Box>
+        {user &&
+          user.CURRENT_SEM === 4 &&
+          user.ELECTIVE_2_OPTIONS &&
+          !user.ELECTIVE_SELECTIONS &&
+          !submitted && (
+            <ElectiveForm_4thSem
+              ELECTIVE_2_OPTIONS={user.ELECTIVE_2_OPTIONS}
+              setSubmitted={(value) => setSubmitted(value)}
+            />
+          )}
+        {user && !user.ELECTIVE_SELECTIONS && submitted && (
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "column",
+              alignItems: "center",
+              height: "100%",
+            }}
+          >
+            <Typography variant="h4">Thank you for your time.</Typography>
+            <Typography variant="h5">
+              You'll be given your electives soon.
+            </Typography>
+          </Box>
+        )}
+        {user && user.ELECTIVE_SELECTIONS && (
+          <ElectiveSelections
+            semester={user.CURRENT_SEM}
+            ELECTIVE_SELECTIONS={user.ELECTIVE_SELECTIONS}
+          />
+        )}
       </Card>
     );
 
@@ -272,6 +142,13 @@ const Dashboard = (props: Props) => {
         <Typography variant="body1">
           Elective will be allocated based on your CGPA
         </Typography>
+        <Typography>Priority Order</Typography>
+        <Typography variant="body2">{`OPTION 1 > OPTION 2 >... OPTION N`}</Typography>
+        <Box>
+          <Button color="warning" onClick={logout}>
+            <LogoutIcon /> Exit
+          </Button>
+        </Box>
       </Stack>
     );
   }
