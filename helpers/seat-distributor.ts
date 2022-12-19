@@ -25,10 +25,8 @@ const seatDistributor = (data: Student[]) => {
         const subjectCode = currentOption.ELECTIVE_4[`${key}`].CODE;
         const subjectName = `${subjectCode} ${subjectTitle}`;
         if (!subjectsCount.elective_4[subjectName]) {
-            
           subjectsCount.elective_4[subjectName] = 1;
         } else if (subjectsCount.elective_4[subjectName]) {
-            console.log(subjectsCount)
           subjectsCount.elective_4[subjectName] += 1;
         }
       }
@@ -40,7 +38,6 @@ const seatDistributor = (data: Student[]) => {
         if (!subjectsCount.elective_5[subjectName]) {
           subjectsCount.elective_5[subjectName] = 1;
         } else if (subjectsCount.elective_5[subjectName]) {
-          console.log(subjectsCount.elective_5[subjectName]);
           subjectsCount.elective_5[subjectName]++;
         }
       }
@@ -53,10 +50,40 @@ const seatDistributor = (data: Student[]) => {
     }
   );
 
+  let elective_4_total_submission = 0;
+  let elective_5_total_submission = 0;
+
+  for (let key in subjectsSelectionCount.elective_4) {
+    elective_4_total_submission += subjectsSelectionCount.elective_4[key];
+  }
+
+  const elective_4_seats: any = {};
+  const elective_5_seats: any = {};
+
+  for (let key in subjectsSelectionCount.elective_4) {
+    elective_4_seats[key] = Math.ceil(
+      (subjectsSelectionCount.elective_4[key] / elective_4_total_submission) *
+        _6thSemData.length
+    );
+  }
+
+  for (let key in subjectsSelectionCount.elective_5) {
+    elective_5_total_submission += subjectsSelectionCount.elective_5[key];
+  }
+
+  for (let key in subjectsSelectionCount.elective_5) {
+    elective_5_seats[key] = Math.ceil(
+      (subjectsSelectionCount.elective_5[key] / elective_5_total_submission) *
+        _6thSemData.length
+    );
+  }
+
+  console.log(elective_4_total_submission, elective_5_total_submission);
+
   const seats_4th_sem = Math.ceil(_4thSemData.length / 4);
   return {
     _4thSemSeats: seats_4th_sem,
-    _6thSemData: subjectsSelectionCount,
+    _6thSemData: { elective_4_seats, elective_5_seats },
   };
 };
 
