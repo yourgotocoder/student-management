@@ -38,6 +38,7 @@ export default async function handler(
         emptySelection_4thSem: emptySelection_4thSem.map(student => `${student.REGNO} ${student.NAME}`),
         emptySelection_6thSem: emptySelection_6thSem.map(student => `${student.REGNO} ${student.NAME}`)
     }
+    await client.close()
 
     res.status(200).json({ data: finalData, error: false, message: "Success" });
   } else {
