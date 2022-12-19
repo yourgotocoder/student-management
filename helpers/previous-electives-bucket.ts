@@ -25,3 +25,5 @@ const getElectives = async () => {
 };
 
 getElectives();
+
+export default getElectives

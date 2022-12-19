@@ -34,6 +34,5 @@ const sendMail = async () => {
 };
 
 sendMail();
-//202100413 email does not exist
 // 202100322 email does not exist
 // 202100438 email does not exist
