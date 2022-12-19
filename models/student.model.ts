@@ -27,16 +27,11 @@ interface Student extends Document {
       OPTION_4: Subject;
     };
     ELECTIVE_4?: {
-      OPTION_1?: Subject;
-      OPTION_2?: Subject;
-      OPTION_3?: Subject;
-      OPTION_4?: Subject;
+      [key: string]: Subject;
+      
     };
     ELECTIVE_5?: {
-      OPTION_1?: Subject;
-      OPTION_2?: Subject;
-      OPTION_3?: Subject;
-      OPTION_4?: Subject;
+     [key: string]: Subject
     };
   };
 }
