@@ -281,7 +281,7 @@ const allotment = (seats: Seats, data: Student[]) => {
   console.log(seats);
 
   return {
-    // _4thSemAllotment: _4thSemAllotment,
+    _4thSemAllotment: _4thSemAllotment,
     _6thSemAllotment: _6thSemAllotmentData,
   };
 };

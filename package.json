@@ -22,6 +22,7 @@
     "mongodb": "^4.12.1",
     "mongoose": "^6.8.0",
     "next": "13.0.6",
+    "node-fetch": "^3.3.0",
     "nodejs-nodemailer-outlook": "^1.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "generate-password": "^1.7.0",
+    "json2xls": "^0.1.2",
     "simple-excel-to-json": "^2.3.0"
   }
 }

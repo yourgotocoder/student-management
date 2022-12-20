@@ -4,6 +4,7 @@ import { MongoClient } from "mongodb";
 import seatDistributor from "../../../helpers/seat-distributor";
 import Student from "../../../models/student.model";
 import allotment from "../../../helpers/elective-alloter";
+import fs from "fs";
 
 type Data = {
   data: any;
@@ -27,6 +28,7 @@ export default async function handler(
     const finalData = seatDistributor(data);
     await client.close();
     const allotedData = allotment(finalData, data);
+    fs.writeFileSync("helpers/Allotment.json", JSON.stringify(allotedData));
     res.status(200).json({ data: allotedData, error: false, message: "Success" });
   } else {
     res
