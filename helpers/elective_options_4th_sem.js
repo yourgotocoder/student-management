@@ -1,8 +1,8 @@
-import { MongoClient } from "mongodb";
+const { MongoClient } =  require("mongodb");
 require("dotenv").config();
 
 const updateElectiveOptions = async () => {
-  const client = await MongoClient.connect(process.env.DB_CONNECTION as string);
+  const client = await MongoClient.connect(process.env.DB_CONNECTION);
   const db = client.db("cse");
   const collection = db.collection("student-data");
   const cse_data = await collection.find().toArray();
@@ -22,6 +22,14 @@ const updateElectiveOptions = async () => {
             {
               CODE: "CS1440/CS1425",
               TITLE: "Internet, Technology and Society",
+            },
+            {
+              CODE: "CS1437/CS1422 ",
+              TITLE: "Enterprise Resource Planning",
+            },
+            {
+              CODE: "CS1439/CS1407",
+              TITLE: "Communication Techniques",
             },
           ],
           ELECTIVE_2_OPTIONS: [

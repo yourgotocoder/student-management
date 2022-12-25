@@ -42,7 +42,7 @@ const Dashboard = (props: Props) => {
           ]);
         } else if (user.CURRENT_SEM === 4) {
           setOptions([
-            { title: "Elective I", subjects: user.ELECTIVE_2_OPTIONS },
+            { title: "Elective I", subjects: user.ELECTIVE_1_OPTIONS },
           ]);
         }
       }
@@ -96,15 +96,15 @@ const Dashboard = (props: Props) => {
           )}
         {user &&
           user.CURRENT_SEM === 4 &&
-          user.ELECTIVE_2_OPTIONS &&
-          !user.ELECTIVE_SELECTIONS &&
+          user.ELECTIVE_1_OPTIONS &&
+          !user.ELECTIVE_SELECTIONS.ELECTIVE_1 &&
           !submitted && (
             <ElectiveForm_4thSem
-              ELECTIVE_2_OPTIONS={user.ELECTIVE_2_OPTIONS}
+              ELECTIVE_2_OPTIONS={user.ELECTIVE_1_OPTIONS}
               setSubmitted={(value) => setSubmitted(value)}
             />
           )}
-        {user && !user.ELECTIVE_SELECTIONS && submitted && (
+        {user && !user.ELECTIVE_SELECTIONS.ELECTIVE_1 && submitted && (
           <Box
             sx={{
               display: "flex",
@@ -120,12 +120,18 @@ const Dashboard = (props: Props) => {
             </Typography>
           </Box>
         )}
-        {user && user.ELECTIVE_SELECTIONS && (
+        {user && user.CURRENT_SEM === 6 && user.ELECTIVE_SELECTIONS && (
           <ElectiveSelections
             semester={user.CURRENT_SEM}
             ELECTIVE_SELECTIONS={user.ELECTIVE_SELECTIONS}
           />
         )}
+          {/* {user && user.CURRENT_SEM === 4 && user.ELECTIVE_SELECTIONS && (
+            <ElectiveSelections
+              semester={user.CURRENT_SEM}
+              ELECTIVE_SELECTIONS={user.ELECTIVE_SELECTIONS}
+            />
+          )} */}
       </Card>
     );
 
