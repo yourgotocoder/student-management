@@ -19,7 +19,7 @@ export default async function handler(
       const collection = db.collection("student-data");
       const student = await collection.findOne({ _id: new ObjectId(_id) });
       if (student) {
-        if (student.ELECTIVE_SELECTIONS) {
+        if (student.ELECTIVE_SELECTIONS.ELECTIVE_1) {
           await client.close();
           res
             .status(200)
@@ -29,7 +29,7 @@ export default async function handler(
             { _id: new ObjectId(_id) },
             {
               $set: {
-                ELECTIVE_SELECTIONS: elective_selections,
+                ELECTIVE_SELECTIONS: { ...student.ELECTIVE_SELECTIONS, ...elective_selections },
               },
             }
           );
