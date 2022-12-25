@@ -126,12 +126,9 @@ const Dashboard = (props: Props) => {
             ELECTIVE_SELECTIONS={user.ELECTIVE_SELECTIONS}
           />
         )}
-        {/* {user && user.CURRENT_SEM === 4 && user.ELECTIVE_SELECTIONS && (
-            <ElectiveSelections
-              semester={user.CURRENT_SEM}
-              ELECTIVE_SELECTIONS={user.ELECTIVE_SELECTIONS}
-            />
-          )} */}
+        {user && user.CURRENT_SEM === 4 && user.ELECTIVE_SELECTIONS && user.ELECTIVE_SELECTIONS.ELECTIVE_1 && (
+            `You will be alloted with your elective soon`
+          )}
       </Card>
     );
 
