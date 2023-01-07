@@ -20,6 +20,12 @@ interface Student extends Document {
   ELECTIVE_4_OPTIONS?: Subject[];
   ELECTIVE_5_OPTIONS?: Subject[];
   ELECTIVE_SELECTIONS?: {
+    ELECTIVE_1?: {
+      OPTION_1: Subject;
+      OPTION_2: Subject;
+      OPTION_3: Subject;
+      OPTION_4: Subject;
+    },
     ELECTIVE_2?: {
       OPTION_1: Subject;
       OPTION_2: Subject;

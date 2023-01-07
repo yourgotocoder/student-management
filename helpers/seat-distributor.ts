@@ -3,10 +3,10 @@ import Student from "../models/student.model";
 const seatDistributor = (data: Student[]) => {
   const _4thSemData = data
     .filter(
-      (student) => student.CURRENT_SEM === 4 && student.ELECTIVE_SELECTIONS
+      (student) => student.CURRENT_SEM === 4 && student.ELECTIVE_SELECTIONS && student.ELECTIVE_SELECTIONS.ELECTIVE_1
     )
     .map((student) => ({
-      ELECTIVE_2: student.ELECTIVE_SELECTIONS?.ELECTIVE_2,
+      ELECTIVE_1: student.ELECTIVE_SELECTIONS?.ELECTIVE_1,
     }));
   const _6thSemData = data
     .filter(

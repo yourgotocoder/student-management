@@ -28,7 +28,7 @@ export default async function handler(
     const finalData = seatDistributor(data);
     await client.close();
     const allotedData = allotment(finalData, data);
-    fs.writeFileSync("helpers/Allotment.json", JSON.stringify(allotedData));
+    fs.writeFileSync("helpers/4thAllotment.json", JSON.stringify(allotedData));
     res.status(200).json({ data: allotedData, error: false, message: "Success" });
   } else {
     res
