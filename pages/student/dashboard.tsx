@@ -12,6 +12,8 @@ import { Box, Button } from "@mui/material";
 import ElectiveForm_6thSem from "../../components/elective/forms/_6thSem";
 import ElectiveForm_4thSem from "../../components/elective/forms/_4thSem";
 import ElectiveSelections from "../../components/elective/ElectiveSelections";
+import ElectiveForm_7thSem from "../../components/elective/forms/_7thSem";
+import ElectiveForm_5thSem from "../../components/elective/forms/_5thSem";
 
 type Props = {};
 
@@ -35,14 +37,15 @@ const Dashboard = (props: Props) => {
     }
     if (!loading) {
       if (user) {
-        if (user.CURRENT_SEM === 6) {
+        if (user.CURRENT_SEM === 7) {
           setOptions([
-            { title: "Elective IV", subjects: user.ELECTIVE_4_OPTIONS },
-            { title: "ELECTIVE V", subjects: user.ELECTIVE_5_OPTIONS },
+            { title: "Elective VII", subjects: user.ELECTIVE_7_OPTIONS },
+            { title: "ELECTIVE VIII", subjects: user.ELECTIVE_8_OPTIONS },
           ]);
-        } else if (user.CURRENT_SEM === 4) {
+        } else if (user.CURRENT_SEM === 5) {
           setOptions([
-            { title: "Elective I", subjects: user.ELECTIVE_1_OPTIONS },
+            { title: "Elective III", subjects: user.ELECTIVE_3_OPTIONS },
+            { title: "Elective IV", subjects: user.ELECTIVE_4_OPTIONS },
           ]);
         }
       }
@@ -80,54 +83,67 @@ const Dashboard = (props: Props) => {
   if (!loading) {
     mainContent = (
       <Card
-        sx={{ minHeight: "20rem", maxHeight: "30rem", padding: "1rem 0.4rem" }}
+        sx={{ minHeight: "20rem", maxHeight: "40rem", padding: "1rem 0.4rem" }}
       >
         {user &&
-          user.CURRENT_SEM === 6 &&
-          user.ELECTIVE_4_OPTIONS &&
-          user.ELECTIVE_5_OPTIONS &&
-          !user.ELECTIVE_SELECTIONS &&
+          user.CURRENT_SEM === 7 &&
+          user.ELECTIVE_7_OPTIONS &&
+          user.ELECTIVE_8_OPTIONS &&
           !submitted && (
-            <ElectiveForm_6thSem
-              ELECTIVE_4_OPTIONS={user.ELECTIVE_4_OPTIONS}
-              ELECTIVE_5_OPTIONS={user.ELECTIVE_5_OPTIONS}
+            <ElectiveForm_7thSem
+              ELECTIVE_7_OPTIONS={user.ELECTIVE_7_OPTIONS}
+              ELECTIVE_8_OPTIONS={user.ELECTIVE_8_OPTIONS}
               setSubmitted={(value) => setSubmitted(value)}
             />
           )}
         {user &&
-          user.CURRENT_SEM === 4 &&
-          user.ELECTIVE_1_OPTIONS &&
-          !user.ELECTIVE_SELECTIONS.ELECTIVE_1 &&
+          user.CURRENT_SEM === 5 &&
+          user.ELECTIVE_3_OPTIONS &&
+          user.ELECTIVE_4_OPTIONS &&
           !submitted && (
-            <ElectiveForm_4thSem
-              ELECTIVE_2_OPTIONS={user.ELECTIVE_1_OPTIONS}
+            <ElectiveForm_5thSem
+              ELECTIVE_3_OPTIONS={user.ELECTIVE_3_OPTIONS}
+              ELECTIVE_4_OPTIONS={user.ELECTIVE_4_OPTIONS}
               setSubmitted={(value) => setSubmitted(value)}
             />
           )}
-        {user && !user.ELECTIVE_SELECTIONS.ELECTIVE_1 && submitted && (
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              flexDirection: "column",
-              alignItems: "center",
-              height: "100%",
-            }}
-          >
-            <Typography variant="h4">Thank you for your time.</Typography>
-            <Typography variant="h5">
-              You will be given your electives soon.
-            </Typography>
-          </Box>
-        )}
-        {user && user.CURRENT_SEM === 6 && user.ELECTIVE_SELECTIONS && (
-          <ElectiveSelections
-            semester={user.CURRENT_SEM}
-            ELECTIVE_SELECTIONS={user.ELECTIVE_SELECTIONS}
-          />
-        )}
-        {user && user.CURRENT_SEM === 4 && user.ELECTIVE_SELECTIONS && user.ELECTIVE_SELECTIONS.ELECTIVE_1 && (
-            `You will be alloted with your elective soon`
+        {user &&
+          user.ELECTIVE_SELECTIONS &&
+          (!user.ELECTIVE_SELECTIONS.ELECTIVE_3 ||
+            !user.ELECTIVE_SELECTIONS.ELECTIVE_7) &&
+          submitted && (
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                flexDirection: "column",
+                alignItems: "center",
+                height: "100%",
+              }}
+            >
+              <Typography variant="h4">Thank you for your time.</Typography>
+              <Typography variant="h5">
+                You will be given your electives soon.
+              </Typography>
+            </Box>
+          )}
+        {user &&
+          user.CURRENT_SEM === 7 &&
+          user.ELECTIVE_SELECTIONS &&
+          user.ELECTIVE_SELECTIONS.ELECTIVE_7 && (
+            <ElectiveSelections
+              semester={user.CURRENT_SEM}
+              ELECTIVE_SELECTIONS={user.ELECTIVE_SELECTIONS}
+            />
+          )}
+        {user &&
+          user.CURRENT_SEM === 5 &&
+          user.ELECTIVE_SELECTIONS &&
+          user.ELECTIVE_SELECTIONS.ELECTIVE_3 && (
+            <ElectiveSelections
+              semester={user.CURRENT_SEM}
+              ELECTIVE_SELECTIONS={user.ELECTIVE_SELECTIONS}
+            />
           )}
       </Card>
     );

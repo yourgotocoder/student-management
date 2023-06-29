@@ -28,7 +28,7 @@ const ElectiveSelections = (props: Props) => {
 
     const rows: any[] = [];
 
-    if (props.semester === 4) {
+    if (props.semester === 5) {
       for (let index = 0; index < numberOfLoops; index++) {
         rows.push({
           FIRST_COLUMN: `OPTION ${index + 1}`,
@@ -36,7 +36,7 @@ const ElectiveSelections = (props: Props) => {
             props.ELECTIVE_SELECTIONS[outerKeys[0]][innerKeys[0][index]],
         });
       }
-    } else if (props.semester === 6) {
+    } else if (props.semester === 7) {
       for (let index = 0; index < numberOfLoops; index++) {
         rows.push({
           FIRST_COLUMN: `OPTION ${index + 1}`,
