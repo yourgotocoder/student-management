@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -28,7 +28,7 @@ const ElectiveSelections = (props: Props) => {
 
     const rows: any[] = [];
 
-    if (props.semester === 5) {
+    if (props.semester === 4) {
       for (let index = 0; index < numberOfLoops; index++) {
         rows.push({
           FIRST_COLUMN: `OPTION ${index + 1}`,
@@ -36,7 +36,7 @@ const ElectiveSelections = (props: Props) => {
             props.ELECTIVE_SELECTIONS[outerKeys[0]][innerKeys[0][index]],
         });
       }
-    } else if (props.semester === 7) {
+    } else if (props.semester === 7 || props.semester === 5) {
       for (let index = 0; index < numberOfLoops; index++) {
         rows.push({
           FIRST_COLUMN: `OPTION ${index + 1}`,
@@ -64,11 +64,23 @@ const ElectiveSelections = (props: Props) => {
               {props.semester === 4 && (
                 <TableCell align="left">Elective 1</TableCell>
               )}
+              {props.semester === 5 && (
+                <TableCell align="left">Elective II</TableCell>
+              )}
+              {props.semester === 5 && (
+                <TableCell align="left">Elective III</TableCell>
+              )}
               {props.semester === 6 && (
                 <TableCell align="left">Elective IV</TableCell>
               )}
               {props.semester === 6 && (
                 <TableCell align="left">Elective V</TableCell>
+              )}
+              {props.semester === 7 && (
+                <TableCell align="left">Elective VII</TableCell>
+              )}
+              {props.semester === 7 && (
+                <TableCell align="left">Elective VIII</TableCell>
               )}
             </TableRow>
           </TableHead>

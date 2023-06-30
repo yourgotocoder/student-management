@@ -9,8 +9,8 @@ import Typography from "@mui/material/Typography";
 import LogoutIcon from "@mui/icons-material/Logout";
 
 import { Box, Button } from "@mui/material";
-import ElectiveForm_6thSem from "../../components/elective/forms/_6thSem";
-import ElectiveForm_4thSem from "../../components/elective/forms/_4thSem";
+// import ElectiveForm_6thSem from "../../components/elective/forms/_6thSem";
+// import ElectiveForm_4thSem from "../../components/elective/forms/_4thSem";
 import ElectiveSelections from "../../components/elective/ElectiveSelections";
 import ElectiveForm_7thSem from "../../components/elective/forms/_7thSem";
 import ElectiveForm_5thSem from "../../components/elective/forms/_5thSem";
@@ -83,12 +83,18 @@ const Dashboard = (props: Props) => {
   if (!loading) {
     mainContent = (
       <Card
-        sx={{ minHeight: "20rem", maxHeight: "40rem", padding: "1rem 0.4rem" }}
+        sx={{
+          minHeight: "20rem",
+          maxHeight: "50rem",
+          padding: "1rem 0.4rem",
+        }}
       >
         {user &&
           user.CURRENT_SEM === 7 &&
           user.ELECTIVE_7_OPTIONS &&
           user.ELECTIVE_8_OPTIONS &&
+          ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.ELECTIVE_7) ||
+            !user.ELECTIVE_SELECTIONS) &&
           !submitted && (
             <ElectiveForm_7thSem
               ELECTIVE_7_OPTIONS={user.ELECTIVE_7_OPTIONS}
@@ -100,6 +106,8 @@ const Dashboard = (props: Props) => {
           user.CURRENT_SEM === 5 &&
           user.ELECTIVE_3_OPTIONS &&
           user.ELECTIVE_4_OPTIONS &&
+          ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.ELECTIVE_3) ||
+            !user.ELECTIVE_SELECTIONS) &&
           !submitted && (
             <ElectiveForm_5thSem
               ELECTIVE_3_OPTIONS={user.ELECTIVE_3_OPTIONS}
@@ -108,9 +116,10 @@ const Dashboard = (props: Props) => {
             />
           )}
         {user &&
-          user.ELECTIVE_SELECTIONS &&
-          (!user.ELECTIVE_SELECTIONS.ELECTIVE_3 ||
-            !user.ELECTIVE_SELECTIONS.ELECTIVE_7) &&
+          ((user.ELECTIVE_SELECTIONS &&
+            (!user.ELECTIVE_SELECTIONS.ELECTIVE_3 ||
+              !user.ELECTIVE_SELECTIONS.ELECTIVE_7)) ||
+            !user.ELECTIVE_SELECTIONS) &&
           submitted && (
             <Box
               sx={{
@@ -123,28 +132,29 @@ const Dashboard = (props: Props) => {
             >
               <Typography variant="h4">Thank you for your time.</Typography>
               <Typography variant="h5">
-                You will be given your electives soon.
+                Electives will be allocated soon.
               </Typography>
             </Box>
           )}
         {user &&
-          user.CURRENT_SEM === 7 &&
+          (user.CURRENT_SEM === 7 || user.CURRENT_SEM === 5) &&
           user.ELECTIVE_SELECTIONS &&
-          user.ELECTIVE_SELECTIONS.ELECTIVE_7 && (
+          (user.ELECTIVE_SELECTIONS.ELECTIVE_7 ||
+            user.ELECTIVE_SELECTIONS.ELECTIVE_3) && (
             <ElectiveSelections
               semester={user.CURRENT_SEM}
               ELECTIVE_SELECTIONS={user.ELECTIVE_SELECTIONS}
             />
           )}
-        {user &&
-          user.CURRENT_SEM === 5 &&
-          user.ELECTIVE_SELECTIONS &&
-          user.ELECTIVE_SELECTIONS.ELECTIVE_3 && (
-            <ElectiveSelections
-              semester={user.CURRENT_SEM}
-              ELECTIVE_SELECTIONS={user.ELECTIVE_SELECTIONS}
-            />
-          )}
+        {/* {user && */}
+        {/*   user.CURRENT_SEM === 5 && */}
+        {/*   user.ELECTIVE_SELECTIONS && */}
+        {/*   user.ELECTIVE_SELECTIONS.ELECTIVE_3 && ( */}
+        {/*     <ElectiveSelections */}
+        {/*       semester={user.CURRENT_SEM} */}
+        {/*       ELECTIVE_SELECTIONS={user.ELECTIVE_SELECTIONS} */}
+        {/*     /> */}
+        {/*   )} */}
       </Card>
     );
 
@@ -154,9 +164,13 @@ const Dashboard = (props: Props) => {
         <Typography variant="body1">{user?.NAME}</Typography>
         <Typography variant="body2">Your CGPA in the database</Typography>
         <Typography variant={user?.CGPA ? "h4" : "body1"} fontWeight={500}>
-          {user?.CGPA
-            ? user?.CGPA?.toFixed(3)
-            : "CGPA missing. Contact your TG. Electives can't be alloted to you"}
+          {user?.CGPA ? (
+            user?.CGPA?.toFixed(3)
+          ) : (
+            <Typography variant="h5" color="red">
+              CGPA missing. Contact your TG. Electives can't be alloted to you
+            </Typography>
+          )}
         </Typography>
         <Typography variant="body1">
           Elective will be allocated based on your CGPA
