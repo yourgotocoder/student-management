@@ -1,6 +1,6 @@
 import Student from "../models/student.model";
 
-type Seats = {
+type EvenSemSeats = {
   _4thSemSeats: number;
   _6thSemData: {
     elective_4_seats: any;
@@ -8,11 +8,25 @@ type Seats = {
   };
 };
 
-const allotment = (seats: Seats, data: Student[]) => {
+type OddSemSeats = {
+  _5thSemSeats: {
+    elective_3_seats: any;
+    elective_4_seats: any;
+  };
+  _7thSemSeats: {
+    elective_7_seats: any;
+    elective_8_seats: any;
+  };
+};
+
+const allotment = (seats: EvenSemSeats | OddSemSeats, data: Student[]) => {
   const _4thSemSelectionData = [...data]
     .filter(
       (student) =>
-        student.CGPA && student.ELECTIVE_SELECTIONS && student.ELECTIVE_SELECTIONS.ELECTIVE_1 && student.CURRENT_SEM === 4
+        student.CGPA &&
+        student.ELECTIVE_SELECTIONS &&
+        student.ELECTIVE_SELECTIONS.ELECTIVE_1 &&
+        student.CURRENT_SEM === 4
     )
     .sort((a, b) => {
       if (b.CGPA && a.CGPA) return b.CGPA - a.CGPA;
@@ -246,9 +260,7 @@ const allotment = (seats: Seats, data: Student[]) => {
   //     student.ELECTIVE_5_SELECTION &&
   //     student.ELECTIVE_5_SELECTION["OPTION_3"] &&
   //     student.ELECTIVE_5_SELECTION["OPTION_3"].TITLE &&
-  //     _6thSemElective5Seats[
-  //       `${student.ELECTIVE_5_SELECTION["OPTION_3"].CODE} ${student.ELECTIVE_5_SELECTION["OPTION_3"].TITLE}`
-  //     ] > 0
+  //     _6thSemElective5Seats[ `${student.ELECTIVE_5_SELECTION["OPTION_3"].CODE} ${student.ELECTIVE_5_SELECTION["OPTION_3"].TITLE}` ] > 0
   //   ) {
   //     returnValue.ELECTIVE_5.CODE =
   //       student.ELECTIVE_5_SELECTION["OPTION_3"].CODE;

@@ -34,10 +34,22 @@ interface Student extends Document {
       OPTION_3: Subject;
       OPTION_4: Subject;
     };
+    ELECTIVE_3?: {
+      OPTION_1: Subject;
+      OPTION_2: Subject;
+      OPTION_3: Subject;
+      OPTION_4: Subject;
+    };
     ELECTIVE_4?: {
       [key: string]: Subject;
     };
     ELECTIVE_5?: {
+      [key: string]: Subject;
+    };
+    ELECTIVE_7?: {
+      [key: string]: Subject;
+    };
+    ELECTIVE_8?: {
       [key: string]: Subject;
     };
   };
