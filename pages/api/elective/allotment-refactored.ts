@@ -7,6 +7,7 @@ import allocateSubjects, {
 } from "../../../helpers/elective-alloter-refactored";
 
 type Data = {
+  size: number;
   data: IElectiveData[];
   error: boolean;
   message: string;
@@ -30,9 +31,15 @@ export default async function handler(
         REGNO: data.REGNO!,
         CGPA: data.CGPA!,
         ELECTIVE_SELECTIONS: data.ELECTIVE_SELECTIONS!,
-      }));
+      }))
+      .sort((a, b) => b.CGPA - a.CGPA);
     const finalData = allocateSubjects(filteredData);
     await client.close();
-    res.status(200).json({ data: finalData, error: false, message: "Success" });
+    res.status(200).json({
+      size: finalData.length,
+      data: finalData,
+      error: false,
+      message: "Success",
+    });
   }
 }

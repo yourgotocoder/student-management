@@ -5,12 +5,22 @@ const seatDistributorRefactored = (data: ISelectionData[]) => {
       ELECTIVE_SELECTIONS: student.ELECTIVE_SELECTIONS,
     })
   );
-  const electiveKeys: { [key: string]: any } = {};
+  const electiveKeys: {
+    [key: string]: {
+      [key: string]: number;
+    };
+  } = {};
   for (let selectionData of selections) {
     for (let key in selectionData.ELECTIVE_SELECTIONS) {
       if (!electiveKeys[key]) electiveKeys[key] = {};
     }
   }
+
+  const electiveMaxSeats: { [key: string]: number } = {};
+  for (let key in electiveKeys) {
+    electiveMaxSeats[key] = 0;
+  }
+
   for (let selectionData of selections) {
     for (let key in electiveKeys) {
       for (let option in selectionData.ELECTIVE_SELECTIONS[key]) {
@@ -20,10 +30,25 @@ const seatDistributorRefactored = (data: ISelectionData[]) => {
         } else {
           electiveKeys[key][subject]++;
         }
+        electiveMaxSeats[key]++;
       }
     }
   }
-  console.log(electiveKeys);
+  let maxStudentCount = 0;
+  for (let key in electiveKeys) {
+    for (let subject in electiveKeys[key]) {
+      maxStudentCount = Math.max(maxStudentCount, electiveKeys[key][subject]);
+    }
+  }
+  for (let key in electiveKeys) {
+    for (let subject in electiveKeys[key]) {
+      electiveKeys[key][subject] = Math.ceil(
+        (electiveKeys[key][subject] / electiveMaxSeats[key]) * maxStudentCount
+      );
+    }
+  }
+
+  return electiveKeys;
 };
 
 export default seatDistributorRefactored;
