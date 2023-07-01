@@ -14,7 +14,7 @@ import { Box, Button } from "@mui/material";
 import ElectiveSelections from "../../components/elective/ElectiveSelections";
 import ElectiveForm_7thSem from "../../components/elective/forms/_7thSem";
 import ElectiveForm_5thSem from "../../components/elective/forms/_5thSem";
-
+import RefreshIcon from "@mui/icons-material/Refresh";
 type Props = {};
 
 interface IOption {
@@ -132,7 +132,9 @@ const Dashboard = (props: Props) => {
             >
               <Typography variant="h4">Thank you for your time.</Typography>
               <Typography variant="h5">
-                Electives will be allocated soon.
+                Electives will be allocated soon. Click{" "}
+                <RefreshIcon onClick={() => router.reload()}></RefreshIcon> to
+                see your temporary allocation details.
               </Typography>
             </Box>
           )}

@@ -30,6 +30,7 @@ export interface AllocatedSubject {
 const ElectiveSelections = (props: Props) => {
   const [student, setStudent] = useState<AllotmentData>();
   const [currentRanking, setCurrentRanking] = useState<number | undefined>();
+  const [totalSubmission, setTotalSubmission] = useState<number | undefined>();
 
   useEffect(() => {
     const fetchElectiveData = async () => {
@@ -42,6 +43,7 @@ const ElectiveSelections = (props: Props) => {
         error: boolean;
         message: string;
       } = await response.json();
+      console.log(data.data.filter((student) => student.ELECTIVE_3));
       const studentData = data.data.find(
         (student) => student.REGNO === props.REGNO
       );
@@ -50,9 +52,21 @@ const ElectiveSelections = (props: Props) => {
           const ranking = data.data
             .filter((student) => student.ELECTIVE_3)
             .findIndex((student) => student.REGNO === props.REGNO);
+          const submissions = data.data.filter(
+            (student) => student.ELECTIVE_3
+          ).length;
+          setTotalSubmission(submissions);
           setCurrentRanking(ranking + 1);
           break;
         case 7:
+          const _7thRanking = data.data
+            .filter((student) => student.ELECTIVE_7)
+            .findIndex((student) => student.REGNO === props.REGNO);
+          const _7thSubmissions = data.data.filter(
+            (student) => student.ELECTIVE_7
+          ).length;
+          setTotalSubmission(_7thSubmissions);
+          setCurrentRanking(_7thRanking + 1);
           break;
       }
       setStudent(studentData);
@@ -84,27 +98,40 @@ const ElectiveSelections = (props: Props) => {
       for (let index = 0; index < numberOfLoops; index++) {
         rows.push({
           FIRST_COLUMN: `OPTION ${index + 1}`,
-          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_3"][innerKeys[0][index]] && {
+          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_3"][
+            `OPTION_${index + 1}`
+          ] && {
             SECOND_COLUMN:
-              props.ELECTIVE_SELECTIONS["ELECTIVE_3"][innerKeys[0][index]],
+              props.ELECTIVE_SELECTIONS["ELECTIVE_3"][`OPTION_${index + 1}`],
           }),
-          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_4"][innerKeys[1][index]] && {
+          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_4"][
+            `OPTION_${index + 1}`
+          ] && {
             THIRD_COLUMN:
-              props.ELECTIVE_SELECTIONS["ELECTIVE_4"][innerKeys[1][index]],
+              props.ELECTIVE_SELECTIONS["ELECTIVE_4"][`OPTION_${index + 1}`],
           }),
         });
       }
     } else if (props.semester === 7) {
       for (let index = 0; index < numberOfLoops; index++) {
+        console.log(
+          index,
+          innerKeys
+          // props.ELECTIVE_SELECTIONS["ELECTIVE_7"][innerKeys[0][index]]
+        );
         rows.push({
           FIRST_COLUMN: `OPTION ${index + 1}`,
-          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_7"][innerKeys[0][index]] && {
+          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_7"][
+            `OPTION_${index + 1}`
+          ] && {
             SECOND_COLUMN:
-              props.ELECTIVE_SELECTIONS["ELECTIVE_7"][innerKeys[0][index]],
+              props.ELECTIVE_SELECTIONS["ELECTIVE_7"][`OPTION_${index + 1}`],
           }),
-          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_8"][innerKeys[1][index]] && {
+          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_8"][
+            `OPTION_${index + 1}`
+          ] && {
             THIRD_COLUMN:
-              props.ELECTIVE_SELECTIONS["ELECTIVE_8"][innerKeys[1][index]],
+              props.ELECTIVE_SELECTIONS["ELECTIVE_8"][`OPTION_${index + 1}`],
           }),
         });
       }
@@ -119,7 +146,12 @@ const ElectiveSelections = (props: Props) => {
         data from other students**
       </Typography>
       {currentRanking && (
-        <Chip label={`Current Ranking in database ${currentRanking}`}></Chip>
+        <>
+          <Chip
+            label={`Current Ranking (${currentRanking} of ${totalSubmission}) submissions.`}
+            color="info"
+          ></Chip>
+        </>
       )}
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 350, maxWidth: 750 }} aria-label="simple table">
