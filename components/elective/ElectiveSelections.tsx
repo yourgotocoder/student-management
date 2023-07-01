@@ -72,7 +72,7 @@ const ElectiveSelections = (props: Props) => {
       setStudent(studentData);
     };
     fetchElectiveData();
-  }, []);
+  }, [props.REGNO, props.semester]);
   const createData = () => {
     const outerKeys = Object.keys(props.ELECTIVE_SELECTIONS);
     const innerKeys = outerKeys.map((elective) =>

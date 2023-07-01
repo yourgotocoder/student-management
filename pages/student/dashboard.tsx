@@ -171,7 +171,7 @@ const Dashboard = (props: Props) => {
             user?.CGPA?.toFixed(3)
           ) : (
             <Typography variant="h5" color="red">
-              CGPA missing. Contact your TG. Electives can't be alloted to you
+              CGPA missing. Contact your TG. Electives cannot be alloted to you
             </Typography>
           )}
         </Typography>
