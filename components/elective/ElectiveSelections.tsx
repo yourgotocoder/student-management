@@ -43,7 +43,6 @@ const ElectiveSelections = (props: Props) => {
         error: boolean;
         message: string;
       } = await response.json();
-      console.log(data.data.filter((student) => student.ELECTIVE_3));
       const studentData = data.data.find(
         (student) => student.REGNO === props.REGNO
       );
@@ -114,11 +113,6 @@ const ElectiveSelections = (props: Props) => {
       }
     } else if (props.semester === 7) {
       for (let index = 0; index < numberOfLoops; index++) {
-        console.log(
-          index,
-          innerKeys
-          // props.ELECTIVE_SELECTIONS["ELECTIVE_7"][innerKeys[0][index]]
-        );
         rows.push({
           FIRST_COLUMN: `OPTION ${index + 1}`,
           ...(props.ELECTIVE_SELECTIONS["ELECTIVE_7"][
