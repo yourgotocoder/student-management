@@ -2,7 +2,6 @@ import { Box, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Chip from "@mui/material/Chip";
 import DoneIcon from "@mui/icons-material/Done";
-import CloseIcon from "@mui/icons-material/Close";
 import { AllocatedSubject } from "./ElectiveSelections";
 type Props = {
   semester: number;

@@ -8,6 +8,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import ElectiveAlloted from "./ElectiveAlloted";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 type Props = {
   semester: number | undefined;
@@ -207,6 +208,22 @@ const ElectiveSelections = (props: Props) => {
           </TableBody>
         </Table>
       </TableContainer>
+      <Box padding="2" margin={3}>
+        <Typography>
+          This is an open-source project. You can contribute at{" "}
+          <a
+            href="https://github.com/yourgotocoder/student-management"
+            target="_blank"
+          >
+            <Chip
+              label="this repo"
+              color="info"
+              deleteIcon={<GitHubIcon color="action"></GitHubIcon>}
+              onDelete={() => { }}
+            ></Chip>
+          </a>
+        </Typography>
+      </Box>
     </Box>
   );
 };
