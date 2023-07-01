@@ -35,16 +35,21 @@ const seatDistributorRefactored = (data: ISelectionData[]) => {
       }
     }
   }
-  let maxStudentCount = 0;
+  let maxStudentCount: { [key: string]: number } = {};
   for (let key in electiveKeys) {
     for (let subject in electiveKeys[key]) {
-      maxStudentCount = Math.max(maxStudentCount, electiveKeys[key][subject]);
+      if (!maxStudentCount[key]) maxStudentCount[key] = 0;
+      maxStudentCount[key] = Math.max(
+        maxStudentCount[key],
+        electiveKeys[key][subject]
+      );
     }
   }
   for (let key in electiveKeys) {
     for (let subject in electiveKeys[key]) {
       electiveKeys[key][subject] = Math.ceil(
-        (electiveKeys[key][subject] / electiveMaxSeats[key]) * maxStudentCount
+        (electiveKeys[key][subject] / electiveMaxSeats[key]) *
+        maxStudentCount[key]
       );
     }
   }

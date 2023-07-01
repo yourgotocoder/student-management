@@ -12,7 +12,6 @@ type Props = {
 
 const ElectiveAlloted = (props: Props) => {
   let chip = <>{props.subject}</>;
-  console.log(props.allotmentData);
   switch (props.semester) {
     case 5:
       if (

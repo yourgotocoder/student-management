@@ -70,7 +70,6 @@ const ElectiveSelections = (props: Props) => {
       }
       return prev;
     }, 0);
-
     const rows: any[] = [];
 
     if (props.semester === 4) {
@@ -81,17 +80,31 @@ const ElectiveSelections = (props: Props) => {
             props.ELECTIVE_SELECTIONS[outerKeys[0]][innerKeys[0][index]],
         });
       }
-    } else if (props.semester === 7 || props.semester === 5) {
+    } else if (props.semester === 5) {
       for (let index = 0; index < numberOfLoops; index++) {
         rows.push({
           FIRST_COLUMN: `OPTION ${index + 1}`,
-          ...(props.ELECTIVE_SELECTIONS[outerKeys[0]][innerKeys[0][index]] && {
+          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_3"][innerKeys[0][index]] && {
             SECOND_COLUMN:
-              props.ELECTIVE_SELECTIONS[outerKeys[0]][innerKeys[0][index]],
+              props.ELECTIVE_SELECTIONS["ELECTIVE_3"][innerKeys[0][index]],
           }),
-          ...(props.ELECTIVE_SELECTIONS[outerKeys[1]][innerKeys[1][index]] && {
+          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_4"][innerKeys[1][index]] && {
             THIRD_COLUMN:
-              props.ELECTIVE_SELECTIONS[outerKeys[1]][innerKeys[1][index]],
+              props.ELECTIVE_SELECTIONS["ELECTIVE_4"][innerKeys[1][index]],
+          }),
+        });
+      }
+    } else if (props.semester === 7) {
+      for (let index = 0; index < numberOfLoops; index++) {
+        rows.push({
+          FIRST_COLUMN: `OPTION ${index + 1}`,
+          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_7"][innerKeys[0][index]] && {
+            SECOND_COLUMN:
+              props.ELECTIVE_SELECTIONS["ELECTIVE_7"][innerKeys[0][index]],
+          }),
+          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_8"][innerKeys[1][index]] && {
+            THIRD_COLUMN:
+              props.ELECTIVE_SELECTIONS["ELECTIVE_8"][innerKeys[1][index]],
           }),
         });
       }

@@ -31,6 +31,7 @@ const allocateSubjects = (data: ISelectionData[]): IElectiveData[] => {
   const result: IElectiveData[] = [];
   const seats = seatDistributorRefactored(data);
   /*
+   * Worst case will be N * c * k, where N is total number of students in the selection data, c is the number of elective categories and k is the number of options.
    *
    **/
   for (let student of data) {
@@ -50,6 +51,7 @@ const allocateSubjects = (data: ISelectionData[]): IElectiveData[] => {
           break;
         }
       }
+      console.log(seats);
     }
     result.push(object);
   }
