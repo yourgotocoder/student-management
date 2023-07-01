@@ -30,6 +30,9 @@ export interface IElectiveData {
 const allocateSubjects = (data: ISelectionData[]): IElectiveData[] => {
   const result: IElectiveData[] = [];
   const seats = seatDistributorRefactored(data);
+  /*
+   *
+   **/
   for (let student of data) {
     const object: IElectiveData = {
       REGNO: student.REGNO,

@@ -1,9 +1,9 @@
-const { MongoClient } = require("mongodb");
-const generatePassword = require("generate-password");
+import { MongoClient } from "mongodb";
+import generatePassword from "generate-password";
 require("dotenv").config();
 
 const updatePassword = async () => {
-  const client = await MongoClient.connect(process.env.DB_CONNECTION);
+  const client = await MongoClient.connect(process.env.DB_CONNECTION as string);
   const db = client.db("cse");
   const collection = db.collection("student-data");
   const cse_data = await collection.find().toArray();
@@ -16,9 +16,9 @@ const updatePassword = async () => {
         },
       }
     );
-    console.log(`${index + 1} of ${cse_data.length} done`)
+    console.log(`${index + 1} of ${cse_data.length} done`);
   }
-  console.log(`Update password`)
+  console.log(`Update password`);
 };
 
 updatePassword();

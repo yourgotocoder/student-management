@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Chip, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -7,13 +7,58 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import ElectiveAlloted from "./ElectiveAlloted";
 
 type Props = {
   semester: number | undefined;
   ELECTIVE_SELECTIONS: any;
+  REGNO: number;
 };
-
+export interface AllotmentData {
+  REGNO: number;
+  CGPA: number;
+  [key: string]:
+  | {
+    TITLE: string;
+    CODE: string;
+  }
+  | number;
+}
+export interface AllocatedSubject {
+  [key: string]: { TITLE: string; CODE: string };
+}
 const ElectiveSelections = (props: Props) => {
+  const [student, setStudent] = useState<AllotmentData>();
+  const [currentRanking, setCurrentRanking] = useState<number | undefined>();
+
+  useEffect(() => {
+    const fetchElectiveData = async () => {
+      const response = await fetch(
+        "/api/elective/allotment?sem=" + props.semester
+      );
+      const data: {
+        size: number;
+        data: AllotmentData[];
+        error: boolean;
+        message: string;
+      } = await response.json();
+      const studentData = data.data.find(
+        (student) => student.REGNO === props.REGNO
+      );
+      switch (props.semester) {
+        case 5:
+          const ranking = data.data
+            .filter((student) => student.ELECTIVE_3)
+            .findIndex((student) => student.REGNO === props.REGNO);
+          setCurrentRanking(ranking + 1);
+          break;
+        case 7:
+          break;
+      }
+      setStudent(studentData);
+    };
+    fetchElectiveData();
+  }, []);
   const createData = () => {
     const outerKeys = Object.keys(props.ELECTIVE_SELECTIONS);
     const innerKeys = outerKeys.map((elective) =>
@@ -56,6 +101,13 @@ const ElectiveSelections = (props: Props) => {
 
   return (
     <Box sx={{ paddingTop: 2 }}>
+      <Typography color="grey">
+        **This is temporary data that is subject to changes based on selection
+        data from other students**
+      </Typography>
+      {currentRanking && (
+        <Chip label={`Current Ranking in database ${currentRanking}`}></Chip>
+      )}
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 350, maxWidth: 750 }} aria-label="simple table">
           <TableHead>
@@ -95,12 +147,20 @@ const ElectiveSelections = (props: Props) => {
                 </TableCell>
                 {(option.SECOND_COLUMN && (
                   <TableCell component="th" scope="row">
-                    {option.SECOND_COLUMN.TITLE}
+                    <ElectiveAlloted
+                      subject={option.SECOND_COLUMN.TITLE as string}
+                      semester={props.semester as number}
+                      allotmentData={student as AllocatedSubject}
+                    ></ElectiveAlloted>
                   </TableCell>
                 )) || <TableCell></TableCell>}
                 {option.THIRD_COLUMN && (
                   <TableCell component="th" scope="row">
-                    {option.THIRD_COLUMN.TITLE}
+                    <ElectiveAlloted
+                      subject={option.THIRD_COLUMN.TITLE as string}
+                      semester={props.semester as number}
+                      allotmentData={student as AllocatedSubject}
+                    ></ElectiveAlloted>
                   </TableCell>
                 )}
               </TableRow>

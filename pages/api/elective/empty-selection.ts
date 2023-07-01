@@ -3,7 +3,8 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { MongoClient } from "mongodb";
 
 type Data = {
-  data: any;
+  size?: number;
+  data: { REGNO: number; NAME: string }[] | null;
   error: boolean;
   message: string;
 };
@@ -18,29 +19,40 @@ export default async function handler(
     );
     const db = client.db("cse");
     const collection = db.collection("student-data");
-    
+    const sem = req.query.sem && +req.query.sem;
     const data = await collection.find().toArray();
+    await client.close();
 
-    const _6thSemData = data.filter(student => student.CURRENT_SEM === 6);
-    const _4thSemData = data.filter(student => student.CURRENT_SEM === 4);
+    const _semData = data.filter((student) => student.CURRENT_SEM === sem);
+    let finalData: { REGNO: number; NAME: string }[] = [];
+    switch (sem) {
+      case 5:
+        finalData = _semData
+          .filter(
+            (student) =>
+              student.ELECTIVE_SELECTIONS &&
+              !student.ELECTIVE_SELECTIONS.ELECTIVE_3
+          )
+          .map((student) => ({ REGNO: student.REGNO, NAME: student.NAME }));
+        break;
 
-    const selectionData_6thSem = _6thSemData.filter(student => student.ELECTIVE_SELECTIONS);
-    const selectionData_4thSem = _4thSemData.filter(student => student.ELECTIVE_SELECTIONS);
-
-    const emptySelection_6thSem = _6thSemData.filter(student => !student.ELECTIVE_SELECTIONS);
-    const emptySelection_4thSem = _4thSemData.filter(student => !student.ELECTIVE_SELECTIONS);
-
-    const finalData = {
-        _4thSemSelectionCount: selectionData_4thSem.length,
-        _6thSemSelectionCount: selectionData_6thSem.length,
-        _4thSemEmptySelectionCount: emptySelection_4thSem.length,
-        _6thSemEmptySelectionCount: emptySelection_6thSem.length,
-        emptySelection_4thSem: emptySelection_4thSem.map(student => `${student.REGNO} ${student.NAME}`),
-        emptySelection_6thSem: emptySelection_6thSem.map(student => `${student.REGNO} ${student.NAME}`)
+      case 7:
+        finalData = _semData
+          .filter(
+            (student) =>
+              student.ELECTIVE_SELECTIONS &&
+              !student.ELECTIVE_SELECTIONS.ELECTIVE_7
+          )
+          .map((student) => ({ REGNO: student.REGNO, NAME: student.NAME }));
+        break;
     }
-    await client.close()
 
-    res.status(200).json({ data: finalData, error: false, message: "Success" });
+    res.status(200).json({
+      size: finalData.length,
+      data: finalData,
+      error: false,
+      message: "Success",
+    });
   } else {
     res
       .status(405)

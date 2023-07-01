@@ -24,13 +24,20 @@ export default async function handler(
     const sem = req.query.sem && +req.query.sem;
     const db = client.db("cse");
     const collection = db.collection("student-data");
-    const unfilteredData = (await collection.find().toArray()) as Student[];
-    const filteredData = unfilteredData
-      .filter((data) => data.CURRENT_SEM === sem && data.ELECTIVE_SELECTIONS)
-      .map((data) => ({
-        REGNO: data.REGNO!,
-        CGPA: data.CGPA!,
-        ELECTIVE_SELECTIONS: data.ELECTIVE_SELECTIONS!,
+    const unfilteredStudentData = (await collection
+      .find()
+      .toArray()) as Student[];
+    const filteredData = unfilteredStudentData
+      .filter(
+        (student) =>
+          student.CURRENT_SEM === sem &&
+          student.CGPA &&
+          student.ELECTIVE_SELECTIONS
+      )
+      .map((student) => ({
+        REGNO: student.REGNO!,
+        CGPA: student.CGPA!,
+        ELECTIVE_SELECTIONS: student.ELECTIVE_SELECTIONS!,
       }))
       .sort((a, b) => b.CGPA - a.CGPA);
     const finalData = allocateSubjects(filteredData);

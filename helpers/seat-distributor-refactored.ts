@@ -10,6 +10,7 @@ const seatDistributorRefactored = (data: ISelectionData[]) => {
       [key: string]: number;
     };
   } = {};
+  // Initializing the the keys for the electives in the elective selection data, i.e ELECTIVE_1 or ELECTIVE_2,....etc
   for (let selectionData of selections) {
     for (let key in selectionData.ELECTIVE_SELECTIONS) {
       if (!electiveKeys[key]) electiveKeys[key] = {};
