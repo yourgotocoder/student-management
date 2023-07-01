@@ -214,6 +214,7 @@ const ElectiveSelections = (props: Props) => {
           <a
             href="https://github.com/yourgotocoder/student-management"
             target="_blank"
+            rel="noreferrer"
           >
             <Chip
               label="this repo"
