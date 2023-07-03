@@ -1,6 +1,6 @@
 import seatDistributorRefactored from "./seat-distributor-refactored";
 
-interface ISubjectData {
+export interface ISubjectData {
   CODE: string;
   TITLE: string;
 }
