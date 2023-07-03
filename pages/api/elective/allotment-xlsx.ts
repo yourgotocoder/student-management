@@ -85,7 +85,7 @@ export default async function handler(
         worksheet[cellAddress].s = wrapTextStyle;
       }
     }
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet-1");
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Consolidated");
     const buffer = XLSX.write(workbook, { type: "array", bookType: "xlsx" });
     res.setHeader(
       "Content-Disposition",
