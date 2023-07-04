@@ -44,6 +44,9 @@ export default async function handler(
       NAME: string;
       [key: string]: number | string;
     }[] = [];
+    let subjectData: {
+      [key: string]: { REGNO: number; CGPA: number; NAME: string }[];
+    } = {};
     await client.close();
     switch (sem) {
       case 5:
@@ -58,6 +61,30 @@ export default async function handler(
             ELECTIVE_4_CODE: `${(student.ELECTIVE_4 as ISubjectData).CODE} `,
             ELECTIVE_4_TITLE: `${(student.ELECTIVE_4 as ISubjectData).TITLE}`,
           }));
+        const safeData = finalData.filter((student) => student.ELECTIVE_3);
+        for (let student of safeData) {
+          const elective_3_title = `${(student.ELECTIVE_3 as ISubjectData).TITLE
+            }`;
+          const elective_4_title = `${(student.ELECTIVE_4 as ISubjectData).TITLE
+            }`;
+          const studentObj = {
+            REGNO: student.REGNO,
+            NAME: student.NAME,
+            CGPA: student.CGPA,
+          };
+          if (!subjectData[elective_3_title]) {
+            subjectData[elective_3_title] = [];
+            subjectData[elective_3_title].push(studentObj);
+          } else {
+            subjectData[elective_3_title].push(studentObj);
+          }
+          if (!subjectData[elective_4_title]) {
+            subjectData[elective_4_title] = [];
+            subjectData[elective_4_title].push(studentObj);
+          } else {
+            subjectData[elective_4_title].push(studentObj);
+          }
+        }
         break;
       case 7:
         transformedFinalData = finalData
@@ -71,21 +98,40 @@ export default async function handler(
             ELECTIVE_8_CODE: `${(student.ELECTIVE_8 as ISubjectData).CODE} `,
             ELECTIVE_8_TITLE: `${(student.ELECTIVE_8 as ISubjectData).TITLE}`,
           }));
+        const safeData7 = finalData.filter((student) => student.ELECTIVE_7);
+        for (let student of safeData7) {
+          const elective_7_title = `${(student.ELECTIVE_7 as ISubjectData).TITLE
+            }`;
+          const elective_8_title = `${(student.ELECTIVE_8 as ISubjectData).TITLE
+            }`;
 
+          const studentObject = {
+            REGNO: student.REGNO,
+            NAME: student.NAME,
+            CGPA: student.CGPA,
+          };
+          if (!subjectData[elective_7_title]) {
+            subjectData[elective_7_title] = [];
+            subjectData[elective_7_title].push(studentObject);
+          } else {
+            subjectData[elective_7_title].push(studentObject);
+          }
+          if (!subjectData[elective_8_title]) {
+            subjectData[elective_8_title] = [];
+            subjectData[elective_8_title].push(studentObject);
+          } else {
+            subjectData[elective_8_title].push(studentObject);
+          }
+        }
         break;
     }
     const workbook = XLSX.utils.book_new();
     const worksheet = XLSX.utils.json_to_sheet(transformedFinalData);
-    const wrapTextStyle = { wrapText: true };
-    const range = XLSX.utils.decode_range(worksheet["!ref"] || "A1: A1");
-    for (let rowNum = range.s.r; rowNum <= range.e.r; rowNum++) {
-      for (let colNum = range.s.c; colNum <= range.e.c; colNum++) {
-        const cellAddress = XLSX.utils.encode_cell({ r: rowNum, c: colNum });
-        if (!worksheet[cellAddress]) continue;
-        worksheet[cellAddress].s = wrapTextStyle;
-      }
-    }
     XLSX.utils.book_append_sheet(workbook, worksheet, "Consolidated");
+    for (let key in subjectData) {
+      let sheet = XLSX.utils.json_to_sheet(subjectData[key]);
+      XLSX.utils.book_append_sheet(workbook, sheet, key);
+    }
     const buffer = XLSX.write(workbook, { type: "array", bookType: "xlsx" });
     res.setHeader(
       "Content-Disposition",
