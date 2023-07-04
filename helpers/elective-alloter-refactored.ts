@@ -14,6 +14,7 @@ export interface IElectives {
 }
 
 export interface ISelectionData {
+  NAME: string;
   REGNO: number;
   CGPA: number;
   ELECTIVE_SELECTIONS: IElectives;
@@ -22,7 +23,8 @@ export interface ISelectionData {
 export interface IElectiveData {
   REGNO: number;
   CGPA: number;
-  [key: string]: ISubjectData | number;
+  NAME: string;
+  [key: string]: ISubjectData | number | string;
 }
 /**
  *Takes an array of @type ISelectionData that is sorted in the descending order based on CGPA and returns an array of @type IElectiveData that contains the elective subjects allocated to a student.
@@ -38,6 +40,7 @@ const allocateSubjects = (data: ISelectionData[]): IElectiveData[] => {
     const object: IElectiveData = {
       REGNO: student.REGNO,
       CGPA: student.CGPA,
+      NAME: student.NAME,
     };
     for (let key in student["ELECTIVE_SELECTIONS"]) {
       for (let option in student["ELECTIVE_SELECTIONS"][key]) {

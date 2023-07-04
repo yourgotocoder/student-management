@@ -33,6 +33,7 @@ export default async function handler(
       .map((student) => ({
         REGNO: student.REGNO!,
         CGPA: student.CGPA!,
+        NAME: student.NAME!,
         ELECTIVE_SELECTIONS: student.ELECTIVE_SELECTIONS!,
       }))
       .sort((a, b) => b.CGPA - a.CGPA);
@@ -40,6 +41,7 @@ export default async function handler(
     let transformedFinalData: {
       REGNO: number;
       CGPA: number;
+      NAME: string;
       [key: string]: number | string;
     }[] = [];
     await client.close();
@@ -49,15 +51,12 @@ export default async function handler(
           .filter((student) => student.ELECTIVE_3)
           .map((student) => ({
             REGNO: student.REGNO,
+            NAME: student.NAME,
             CGPA: student.CGPA,
-            ...(student.ELECTIVE_3 && {
-              ELECTIVE_3: `${(student.ELECTIVE_3 as ISubjectData).CODE} ${(student.ELECTIVE_3 as ISubjectData).TITLE
-                }`,
-            }),
-            ...(student.ELECTIVE_4 && {
-              ELECTIVE_4: `${(student.ELECTIVE_4 as ISubjectData).CODE} ${(student.ELECTIVE_4 as ISubjectData).TITLE
-                }`,
-            }),
+            ELECTIVE_3_CODE: `${(student.ELECTIVE_3 as ISubjectData).CODE} `,
+            ELECTIVE_3_TITLE: `${(student.ELECTIVE_3 as ISubjectData).TITLE}`,
+            ELECTIVE_4_CODE: `${(student.ELECTIVE_4 as ISubjectData).CODE} `,
+            ELECTIVE_4_TITLE: `${(student.ELECTIVE_4 as ISubjectData).TITLE}`,
           }));
         break;
       case 7:
@@ -65,6 +64,7 @@ export default async function handler(
           .filter((student) => student.ELECTIVE_7)
           .map((student) => ({
             REGNO: student.REGNO,
+            NAME: student.NAME,
             CGPA: student.CGPA,
             ELECTIVE_7_CODE: `${(student.ELECTIVE_7 as ISubjectData).CODE} `,
             ELECTIVE_7_TITLE: `${(student.ELECTIVE_7 as ISubjectData).TITLE}`,

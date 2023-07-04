@@ -36,6 +36,7 @@ export default async function handler(
       )
       .map((student) => ({
         REGNO: student.REGNO!,
+        NAME: student.NAME!,
         CGPA: student.CGPA!,
         ELECTIVE_SELECTIONS: student.ELECTIVE_SELECTIONS!,
       }))
