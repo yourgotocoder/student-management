@@ -7,8 +7,9 @@ const sendMail = async () => {
   const db = client.db("cse");
   const collection = db.collection("student-data");
   const db_data = await collection.find().toArray();
-  for (let [index, student] of db_data.entries()) {
-    if (student.EMAIL_ID) {
+  const filteredData = db_data.filter((student) => student.CURRENT_SEM === 5);
+  for (let [index, student] of filteredData.entries()) {
+    if (student.EMAIL_ID && student.CURRENT_SEM === 5) {
       setTimeout(() => {
         nodeoutlook.sendEmail({
           auth: {
@@ -24,7 +25,8 @@ const sendMail = async () => {
                   `,
           text: "Email Password",
           onError: (e) => console.log(e),
-          onSuccess: (i) => console.log(`${index + 1}/${db_data.length} done`),
+          onSuccess: (i) =>
+            console.log(`${index + 1}/${filteredData.length} done`),
         });
       }, (index + 1) * 2000);
     } else {

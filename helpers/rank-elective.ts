@@ -53,6 +53,17 @@ const rankElectives = (data: ISelectionData[]): IElectiveRankData => {
       }
     }
   }
+  for (let electiveCategory in result) {
+    let electiveTotal = 0;
+    for (let subject in result[electiveCategory]) {
+      electiveTotal += result[electiveCategory][subject];
+    }
+    for (let subject in result[electiveCategory]) {
+      result[electiveCategory][subject] = +(
+        result[electiveCategory][subject] / electiveTotal
+      ).toFixed(2);
+    }
+  }
   return result;
 };
 

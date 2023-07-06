@@ -5,10 +5,14 @@ import Student from "../../../models/student.model";
 import allocateSubjects, {
   IElectiveData,
 } from "../../../helpers/elective-alloter-refactored";
+import distributionStats, {
+  IElectiveOptionDistribution,
+} from "../../../helpers/elective-option-distribution";
 
 type Data = {
   size: number;
   data: IElectiveData[];
+  optionDistribution: IElectiveOptionDistribution;
   error: boolean;
   message: string;
 };
@@ -42,9 +46,12 @@ export default async function handler(
       }))
       .sort((a, b) => b.CGPA - a.CGPA);
     const finalData = allocateSubjects(filteredData);
+    const optionDistribution = distributionStats(filteredData, finalData);
+    console.log(optionDistribution);
     await client.close();
     res.status(200).json({
       size: finalData.length,
+      optionDistribution,
       data: finalData,
       error: false,
       message: "Success",
