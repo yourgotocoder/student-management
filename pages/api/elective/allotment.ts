@@ -47,12 +47,17 @@ export default async function handler(
       .sort((a, b) => b.CGPA - a.CGPA);
     const finalData = allocateSubjects(filteredData);
     const optionDistribution = distributionStats(filteredData, finalData);
-    console.log(optionDistribution);
     await client.close();
     res.status(200).json({
-      size: finalData.length,
+      size:
+        sem === 5
+          ? finalData.filter((student) => student.ELECTIVE_3).length
+          : finalData.filter((student) => student.ELECTIVE_7).length,
       optionDistribution,
-      data: finalData,
+      data:
+        sem === 5
+          ? finalData.filter((student) => student.ELECTIVE_3)
+          : finalData.filter((student) => student.ELECTIVE_7),
       error: false,
       message: "Success",
     });

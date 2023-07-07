@@ -1,5 +1,8 @@
 import { IElectives, ISelectionData } from "./elective-alloter-refactored";
-const seatDistributorRefactored = (data: ISelectionData[]) => {
+const seatDistributorRefactored = (
+  data: ISelectionData[],
+  initializer: number = 0
+) => {
   const selections: { ELECTIVE_SELECTIONS: IElectives }[] = data.map(
     (student) => ({
       ELECTIVE_SELECTIONS: student.ELECTIVE_SELECTIONS,
@@ -47,10 +50,11 @@ const seatDistributorRefactored = (data: ISelectionData[]) => {
   }
   for (let key in electiveKeys) {
     for (let subject in electiveKeys[key]) {
-      electiveKeys[key][subject] = Math.ceil(
-        (electiveKeys[key][subject] / electiveMaxSeats[key]) *
-        maxStudentCount[key]
-      );
+      electiveKeys[key][subject] =
+        Math.ceil(
+          (electiveKeys[key][subject] / electiveMaxSeats[key]) *
+          maxStudentCount[key]
+        ) + initializer;
     }
   }
 

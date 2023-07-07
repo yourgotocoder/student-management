@@ -30,8 +30,9 @@ export interface IElectiveData {
  *Takes an array of @type ISelectionData that is sorted in the descending order based on CGPA and returns an array of @type IElectiveData that contains the elective subjects allocated to a student.
  */
 const allocateSubjects = (data: ISelectionData[]): IElectiveData[] => {
-  const result: IElectiveData[] = [];
-  const seats = seatDistributorRefactored(data);
+  let result: IElectiveData[] = [];
+  let seats = seatDistributorRefactored(data, 5);
+  console.log(seats);
   /*
    * Worst case will be N * c * k, where N is total number of students in the selection data, c is the number of elective categories and k is the number of options.
    *
@@ -54,7 +55,6 @@ const allocateSubjects = (data: ISelectionData[]): IElectiveData[] => {
           break;
         }
       }
-      console.log(seats);
     }
     result.push(object);
   }
