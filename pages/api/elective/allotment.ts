@@ -10,9 +10,9 @@ import distributionStats, {
 } from "../../../helpers/elective-option-distribution";
 
 type Data = {
-  size: number;
-  data: IElectiveData[];
-  optionDistribution: IElectiveOptionDistribution;
+  size?: number;
+  data?: IElectiveData[];
+  optionDistribution?: IElectiveOptionDistribution;
   error: boolean;
   message: string;
 };
@@ -26,6 +26,10 @@ export default async function handler(
       process.env.DB_CONNECTION as string
     );
     const sem = req.query.sem && +req.query.sem;
+    if (!sem) {
+      res.status(500).json({ error: true, message: "Invalid request" });
+      return;
+    }
     const db = client.db("cse");
     const collection = db.collection("student-data");
     const unfilteredStudentData = (await collection

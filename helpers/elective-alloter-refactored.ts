@@ -97,7 +97,6 @@ const allocateSubjects = (
       ) {
         result = [];
         let seats_7 = seatDistributorRefactored(data, seatInitialzer);
-        console.log(seats_7);
         for (let student of data) {
           const object: IElectiveData = {
             REGNO: student.REGNO,
