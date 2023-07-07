@@ -45,8 +45,16 @@ export default async function handler(
         ELECTIVE_SELECTIONS: student.ELECTIVE_SELECTIONS!,
       }))
       .sort((a, b) => b.CGPA - a.CGPA);
-    const finalData = allocateSubjects(filteredData);
-    const optionDistribution = distributionStats(filteredData, finalData);
+    const dataToAllocate =
+      sem === 5
+        ? filteredData.filter(
+          (student) => student.ELECTIVE_SELECTIONS.ELECTIVE_3
+        )
+        : filteredData.filter(
+          (student) => student.ELECTIVE_SELECTIONS.ELECTIVE_7
+        );
+    const finalData = allocateSubjects(dataToAllocate, +sem!);
+    const optionDistribution = distributionStats(dataToAllocate, finalData);
     await client.close();
     res.status(200).json({
       size:
