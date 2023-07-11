@@ -11,6 +11,8 @@ import distributionStats, {
 
 type Data = {
   size?: number;
+  missing?: number;
+  missingData?: { REGNO: number; NAME: string; EMAIL_ID?: string }[];
   data?: IElectiveData[];
   optionDistribution?: IElectiveOptionDistribution;
   error: boolean;
@@ -35,6 +37,24 @@ export default async function handler(
     const unfilteredStudentData = (await collection
       .find()
       .toArray()) as Student[];
+    let missing: number;
+    let missingData: Student[] = [];
+    +sem === 5
+      ? (missingData = unfilteredStudentData.filter(
+        (student) =>
+          student.CURRENT_SEM === sem &&
+          (!student.ELECTIVE_SELECTIONS ||
+            (student.ELECTIVE_SELECTIONS &&
+              !student.ELECTIVE_SELECTIONS.ELECTIVE_3))
+      ))
+      : (missingData = unfilteredStudentData.filter(
+        (student) =>
+          student.CURRENT_SEM === sem &&
+          (!student.ELECTIVE_SELECTIONS ||
+            (student.ELECTIVE_SELECTIONS &&
+              !student.ELECTIVE_SELECTIONS.ELECTIVE_7))
+      ));
+    missing = missingData.length;
     const filteredData = unfilteredStudentData
       .filter(
         (student) =>
@@ -65,6 +85,12 @@ export default async function handler(
         sem === 5
           ? finalData.filter((student) => student.ELECTIVE_3).length
           : finalData.filter((student) => student.ELECTIVE_7).length,
+      missing,
+      missingData: missingData.map((student) => ({
+        REGNO: student.REGNO!,
+        NAME: student.NAME!,
+        EMAIL_ID: student.EMAIL_ID,
+      })),
       optionDistribution,
       data:
         sem === 5
