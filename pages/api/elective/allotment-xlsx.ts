@@ -40,11 +40,11 @@ export default async function handler(
     const dataToBeAllocated =
       sem === 5
         ? filteredData.filter(
-          (student) => student.ELECTIVE_SELECTIONS.ELECTIVE_3
-        )
+            (student) => student.ELECTIVE_SELECTIONS.ELECTIVE_3
+          )
         : filteredData.filter(
-          (student) => student.ELECTIVE_SELECTIONS.ELECTIVE_7
-        );
+            (student) => student.ELECTIVE_SELECTIONS.ELECTIVE_7
+          );
     const finalData = allocateSubjects(dataToBeAllocated, +sem!);
     let transformedFinalData: {
       REGNO: number;
@@ -71,10 +71,12 @@ export default async function handler(
           }));
         const safeData = finalData.filter((student) => student.ELECTIVE_3);
         for (let student of safeData) {
-          const elective_3_title = `${(student.ELECTIVE_3 as ISubjectData).TITLE
-            }`;
-          const elective_4_title = `${(student.ELECTIVE_4 as ISubjectData).TITLE
-            }`;
+          const elective_3_title = `${
+            (student.ELECTIVE_3 as ISubjectData).TITLE
+          }`;
+          const elective_4_title = `${
+            (student.ELECTIVE_4 as ISubjectData).TITLE
+          }`;
           const studentObj = {
             REGNO: student.REGNO,
             NAME: student.NAME,
@@ -108,10 +110,12 @@ export default async function handler(
           }));
         const safeData7 = finalData.filter((student) => student.ELECTIVE_7);
         for (let student of safeData7) {
-          const elective_7_title = `${(student.ELECTIVE_7 as ISubjectData).TITLE
-            }`;
-          const elective_8_title = `${(student.ELECTIVE_8 as ISubjectData).TITLE
-            }`;
+          const elective_7_title = `${
+            (student.ELECTIVE_7 as ISubjectData).TITLE
+          }`;
+          const elective_8_title = `${
+            (student.ELECTIVE_8 as ISubjectData).TITLE
+          }`;
 
           const studentObject = {
             REGNO: student.REGNO,
@@ -138,7 +142,7 @@ export default async function handler(
     XLSX.utils.book_append_sheet(workbook, worksheet, "Consolidated");
     for (let key in subjectData) {
       let sheet = XLSX.utils.json_to_sheet(subjectData[key]);
-      XLSX.utils.book_append_sheet(workbook, sheet, key);
+      XLSX.utils.book_append_sheet(workbook, sheet, key.substring(0, 31));
     }
     const buffer = XLSX.write(workbook, { type: "array", bookType: "xlsx" });
     res.setHeader(

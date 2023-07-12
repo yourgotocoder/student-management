@@ -5,11 +5,11 @@ import XLSX from "xlsx";
 
 type Data =
   | {
-    size?: number;
-    data: { REGNO: number; NAME: string }[] | null;
-    error: boolean;
-    message: string;
-  }
+      size?: number;
+      data: { REGNO: number; NAME: string }[] | null;
+      error: boolean;
+      message: string;
+    }
   | Buffer;
 
 export default async function handler(
@@ -27,7 +27,7 @@ export default async function handler(
     await client.close();
 
     const _semData = data.filter((student) => student.CURRENT_SEM === sem);
-    let finalData: { REGNO: number; NAME: string }[] = [];
+    let finalData: { REGNO: number; NAME: string; CGPA?: number }[] = [];
     switch (sem) {
       case 5:
         finalData = _semData
@@ -37,7 +37,11 @@ export default async function handler(
               (student.ELECTIVE_SELECTIONS &&
                 !student.ELECTIVE_SELECTIONS.ELECTIVE_3)
           )
-          .map((student) => ({ REGNO: student.REGNO, NAME: student.NAME }));
+          .map((student) => ({
+            REGNO: student.REGNO,
+            NAME: student.NAME,
+            CGPA: student.CGPA,
+          }));
         break;
 
       case 7:
