@@ -19,11 +19,11 @@ export interface AllotmentData {
   REGNO: number;
   CGPA: number;
   [key: string]:
-  | {
-    TITLE: string;
-    CODE: string;
-  }
-  | number;
+    | {
+        TITLE: string;
+        CODE: string;
+      }
+    | number;
 }
 export interface AllocatedSubject {
   [key: string]: { TITLE: string; CODE: string };
@@ -136,14 +136,10 @@ const ElectiveSelections = (props: Props) => {
 
   return (
     <Box sx={{ paddingTop: 2 }}>
-      <Typography color="grey">
-        **This is temporary data that is subject to changes based on selection
-        data from other students**
-      </Typography>
       {currentRanking && (
         <>
           <Chip
-            label={`Current Ranking (${currentRanking} of ${totalSubmission}) submissions.`}
+            label={`Final Ranking (${currentRanking} of ${totalSubmission}) submissions.`}
             color="info"
           ></Chip>
         </>
@@ -151,6 +147,11 @@ const ElectiveSelections = (props: Props) => {
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 350, maxWidth: 750 }} aria-label="simple table">
           <TableHead>
+            <TableRow>
+              <TableCell colSpan={3} align="center">
+                Your selection data
+              </TableCell>
+            </TableRow>
             <TableRow>
               <TableCell width={120}></TableCell>
               {props.semester === 4 && (
@@ -220,7 +221,7 @@ const ElectiveSelections = (props: Props) => {
               label="this repo"
               color="info"
               deleteIcon={<GitHubIcon color="action"></GitHubIcon>}
-              onDelete={() => { }}
+              onDelete={() => {}}
             ></Chip>
           </a>
         </Typography>

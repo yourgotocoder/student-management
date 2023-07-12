@@ -8,7 +8,7 @@ import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
 import LogoutIcon from "@mui/icons-material/Logout";
 
-import { Box, Button } from "@mui/material";
+import { Box, Button, Chip } from "@mui/material";
 // import ElectiveForm_6thSem from "../../components/elective/forms/_6thSem";
 // import ElectiveForm_4thSem from "../../components/elective/forms/_4thSem";
 import ElectiveSelections from "../../components/elective/ElectiveSelections";
@@ -90,31 +90,74 @@ const Dashboard = (props: Props) => {
         }}
       >
         {user &&
+          user.CURRENT_SEM === 5 &&
+          (!user.ELECTIVE_SELECTIONS ||
+            (user.ELECTIVE_SELECTIONS &&
+              !user.ELECTIVE_SELECTIONS.ELECTIVE_3)) && (
+            <Typography>
+              You missed the slot to apply for electives online
+            </Typography>
+          )}
+        {user &&
           user.CURRENT_SEM === 7 &&
-          user.ELECTIVE_7_OPTIONS &&
-          user.ELECTIVE_8_OPTIONS &&
-          ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.ELECTIVE_7) ||
-            !user.ELECTIVE_SELECTIONS) &&
-          !submitted && (
-            <ElectiveForm_7thSem
-              ELECTIVE_7_OPTIONS={user.ELECTIVE_7_OPTIONS}
-              ELECTIVE_8_OPTIONS={user.ELECTIVE_8_OPTIONS}
-              setSubmitted={(value) => setSubmitted(value)}
-            />
+          (!user.ELECTIVE_SELECTIONS ||
+            (user.ELECTIVE_SELECTIONS &&
+              !user.ELECTIVE_SELECTIONS.ELECTIVE_7)) && (
+            <Typography>
+              You missed the slot to apply for electives online
+            </Typography>
           )}
         {user &&
           user.CURRENT_SEM === 5 &&
-          user.ELECTIVE_3_OPTIONS &&
-          user.ELECTIVE_4_OPTIONS &&
-          ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.ELECTIVE_3) ||
-            !user.ELECTIVE_SELECTIONS) &&
-          !submitted && (
-            <ElectiveForm_5thSem
-              ELECTIVE_3_OPTIONS={user.ELECTIVE_3_OPTIONS}
-              ELECTIVE_4_OPTIONS={user.ELECTIVE_4_OPTIONS}
-              setSubmitted={(value) => setSubmitted(value)}
-            />
+          user.ELECTIVE_3 &&
+          user.ELECTIVE_4 && (
+            <Typography variant="h6" textAlign="center">
+              Your final electives are {"  "}
+              <br />
+              <Chip label={user.ELECTIVE_3.TITLE} color="success"></Chip> {"  "}
+              {} and {"  "}
+              <Chip label={user.ELECTIVE_4.TITLE} color="success"></Chip>
+            </Typography>
           )}
+        {user &&
+          user.CURRENT_SEM === 7 &&
+          user.ELECTIVE_7 &&
+          user.ELECTIVE_8 && (
+            <Typography variant="h6" textAlign="center">
+              Your final electives are {"  "}
+              <br />
+              <Chip label={user.ELECTIVE_7.TITLE} color="success"></Chip> {"  "}
+              and {"  "}
+              <Chip label={user.ELECTIVE_8.TITLE} color="success"></Chip> {"  "}
+            </Typography>
+          )}
+
+        {/* {user && */}
+        {/*   user.CURRENT_SEM === 7 && */}
+        {/*   user.ELECTIVE_7_OPTIONS && */}
+        {/*   user.ELECTIVE_8_OPTIONS && */}
+        {/*   ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.ELECTIVE_7) || */}
+        {/*     !user.ELECTIVE_SELECTIONS) && */}
+        {/*   !submitted && ( */}
+        {/*     <ElectiveForm_7thSem */}
+        {/*       ELECTIVE_7_OPTIONS={user.ELECTIVE_7_OPTIONS} */}
+        {/*       ELECTIVE_8_OPTIONS={user.ELECTIVE_8_OPTIONS} */}
+        {/*       setSubmitted={(value) => setSubmitted(value)} */}
+        {/*     /> */}
+        {/*   )} */}
+        {/* {user && */}
+        {/*   user.CURRENT_SEM === 5 && */}
+        {/*   user.ELECTIVE_3_OPTIONS && */}
+        {/*   user.ELECTIVE_4_OPTIONS && */}
+        {/*   ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.ELECTIVE_3) || */}
+        {/*     !user.ELECTIVE_SELECTIONS) && */}
+        {/*   !submitted && ( */}
+        {/*     <ElectiveForm_5thSem */}
+        {/*       ELECTIVE_3_OPTIONS={user.ELECTIVE_3_OPTIONS} */}
+        {/*       ELECTIVE_4_OPTIONS={user.ELECTIVE_4_OPTIONS} */}
+        {/*       setSubmitted={(value) => setSubmitted(value)} */}
+        {/*     /> */}
+        {/*   )} */}
         {user &&
           ((user.ELECTIVE_SELECTIONS &&
             (!user.ELECTIVE_SELECTIONS.ELECTIVE_3 ||

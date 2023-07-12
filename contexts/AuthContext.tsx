@@ -15,6 +15,10 @@ type UserType = {
   DEFAULT_PASSWORD: string | undefined;
   ELECTIVE_1?: Subject;
   ELECTIVE_2?: Subject;
+  ELECTIVE_3?: Subject;
+  ELECTIVE_4?: Subject;
+  ELECTIVE_7?: Subject;
+  ELECTIVE_8?: Subject;
   ELECTIVE_1_OPTIONS?: Subject[];
   ELECTIVE_2_OPTIONS?: Subject[];
   ELECTIVE_3_OPTIONS?: Subject[];
@@ -34,8 +38,8 @@ type AuthContextType = {
 
 const AuthContext = createContext<AuthContextType>({
   user: undefined,
-  setUser(userData: UserType) { },
-  logout() { },
+  setUser(userData: UserType) {},
+  logout() {},
   loading: true,
 });
 
