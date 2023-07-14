@@ -106,6 +106,7 @@ const allocateSubjects = (
           for (let key in student["ELECTIVE_SELECTIONS"]) {
             for (let option in student["ELECTIVE_SELECTIONS"][key]) {
               const subject = student["ELECTIVE_SELECTIONS"][key][option].TITLE;
+              if (subject === "R PROGRAMMING") continue;
               if (seats_7[key][subject] > 0) {
                 object[key] = {
                   TITLE: subject,

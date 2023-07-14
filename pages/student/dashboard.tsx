@@ -123,13 +123,20 @@ const Dashboard = (props: Props) => {
           user.CURRENT_SEM === 7 &&
           user.ELECTIVE_7 &&
           user.ELECTIVE_8 && (
-            <Typography variant="h6" textAlign="center">
-              Your final electives are {"  "}
-              <br />
-              <Chip label={user.ELECTIVE_7.TITLE} color="success"></Chip> {"  "}
-              and {"  "}
-              <Chip label={user.ELECTIVE_8.TITLE} color="success"></Chip> {"  "}
-            </Typography>
+            <>
+              <Typography color="red" textAlign="center" variant="h5">
+                R Programming has been dropped from the list of electives
+              </Typography>
+              <Typography variant="h6" textAlign="center">
+                Your final electives are {"  "}
+                <br />
+                <Chip label={user.ELECTIVE_7.TITLE} color="success"></Chip>{" "}
+                {"  "}
+                and {"  "}
+                <Chip label={user.ELECTIVE_8.TITLE} color="success"></Chip>{" "}
+                {"  "}
+              </Typography>
+            </>
           )}
 
         {/* {user && */}

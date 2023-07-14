@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Chip from "@mui/material/Chip";
+import PriorityHighIcon from "@mui/icons-material/PriorityHigh";
 import DoneIcon from "@mui/icons-material/Done";
 import { AllocatedSubject } from "./ElectiveSelections";
 type Props = {
@@ -22,7 +23,7 @@ const ElectiveAlloted = (props: Props) => {
           <Chip
             label={props.subject}
             deleteIcon={<DoneIcon />}
-            onDelete={() => { }}
+            onDelete={() => {}}
             color="success"
           ></Chip>
         );
@@ -36,7 +37,7 @@ const ElectiveAlloted = (props: Props) => {
           <Chip
             label={props.subject}
             deleteIcon={<DoneIcon />}
-            onDelete={() => { }}
+            onDelete={() => {}}
             color="success"
           ></Chip>
         );
@@ -52,7 +53,7 @@ const ElectiveAlloted = (props: Props) => {
           <Chip
             label={props.subject}
             deleteIcon={<DoneIcon />}
-            onDelete={() => { }}
+            onDelete={() => {}}
             color="success"
           ></Chip>
         );
@@ -66,11 +67,22 @@ const ElectiveAlloted = (props: Props) => {
           <Chip
             label={props.subject}
             deleteIcon={<DoneIcon />}
-            onDelete={() => { }}
+            onDelete={() => {}}
             color="success"
           ></Chip>
         );
       }
+      if (props.subject === "R PROGRAMMING") {
+        chip = (
+          <Chip
+            label={props.subject}
+            color="error"
+            onDelete={() => {}}
+            deleteIcon={<PriorityHighIcon />}
+          ></Chip>
+        );
+      }
+
       break;
   }
   return <>{chip}</>;
