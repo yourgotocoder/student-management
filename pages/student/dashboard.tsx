@@ -185,6 +185,7 @@ const Dashboard = (props: Props) => {
                 Electives will be allocated soon.{" "}
                 <a
                   target="_blank"
+                  rel="noreferrer"
                   href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
                 >
                   <Button variant="outlined">Click here .</Button>{" "}
