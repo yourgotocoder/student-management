@@ -60,10 +60,10 @@ const ElectiveSelections = (props: Props) => {
           break;
         case 7:
           const _7thRanking = data.data
-            .filter((student) => student.ELECTIVE_7)
+            .filter((student) => student.OPEN_ELECTIVE)
             .findIndex((student) => student.REGNO === props.REGNO);
           const _7thSubmissions = data.data.filter(
-            (student) => student.ELECTIVE_7
+            (student) => student.OPEN_ELECTIVE
           ).length;
           setTotalSubmission(_7thSubmissions);
           setCurrentRanking(_7thRanking + 1);
@@ -116,18 +116,18 @@ const ElectiveSelections = (props: Props) => {
       for (let index = 0; index < numberOfLoops; index++) {
         rows.push({
           FIRST_COLUMN: `OPTION ${index + 1}`,
-          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_7"][
+          ...(props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE"][
             `OPTION_${index + 1}`
           ] && {
             SECOND_COLUMN:
-              props.ELECTIVE_SELECTIONS["ELECTIVE_7"][`OPTION_${index + 1}`],
+              props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE"][`OPTION_${index + 1}`],
           }),
-          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_8"][
-            `OPTION_${index + 1}`
-          ] && {
-            THIRD_COLUMN:
-              props.ELECTIVE_SELECTIONS["ELECTIVE_8"][`OPTION_${index + 1}`],
-          }),
+          // ...(props.ELECTIVE_SELECTIONS["ELECTIVE_8"][
+          //   `OPTION_${index + 1}`
+          // ] && {
+          //   THIRD_COLUMN:
+          //     props.ELECTIVE_SELECTIONS["ELECTIVE_8"][`OPTION_${index + 1}`],
+          // }),
         });
       }
     }
@@ -170,11 +170,11 @@ const ElectiveSelections = (props: Props) => {
                 <TableCell align="left">Elective V</TableCell>
               )}
               {props.semester === 7 && (
-                <TableCell align="left">Elective VII</TableCell>
+                <TableCell align="left">Open Elective</TableCell>
               )}
-              {props.semester === 7 && (
-                <TableCell align="left">Elective VIII</TableCell>
-              )}
+              {/* {props.semester === 7 && ( */}
+              {/*   <TableCell align="left">Elective VIII</TableCell> */}
+              {/* )} */}
             </TableRow>
           </TableHead>
           <TableBody>

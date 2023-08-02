@@ -52,6 +52,9 @@ interface Student extends Document {
     ELECTIVE_8?: {
       [key: string]: Subject;
     };
+    OPEN_ELECTIVE?: {
+      [key: string]: Subject;
+    };
   };
 }
 

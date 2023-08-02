@@ -46,8 +46,8 @@ const ElectiveAlloted = (props: Props) => {
     case 7:
       if (
         props.allotmentData &&
-        props.allotmentData.ELECTIVE_7 &&
-        props.allotmentData.ELECTIVE_7.TITLE === props.subject
+        props.allotmentData.OPEN_ELECTIVE &&
+        props.allotmentData.OPEN_ELECTIVE.TITLE === props.subject
       ) {
         chip = (
           <Chip

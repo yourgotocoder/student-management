@@ -41,19 +41,19 @@ export default async function handler(
     let missingData: Student[] = [];
     +sem === 5
       ? (missingData = unfilteredStudentData.filter(
-        (student) =>
-          student.CURRENT_SEM === sem &&
-          (!student.ELECTIVE_SELECTIONS ||
-            (student.ELECTIVE_SELECTIONS &&
-              !student.ELECTIVE_SELECTIONS.ELECTIVE_3))
-      ))
+          (student) =>
+            student.CURRENT_SEM === sem &&
+            (!student.ELECTIVE_SELECTIONS ||
+              (student.ELECTIVE_SELECTIONS &&
+                !student.ELECTIVE_SELECTIONS.ELECTIVE_3))
+        ))
       : (missingData = unfilteredStudentData.filter(
-        (student) =>
-          student.CURRENT_SEM === sem &&
-          (!student.ELECTIVE_SELECTIONS ||
-            (student.ELECTIVE_SELECTIONS &&
-              !student.ELECTIVE_SELECTIONS.ELECTIVE_7))
-      ));
+          (student) =>
+            student.CURRENT_SEM === sem &&
+            (!student.ELECTIVE_SELECTIONS ||
+              (student.ELECTIVE_SELECTIONS &&
+                !student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE))
+        ));
     missing = missingData.length;
     const filteredData = unfilteredStudentData
       .filter(
@@ -72,11 +72,11 @@ export default async function handler(
     const dataToAllocate =
       sem === 5
         ? filteredData.filter(
-          (student) => student.ELECTIVE_SELECTIONS.ELECTIVE_3
-        )
+            (student) => student.ELECTIVE_SELECTIONS.ELECTIVE_3
+          )
         : filteredData.filter(
-          (student) => student.ELECTIVE_SELECTIONS.ELECTIVE_7
-        );
+            (student) => student.ELECTIVE_SELECTIONS.ELECTIVE_7
+          );
     const finalData = allocateSubjects(dataToAllocate, +sem!);
     const optionDistribution = distributionStats(dataToAllocate, finalData);
     await client.close();
