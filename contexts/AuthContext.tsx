@@ -19,6 +19,7 @@ type UserType = {
   ELECTIVE_4?: Subject;
   ELECTIVE_7?: Subject;
   ELECTIVE_8?: Subject;
+  OPEN_ELECTIVE?: Subject;
   ELECTIVE_1_OPTIONS?: Subject[];
   ELECTIVE_2_OPTIONS?: Subject[];
   ELECTIVE_3_OPTIONS?: Subject[];
@@ -26,6 +27,7 @@ type UserType = {
   ELECTIVE_5_OPTIONS?: Subject[];
   ELECTIVE_7_OPTIONS?: Subject[];
   ELECTIVE_8_OPTIONS?: Subject[];
+  OPEN_ELECTIVE_OPTIONS?: Subject[];
   ELECTIVE_SELECTIONS?: any;
 };
 

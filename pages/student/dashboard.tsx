@@ -15,6 +15,7 @@ import ElectiveSelections from "../../components/elective/ElectiveSelections";
 import ElectiveForm_7thSem from "../../components/elective/forms/_7thSem";
 import ElectiveForm_5thSem from "../../components/elective/forms/_5thSem";
 import RefreshIcon from "@mui/icons-material/Refresh";
+import ElectiveForm_7thSem_Open from "../../components/elective/forms/_7thSemOpen";
 type Props = {};
 
 interface IOption {
@@ -39,8 +40,9 @@ const Dashboard = (props: Props) => {
       if (user) {
         if (user.CURRENT_SEM === 7) {
           setOptions([
-            { title: "Elective VII", subjects: user.ELECTIVE_7_OPTIONS },
-            { title: "ELECTIVE VIII", subjects: user.ELECTIVE_8_OPTIONS },
+            { title: "Open Elective", subjects: user.OPEN_ELECTIVE_OPTIONS },
+            // { title: "Elective VII", subjects: user.ELECTIVE_7_OPTIONS },
+            // { title: "ELECTIVE VIII", subjects: user.ELECTIVE_8_OPTIONS },
           ]);
         } else if (user.CURRENT_SEM === 5) {
           setOptions([
@@ -98,15 +100,15 @@ const Dashboard = (props: Props) => {
               You missed the slot to apply for electives online
             </Typography>
           )}
-        {user &&
-          user.CURRENT_SEM === 7 &&
-          (!user.ELECTIVE_SELECTIONS ||
-            (user.ELECTIVE_SELECTIONS &&
-              !user.ELECTIVE_SELECTIONS.ELECTIVE_7)) && (
-            <Typography>
-              You missed the slot to apply for electives online
-            </Typography>
-          )}
+        {/* {user && */}
+        {/*   user.CURRENT_SEM === 7 && */}
+        {/*   (!user.ELECTIVE_SELECTIONS || */}
+        {/*     (user.ELECTIVE_SELECTIONS && */}
+        {/*       !user.ELECTIVE_SELECTIONS.OPEN_ELECTIVE_OPTIONS)) && ( */}
+        {/*     <Typography> */}
+        {/*       You missed the slot to apply for electives online */}
+        {/*     </Typography> */}
+        {/*   )} */}
         {user &&
           user.CURRENT_SEM === 5 &&
           user.ELECTIVE_3 &&
@@ -122,11 +124,9 @@ const Dashboard = (props: Props) => {
         {user &&
           user.CURRENT_SEM === 7 &&
           user.ELECTIVE_7 &&
-          user.ELECTIVE_8 && (
+          user.ELECTIVE_8 &&
+          user.OPEN_ELECTIVE && (
             <>
-              <Typography color="red" textAlign="center" variant="h5">
-                R Programming has been dropped from the list of electives
-              </Typography>
               <Typography variant="h6" textAlign="center">
                 Your final electives are {"  "}
                 <br />
@@ -139,19 +139,19 @@ const Dashboard = (props: Props) => {
             </>
           )}
 
-        {/* {user && */}
-        {/*   user.CURRENT_SEM === 7 && */}
-        {/*   user.ELECTIVE_7_OPTIONS && */}
-        {/*   user.ELECTIVE_8_OPTIONS && */}
-        {/*   ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.ELECTIVE_7) || */}
-        {/*     !user.ELECTIVE_SELECTIONS) && */}
-        {/*   !submitted && ( */}
-        {/*     <ElectiveForm_7thSem */}
-        {/*       ELECTIVE_7_OPTIONS={user.ELECTIVE_7_OPTIONS} */}
-        {/*       ELECTIVE_8_OPTIONS={user.ELECTIVE_8_OPTIONS} */}
-        {/*       setSubmitted={(value) => setSubmitted(value)} */}
-        {/*     /> */}
-        {/*   )} */}
+        {user &&
+          user.CURRENT_SEM === 7 &&
+          user.OPEN_ELECTIVE_OPTIONS &&
+          ((user.ELECTIVE_SELECTIONS &&
+            !user.ELECTIVE_SELECTIONS.OPEN_ELECTIVE) ||
+            !user.ELECTIVE_SELECTIONS) &&
+          !submitted && (
+            <ElectiveForm_7thSem_Open
+              OPEN_ELECTIVE_OPTIONS={user.OPEN_ELECTIVE_OPTIONS}
+              // ELECTIVE_8_OPTIONS={user.ELECTIVE_8_OPTIONS}
+              setSubmitted={(value) => setSubmitted(value)}
+            />
+          )}
         {/* {user && */}
         {/*   user.CURRENT_SEM === 5 && */}
         {/*   user.ELECTIVE_3_OPTIONS && */}
@@ -168,7 +168,7 @@ const Dashboard = (props: Props) => {
         {user &&
           ((user.ELECTIVE_SELECTIONS &&
             (!user.ELECTIVE_SELECTIONS.ELECTIVE_3 ||
-              !user.ELECTIVE_SELECTIONS.ELECTIVE_7)) ||
+              !user.ELECTIVE_SELECTIONS.OPEN_ELECTIVE)) ||
             !user.ELECTIVE_SELECTIONS) &&
           submitted && (
             <Box
