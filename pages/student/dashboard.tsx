@@ -191,7 +191,7 @@ const Dashboard = (props: Props) => {
         {user &&
           (user.CURRENT_SEM === 7 || user.CURRENT_SEM === 5) &&
           user.ELECTIVE_SELECTIONS &&
-          (user.ELECTIVE_SELECTIONS.ELECTIVE_7 ||
+          (user.ELECTIVE_SELECTIONS.OPEN_ELECTIVE ||
             user.ELECTIVE_SELECTIONS.ELECTIVE_3) && (
             <ElectiveSelections
               REGNO={user.REGNO!}
