@@ -182,9 +182,13 @@ const Dashboard = (props: Props) => {
             >
               <Typography variant="h4">Thank you for your time.</Typography>
               <Typography variant="h5">
-                Electives will be allocated soon. Click{" "}
-                <RefreshIcon onClick={() => router.reload()}></RefreshIcon> to
-                see your temporary allocation details.
+                Electives will be allocated soon.{" "}
+                <a
+                  target="_blank"
+                  href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                >
+                  <Button variant="outlined">Click here .</Button>{" "}
+                </a>
               </Typography>
             </Box>
           )}
