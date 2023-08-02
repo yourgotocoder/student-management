@@ -22,7 +22,7 @@ export default async function handler(
         if (
           student.ELECTIVE_SELECTIONS &&
           (student.ELECTIVE_SELECTIONS.ELECTIVE_3 ||
-            student.ELECTIVE_SELECTIONS.ELECTIVE_7)
+            student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE)
         ) {
           await client.close();
           res

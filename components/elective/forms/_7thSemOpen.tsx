@@ -141,7 +141,6 @@ const ElectiveForm_7thSem_Open = (props: Props) => {
         }),
       },
     };
-
     const response = await fetch("/api/elective/submit", {
       method: "POST",
       headers: {
