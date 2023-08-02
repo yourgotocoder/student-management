@@ -43,7 +43,7 @@ export default async function handler(
             (student) => student.ELECTIVE_SELECTIONS.ELECTIVE_3
           )
         : filteredData.filter(
-            (student) => student.ELECTIVE_SELECTIONS.ELECTIVE_7
+            (student) => student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE
           );
     const finalData = allocateSubjects(dataToBeAllocated, +sem!);
     let transformedFinalData: {
@@ -103,10 +103,12 @@ export default async function handler(
             REGNO: student.REGNO,
             NAME: student.NAME,
             CGPA: student.CGPA,
-            ELECTIVE_7_CODE: `${(student.ELECTIVE_7 as ISubjectData).CODE} `,
-            ELECTIVE_7_TITLE: `${(student.ELECTIVE_7 as ISubjectData).TITLE}`,
-            ELECTIVE_8_CODE: `${(student.ELECTIVE_8 as ISubjectData).CODE} `,
-            ELECTIVE_8_TITLE: `${(student.ELECTIVE_8 as ISubjectData).TITLE}`,
+            OPEN_ELECTIVE_CODE: `${
+              (student.OPEN_ELECTIVE as ISubjectData).CODE
+            } `,
+            OPEN_ELECTIVE_TITLE: `${
+              (student.OPEN_ELECTIVE as ISubjectData).TITLE
+            }`,
           }));
         const safeData7 = finalData.filter((student) => student.ELECTIVE_7);
         for (let student of safeData7) {
