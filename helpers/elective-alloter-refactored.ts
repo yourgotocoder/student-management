@@ -31,7 +31,7 @@ export interface IElectiveData {
  */
 const allocateSubjects = (
   data: ISelectionData[],
-  sem: number,
+  sem: number
 ): IElectiveData[] => {
   let result: IElectiveData[] = [];
   const seats = seatDistributorRefactored(data);

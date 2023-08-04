@@ -1,12 +1,12 @@
 import { IElectives, ISelectionData } from "./elective-alloter-refactored";
 const seatDistributorRefactored = (
   data: ISelectionData[],
-  initializer: number = 0,
+  initializer: number = 0
 ) => {
   const selections: { ELECTIVE_SELECTIONS: IElectives }[] = data.map(
     (student) => ({
       ELECTIVE_SELECTIONS: student.ELECTIVE_SELECTIONS,
-    }),
+    })
   );
   const electiveKeys: {
     [key: string]: {
@@ -44,7 +44,7 @@ const seatDistributorRefactored = (
       if (!maxStudentCount[key]) maxStudentCount[key] = 0;
       maxStudentCount[key] = Math.max(
         maxStudentCount[key],
-        electiveKeys[key][subject],
+        electiveKeys[key][subject]
       );
     }
   }
@@ -53,22 +53,29 @@ const seatDistributorRefactored = (
       electiveKeys[key][subject] =
         Math.ceil(
           (electiveKeys[key][subject] / electiveMaxSeats[key]) *
-            maxStudentCount[key],
+            maxStudentCount[key]
         ) + initializer;
       if (key === "OPEN_ELECTIVE") {
         electiveKeys[key][subject] =
-          Math.min(electiveKeys[key][subject], 200 * 0.15) + initializer;
+          Math.ceil(
+            Math.min(
+              Math.max(electiveKeys[key][subject], 195 * 0.15),
+              200 * 0.15
+            )
+          ) + initializer;
       }
       if (subject === "Distributed System") {
         electiveKeys[key][subject] =
-          Math.min(electiveKeys[key][subject], 200 * 0.2) + initializer;
+          Math.ceil(
+            Math.min(Math.max(electiveKeys[key][subject], 195 * 0.2), 195 * 0.2)
+          ) + initializer;
       }
       if (subject === "Fundamental of Remote Sensing and GIS") {
         electiveKeys[key][subject] = 10;
       }
     }
   }
-
+  console.log(electiveKeys);
   return electiveKeys;
 };
 
