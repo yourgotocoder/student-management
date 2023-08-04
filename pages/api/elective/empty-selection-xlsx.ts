@@ -14,11 +14,11 @@ type Data =
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<Data>,
 ) {
   if (req.method === "GET") {
     const client = await MongoClient.connect(
-      process.env.DB_CONNECTION as string
+      process.env.DB_CONNECTION as string,
     );
     const db = client.db("cse");
     const collection = db.collection("student-data");
@@ -35,7 +35,7 @@ export default async function handler(
             (student) =>
               !student.ELECTIVE_SELECTIONS ||
               (student.ELECTIVE_SELECTIONS &&
-                !student.ELECTIVE_SELECTIONS.ELECTIVE_3)
+                !student.ELECTIVE_SELECTIONS.ELECTIVE_3),
           )
           .map((student) => ({
             REGNO: student.REGNO,
@@ -50,7 +50,7 @@ export default async function handler(
             (student) =>
               !student.ELECTIVE_SELECTIONS ||
               (student.ELECTIVE_SELECTIONS &&
-                !student.ELECTIVE_SELECTIONS.ELECTIVE_7)
+                !student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE),
           )
           .map((student) => ({ REGNO: student.REGNO, NAME: student.NAME }));
         break;
@@ -61,11 +61,11 @@ export default async function handler(
     const buffer = XLSX.write(workbook, { type: "array", bookType: "xlsx" });
     res.setHeader(
       "Content-Disposition",
-      `attachment; filename=${sem}th_MissingData.xlsx`
+      `attachment; filename=${sem}th_MissingData.xlsx`,
     );
     res.setHeader(
       "Content-Type",
-      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
     );
     res.send(Buffer.from(buffer));
   } else {

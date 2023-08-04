@@ -78,7 +78,6 @@ export default async function handler(
             (student) => student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE,
           );
     const finalData = allocateSubjects(dataToAllocate, +sem!);
-    console.log(finalData);
     const optionDistribution = distributionStats(dataToAllocate, finalData);
     await client.close();
     res.status(200).json({

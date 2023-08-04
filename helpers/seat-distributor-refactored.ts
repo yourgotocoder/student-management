@@ -55,6 +55,14 @@ const seatDistributorRefactored = (
           (electiveKeys[key][subject] / electiveMaxSeats[key]) *
             maxStudentCount[key],
         ) + initializer;
+      if (key === "OPEN_ELECTIVE") {
+        electiveKeys[key][subject] =
+          Math.min(electiveKeys[key][subject], 200 * 0.15) + initializer;
+      }
+      if (subject === "Distributed System") {
+        electiveKeys[key][subject] =
+          Math.min(electiveKeys[key][subject], 200 * 0.2) + initializer;
+      }
       if (subject === "Fundamental of Remote Sensing and GIS") {
         electiveKeys[key][subject] = 10;
       }
