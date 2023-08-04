@@ -21,11 +21,11 @@ type Data = {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<Data>,
 ) {
   if (req.method === "GET") {
     const client = await MongoClient.connect(
-      process.env.DB_CONNECTION as string
+      process.env.DB_CONNECTION as string,
     );
     const sem = req.query.sem && +req.query.sem;
     if (!sem) {
@@ -45,14 +45,14 @@ export default async function handler(
             student.CURRENT_SEM === sem &&
             (!student.ELECTIVE_SELECTIONS ||
               (student.ELECTIVE_SELECTIONS &&
-                !student.ELECTIVE_SELECTIONS.ELECTIVE_3))
+                !student.ELECTIVE_SELECTIONS.ELECTIVE_3)),
         ))
       : (missingData = unfilteredStudentData.filter(
           (student) =>
             student.CURRENT_SEM === sem &&
             (!student.ELECTIVE_SELECTIONS ||
               (student.ELECTIVE_SELECTIONS &&
-                !student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE))
+                !student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE)),
         ));
     missing = missingData.length;
     const filteredData = unfilteredStudentData
@@ -60,7 +60,7 @@ export default async function handler(
         (student) =>
           student.CURRENT_SEM === sem &&
           student.CGPA &&
-          student.ELECTIVE_SELECTIONS
+          student.ELECTIVE_SELECTIONS,
       )
       .map((student) => ({
         REGNO: student.REGNO!,
@@ -72,12 +72,13 @@ export default async function handler(
     const dataToAllocate =
       sem === 5
         ? filteredData.filter(
-            (student) => student.ELECTIVE_SELECTIONS.ELECTIVE_3
+            (student) => student.ELECTIVE_SELECTIONS.ELECTIVE_3,
           )
         : filteredData.filter(
-            (student) => student.ELECTIVE_SELECTIONS.ELECTIVE_7
+            (student) => student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE,
           );
     const finalData = allocateSubjects(dataToAllocate, +sem!);
+    console.log(finalData);
     const optionDistribution = distributionStats(dataToAllocate, finalData);
     await client.close();
     res.status(200).json({

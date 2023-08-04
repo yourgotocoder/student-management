@@ -23,7 +23,7 @@ export interface IElectiveOptionDistribution {
 
 const distributionStats = (
   selectionData: ISelectionData[],
-  electiveData: IElectiveData[]
+  electiveData: IElectiveData[],
 ): IElectiveOptionDistribution => {
   const result: IElectiveOptionDistribution = {};
   for (let student of selectionData) {
@@ -33,7 +33,7 @@ const distributionStats = (
       }
       for (let option in student.ELECTIVE_SELECTIONS[key]) {
         const studentElective = electiveData.find(
-          (studentObj) => studentObj.REGNO === student.REGNO
+          (studentObj) => studentObj.REGNO === student.REGNO,
         );
         if (studentElective) {
           setOptionValue(studentElective, student, key, option, "ELECTIVE_1");
@@ -44,6 +44,13 @@ const distributionStats = (
           setOptionValue(studentElective, student, key, option, "ELECTIVE_6");
           setOptionValue(studentElective, student, key, option, "ELECTIVE_7");
           setOptionValue(studentElective, student, key, option, "ELECTIVE_8");
+          setOptionValue(
+            studentElective,
+            student,
+            key,
+            option,
+            "OPEN_ELECTIVE",
+          );
         }
       }
     }
@@ -55,7 +62,7 @@ const distributionStats = (
     student: ISelectionData,
     key: string,
     option: string,
-    elective_category: string
+    elective_category: string,
   ) {
     if (studentElective[elective_category]) {
       if (
