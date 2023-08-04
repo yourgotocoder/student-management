@@ -11,11 +11,11 @@ import XLSX from "xlsx";
 type Data = Buffer;
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<Data>,
 ) {
   if (req.method === "GET") {
     const client = await MongoClient.connect(
-      process.env.DB_CONNECTION as string
+      process.env.DB_CONNECTION as string,
     );
     const sem = req.query.sem && +req.query.sem;
     const db = client.db("cse");
@@ -28,7 +28,7 @@ export default async function handler(
         (student) =>
           student.CURRENT_SEM === sem &&
           student.CGPA &&
-          student.ELECTIVE_SELECTIONS
+          student.ELECTIVE_SELECTIONS,
       )
       .map((student) => ({
         REGNO: student.REGNO!,
@@ -40,10 +40,10 @@ export default async function handler(
     const dataToBeAllocated =
       sem === 5
         ? filteredData.filter(
-            (student) => student.ELECTIVE_SELECTIONS.ELECTIVE_3
+            (student) => student.ELECTIVE_SELECTIONS.ELECTIVE_3,
           )
         : filteredData.filter(
-            (student) => student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE
+            (student) => student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE,
           );
     const finalData = allocateSubjects(dataToBeAllocated, +sem!);
     let transformedFinalData: {
@@ -110,31 +110,39 @@ export default async function handler(
               (student.OPEN_ELECTIVE as ISubjectData).TITLE
             }`,
           }));
-        const safeData7 = finalData.filter((student) => student.ELECTIVE_7);
+        const safeData7 = finalData.filter((student) => student.OPEN_ELECTIVE);
         for (let student of safeData7) {
-          const elective_7_title = `${
-            (student.ELECTIVE_7 as ISubjectData).TITLE
+          // const elective_7_title = `${
+          //   (student.ELECTIVE_7 as ISubjectData).TITLE
+          // }`;
+          // const elective_8_title = `${
+          //   (student.ELECTIVE_8 as ISubjectData).TITLE
+          // }`;
+          const open_elective_title = `${
+            (student.OPEN_ELECTIVE as ISubjectData).TITLE
           }`;
-          const elective_8_title = `${
-            (student.ELECTIVE_8 as ISubjectData).TITLE
-          }`;
-
           const studentObject = {
             REGNO: student.REGNO,
             NAME: student.NAME,
             CGPA: student.CGPA,
           };
-          if (!subjectData[elective_7_title]) {
-            subjectData[elective_7_title] = [];
-            subjectData[elective_7_title].push(studentObject);
+          // if (!subjectData[elective_7_title]) {
+          //   subjectData[elective_7_title] = [];
+          //   subjectData[elective_7_title].push(studentObject);
+          // } else {
+          //   subjectData[elective_7_title].push(studentObject);
+          // }
+          // if (!subjectData[elective_8_title]) {
+          //   subjectData[elective_8_title] = [];
+          //   subjectData[elective_8_title].push(studentObject);
+          // } else {
+          //   subjectData[elective_8_title].push(studentObject);
+          // }
+          if (!subjectData[open_elective_title]) {
+            subjectData[open_elective_title] = [];
+            subjectData[open_elective_title].push(studentObject);
           } else {
-            subjectData[elective_7_title].push(studentObject);
-          }
-          if (!subjectData[elective_8_title]) {
-            subjectData[elective_8_title] = [];
-            subjectData[elective_8_title].push(studentObject);
-          } else {
-            subjectData[elective_8_title].push(studentObject);
+            subjectData[open_elective_title].push(studentObject);
           }
         }
         break;
@@ -149,11 +157,11 @@ export default async function handler(
     const buffer = XLSX.write(workbook, { type: "array", bookType: "xlsx" });
     res.setHeader(
       "Content-Disposition",
-      `attachment; filename=${sem}th_Data.xlsx`
+      `attachment; filename=${sem}th_Data.xlsx`,
     );
     res.setHeader(
       "Content-Type",
-      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
     );
     res.send(Buffer.from(buffer));
   }
