@@ -12,19 +12,27 @@ type Data = {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<Data>,
 ) {
   if (req.method === "GET") {
     const client = await MongoClient.connect(
-      process.env.DB_CONNECTION as string
+      process.env.DB_CONNECTION as string,
     );
+
+    const sem = req.query.sem && +req.query.sem;
+
     const db = client.db("cse");
     const collection = db.collection("student-data");
     const unfilteredStudentData = (await collection
       .find()
       .toArray()) as Student[];
     const filteredData = unfilteredStudentData
-      .filter((student) => student.CGPA && student.ELECTIVE_SELECTIONS)
+      .filter(
+        (student) =>
+          student.CGPA &&
+          student.ELECTIVE_SELECTIONS &&
+          student.CURRENT_SEM === sem,
+      )
       .map((student) => ({
         REGNO: student.REGNO!,
         NAME: student.NAME!,
