@@ -11,11 +11,11 @@ import XLSX from "xlsx";
 type Data = Buffer;
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>,
+  res: NextApiResponse<Data>
 ) {
   if (req.method === "GET") {
     const client = await MongoClient.connect(
-      process.env.DB_CONNECTION as string,
+      process.env.DB_CONNECTION as string
     );
     const sem = req.query.sem && +req.query.sem;
     const db = client.db("cse");
@@ -28,7 +28,7 @@ export default async function handler(
         (student) =>
           student.CURRENT_SEM === sem &&
           student.CGPA &&
-          student.ELECTIVE_SELECTIONS,
+          student.ELECTIVE_SELECTIONS
       )
       .map((student) => ({
         REGNO: student.REGNO!,
@@ -40,10 +40,10 @@ export default async function handler(
     const dataToBeAllocated =
       sem === 5
         ? filteredData.filter(
-            (student) => student.ELECTIVE_SELECTIONS.ELECTIVE_3,
+            (student) => student.ELECTIVE_SELECTIONS.ELECTIVE_3
           )
         : filteredData.filter(
-            (student) => student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE,
+            (student) => student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE
           );
     const finalData = allocateSubjects(dataToBeAllocated, +sem!);
     let transformedFinalData: {
@@ -149,19 +149,33 @@ export default async function handler(
     }
     const workbook = XLSX.utils.book_new();
     const worksheet = XLSX.utils.json_to_sheet(transformedFinalData);
+    const maxNameWidth = transformedFinalData.reduce((prevMax, curr) => {
+      return Math.max(prevMax, curr.NAME.length);
+    }, 0);
+    const maxRegnoWidth = transformedFinalData.reduce((prevMax, cur) => {
+      return Math.max(prevMax, `${cur.REGNO}`.length);
+    }, 0);
+    worksheet["!cols"] = [
+      { width: maxRegnoWidth + 2 },
+      { width: maxNameWidth + 2 },
+      { width: 15 },
+      { width: 20 },
+      { width: 30 },
+    ];
     XLSX.utils.book_append_sheet(workbook, worksheet, "Consolidated");
     for (let key in subjectData) {
       let sheet = XLSX.utils.json_to_sheet(subjectData[key]);
+      sheet["!cols"] = [{ wch: maxRegnoWidth }, { wch: maxNameWidth }];
       XLSX.utils.book_append_sheet(workbook, sheet, key.substring(0, 31));
     }
     const buffer = XLSX.write(workbook, { type: "array", bookType: "xlsx" });
     res.setHeader(
       "Content-Disposition",
-      `attachment; filename=${sem}th_Data.xlsx`,
+      `attachment; filename=${sem}th_Data.xlsx`
     );
     res.setHeader(
       "Content-Type",
-      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     );
     res.send(Buffer.from(buffer));
   }

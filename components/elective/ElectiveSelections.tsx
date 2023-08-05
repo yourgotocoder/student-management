@@ -1,4 +1,4 @@
-import { Box, Chip, Typography } from "@mui/material";
+import { Box, Button, Chip, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -144,6 +144,13 @@ const ElectiveSelections = (props: Props) => {
           ></Chip>
         </>
       )}
+      <Typography>
+        Updated the seat distribution. You can download the allotment data{" "}
+        <a href={`/api/elective/allotment-xlsx?sem=${props.semester}`}>
+          <Button>here</Button>
+        </a>
+        . This ain't a rickroll.
+      </Typography>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 350, maxWidth: 750 }} aria-label="simple table">
           <TableHead>
