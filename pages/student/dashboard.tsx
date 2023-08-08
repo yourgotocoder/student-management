@@ -88,6 +88,7 @@ const Dashboard = (props: Props) => {
         sx={{
           minHeight: "20rem",
           maxHeight: "50rem",
+          overflow: "scroll",
           padding: "1rem 0.4rem",
         }}
       >
