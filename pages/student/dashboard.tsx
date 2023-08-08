@@ -131,10 +131,10 @@ const Dashboard = (props: Props) => {
                 Your final electives are {"  "}
                 <br />
                 <Chip label={user.ELECTIVE_7.TITLE} color="success"></Chip>{" "}
-                {"  "}
-                and {"  "}
+                {"  "},{"  "}
                 <Chip label={user.ELECTIVE_8.TITLE} color="success"></Chip>{" "}
-                {"  "}
+                {"  "}, &{" "}
+                <Chip label={user.OPEN_ELECTIVE.TITLE} color="success"></Chip>
               </Typography>
             </>
           )}
@@ -145,13 +145,13 @@ const Dashboard = (props: Props) => {
           ((user.ELECTIVE_SELECTIONS &&
             !user.ELECTIVE_SELECTIONS.OPEN_ELECTIVE) ||
             !user.ELECTIVE_SELECTIONS) &&
-          !submitted && (
-            <ElectiveForm_7thSem_Open
-              OPEN_ELECTIVE_OPTIONS={user.OPEN_ELECTIVE_OPTIONS}
-              // ELECTIVE_8_OPTIONS={user.ELECTIVE_8_OPTIONS}
-              setSubmitted={(value) => setSubmitted(value)}
-            />
-          )}
+          !submitted && <Typography>Sorry, time is up</Typography>}
+        {/* <ElectiveForm_7thSem_Open */}
+        {/*   OPEN_ELECTIVE_OPTIONS={user.OPEN_ELECTIVE_OPTIONS} */}
+        {/*   // ELECTIVE_8_OPTIONS={user.ELECTIVE_8_OPTIONS} */}
+        {/*   setSubmitted={(value) => setSubmitted(value)} */}
+        {/* /> */}
+
         {/* {user && */}
         {/*   user.CURRENT_SEM === 5 && */}
         {/*   user.ELECTIVE_3_OPTIONS && */}

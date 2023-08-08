@@ -36,7 +36,7 @@ const ElectiveSelections = (props: Props) => {
   useEffect(() => {
     const fetchElectiveData = async () => {
       const response = await fetch(
-        "/api/elective/allotment?sem=" + props.semester
+        "/api/elective/allotment?sem=" + props.semester,
       );
       const data: {
         size: number;
@@ -45,7 +45,7 @@ const ElectiveSelections = (props: Props) => {
         message: string;
       } = await response.json();
       const studentData = data.data.find(
-        (student) => student.REGNO === props.REGNO
+        (student) => student.REGNO === props.REGNO,
       );
       switch (props.semester) {
         case 5:
@@ -53,7 +53,7 @@ const ElectiveSelections = (props: Props) => {
             .filter((student) => student.ELECTIVE_3)
             .findIndex((student) => student.REGNO === props.REGNO);
           const submissions = data.data.filter(
-            (student) => student.ELECTIVE_3
+            (student) => student.ELECTIVE_3,
           ).length;
           setTotalSubmission(submissions);
           setCurrentRanking(ranking + 1);
@@ -63,7 +63,7 @@ const ElectiveSelections = (props: Props) => {
             .filter((student) => student.OPEN_ELECTIVE)
             .findIndex((student) => student.REGNO === props.REGNO);
           const _7thSubmissions = data.data.filter(
-            (student) => student.OPEN_ELECTIVE
+            (student) => student.OPEN_ELECTIVE,
           ).length;
           setTotalSubmission(_7thSubmissions);
           setCurrentRanking(_7thRanking + 1);
@@ -76,7 +76,7 @@ const ElectiveSelections = (props: Props) => {
   const createData = () => {
     const outerKeys = Object.keys(props.ELECTIVE_SELECTIONS);
     const innerKeys = outerKeys.map((elective) =>
-      Object.keys(props.ELECTIVE_SELECTIONS[elective])
+      Object.keys(props.ELECTIVE_SELECTIONS[elective]),
     );
     const numberOfLoops = innerKeys.reduce((prev, cur) => {
       if (cur.length > prev) {
@@ -149,7 +149,6 @@ const ElectiveSelections = (props: Props) => {
         <a href={`/api/elective/allotment-xlsx?sem=${props.semester}`}>
           <Button>here</Button>
         </a>
-        . This ain't a rickroll.
       </Typography>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 350, maxWidth: 750 }} aria-label="simple table">
