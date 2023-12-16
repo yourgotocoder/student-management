@@ -19,11 +19,11 @@ export interface AllotmentData {
   REGNO: number;
   CGPA: number;
   [key: string]:
-    | {
-        TITLE: string;
-        CODE: string;
-      }
-    | number;
+  | {
+    TITLE: string;
+    CODE: string;
+  }
+  | number;
 }
 export interface AllocatedSubject {
   [key: string]: { TITLE: string; CODE: string };
@@ -36,7 +36,7 @@ const ElectiveSelections = (props: Props) => {
   useEffect(() => {
     const fetchElectiveData = async () => {
       const response = await fetch(
-        "/api/elective/allotment?sem=" + props.semester,
+        "/api/elective/allotment?sem=" + props.semester
       );
       const data: {
         size: number;
@@ -45,7 +45,7 @@ const ElectiveSelections = (props: Props) => {
         message: string;
       } = await response.json();
       const studentData = data.data.find(
-        (student) => student.REGNO === props.REGNO,
+        (student) => student.REGNO === props.REGNO
       );
       switch (props.semester) {
         case 5:
@@ -53,7 +53,7 @@ const ElectiveSelections = (props: Props) => {
             .filter((student) => student.ELECTIVE_3)
             .findIndex((student) => student.REGNO === props.REGNO);
           const submissions = data.data.filter(
-            (student) => student.ELECTIVE_3,
+            (student) => student.ELECTIVE_3
           ).length;
           setTotalSubmission(submissions);
           setCurrentRanking(ranking + 1);
@@ -63,10 +63,30 @@ const ElectiveSelections = (props: Props) => {
             .filter((student) => student.OPEN_ELECTIVE)
             .findIndex((student) => student.REGNO === props.REGNO);
           const _7thSubmissions = data.data.filter(
-            (student) => student.OPEN_ELECTIVE,
+            (student) => student.OPEN_ELECTIVE
           ).length;
           setTotalSubmission(_7thSubmissions);
           setCurrentRanking(_7thRanking + 1);
+          break;
+        case 6:
+          const _6thRanking = data.data
+            .filter((student) => student.ELECTIVE_5)
+            .findIndex((student) => student.REGNO === props.REGNO);
+          const _6thSubmissions = data.data.filter(
+            (student) => student.ELECTIVE_5
+          ).length;
+          setTotalSubmission(_6thSubmissions);
+          setCurrentRanking(_6thRanking + 1);
+          break;
+        case 4:
+          const _4thRanking = data.data
+            .filter((student) => student.ELECTIVE_1)
+            .findIndex((student) => student.REGNO === props.REGNO);
+          const _4thSubmissions = data.data.filter(
+            (student) => student.ELECTIVE_1
+          ).length;
+          setTotalSubmission(_4thSubmissions);
+          setCurrentRanking(_4thRanking + 1);
           break;
       }
       setStudent(studentData);
@@ -76,7 +96,7 @@ const ElectiveSelections = (props: Props) => {
   const createData = () => {
     const outerKeys = Object.keys(props.ELECTIVE_SELECTIONS);
     const innerKeys = outerKeys.map((elective) =>
-      Object.keys(props.ELECTIVE_SELECTIONS[elective]),
+      Object.keys(props.ELECTIVE_SELECTIONS[elective])
     );
     const numberOfLoops = innerKeys.reduce((prev, cur) => {
       if (cur.length > prev) {
@@ -91,7 +111,7 @@ const ElectiveSelections = (props: Props) => {
         rows.push({
           FIRST_COLUMN: `OPTION ${index + 1}`,
           SECOND_COLUMN:
-            props.ELECTIVE_SELECTIONS[outerKeys[0]][innerKeys[0][index]],
+            props.ELECTIVE_SELECTIONS["ELECTIVE_1"][`OPTION_${index + 1}`],
         });
       }
     } else if (props.semester === 5) {
@@ -109,6 +129,30 @@ const ElectiveSelections = (props: Props) => {
           ] && {
             THIRD_COLUMN:
               props.ELECTIVE_SELECTIONS["ELECTIVE_4"][`OPTION_${index + 1}`],
+          }),
+        });
+      }
+    } else if (props.semester === 6) {
+      for (let index = 0; index < numberOfLoops; index++) {
+        rows.push({
+          FIRST_COLUMN: `OPTION ${index + 1}`,
+          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_5"][
+            `OPTION_${index + 1}`
+          ] && {
+            SECOND_COLUMN:
+              props.ELECTIVE_SELECTIONS["ELECTIVE_5"][`OPTION_${index + 1}`],
+          }),
+          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_6"][
+            `OPTION_${index + 1}`
+          ] && {
+            THIRD_COLUMN:
+              props.ELECTIVE_SELECTIONS["ELECTIVE_6"][`OPTION_${index + 1}`],
+          }),
+          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_7"][
+            `OPTION_${index + 1}`
+          ] && {
+            FOURTH_COLUMN:
+              props.ELECTIVE_SELECTIONS["ELECTIVE_7"][`OPTION_${index + 1}`],
           }),
         });
       }
@@ -136,20 +180,6 @@ const ElectiveSelections = (props: Props) => {
 
   return (
     <Box sx={{ paddingTop: 2 }}>
-      {currentRanking && (
-        <>
-          <Chip
-            label={`Final Ranking (${currentRanking} of ${totalSubmission}) submissions.`}
-            color="info"
-          ></Chip>
-        </>
-      )}
-      <Typography>
-        Updated the seat distribution. You can download the allotment data{" "}
-        <a href={`/api/elective/allotment-xlsx?sem=${props.semester}`}>
-          <Button>here</Button>
-        </a>
-      </Typography>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 350, maxWidth: 750 }} aria-label="simple table">
           <TableHead>
@@ -161,7 +191,7 @@ const ElectiveSelections = (props: Props) => {
             <TableRow>
               <TableCell width={120}></TableCell>
               {props.semester === 4 && (
-                <TableCell align="left">Elective 1</TableCell>
+                <TableCell align="left">Elective I</TableCell>
               )}
               {props.semester === 5 && (
                 <TableCell align="left">Elective II</TableCell>
@@ -170,10 +200,13 @@ const ElectiveSelections = (props: Props) => {
                 <TableCell align="left">Elective III</TableCell>
               )}
               {props.semester === 6 && (
-                <TableCell align="left">Elective IV</TableCell>
+                <TableCell align="left">Elective V</TableCell>
               )}
               {props.semester === 6 && (
-                <TableCell align="left">Elective V</TableCell>
+                <TableCell align="left">Elective VI</TableCell>
+              )}
+              {props.semester === 6 && (
+                <TableCell align="left">Elective VII</TableCell>
               )}
               {props.semester === 7 && (
                 <TableCell align="left">Open Elective</TableCell>
@@ -210,6 +243,15 @@ const ElectiveSelections = (props: Props) => {
                     ></ElectiveAlloted>
                   </TableCell>
                 )}
+                {option.FOURTH_COLUMN && (
+                  <TableCell component="th" scope="row">
+                    <ElectiveAlloted
+                      subject={option.FOURTH_COLUMN.TITLE as string}
+                      semester={props.semester as number}
+                      allotmentData={student as AllocatedSubject}
+                    ></ElectiveAlloted>
+                  </TableCell>
+                )}
               </TableRow>
             ))}
           </TableBody>
@@ -227,7 +269,7 @@ const ElectiveSelections = (props: Props) => {
               label="this repo"
               color="info"
               deleteIcon={<GitHubIcon color="action"></GitHubIcon>}
-              onDelete={() => {}}
+              onDelete={() => { }}
             ></Chip>
           </a>
         </Typography>

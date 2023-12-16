@@ -25,6 +25,7 @@ type UserType = {
   ELECTIVE_3_OPTIONS?: Subject[];
   ELECTIVE_4_OPTIONS?: Subject[];
   ELECTIVE_5_OPTIONS?: Subject[];
+  ELECTIVE_6_OPTIONS?: Subject[];
   ELECTIVE_7_OPTIONS?: Subject[];
   ELECTIVE_8_OPTIONS?: Subject[];
   OPEN_ELECTIVE_OPTIONS?: Subject[];
@@ -40,8 +41,8 @@ type AuthContextType = {
 
 const AuthContext = createContext<AuthContextType>({
   user: undefined,
-  setUser(userData: UserType) {},
-  logout() {},
+  setUser(userData: UserType) { },
+  logout() { },
   loading: true,
 });
 

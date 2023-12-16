@@ -9,8 +9,8 @@ import Typography from "@mui/material/Typography";
 import LogoutIcon from "@mui/icons-material/Logout";
 
 import { Box, Button, Chip } from "@mui/material";
-// import ElectiveForm_6thSem from "../../components/elective/forms/_6thSem";
-// import ElectiveForm_4thSem from "../../components/elective/forms/_4thSem";
+import ElectiveForm_6thSem from "../../components/elective/forms/_6thSem";
+import ElectiveForm_4thSem from "../../components/elective/forms/_4thSem";
 import ElectiveSelections from "../../components/elective/ElectiveSelections";
 import ElectiveForm_7thSem from "../../components/elective/forms/_7thSem";
 import ElectiveForm_5thSem from "../../components/elective/forms/_5thSem";
@@ -48,6 +48,16 @@ const Dashboard = (props: Props) => {
           setOptions([
             { title: "Elective III", subjects: user.ELECTIVE_3_OPTIONS },
             { title: "Elective IV", subjects: user.ELECTIVE_4_OPTIONS },
+          ]);
+        } else if (user.CURRENT_SEM === 4) {
+          setOptions([
+            { title: "Elective I", subjects: user.ELECTIVE_1_OPTIONS },
+          ]);
+        } else if (user.CURRENT_SEM === 6) {
+          setOptions([
+            { title: "Elective V", subjects: user.ELECTIVE_5_OPTIONS },
+            { title: "Elective VI", subjects: user.ELECTIVE_6_OPTIONS },
+            { title: "Elective VII", subjects: user.ELECTIVE_7_OPTIONS },
           ]);
         }
       }
@@ -153,23 +163,37 @@ const Dashboard = (props: Props) => {
         {/*   setSubmitted={(value) => setSubmitted(value)} */}
         {/* /> */}
 
-        {/* {user && */}
-        {/*   user.CURRENT_SEM === 5 && */}
-        {/*   user.ELECTIVE_3_OPTIONS && */}
-        {/*   user.ELECTIVE_4_OPTIONS && */}
-        {/*   ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.ELECTIVE_3) || */}
-        {/*     !user.ELECTIVE_SELECTIONS) && */}
-        {/*   !submitted && ( */}
-        {/*     <ElectiveForm_5thSem */}
-        {/*       ELECTIVE_3_OPTIONS={user.ELECTIVE_3_OPTIONS} */}
-        {/*       ELECTIVE_4_OPTIONS={user.ELECTIVE_4_OPTIONS} */}
-        {/*       setSubmitted={(value) => setSubmitted(value)} */}
-        {/*     /> */}
-        {/*   )} */}
+        {user &&
+          user.CURRENT_SEM === 6 &&
+          user.ELECTIVE_5_OPTIONS &&
+          user.ELECTIVE_6_OPTIONS &&
+          user.ELECTIVE_7_OPTIONS &&
+          ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.ELECTIVE_5) ||
+            !user.ELECTIVE_SELECTIONS) &&
+          !submitted && (
+            <ElectiveForm_6thSem
+              ELECTIVE_5_OPTIONS={user.ELECTIVE_5_OPTIONS}
+              ELECTIVE_6_OPTIONS={user.ELECTIVE_6_OPTIONS}
+              ELECTIVE_7_OPTIONS={user.ELECTIVE_7_OPTIONS}
+              setSubmitted={(value) => setSubmitted(value)}
+            />
+          )}
+        {user &&
+          user.CURRENT_SEM === 4 &&
+          user.ELECTIVE_1_OPTIONS &&
+          ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.ELECTIVE_1) ||
+            !user.ELECTIVE_SELECTIONS) &&
+          !submitted && (
+            <ElectiveForm_4thSem
+              setSubmitted={(value) => setSubmitted(value)}
+              ELECTIVE_1_OPTIONS={user.ELECTIVE_1_OPTIONS}
+            />
+          )}
+
         {user &&
           ((user.ELECTIVE_SELECTIONS &&
-            (!user.ELECTIVE_SELECTIONS.ELECTIVE_3 ||
-              !user.ELECTIVE_SELECTIONS.OPEN_ELECTIVE)) ||
+            (!user.ELECTIVE_SELECTIONS.ELECTIVE_1 ||
+              !user.ELECTIVE_SELECTIONS.ELECTIVE_5)) ||
             !user.ELECTIVE_SELECTIONS) &&
           submitted && (
             <Box
@@ -184,13 +208,6 @@ const Dashboard = (props: Props) => {
               <Typography variant="h4">Thank you for your time.</Typography>
               <Typography variant="h5">
                 Electives will be allocated soon.{" "}
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                >
-                  <Button variant="outlined">Click here .</Button>{" "}
-                </a>
               </Typography>
             </Box>
           )}
@@ -205,6 +222,27 @@ const Dashboard = (props: Props) => {
               ELECTIVE_SELECTIONS={user.ELECTIVE_SELECTIONS}
             />
           )}
+        {user &&
+          user.CURRENT_SEM === 6 &&
+          user.ELECTIVE_SELECTIONS &&
+          user.ELECTIVE_SELECTIONS.ELECTIVE_5 && (
+            <ElectiveSelections
+              REGNO={user.REGNO!}
+              semester={user.CURRENT_SEM}
+              ELECTIVE_SELECTIONS={user.ELECTIVE_SELECTIONS}
+            />
+          )}
+        {user &&
+          user.CURRENT_SEM === 4 &&
+          user.ELECTIVE_SELECTIONS &&
+          user.ELECTIVE_SELECTIONS.ELECTIVE_1 && (
+            <ElectiveSelections
+              REGNO={user.REGNO!}
+              semester={user.CURRENT_SEM}
+              ELECTIVE_SELECTIONS={user.ELECTIVE_SELECTIONS}
+            />
+          )}
+
         {/* {user && */}
         {/*   user.CURRENT_SEM === 5 && */}
         {/*   user.ELECTIVE_SELECTIONS && */}

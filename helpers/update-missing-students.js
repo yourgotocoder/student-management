@@ -1,7 +1,12 @@
-const data = require("./resources/MissingStudents.json");
+const parser = require("simple-excel-to-json");
+const data = parser
+  .parseXls2Json("./resources/_4thSem.xlsx")[0]
+  .filter((student) => student.EMAIL);
 const { MongoClient } = require("mongodb");
 const generatePassword = require("generate-password");
 require("dotenv").config();
+
+console.log(data, data.length);
 
 const updateDB = async () => {
   const client = await MongoClient.connect(process.env.DB_CONNECTION);
@@ -10,45 +15,43 @@ const updateDB = async () => {
   const transformData = data.map((student) => ({
     REGNO: student.REGNO,
     NAME: student.NAME,
+    // CGPA: student.CGPA,
     CURRENT_SEM: 4,
-    EMAIL_ID: student.EMAIL_ID,
-    ELECTIVE_1_OPTIONS: [
-      {
-        CODE: "CS1438/CS1431",
-        TITLE: "Microprocessors and Peripheral Devices",
-      },
-      {
-        CODE: "CS1440/CS1425",
-        TITLE: "Internet, Technology and Society",
-      },
-    ],
-    ELECTIVE_2_OPTIONS: [
-      {
-        CODE: "CS1442",
-        TITLE: "User Interface/User Experience (UI/UX) Design",
-      },
-      {
-        CODE: "CS1434",
-        TITLE: "Java Programming",
-      },
-      {
-        CODE: "CS1435",
-        TITLE: "Python Programming",
-      },
-      {
-        CODE: "CS1435",
-        TITLE: "Fundamentals of Web Technology",
-      },
-    ],
+    EMAIL_ID: student.EMAIL,
     DEFAULT_PASSWORD: generatePassword.generate({ length: 10 }),
+    BRANCH: "CSE",
   }));
+
   for (let students of transformData) {
     const foundStudent = await collection.findOne({ REGNO: students.REGNO });
-    if (!foundStudent) {
-      await collection.insertOne(students)
-      console.log(`Inserted ${students.REGNO}`)
+    if (foundStudent) {
+      await collection.updateOne(
+        { REGNO: students.REGNO },
+        {
+          $set: {
+            ELECTIVE_1_OPTIONS: [
+              {
+                CODE: "CS202A3",
+                TITLE: "Java",
+              },
+              {
+                CODE: "CS206A3",
+                TITLE: "ITCT",
+              },
+              {
+                CODE: "CS207A3",
+                TITLE: "CG",
+              },
+              {
+                CODE: "CS210A3",
+                TITLE: "Microprocessor",
+              },
+            ],
+          },
+        }
+      );
+      console.log(`Inserted ${students.REGNO}`);
     }
   }
 };
-
-updateDB()
+updateDB();
