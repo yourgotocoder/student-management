@@ -21,6 +21,6 @@ const updateElective = async (data) => {
   }
 };
 
-const studentsData = parser.parseXls2Json("./resources/CGPA _3rd_SEM.xlsx")[0];
+const studentsData = parser.parseXls2Json("./resources/_6thCGPA.xlsx")[0];
 
 updateElective(studentsData);

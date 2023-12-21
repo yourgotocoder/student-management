@@ -20,9 +20,10 @@ export default async function handler(
       const student = await collection.findOne({ _id: new ObjectId(_id) });
       if (student) {
         if (
-          student.ELECTIVE_SELECTIONS &&
-          (student.ELECTIVE_SELECTIONS.ELECTIVE_3 ||
-            student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE)
+          (student.ELECTIVE_SELECTIONS &&
+            student.CURRENT_SEM === 6 &&
+            student.ELECTIVE_SELECTIONS.ELECTIVE_5) ||
+          (student.CURRENT_SEM === 4 && student.ELECTIVE_SELECTIONS.ELECTIVE_1)
         ) {
           await client.close();
           res

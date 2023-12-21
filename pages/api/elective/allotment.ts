@@ -21,11 +21,11 @@ type Data = {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>,
+  res: NextApiResponse<Data>
 ) {
   if (req.method === "GET") {
     const client = await MongoClient.connect(
-      process.env.DB_CONNECTION as string,
+      process.env.DB_CONNECTION as string
     );
     const sem = req.query.sem && +req.query.sem;
     if (!sem) {
@@ -41,26 +41,26 @@ export default async function handler(
     let missingData: Student[] = [];
     +sem === 5
       ? (missingData = unfilteredStudentData.filter(
-          (student) =>
-            student.CURRENT_SEM === sem &&
-            (!student.ELECTIVE_SELECTIONS ||
-              (student.ELECTIVE_SELECTIONS &&
-                !student.ELECTIVE_SELECTIONS.ELECTIVE_3)),
-        ))
+        (student) =>
+          student.CURRENT_SEM === sem &&
+          (!student.ELECTIVE_SELECTIONS ||
+            (student.ELECTIVE_SELECTIONS &&
+              !student.ELECTIVE_SELECTIONS.ELECTIVE_3))
+      ))
       : (missingData = unfilteredStudentData.filter(
-          (student) =>
-            student.CURRENT_SEM === sem &&
-            (!student.ELECTIVE_SELECTIONS ||
-              (student.ELECTIVE_SELECTIONS &&
-                !student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE)),
-        ));
+        (student) =>
+          student.CURRENT_SEM === sem &&
+          (!student.ELECTIVE_SELECTIONS ||
+            (student.ELECTIVE_SELECTIONS &&
+              !student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE))
+      ));
     missing = missingData.length;
     const filteredData = unfilteredStudentData
       .filter(
         (student) =>
           student.CURRENT_SEM === sem &&
           student.CGPA &&
-          student.ELECTIVE_SELECTIONS,
+          student.ELECTIVE_SELECTIONS
       )
       .map((student) => ({
         REGNO: student.REGNO!,
@@ -72,11 +72,19 @@ export default async function handler(
     const dataToAllocate =
       sem === 5
         ? filteredData.filter(
-            (student) => student.ELECTIVE_SELECTIONS.ELECTIVE_3,
+          (student) => student.ELECTIVE_SELECTIONS.ELECTIVE_3
+        )
+        : sem === 7
+          ? filteredData.filter(
+            (student) => student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE
           )
-        : filteredData.filter(
-            (student) => student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE,
-          );
+          : sem === 4
+            ? filteredData.filter(
+              (student) => student.ELECTIVE_SELECTIONS.ELECTIVE_1
+            )
+            : filteredData.filter(
+              (student) => student.ELECTIVE_SELECTIONS.ELECTIVE_5
+            );
     const finalData = allocateSubjects(dataToAllocate, +sem!);
     const optionDistribution = distributionStats(dataToAllocate, finalData);
     await client.close();

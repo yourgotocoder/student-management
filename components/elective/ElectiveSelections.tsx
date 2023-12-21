@@ -180,6 +180,7 @@ const ElectiveSelections = (props: Props) => {
 
   return (
     <Box sx={{ paddingTop: 2 }}>
+      <>{currentRanking}</>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 350, maxWidth: 750 }} aria-label="simple table">
           <TableHead>

@@ -7,7 +7,10 @@ const sendMail = async () => {
   const db = client.db("cse");
   const collection = db.collection("student-data");
   const db_data = await collection.find().toArray();
-  for (let [index, student] of db_data.entries()) {
+  const filtered_data = db_data.filter(
+    (student) => student.CURRENT_SEM === 4 || student.CURRENT_SEM === 6
+  );
+  for (let [index, student] of filtered_data.entries()) {
     if (student.EMAIL_ID) {
       // Delay required to make sure Outlook email rate limit is not exceeded
       setTimeout(() => {
@@ -25,7 +28,8 @@ const sendMail = async () => {
                   `,
           text: "Email Password",
           onError: (e) => console.log(e),
-          onSuccess: (i) => console.log(`${index + 1}/${db_data.length} done`),
+          onSuccess: (i) =>
+            console.log(`${index + 1}/${filtered_data.length} done`),
         });
       }, (index + 1) * 2000);
     } else {
