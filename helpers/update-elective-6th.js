@@ -58,6 +58,16 @@ const updateElective = async () => {
       ELECTIVE_7_OPTIONS = ELECTIVE_7_OPTIONS.filter(
         (sub) => sub.TITLE !== "Block Chain Coding"
       );
+    } else if (student.MINOR_SPECIALIZATION === "DS") {
+      ELECTIVE_5_OPTIONS = ELECTIVE_5_OPTIONS.filter(
+        (sub) => sub.TITLE != "Data Analytics"
+      );
+      ELECTIVE_6_OPTIONS = ELECTIVE_6_OPTIONS.filter(
+        (sub) => sub.TITLE !== "Internet of Things"
+      );
+      ELECTIVE_7_OPTIONS = ELECTIVE_7_OPTIONS.filter(
+        (sub) => sub.TITLE !== "Big Data"
+      );
     }
     await collection.updateOne(
       { REGNO: student.REGNO },
