@@ -16,11 +16,13 @@ const updateElective = async (data) => {
           {
             $set: {
               MINOR_SPECIALIZATION:
-                student.MINOR_TITLE === "ARTIFICIAL INTELLIGENCE"
+                student.MINOR_CODE === "CS1852"
                   ? "AI"
-                  : student.MINOR_TITLE === "ETHICAL HACKING AND DATA PRIVACY"
-                    ? "EH"
-                    : "",
+                  : student.MINOR_CODE === "CS1851"
+                  ? "EH"
+                  : student.MINOR_CODE === "CS1854"
+                  ? "DS"
+                  : null,
             },
           }
         );

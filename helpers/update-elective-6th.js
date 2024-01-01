@@ -9,10 +9,7 @@ const updateElective = async () => {
   const data = await collection.find().toArray();
 
   const _6thSemData = data.filter(
-    (student) =>
-      student.CURRENT_SEM &&
-      student.CURRENT_SEM == 6 &&
-      !student.ELECTIVE_5_OPTIONS
+    (student) => student.CURRENT_SEM && student.CURRENT_SEM == 6
   );
   console.log(_6thSemData.length);
   for (let [index, student] of _6thSemData.entries()) {
@@ -81,6 +78,7 @@ const updateElective = async () => {
     );
     console.log(`Updated ${index + 1} of ${_6thSemData.length}`);
   }
+  await client.close();
 };
 
 updateElective();
