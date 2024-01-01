@@ -1,4 +1,6 @@
 const { MongoClient } = require("mongodb");
+const { writeFileSync } = require("fs");
+const json2xls = require("json2xls");
 require("dotenv").config();
 
 const updateElective = async () => {
@@ -28,10 +30,25 @@ const updateElective = async () => {
   const _6thData = studentData
     .filter(
       (student) =>
-        student.CURRENT_SEM === 6 && student.CGPA && student.ELECTIVE_SELECTIONS
+        student.CURRENT_SEM === 6 &&
+        student.CGPA &&
+        student.ELECTIVE_SELECTIONS &&
+        student.ELECTIVE_SELECTIONS.ELECTIVE_5
     )
-    .sort((a, b) => b.CGPA - a.CGPA);
-  alloter(_4thDataAIML);
+    .sort((a, b) => b.CGPA - a.CGPA)
+    .map((student) => ({
+      REGNO: student.REGNO,
+      CGPA: student.CGPA,
+      ELECTIVE_SELECTIONS: {
+        ELECTIVE_5: student.ELECTIVE_SELECTIONS.ELECTIVE_5,
+        ELECTIVE_6: student.ELECTIVE_SELECTIONS.ELECTIVE_6,
+        ELECTIVE_7: student.ELECTIVE_SELECTIONS.ELECTIVE_7,
+      },
+    }));
+
+  const _6thXls = json2xls(alloter(_6thData));
+  writeFileSync("_6thData.xlsx", _6thXls, "binary");
+  await client.close();
 };
 
 const alloter = (data) => {
@@ -72,6 +89,8 @@ const alloter = (data) => {
       );
     }
   }
+
+  console.log(optimised_seats);
   const result = [];
   for (let student of data) {
     const student_obj = {
@@ -96,7 +115,6 @@ const alloter = (data) => {
     }
     result.push(student_obj);
   }
-  console.log(optimised_seats);
   console.log(result);
   return result;
 };
