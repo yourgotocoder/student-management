@@ -47,7 +47,11 @@ const updateElective = async () => {
     }));
 
   const _6thXls = json2xls(alloter(_6thData));
+  const _4thXls = json2xls(alloter(_4thData));
+  const _4thAIXls = json2xls(alloter(_4thDataAIML));
   writeFileSync("_6thData.xlsx", _6thXls, "binary");
+  writeFileSync("_4thData.xlsx", _4thXls, "binary");
+  writeFileSync("_4thDataAIML.xlsx", _4thAIXls, "binary");
   await client.close();
 };
 
