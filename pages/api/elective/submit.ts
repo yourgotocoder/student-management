@@ -23,7 +23,9 @@ export default async function handler(
           (student.CURRENT_SEM === 6 &&
             student.ELECTIVE_SELECTIONS &&
             student.ELECTIVE_SELECTIONS.ELECTIVE_5) ||
-          (student.CURRENT_SEM === 4 && student.ELECTIVE_SELECTIONS)
+          (student.CURRENT_SEM === 4 &&
+            student.ELECTIVE_SELECTIONS &&
+            student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE)
         ) {
           await client.close();
           res

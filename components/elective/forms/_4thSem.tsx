@@ -115,7 +115,7 @@ const ElectiveForm_4thSem = (props: Props) => {
       body: JSON.stringify({ elective_selections, _id: id }),
     });
     const data = await response.json();
-
+    console.log(data);
     if (response.ok && data) {
       props.setSubmitted(true);
     }
@@ -127,7 +127,7 @@ const ElectiveForm_4thSem = (props: Props) => {
       <Box sx={{ maxWidth: 600 }}>
         <Stepper activeStep={activeStep} orientation="vertical">
           <Step>
-            <StepLabel>Elective I</StepLabel>
+            <StepLabel>OPEN ELECTIVE </StepLabel>
             <StepContent>
               {/* Option 1 */}
               <FormControl sx={{ m: 1, minWidth: 200 }}>

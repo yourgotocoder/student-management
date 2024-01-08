@@ -11,13 +11,13 @@ const doThings = async () => {
       (student) => student.CURRENT_SEM === 4
     );
 
-    let open_electives_options = [
-      { CODE: "AD201A2", TITLE: "Introduction to Python Programming" },
-      { CODE: "EC10201", TITLE: "Introduction to Internet of Things" },
-      { CODE: "EE201A2", TITLE: "Analog System Design" },
-      { CODE: "ME201A2", TITLE: "Renewable Energy" },
-    ];
     for (let [index, student] of _4thSemStudents.entries()) {
+      let open_electives_options = [
+        { CODE: "AD201A2", TITLE: "Introduction to Python Programming" },
+        { CODE: "EC10201", TITLE: "Introduction to Internet of Things" },
+        { CODE: "EE201A2", TITLE: "Analog System Design" },
+        { CODE: "ME201A2", TITLE: "Renewable Energy" },
+      ];
       if (student.BRANCH === "CSE(AI&ML)") {
         open_electives_options = open_electives_options.filter(
           (subject) => subject.TITLE !== "Introduction to Python Programming"
