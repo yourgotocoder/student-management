@@ -41,6 +41,7 @@ const ElectiveForm_4thSem = (props: Props) => {
   const [elective_1_option_2, setElective1Option2] = useState<string>("");
   const [elective_1_option_3, setElective1Option3] = useState<string>("");
   const [elective_1_option_4, setElective1Option4] = useState<string>("");
+  const [elective_1_option_5, setElective1Option5] = useState<string>("");
 
   const [submitting, setSubmitting] = useState<boolean>(false);
 
@@ -71,6 +72,9 @@ const ElectiveForm_4thSem = (props: Props) => {
             break;
           case 4:
             setElective1Option4(event.target.value);
+            break;
+          case 5:
+            setElective1Option5(event.target.value);
             break;
         }
         break;
@@ -103,6 +107,9 @@ const ElectiveForm_4thSem = (props: Props) => {
         }),
         ...(props.ELECTIVE_1_OPTIONS.length >= 4 && {
           OPTION_4: selected_subject_transformer(elective_1_option_4),
+        }),
+        ...(props.ELECTIVE_1_OPTIONS.length >= 5 && {
+          OPTION_5: selected_subject_transformer(elective_1_option_5),
         }),
       },
     };
@@ -153,7 +160,8 @@ const ElectiveForm_4thSem = (props: Props) => {
                           elective_1_option_1 === subjectName ||
                           elective_1_option_2 === subjectName ||
                           elective_1_option_3 === subjectName ||
-                          elective_1_option_4 === subjectName
+                          elective_1_option_4 === subjectName ||
+                          elective_1_option_5 === subjectName
                         }
                       >
                         {subjectName}
@@ -187,7 +195,8 @@ const ElectiveForm_4thSem = (props: Props) => {
                           elective_1_option_1 === subjectName ||
                           elective_1_option_2 === subjectName ||
                           elective_1_option_3 === subjectName ||
-                          elective_1_option_4 === subjectName
+                          elective_1_option_4 === subjectName ||
+                          elective_1_option_5 === subjectName
                         }
                       >
                         {subjectName}
@@ -221,7 +230,8 @@ const ElectiveForm_4thSem = (props: Props) => {
                           elective_1_option_1 === subjectName ||
                           elective_1_option_2 === subjectName ||
                           elective_1_option_3 === subjectName ||
-                          elective_1_option_4 === subjectName
+                          elective_1_option_4 === subjectName ||
+                          elective_1_option_5 === subjectName
                         }
                       >
                         {subjectName}
@@ -256,7 +266,8 @@ const ElectiveForm_4thSem = (props: Props) => {
                             elective_1_option_1 === subjectName ||
                             elective_1_option_2 === subjectName ||
                             elective_1_option_3 === subjectName ||
-                            elective_1_option_4 === subjectName
+                            elective_1_option_4 === subjectName ||
+                            elective_1_option_5 === subjectName
                           }
                         >
                           {subjectName}
@@ -267,6 +278,42 @@ const ElectiveForm_4thSem = (props: Props) => {
                 </FormControl>
               )}
 
+              {/* Option 5 */}
+              {props.ELECTIVE_1_OPTIONS.length > 4 && (
+                <FormControl sx={{ m: 1, minWidth: 200 }}>
+                  <InputLabel id="demo-simple-select-helper-label">
+                    OPTION 5
+                  </InputLabel>
+                  <Select
+                    value={elective_1_option_5}
+                    onChange={(e: SelectChangeEvent) =>
+                      handleChange(elective_1, 5, e)
+                    }
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                    label="OPTION 5"
+                  >
+                    {props.ELECTIVE_1_OPTIONS.map((option) => {
+                      const subjectName = `${option.CODE} ${option.TITLE}`;
+                      return (
+                        <MenuItem
+                          value={subjectName}
+                          key={option.CODE}
+                          disabled={
+                            elective_1_option_1 === subjectName ||
+                            elective_1_option_2 === subjectName ||
+                            elective_1_option_3 === subjectName ||
+                            elective_1_option_4 === subjectName ||
+                            elective_1_option_5 === subjectName
+                          }
+                        >
+                          {subjectName}
+                        </MenuItem>
+                      );
+                    })}
+                  </Select>
+                </FormControl>
+              )}
               <Box sx={{ mb: 2 }}>
                 <div>
                   <Button
@@ -280,7 +327,9 @@ const ElectiveForm_4thSem = (props: Props) => {
                       (props.ELECTIVE_1_OPTIONS.length > 2 &&
                         elective_1_option_3 === "") ||
                       (props.ELECTIVE_1_OPTIONS.length > 3 &&
-                        elective_1_option_4 === "")
+                        elective_1_option_4 === "") ||
+                      (props.ELECTIVE_1_OPTIONS.length > 4 &&
+                        elective_1_option_5 === "")
                     }
                   >
                     Continue

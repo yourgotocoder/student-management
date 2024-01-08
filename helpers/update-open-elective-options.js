@@ -17,6 +17,7 @@ const doThings = async () => {
         { CODE: "EC10201", TITLE: "Introduction to Internet of Things" },
         { CODE: "EE201A2", TITLE: "Analog System Design" },
         { CODE: "ME201A2", TITLE: "Renewable Energy" },
+        { CODE: "IT211A2", TITLE: "Management Information Systems" },
       ];
       if (student.BRANCH === "CSE(AI&ML)") {
         open_electives_options = open_electives_options.filter(
