@@ -111,7 +111,7 @@ const ElectiveSelections = (props: Props) => {
         rows.push({
           FIRST_COLUMN: `OPTION ${index + 1}`,
           SECOND_COLUMN:
-            props.ELECTIVE_SELECTIONS["ELECTIVE_1"][`OPTION_${index + 1}`],
+            props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE"][`OPTION_${index + 1}`],
         });
       }
     } else if (props.semester === 5) {

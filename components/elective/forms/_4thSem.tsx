@@ -93,7 +93,7 @@ const ElectiveForm_4thSem = (props: Props) => {
     };
 
     const elective_selections = {
-      ELECTIVE_1: {
+      OPEN_ELECTIVE: {
         OPTION_1: selected_subject_transformer(elective_1_option_1),
         ...(props.ELECTIVE_1_OPTIONS.length >= 2 && {
           OPTION_2: selected_subject_transformer(elective_1_option_2),

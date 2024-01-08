@@ -7,49 +7,33 @@ const doThings = async () => {
     const db = client.db("cse");
     const collection = db.collection("student-data");
     const studentData = await collection.find().toArray();
-    const _7thSemStudents = studentData.filter(
-      (student) => student.CURRENT_SEM === 7
+    const _4thSemStudents = studentData.filter(
+      (student) => student.CURRENT_SEM === 4
     );
-    const open_electives_options = [
-      { CODE: "CE1721", TITLE: "Fundamental of Remote Sensing and GIS" },
-      { CODE: "CE1741", TITLE: "Optimization Techniques" },
-      { CODE: "CS1728/CS1701", TITLE: "Distributed System" },
-      { CODE: "EC1724", TITLE: "Nano Electronics" },
-      { CODE: "EE1724", TITLE: "Machine Learning" },
-      { CODE: "IT1724", TITLE: "Geographical Information Systems" },
-      { CODE: "BA1721", TITLE: "Enterpreneurship for Engineers" },
-      { CODE: "ME1726", TITLE: "Financial Planning and Analysis" },
-      { CODE: "AD1722", TITLE: "AI in Healthcare" },
+
+    let open_electives_options = [
+      { CODE: "AD201A2", TITLE: "Introduction to Python Programming" },
+      { CODE: "EC10201", TITLE: "Introduction to Internet of Things" },
+      { CODE: "EE201A2", TITLE: "Analog System Design" },
+      { CODE: "ME201A2", TITLE: "Renewable Energy" },
     ];
-    for (let [index, student] of _7thSemStudents.entries()) {
-      const previous_subjects = [];
-      student.ELECTIVE_1 && previous_subjects.push(student.ELECTIVE_1.TITLE);
-      student.ELECTIVE_2 && previous_subjects.push(student.ELECTIVE_2.TITLE);
-      student.ELECTIVE_4 && previous_subjects.push(student.ELECTIVE_4.TITLE);
-      student.ELECTIVE_5 && previous_subjects.push(student.ELECTIVE_5.TITLE);
-      student.ELECTIVE_7 && previous_subjects.push(student.ELECTIVE_7.TITLE);
-      student.ELECTIVE_8 && previous_subjects.push(student.ELECTIVE_8.TITLE);
-      let open_options = [...open_electives_options];
-      if (previous_subjects.includes("ARTIFICIAL INTELLIGENCE")) {
-        open_options = open_options.filter(
-          (subject) => subject.TITLE !== "AI in Healthcare"
-        );
-      }
-      if (previous_subjects.includes("MACHINE LEARNING")) {
-        open_options = open_options.filter(
-          (subject) => subject.TITLE !== "Machine Learning"
+    for (let [index, student] of _4thSemStudents.entries()) {
+      if (student.BRANCH === "CSE(AI&ML)") {
+        open_electives_options = open_electives_options.filter(
+          (subject) => subject.TITLE !== "Introduction to Python Programming"
         );
       }
       await collection.updateOne(
         { REGNO: student.REGNO },
         {
           $set: {
-            OPEN_ELECTIVE_OPTIONS: open_options,
+            OPEN_ELECTIVE_OPTIONS: open_electives_options,
           },
         }
       );
-      console.log(`Update ${index + 1} of ${_7thSemStudents.length}`);
+      console.log(`Update ${index + 1} of ${_4thSemStudents.length}`);
     }
   }
+  await client.close();
 };
 doThings();
