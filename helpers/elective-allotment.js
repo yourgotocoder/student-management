@@ -14,18 +14,34 @@ const updateElective = async () => {
         student.CURRENT_SEM === 4 &&
         student.CGPA &&
         student.ELECTIVE_SELECTIONS &&
+        student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE &&
         student.BRANCH === "CSE"
     )
-    .sort((a, b) => b.CGPA - a.CGPA);
+    .sort((a, b) => b.CGPA - a.CGPA)
+    .map((student) => ({
+      REGNO: student.REGNO,
+      CGPA: student.CGPA,
+      ELECTIVE_SELECTIONS: {
+        OPEN_ELECTIVE: student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE,
+      },
+    }));
   const _4thDataAIML = studentData
     .filter(
       (student) =>
         student.CURRENT_SEM === 4 &&
         student.CGPA &&
         student.ELECTIVE_SELECTIONS &&
+        student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE &&
         student.BRANCH === "CSE(AI&ML)"
     )
-    .sort((a, b) => b.CGPA - a.CGPA);
+    .sort((a, b) => b.CGPA - a.CGPA)
+    .map((student) => ({
+      REGNO: student.REGNO,
+      CGPA: student.CGPA,
+      ELECTIVE_SELECTIONS: {
+        OPEN_ELECTIVE: student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE,
+      },
+    }));
 
   const _6thData = studentData
     .filter(
