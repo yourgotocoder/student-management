@@ -1,6 +1,6 @@
 const parser = require("simple-excel-to-json");
 const data = parser
-  .parseXls2Json("./resources/_6thSem.xlsx")[0]
+  .parseXls2Json("./resources/CSE_AIML.xlsx")[0]
   .filter((student) => student.EMAIL_ID);
 const { MongoClient } = require("mongodb");
 const generatePassword = require("generate-password");
@@ -17,9 +17,10 @@ const updateDB = async () => {
     REGNO: student.REGNO,
     NAME: student.NAME,
     EMAIL_ID: student.EMAIL_ID || "",
-    CURRENT_SEM: 6,
+    CURRENT_SEM: 4,
+    CGPA: student.CGPA,
     DEFAULT_PASSWORD: generatePassword.generate({ length: 10 }),
-    BRANCH: "CSE",
+    BRANCH: "CSE(AI&ML)",
   }));
 
   for (let students of transformData) {
@@ -29,5 +30,6 @@ const updateDB = async () => {
       console.log(`Inserted ${students.REGNO}`);
     }
   }
+  await client.close();
 };
 updateDB();
