@@ -21,6 +21,7 @@ interface Student extends Document {
   ELECTIVE_5_OPTIONS?: Subject[];
   ELECTIVE_7_OPTIONS?: Subject[];
   ELECTIVE_8_OPTIONS?: Subject[];
+  ELECTIVE_9_OPTIONS?: Subject[];
   ELECTIVE_SELECTIONS?: {
     ELECTIVE_1?: {
       OPTION_1: Subject;
@@ -52,6 +53,10 @@ interface Student extends Document {
     ELECTIVE_8?: {
       [key: string]: Subject;
     };
+    ELECTIVE_9?: {
+      [key: string]: Subject;
+    };
+
     OPEN_ELECTIVE?: {
       [key: string]: Subject;
     };

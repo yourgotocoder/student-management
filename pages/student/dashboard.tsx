@@ -184,14 +184,25 @@ const Dashboard = (props: Props) => {
           )}
         {user &&
           user.CURRENT_SEM === 7 &&
-          user.ELECTIVE_2_OPTIONS &&
-          ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.ELECTIVE_2) ||
+          user.ELECTIVE_8_OPTIONS &&
+          ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.ELECTIVE_8) ||
             !user.ELECTIVE_SELECTIONS) &&
           !submitted && (
             <ElectiveForm_7thSem
               setSubmitted={(value) => setSubmitted(value)}
               ELECTIVE_8_OPTIONS={user.ELECTIVE_8_OPTIONS!}
               ELECTIVE_9_OPTIONS={user.ELECTIVE_9_OPTIONS!}
+            />
+          )}
+        {user &&
+          user.CURRENT_SEM === 5 &&
+          user.ELECTIVE_2_OPTIONS &&
+          ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.ELECTIVE_2) ||
+            !user.ELECTIVE_SELECTIONS) &&
+          !submitted && (
+            <ElectiveForm_5thSem
+              setSubmitted={(value) => setSubmitted(value)}
+              ELECTIVE_2_OPTIONS={user.ELECTIVE_2_OPTIONS!}
             />
           )}
 

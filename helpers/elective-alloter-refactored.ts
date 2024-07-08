@@ -31,7 +31,7 @@ export interface IElectiveData {
  */
 const allocateSubjects = (
   data: ISelectionData[],
-  sem: number
+  sem: number,
 ): IElectiveData[] => {
   let result: IElectiveData[] = [];
   const seats = seatDistributorRefactored(data);
@@ -60,10 +60,7 @@ const allocateSubjects = (
   let seatInitialzer = 1;
   switch (sem) {
     case 5:
-      while (
-        result.some((student) => !student.ELECTIVE_3) ||
-        result.some((student) => !student.ELECTIVE_4)
-      ) {
+      while (result.some((student) => !student.ELECTIVE_2)) {
         result = [];
         let seats_5 = seatDistributorRefactored(data, seatInitialzer);
         for (let student of data) {
@@ -92,7 +89,7 @@ const allocateSubjects = (
       break;
     case 7:
       while (
-        result.some((student) => !student.OPEN_ELECTIVE)
+        result.some((student) => !student.ELECTIVE_9)
         // result.some((student) => !student.ELECTIVE_7)
       ) {
         result = [];

@@ -293,6 +293,82 @@ const ElectiveForm_5thSem = (props: Props) => {
                 </FormControl>
               )}
 
+              {/* Option 5 */}
+              {props.ELECTIVE_2_OPTIONS.length > 4 && (
+                <FormControl sx={{ m: 1, minWidth: 200 }}>
+                  <InputLabel id="demo-simple-select-helper-label">
+                    OPTION 5
+                  </InputLabel>
+                  <Select
+                    value={elective_2_option_5}
+                    onChange={(e: SelectChangeEvent) =>
+                      handleChange(elective_2, 5, e)
+                    }
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                    label="OPTION 5"
+                  >
+                    {props.ELECTIVE_2_OPTIONS.map((option) => {
+                      const subjectName = `${option.CODE} ${option.TITLE}`;
+                      return (
+                        <MenuItem
+                          value={subjectName}
+                          key={option.CODE}
+                          disabled={
+                            elective_2_option_1 === subjectName ||
+                            elective_2_option_2 === subjectName ||
+                            elective_2_option_3 === subjectName ||
+                            elective_2_option_4 === subjectName ||
+                            elective_2_option_5 === subjectName ||
+                            elective_2_option_6 === subjectName
+                          }
+                        >
+                          {subjectName}
+                        </MenuItem>
+                      );
+                    })}
+                  </Select>
+                </FormControl>
+              )}
+
+              {/* Option 6 */}
+              {props.ELECTIVE_2_OPTIONS.length > 5 && (
+                <FormControl sx={{ m: 1, minWidth: 200 }}>
+                  <InputLabel id="demo-simple-select-helper-label">
+                    OPTION 6
+                  </InputLabel>
+                  <Select
+                    value={elective_2_option_6}
+                    onChange={(e: SelectChangeEvent) =>
+                      handleChange(elective_2, 6, e)
+                    }
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                    label="OPTION 6"
+                  >
+                    {props.ELECTIVE_2_OPTIONS.map((option) => {
+                      const subjectName = `${option.CODE} ${option.TITLE}`;
+                      return (
+                        <MenuItem
+                          value={subjectName}
+                          key={option.CODE}
+                          disabled={
+                            elective_2_option_1 === subjectName ||
+                            elective_2_option_2 === subjectName ||
+                            elective_2_option_3 === subjectName ||
+                            elective_2_option_4 === subjectName ||
+                            elective_2_option_5 === subjectName ||
+                            elective_2_option_6 === subjectName
+                          }
+                        >
+                          {subjectName}
+                        </MenuItem>
+                      );
+                    })}
+                  </Select>
+                </FormControl>
+              )}
+
               <Box sx={{ mb: 2 }}>
                 <div>
                   <Button
@@ -313,14 +389,14 @@ const ElectiveForm_5thSem = (props: Props) => {
                         elective_2_option_6 === "")
                     }
                   >
-                    {activeStep === 2 ? "Finish" : "Continue"}
+                    {activeStep === 1 ? "Finish" : "Continue"}
                   </Button>
                 </div>
               </Box>
             </StepContent>
           </Step>
         </Stepper>
-        {activeStep === 2 && (
+        {activeStep === 1 && (
           <Paper square elevation={0} sx={{ p: 3 }}>
             <Button
               onClick={handleSubmit}
