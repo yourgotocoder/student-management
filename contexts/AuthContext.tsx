@@ -19,6 +19,7 @@ type UserType = {
   ELECTIVE_4?: Subject;
   ELECTIVE_7?: Subject;
   ELECTIVE_8?: Subject;
+  ELECTIVE_9?: Subject;
   OPEN_ELECTIVE?: Subject;
   ELECTIVE_1_OPTIONS?: Subject[];
   ELECTIVE_2_OPTIONS?: Subject[];
@@ -28,6 +29,7 @@ type UserType = {
   ELECTIVE_6_OPTIONS?: Subject[];
   ELECTIVE_7_OPTIONS?: Subject[];
   ELECTIVE_8_OPTIONS?: Subject[];
+  ELECTIVE_9_OPTIONS?: Subject[];
   OPEN_ELECTIVE_OPTIONS?: Subject[];
   ELECTIVE_SELECTIONS?: any;
 };
@@ -41,8 +43,8 @@ type AuthContextType = {
 
 const AuthContext = createContext<AuthContextType>({
   user: undefined,
-  setUser(userData: UserType) { },
-  logout() { },
+  setUser(userData: UserType) {},
+  logout() {},
   loading: true,
 });
 
@@ -68,6 +70,7 @@ export function AuthContextProvider(props: Props) {
     ELECTIVE_5_OPTIONS: undefined,
     ELECTIVE_7_OPTIONS: undefined,
     ELECTIVE_8_OPTIONS: undefined,
+    ELECTIVE_9_OPTIONS: undefined,
   });
 
   const [loading, setLoading] = useState(true);

@@ -14,13 +14,13 @@ const updateElective = async (data) => {
         { REGNO: student.REGNO },
         {
           $set: { CGPA: student.CGPA },
-        }
+        },
       );
     }
     console.log(`Updated ${index + 1} of ${data.length}`);
   }
 };
 
-const studentsData = parser.parseXls2Json("./resources/_6thCGPA.xlsx")[0];
+const studentsData = parser.parseXls2Json("./resources/CGPA.xlsx")[0];
 
 updateElective(studentsData);

@@ -40,14 +40,14 @@ const Dashboard = (props: Props) => {
       if (user) {
         if (user.CURRENT_SEM === 7) {
           setOptions([
-            { title: "Open Elective", subjects: user.OPEN_ELECTIVE_OPTIONS },
-            // { title: "Elective VII", subjects: user.ELECTIVE_7_OPTIONS },
-            // { title: "ELECTIVE VIII", subjects: user.ELECTIVE_8_OPTIONS },
+            // { title: "Open Elective", subjects: user.OPEN_ELECTIVE_OPTIONS },
+            { title: "Elective VIII", subjects: user.ELECTIVE_8_OPTIONS },
+            { title: "ELECTIVE IX", subjects: user.ELECTIVE_9_OPTIONS },
           ]);
         } else if (user.CURRENT_SEM === 5) {
           setOptions([
-            { title: "Elective III", subjects: user.ELECTIVE_3_OPTIONS },
-            { title: "Elective IV", subjects: user.ELECTIVE_4_OPTIONS },
+            { title: "Elective II", subjects: user.ELECTIVE_2_OPTIONS },
+            // { title: "Elective IV", subjects: user.ELECTIVE_4_OPTIONS },
           ]);
         } else if (user.CURRENT_SEM === 4) {
           setOptions([
@@ -102,15 +102,15 @@ const Dashboard = (props: Props) => {
           padding: "1rem 0.4rem",
         }}
       >
-        {user &&
-          user.CURRENT_SEM === 5 &&
-          (!user.ELECTIVE_SELECTIONS ||
-            (user.ELECTIVE_SELECTIONS &&
-              !user.ELECTIVE_SELECTIONS.ELECTIVE_3)) && (
-            <Typography>
-              You missed the slot to apply for electives online
-            </Typography>
-          )}
+        {/* {user && */}
+        {/*   user.CURRENT_SEM === 5 && */}
+        {/*   (!user.ELECTIVE_SELECTIONS || */}
+        {/*     (user.ELECTIVE_SELECTIONS && */}
+        {/*       !user.ELECTIVE_SELECTIONS.ELECTIVE_2)) && ( */}
+        {/*     <Typography> */}
+        {/*       You missed the slot to apply for electives online */}
+        {/*     </Typography> */}
+        {/*   )} */}
         {/* {user && */}
         {/*   user.CURRENT_SEM === 7 && */}
         {/*   (!user.ELECTIVE_SELECTIONS || */}
@@ -120,43 +120,35 @@ const Dashboard = (props: Props) => {
         {/*       You missed the slot to apply for electives online */}
         {/*     </Typography> */}
         {/*   )} */}
-        {user &&
-          user.CURRENT_SEM === 5 &&
-          user.ELECTIVE_3 &&
-          user.ELECTIVE_4 && (
-            <Typography variant="h6" textAlign="center">
-              Your final electives are {"  "}
-              <br />
-              <Chip label={user.ELECTIVE_3.TITLE} color="success"></Chip> {"  "}
-              {} and {"  "}
-              <Chip label={user.ELECTIVE_4.TITLE} color="success"></Chip>
-            </Typography>
-          )}
+        {user && user.CURRENT_SEM === 5 && user.ELECTIVE_2 && (
+          <Typography variant="h6" textAlign="center">
+            Your final electives are {"  "}
+            <br />
+            <Chip label={user.ELECTIVE_2.TITLE} color="success"></Chip> {"  "}
+          </Typography>
+        )}
         {user &&
           user.CURRENT_SEM === 7 &&
-          user.ELECTIVE_7 &&
           user.ELECTIVE_8 &&
-          user.OPEN_ELECTIVE && (
+          user.ELECTIVE_9 && (
             <>
               <Typography variant="h6" textAlign="center">
                 Your final electives are {"  "}
                 <br />
-                <Chip label={user.ELECTIVE_7.TITLE} color="success"></Chip>{" "}
-                {"  "},{"  "}
                 <Chip label={user.ELECTIVE_8.TITLE} color="success"></Chip>{" "}
-                {"  "}, &{" "}
-                <Chip label={user.OPEN_ELECTIVE.TITLE} color="success"></Chip>
+                {"  "},{"  "}
+                <Chip label={user.ELECTIVE_9.TITLE} color="success"></Chip>{" "}
               </Typography>
             </>
           )}
 
-        {user &&
-          user.CURRENT_SEM === 7 &&
-          user.OPEN_ELECTIVE_OPTIONS &&
-          ((user.ELECTIVE_SELECTIONS &&
-            !user.ELECTIVE_SELECTIONS.OPEN_ELECTIVE) ||
-            !user.ELECTIVE_SELECTIONS) &&
-          !submitted && <Typography>Sorry, time is up</Typography>}
+        {/* {user && */}
+        {/*   user.CURRENT_SEM === 7 && */}
+        {/*   user.OPEN_ELECTIVE_OPTIONS && */}
+        {/*   ((user.ELECTIVE_SELECTIONS && */}
+        {/*     !user.ELECTIVE_SELECTIONS.OPEN_ELECTIVE) || */}
+        {/*     !user.ELECTIVE_SELECTIONS) && */}
+        {/*   !submitted && <Typography>Sorry, time is up</Typography>} */}
         {/* <ElectiveForm_7thSem_Open */}
         {/*   OPEN_ELECTIVE_OPTIONS={user.OPEN_ELECTIVE_OPTIONS} */}
         {/*   // ELECTIVE_8_OPTIONS={user.ELECTIVE_8_OPTIONS} */}
@@ -190,6 +182,18 @@ const Dashboard = (props: Props) => {
               ELECTIVE_1_OPTIONS={user.OPEN_ELECTIVE_OPTIONS}
             />
           )}
+        {user &&
+          user.CURRENT_SEM === 7 &&
+          user.ELECTIVE_2_OPTIONS &&
+          ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.ELECTIVE_2) ||
+            !user.ELECTIVE_SELECTIONS) &&
+          !submitted && (
+            <ElectiveForm_7thSem
+              setSubmitted={(value) => setSubmitted(value)}
+              ELECTIVE_8_OPTIONS={user.ELECTIVE_8_OPTIONS!}
+              ELECTIVE_9_OPTIONS={user.ELECTIVE_9_OPTIONS!}
+            />
+          )}
 
         {user &&
           ((user.ELECTIVE_SELECTIONS &&
@@ -215,8 +219,8 @@ const Dashboard = (props: Props) => {
         {user &&
           (user.CURRENT_SEM === 7 || user.CURRENT_SEM === 5) &&
           user.ELECTIVE_SELECTIONS &&
-          (user.ELECTIVE_SELECTIONS.OPEN_ELECTIVE ||
-            user.ELECTIVE_SELECTIONS.ELECTIVE_3) && (
+          (user.ELECTIVE_SELECTIONS.ELECTIVE_2 ||
+            user.ELECTIVE_SELECTIONS.ELECTIVE_9) && (
             <ElectiveSelections
               REGNO={user.REGNO!}
               semester={user.CURRENT_SEM}

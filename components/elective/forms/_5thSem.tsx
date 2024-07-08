@@ -19,13 +19,11 @@ import {
 import Loading from "../../UI/Loading";
 
 type Props = {
-  ELECTIVE_3_OPTIONS: Subject[];
-  ELECTIVE_4_OPTIONS: Subject[];
+  ELECTIVE_2_OPTIONS: Subject[];
   setSubmitted: (value: boolean) => void;
 };
 
-const elective_3 = "elective_3";
-const elective_4 = "elective_4";
+const elective_2 = "elective_2";
 
 const ElectiveForm_5thSem = (props: Props) => {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -39,15 +37,12 @@ const ElectiveForm_5thSem = (props: Props) => {
     }
   }, []);
 
-  const [elective_3_option_1, setElective3Option1] = useState<string>("");
-  const [elective_3_option_2, setElective3Option2] = useState<string>("");
-  const [elective_3_option_3, setElective3Option3] = useState<string>("");
-  const [elective_3_option_4, setElective3Option4] = useState<string>("");
-
-  const [elective_4_option_1, setElective4Option1] = useState<string>("");
-  const [elective_4_option_2, setElective4Option2] = useState<string>("");
-  const [elective_4_option_3, setElective4Option3] = useState<string>("");
-  const [elective_4_option_4, setElective4Option4] = useState<string>("");
+  const [elective_2_option_1, setElective2Option1] = useState<string>("");
+  const [elective_2_option_2, setElective2Option2] = useState<string>("");
+  const [elective_2_option_3, setElective2Option3] = useState<string>("");
+  const [elective_2_option_4, setElective2Option4] = useState<string>("");
+  const [elective_2_option_5, setElective2Option5] = useState<string>("");
+  const [elective_2_option_6, setElective2Option6] = useState<string>("");
 
   const [submitting, setSubmitting] = useState<boolean>(false);
 
@@ -62,38 +57,28 @@ const ElectiveForm_5thSem = (props: Props) => {
   const handleChange = (
     elective: string,
     option_number: number,
-    event: SelectChangeEvent
+    event: SelectChangeEvent,
   ) => {
     switch (elective) {
-      case elective_3:
+      case elective_2:
         switch (option_number) {
           case 1:
-            setElective3Option1(event.target.value);
+            setElective2Option1(event.target.value);
             break;
           case 2:
-            setElective3Option2(event.target.value);
+            setElective2Option2(event.target.value);
             break;
           case 3:
-            setElective3Option3(event.target.value);
+            setElective2Option3(event.target.value);
             break;
           case 4:
-            setElective3Option4(event.target.value);
+            setElective2Option4(event.target.value);
             break;
-        }
-        break;
-      case elective_4:
-        switch (option_number) {
-          case 1:
-            setElective4Option1(event.target.value);
+          case 5:
+            setElective2Option5(event.target.value);
             break;
-          case 2:
-            setElective4Option2(event.target.value);
-            break;
-          case 3:
-            setElective4Option3(event.target.value);
-            break;
-          case 4:
-            setElective4Option4(event.target.value);
+          case 6:
+            setElective2Option6(event.target.value);
             break;
         }
         break;
@@ -116,28 +101,22 @@ const ElectiveForm_5thSem = (props: Props) => {
     };
 
     const elective_selections = {
-      ELECTIVE_3: {
-        OPTION_1: selected_subject_transformer(elective_3_option_1),
-        ...(props.ELECTIVE_3_OPTIONS.length >= 2 && {
-          OPTION_2: selected_subject_transformer(elective_3_option_2),
+      ELECTIVE_2: {
+        OPTION_1: selected_subject_transformer(elective_2_option_1),
+        ...(props.ELECTIVE_2_OPTIONS.length >= 2 && {
+          OPTION_2: selected_subject_transformer(elective_2_option_2),
         }),
-        ...(props.ELECTIVE_3_OPTIONS.length >= 3 && {
-          OPTION_3: selected_subject_transformer(elective_3_option_3),
+        ...(props.ELECTIVE_2_OPTIONS.length >= 3 && {
+          OPTION_3: selected_subject_transformer(elective_2_option_3),
         }),
-        ...(props.ELECTIVE_3_OPTIONS.length >= 4 && {
-          OPTION_4: selected_subject_transformer(elective_3_option_4),
+        ...(props.ELECTIVE_2_OPTIONS.length >= 4 && {
+          OPTION_4: selected_subject_transformer(elective_2_option_4),
         }),
-      },
-      ELECTIVE_4: {
-        OPTION_1: selected_subject_transformer(elective_4_option_1),
-        ...(props.ELECTIVE_4_OPTIONS.length >= 2 && {
-          OPTION_2: selected_subject_transformer(elective_4_option_2),
+        ...(props.ELECTIVE_2_OPTIONS.length >= 5 && {
+          OPTION_5: selected_subject_transformer(elective_2_option_5),
         }),
-        ...(props.ELECTIVE_4_OPTIONS.length >= 3 && {
-          OPTION_3: selected_subject_transformer(elective_4_option_3),
-        }),
-        ...(props.ELECTIVE_4_OPTIONS.length >= 4 && {
-          OPTION_4: selected_subject_transformer(elective_4_option_4),
+        ...(props.ELECTIVE_2_OPTIONS.length >= 6 && {
+          OPTION_6: selected_subject_transformer(elective_2_option_6),
         }),
       },
     };
@@ -170,25 +149,27 @@ const ElectiveForm_5thSem = (props: Props) => {
                   OPTION 1
                 </InputLabel>
                 <Select
-                  value={elective_3_option_1}
+                  value={elective_2_option_1}
                   onChange={(e: SelectChangeEvent) =>
-                    handleChange(elective_3, 1, e)
+                    handleChange(elective_2, 1, e)
                   }
                   displayEmpty
                   inputProps={{ "aria-label": "Without label" }}
                   label="OPTION 1"
                 >
-                  {props.ELECTIVE_3_OPTIONS.map((option) => {
+                  {props.ELECTIVE_2_OPTIONS.map((option) => {
                     const subjectName = `${option.CODE} ${option.TITLE}`;
                     return (
                       <MenuItem
                         value={subjectName}
                         key={option.CODE}
                         disabled={
-                          elective_3_option_1 === subjectName ||
-                          elective_3_option_2 === subjectName ||
-                          elective_3_option_3 === subjectName ||
-                          elective_3_option_4 === subjectName
+                          elective_2_option_1 === subjectName ||
+                          elective_2_option_2 === subjectName ||
+                          elective_2_option_3 === subjectName ||
+                          elective_2_option_4 === subjectName ||
+                          elective_2_option_5 === subjectName ||
+                          elective_2_option_6 === subjectName
                         }
                       >
                         {subjectName}
@@ -199,31 +180,33 @@ const ElectiveForm_5thSem = (props: Props) => {
               </FormControl>
 
               {/* Option 2 */}
-              {props.ELECTIVE_3_OPTIONS.length > 1 && (
+              {props.ELECTIVE_2_OPTIONS.length > 1 && (
                 <FormControl sx={{ m: 1, minWidth: 200 }}>
                   <InputLabel id="demo-simple-select-helper-label">
                     OPTION 2
                   </InputLabel>
                   <Select
-                    value={elective_3_option_2}
+                    value={elective_2_option_2}
                     onChange={(e: SelectChangeEvent) =>
-                      handleChange(elective_3, 2, e)
+                      handleChange(elective_2, 2, e)
                     }
                     displayEmpty
                     inputProps={{ "aria-label": "Without label" }}
                     label="OPTION 2"
                   >
-                    {props.ELECTIVE_3_OPTIONS.map((option) => {
+                    {props.ELECTIVE_2_OPTIONS.map((option) => {
                       const subjectName = `${option.CODE} ${option.TITLE}`;
                       return (
                         <MenuItem
                           value={subjectName}
                           key={option.CODE}
                           disabled={
-                            elective_3_option_1 === subjectName ||
-                            elective_3_option_2 === subjectName ||
-                            elective_3_option_3 === subjectName ||
-                            elective_3_option_4 === subjectName
+                            elective_2_option_1 === subjectName ||
+                            elective_2_option_2 === subjectName ||
+                            elective_2_option_3 === subjectName ||
+                            elective_2_option_4 === subjectName ||
+                            elective_2_option_5 === subjectName ||
+                            elective_2_option_6 === subjectName
                           }
                         >
                           {subjectName}
@@ -235,31 +218,33 @@ const ElectiveForm_5thSem = (props: Props) => {
               )}
 
               {/* Option 3 */}
-              {props.ELECTIVE_3_OPTIONS.length > 2 && (
+              {props.ELECTIVE_2_OPTIONS.length > 2 && (
                 <FormControl sx={{ m: 1, minWidth: 200 }}>
                   <InputLabel id="demo-simple-select-helper-label">
                     OPTION 3
                   </InputLabel>
                   <Select
-                    value={elective_3_option_3}
+                    value={elective_2_option_3}
                     onChange={(e: SelectChangeEvent) =>
-                      handleChange(elective_3, 3, e)
+                      handleChange(elective_2, 3, e)
                     }
                     displayEmpty
                     inputProps={{ "aria-label": "Without label" }}
                     label="OPTION 3"
                   >
-                    {props.ELECTIVE_3_OPTIONS.map((option) => {
+                    {props.ELECTIVE_2_OPTIONS.map((option) => {
                       const subjectName = `${option.CODE} ${option.TITLE}`;
                       return (
                         <MenuItem
                           value={subjectName}
                           key={option.CODE}
                           disabled={
-                            elective_3_option_1 === subjectName ||
-                            elective_3_option_2 === subjectName ||
-                            elective_3_option_3 === subjectName ||
-                            elective_3_option_4 === subjectName
+                            elective_2_option_1 === subjectName ||
+                            elective_2_option_2 === subjectName ||
+                            elective_2_option_3 === subjectName ||
+                            elective_2_option_4 === subjectName ||
+                            elective_2_option_5 === subjectName ||
+                            elective_2_option_6 === subjectName
                           }
                         >
                           {subjectName}
@@ -271,31 +256,33 @@ const ElectiveForm_5thSem = (props: Props) => {
               )}
 
               {/* Option 4 */}
-              {props.ELECTIVE_3_OPTIONS.length > 3 && (
+              {props.ELECTIVE_2_OPTIONS.length > 3 && (
                 <FormControl sx={{ m: 1, minWidth: 200 }}>
                   <InputLabel id="demo-simple-select-helper-label">
                     OPTION 4
                   </InputLabel>
                   <Select
-                    value={elective_3_option_4}
+                    value={elective_2_option_4}
                     onChange={(e: SelectChangeEvent) =>
-                      handleChange(elective_3, 4, e)
+                      handleChange(elective_2, 4, e)
                     }
                     displayEmpty
                     inputProps={{ "aria-label": "Without label" }}
                     label="OPTION 4"
                   >
-                    {props.ELECTIVE_3_OPTIONS.map((option) => {
+                    {props.ELECTIVE_2_OPTIONS.map((option) => {
                       const subjectName = `${option.CODE} ${option.TITLE}`;
                       return (
                         <MenuItem
                           value={subjectName}
                           key={option.CODE}
                           disabled={
-                            elective_3_option_1 === subjectName ||
-                            elective_3_option_2 === subjectName ||
-                            elective_3_option_3 === subjectName ||
-                            elective_3_option_4 === subjectName
+                            elective_2_option_1 === subjectName ||
+                            elective_2_option_2 === subjectName ||
+                            elective_2_option_3 === subjectName ||
+                            elective_2_option_4 === subjectName ||
+                            elective_2_option_5 === subjectName ||
+                            elective_2_option_6 === subjectName
                           }
                         >
                           {subjectName}
@@ -313,191 +300,20 @@ const ElectiveForm_5thSem = (props: Props) => {
                     onClick={handleNext}
                     sx={{ mt: 1, mr: 1 }}
                     disabled={
-                      elective_3_option_1 === "" ||
-                      (props.ELECTIVE_3_OPTIONS.length > 1 &&
-                        elective_3_option_2 === "") ||
-                      (props.ELECTIVE_3_OPTIONS.length > 2 &&
-                        elective_3_option_3 === "") ||
-                      (props.ELECTIVE_3_OPTIONS.length > 3 &&
-                        elective_3_option_4 === "")
+                      elective_2_option_1 === "" ||
+                      (props.ELECTIVE_2_OPTIONS.length > 1 &&
+                        elective_2_option_2 === "") ||
+                      (props.ELECTIVE_2_OPTIONS.length > 2 &&
+                        elective_2_option_3 === "") ||
+                      (props.ELECTIVE_2_OPTIONS.length > 3 &&
+                        elective_2_option_4 === "") ||
+                      (props.ELECTIVE_2_OPTIONS.length > 4 &&
+                        elective_2_option_5 === "") ||
+                      (props.ELECTIVE_2_OPTIONS.length > 5 &&
+                        elective_2_option_6 === "")
                     }
                   >
                     {activeStep === 2 ? "Finish" : "Continue"}
-                  </Button>
-                </div>
-              </Box>
-            </StepContent>
-          </Step>
-
-          <Step>
-            <StepLabel>Elective III</StepLabel>
-            <StepContent>
-              {/* Option 1 */}
-              <FormControl sx={{ m: 1, minWidth: 200 }}>
-                <InputLabel id="demo-simple-select-helper-label">
-                  OPTION 1
-                </InputLabel>
-                <Select
-                  value={elective_4_option_1}
-                  onChange={(e: SelectChangeEvent) =>
-                    handleChange(elective_4, 1, e)
-                  }
-                  displayEmpty
-                  inputProps={{ "aria-label": "Without label" }}
-                  label="OPTION 1"
-                >
-                  {props.ELECTIVE_4_OPTIONS.map((option) => {
-                    const subjectName = `${option.CODE} ${option.TITLE}`;
-                    return (
-                      <MenuItem
-                        value={subjectName}
-                        key={option.CODE}
-                        disabled={
-                          elective_4_option_1 === subjectName ||
-                          elective_4_option_2 === subjectName ||
-                          elective_4_option_3 === subjectName ||
-                          elective_4_option_4 === subjectName
-                        }
-                      >
-                        {subjectName}
-                      </MenuItem>
-                    );
-                  })}
-                </Select>
-              </FormControl>
-
-              {/* Option 2 */}
-              {props.ELECTIVE_4_OPTIONS.length > 1 && (
-                <FormControl sx={{ m: 1, minWidth: 200 }}>
-                  <InputLabel id="demo-simple-select-helper-label">
-                    OPTION 2
-                  </InputLabel>
-                  <Select
-                    value={elective_4_option_2}
-                    onChange={(e: SelectChangeEvent) =>
-                      handleChange(elective_4, 2, e)
-                    }
-                    displayEmpty
-                    inputProps={{ "aria-label": "Without label" }}
-                    label="OPTION 2"
-                  >
-                    {props.ELECTIVE_4_OPTIONS.map((option) => {
-                      const subjectName = `${option.CODE} ${option.TITLE}`;
-                      return (
-                        <MenuItem
-                          value={subjectName}
-                          key={option.CODE}
-                          disabled={
-                            elective_4_option_1 === subjectName ||
-                            elective_4_option_2 === subjectName ||
-                            elective_4_option_3 === subjectName ||
-                            elective_4_option_4 === subjectName
-                          }
-                        >
-                          {subjectName}
-                        </MenuItem>
-                      );
-                    })}
-                  </Select>
-                </FormControl>
-              )}
-
-              {/* Option 3 */}
-              {props.ELECTIVE_4_OPTIONS.length > 2 && (
-                <FormControl sx={{ m: 1, minWidth: 200 }}>
-                  <InputLabel id="demo-simple-select-helper-label">
-                    OPTION 3
-                  </InputLabel>
-                  <Select
-                    value={elective_4_option_3}
-                    onChange={(e: SelectChangeEvent) =>
-                      handleChange(elective_4, 3, e)
-                    }
-                    displayEmpty
-                    inputProps={{ "aria-label": "Without label" }}
-                    label="OPTION 3"
-                  >
-                    {props.ELECTIVE_4_OPTIONS.map((option) => {
-                      const subjectName = `${option.CODE} ${option.TITLE}`;
-                      return (
-                        <MenuItem
-                          value={subjectName}
-                          key={option.CODE}
-                          disabled={
-                            elective_4_option_1 === subjectName ||
-                            elective_4_option_2 === subjectName ||
-                            elective_4_option_3 === subjectName ||
-                            elective_4_option_4 === subjectName
-                          }
-                        >
-                          {subjectName}
-                        </MenuItem>
-                      );
-                    })}
-                  </Select>
-                </FormControl>
-              )}
-
-              {/* Option 4 */}
-              {props.ELECTIVE_4_OPTIONS.length > 3 && (
-                <FormControl sx={{ m: 1, minWidth: 200 }}>
-                  <InputLabel id="demo-simple-select-helper-label">
-                    OPTION 4
-                  </InputLabel>
-                  <Select
-                    value={elective_4_option_4}
-                    onChange={(e: SelectChangeEvent) =>
-                      handleChange(elective_4, 4, e)
-                    }
-                    displayEmpty
-                    inputProps={{ "aria-label": "Without label" }}
-                    label="OPTION 4"
-                  >
-                    {props.ELECTIVE_4_OPTIONS.map((option) => {
-                      const subjectName = `${option.CODE} ${option.TITLE}`;
-                      return (
-                        <MenuItem
-                          value={subjectName}
-                          key={option.CODE}
-                          disabled={
-                            elective_4_option_1 === subjectName ||
-                            elective_4_option_2 === subjectName ||
-                            elective_4_option_3 === subjectName ||
-                            elective_4_option_4 === subjectName
-                          }
-                        >
-                          {subjectName}
-                        </MenuItem>
-                      );
-                    })}
-                  </Select>
-                </FormControl>
-              )}
-
-              <Box sx={{ mb: 2 }}>
-                <div>
-                  <Button
-                    variant="contained"
-                    onClick={handleNext}
-                    sx={{ mt: 1, mr: 1 }}
-                    disabled={
-                      elective_4_option_1 === "" ||
-                      (props.ELECTIVE_4_OPTIONS.length > 1 &&
-                        elective_4_option_2 === "") ||
-                      (props.ELECTIVE_4_OPTIONS.length > 2 &&
-                        elective_4_option_3 === "") ||
-                      (props.ELECTIVE_4_OPTIONS.length > 3 &&
-                        elective_4_option_4 === "")
-                    }
-                  >
-                    Finish
-                  </Button>
-                  <Button
-                    disabled={activeStep === 0}
-                    onClick={handleBack}
-                    sx={{ mt: 1, mr: 1 }}
-                  >
-                    Back
                   </Button>
                 </div>
               </Box>
