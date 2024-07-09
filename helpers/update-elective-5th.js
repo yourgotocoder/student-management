@@ -21,7 +21,7 @@ const updateElective = async () => {
   );
 
   for (let [index, student] of _4thSemDataCSE.entries()) {
-    const ELECTIVE_2_OPTIONS = [
+    let ELECTIVE_2_OPTIONS = [
       { CODE: "CS302A3", TITLE: "Adv. JAVA Programming" },
       { CODE: "CS314A3", TITLE: "Artificial Intelligence" },
       { CODE: "CS309A3", TITLE: "Digital Image Processing" },
@@ -53,6 +53,15 @@ const updateElective = async () => {
         TITLE: "Programming with JAVA",
       });
     }
+    if (
+      student.MINOR_SPECIALIZATION &&
+      (student.MINOR_SPECIALIZATION === "ARTIFICIAL INTELLIGENCE" ||
+        student.MINOR_SPECIALIZATION === "DATA SCIENCE")
+    ) {
+      ELECTIVE_2_OPTIONS = ELECTIVE_2_OPTIONS.filter(
+        (sub) => sub.CODE !== "CS314A3",
+      );
+    }
     await collection.updateOne(
       { REGNO: student.REGNO },
       {
@@ -66,7 +75,7 @@ const updateElective = async () => {
   }
   for (let [index, student] of _4thSemDataAIML.entries()) {
     console.log(`Updating for ${student.REGNO}`);
-    const ELECTIVE_2_OPTIONS = [
+    let ELECTIVE_2_OPTIONS = [
       { CODE: "CS302A3", TITLE: "Adv. JAVA Programming" },
       { CODE: "CS314A3", TITLE: "Artificial Intelligence" },
       { CODE: "CS309A3", TITLE: "Digital Image Processing" },
@@ -90,7 +99,15 @@ const updateElective = async () => {
     console.log(`Updating for ${student.REGNO}`);
     const elective_history = [];
     student.ELECTIVE_1 && elective_history.push(student.ELECTIVE_1);
-
+    if (
+      student.MINOR_SPECIALIZATION &&
+      (student.MINOR_SPECIALIZATION === "ARTIFICIAL INTELLIGENCE" ||
+        student.MINOR_SPECIALIZATION === "DATA SCIENCE")
+    ) {
+      ELECTIVE_2_OPTIONS = ELECTIVE_2_OPTIONS.filter(
+        (sub) => sub.CODE !== "CS314A3",
+      );
+    }
     await collection.updateOne(
       { REGNO: student.REGNO },
       {

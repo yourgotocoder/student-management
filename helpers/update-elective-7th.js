@@ -68,6 +68,39 @@ const updateElective = async () => {
         TITLE: "Machine Learning",
       });
     }
+    if (student.MINOR_SPECIALIZATION && student.MINOR_SPECIALIZATION === "AI") {
+      ELECTIVE_8_OPTIONS = ELECTIVE_8_OPTIONS.filter(
+        (sub) =>
+          sub.CODE !== "CS1741" &&
+          sub.CODE !== "CS1759/CS1644" &&
+          sub.CODE !== "CS1744",
+      );
+      OPEN_ELECTIVE_2_OPTIONS = OPEN_ELECTIVE_2_OPTIONS.filter(
+        (sub) => sub.CODE !== "AD1722" && sub.CODE !== "EE1724",
+      );
+    }
+    if (student.MINOR_SPECIALIZATION && student.MINOR_SPECIALIZATION === "CS") {
+      ELECTIVE_8_OPTIONS = ELECTIVE_8_OPTIONS.filter(
+        (sub) => sub.CODE !== "CS1734",
+      );
+      ELECTIVE_9_OPTIONS = ELECTIVE_9_OPTIONS.filter(
+        (sub) =>
+          sub.CODE !== "CS1659" &&
+          sub.CODE !== "CS1733" &&
+          sub.CODE !== "CS1743",
+      );
+      OPEN_ELECTIVE_2_OPTIONS = OPEN_ELECTIVE_2_OPTIONS.filter(
+        (sub) => sub.CODE !== "CS1728/CS1710",
+      );
+    }
+    if (student.MINOR_SPECIALIZATION && student.MINOR_SPECIALIZATION === "DS") {
+      ELECTIVE_8_OPTIONS = ELECTIVE_8_OPTIONS.filter(
+        (sub) => sub.CODE !== "CS1759/CS1644" && sub.CODE !== "CS1757",
+      );
+      OPEN_ELECTIVE_2_OPTIONS = OPEN_ELECTIVE_2_OPTIONS.filter(
+        (sub) => sub.CODE !== "AD1722",
+      );
+    }
     await collection.updateOne(
       { REGNO: student.REGNO },
       {

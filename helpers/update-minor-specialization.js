@@ -7,31 +7,23 @@ const updateElective = async (data) => {
   const db = client.db("cse");
   const collection = db.collection("student-data");
   for (let [index, student] of data.entries()) {
-    if (student.MINOR_TITLE) {
-      console.log(`Updating for ${student.REGNO}`);
-      const found = await collection.findOne({ REGNO: student.REGNO });
-      if (found) {
-        await collection.updateOne(
-          { REGNO: student.REGNO },
-          {
-            $set: {
-              MINOR_SPECIALIZATION:
-                student.MINOR_CODE === "CS1852"
-                  ? "AI"
-                  : student.MINOR_CODE === "CS1851"
-                  ? "EH"
-                  : student.MINOR_CODE === "CS1854"
-                  ? "DS"
-                  : null,
-            },
-          }
-        );
-      }
+    const foundStudent = await collection.findOne({ REGNO: student["REGNO"] });
+    if (foundStudent) {
+      await collection.updateOne(
+        { REGNO: student["REGNO"] },
+        {
+          $set: {
+            MINOR_SPECIALIZATION: student.MINOR,
+          },
+        },
+      );
     }
-    console.log(`Updated ${index + 1} of ${data.length}`);
+    console.log(
+      `Student: ${student.NAME}(${student["REGNO"]}) Updated ${index + 1} of ${data.length}`,
+    );
   }
 };
 
-const studentsData = parser.parseXls2Json("./resources/_6thSem.xlsx")[0];
+const studentsData = parser.parseXls2Json("./resources/_7thMinor.xlsx")[0];
 
 updateElective(studentsData);
