@@ -1,6 +1,7 @@
 const parser = require("simple-excel-to-json");
 const { MongoClient } = require("mongodb");
 require("dotenv").config();
+const elective_data = parser.parseXls2Json("./resources/_6thData.xlsx")[0];
 
 const updateElective = async () => {
   const client = await MongoClient.connect(process.env.DB_CONNECTION);
@@ -29,24 +30,35 @@ const updateElective = async () => {
     { CODE: "CS1760", TITLE: "Block Chain Coding" },
     { CODE: "CS1641", TITLE: "Social Network Analysis" },
   ];
-  const _6thSemData = data.filter(
-    (student) => student.CURRENT_SEM && student.CURRENT_SEM == 6
-  );
-  console.log(_6thSemData.length);
-  for (let [index, student] of _6thSemData.entries()) {
-    console.log(`Updating for ${student.REGNO}`);
-    await collection.updateOne(
-      { REGNO: student.REGNO },
-      {
-        $set: {
-          ELECTIVE_5_OPTIONS,
-          ELECTIVE_6_OPTIONS,
-          ELECTIVE_7_OPTIONS,
-        },
-      }
+  for (let [index, student] of elective_data.entries()) {
+    const elective_5_title = student.ELECTIVE_5;
+    const elective_6_title = student.ELECTIVE_6;
+    const elective_7_title = student.ELECTIVE_7;
+    const ELECTIVE_5 = ELECTIVE_5_OPTIONS.find(
+      (elective) => elective.TITLE === elective_5_title,
     );
-    console.log(`Updated ${index + 1} of ${_6thSemData.length}`);
+    const ELECTIVE_6 = ELECTIVE_6_OPTIONS.find(
+      (elective) => elective.TITLE === elective_6_title,
+    );
+    const ELECTIVE_7 = ELECTIVE_7_OPTIONS.find(
+      (elective) => elective.TITLE === elective_7_title,
+    );
+    const foundStudent = await collection.findOne({ REGNO: student.REGNO });
+    if (foundStudent) {
+      await collection.updateOne(
+        { REGNO: student.REGNO },
+        {
+          $set: {
+            ELECTIVE_5,
+            ELECTIVE_6,
+            ELECTIVE_7,
+          },
+        },
+      );
+    }
+    console.log(`Updating ${index + 1} out of ${elective_data.length}`);
   }
+  await client.close();
 };
 
 updateElective();

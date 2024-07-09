@@ -19,11 +19,11 @@ export interface AllotmentData {
   REGNO: number;
   CGPA: number;
   [key: string]:
-    | {
-        TITLE: string;
-        CODE: string;
-      }
-    | number;
+  | {
+    TITLE: string;
+    CODE: string;
+  }
+  | number;
 }
 export interface AllocatedSubject {
   [key: string]: { TITLE: string; CODE: string };
@@ -106,7 +106,7 @@ const ElectiveSelections = (props: Props) => {
       return prev;
     }, 0);
     const rows: any[] = [];
-
+    console.log(numberOfLoops);
     if (props.semester === 4) {
       for (let index = 0; index < numberOfLoops; index++) {
         rows.push({
@@ -124,6 +124,14 @@ const ElectiveSelections = (props: Props) => {
           ] && {
             SECOND_COLUMN:
               props.ELECTIVE_SELECTIONS["ELECTIVE_2"][`OPTION_${index + 1}`],
+          }),
+          ...(props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE_2"][
+            `OPTION_${index + 1}`
+          ] && {
+            THIRD_COLUMN:
+              props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE_2"][
+              `OPTION_${index + 1}`
+              ],
           }),
         });
       }
@@ -167,6 +175,14 @@ const ElectiveSelections = (props: Props) => {
             THIRD_COLUMN:
               props.ELECTIVE_SELECTIONS["ELECTIVE_9"][`OPTION_${index + 1}`],
           }),
+          ...(props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE_2"][
+            `OPTION_${index + 1}`
+          ] && {
+            FOURTH_COLUMN:
+              props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE_2"][
+              `OPTION_${index + 1}`
+              ],
+          }),
         });
       }
     }
@@ -192,9 +208,9 @@ const ElectiveSelections = (props: Props) => {
               {props.semester === 5 && (
                 <TableCell align="left">Elective II</TableCell>
               )}
-              {/* {props.semester === 5 && ( */}
-              {/*   <TableCell align="left">Elective III</TableCell> */}
-              {/* )} */}
+              {props.semester === 5 && (
+                <TableCell align="left">Open Elective II</TableCell>
+              )}
               {props.semester === 6 && (
                 <TableCell align="left">Elective V</TableCell>
               )}
@@ -209,6 +225,9 @@ const ElectiveSelections = (props: Props) => {
               )}
               {props.semester === 7 && (
                 <TableCell align="left">Elective IX</TableCell>
+              )}
+              {props.semester === 7 && (
+                <TableCell align="left">Open Elective II</TableCell>
               )}
 
               {/* {props.semester === 7 && ( */}
@@ -269,7 +288,7 @@ const ElectiveSelections = (props: Props) => {
               label="this repo"
               color="info"
               deleteIcon={<GitHubIcon color="action"></GitHubIcon>}
-              onDelete={() => {}}
+              onDelete={() => { }}
             ></Chip>
           </a>
         </Typography>

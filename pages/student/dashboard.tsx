@@ -40,14 +40,17 @@ const Dashboard = (props: Props) => {
       if (user) {
         if (user.CURRENT_SEM === 7) {
           setOptions([
-            // { title: "Open Elective", subjects: user.OPEN_ELECTIVE_OPTIONS },
             { title: "Elective VIII", subjects: user.ELECTIVE_8_OPTIONS },
             { title: "ELECTIVE IX", subjects: user.ELECTIVE_9_OPTIONS },
+            { title: "Open Elective", subjects: user.OPEN_ELECTIVE_2_OPTIONS },
           ]);
         } else if (user.CURRENT_SEM === 5) {
           setOptions([
             { title: "Elective II", subjects: user.ELECTIVE_2_OPTIONS },
-            // { title: "Elective IV", subjects: user.ELECTIVE_4_OPTIONS },
+            {
+              title: "Open Elective II",
+              subjects: user.OPEN_ELECTIVE_2_OPTIONS,
+            },
           ]);
         } else if (user.CURRENT_SEM === 4) {
           setOptions([
@@ -192,17 +195,20 @@ const Dashboard = (props: Props) => {
               setSubmitted={(value) => setSubmitted(value)}
               ELECTIVE_8_OPTIONS={user.ELECTIVE_8_OPTIONS!}
               ELECTIVE_9_OPTIONS={user.ELECTIVE_9_OPTIONS!}
+              OPEN_ELECTIVE_2_OPTIONS={user.OPEN_ELECTIVE_2_OPTIONS}
             />
           )}
         {user &&
           user.CURRENT_SEM === 5 &&
           user.ELECTIVE_2_OPTIONS &&
+          user.OPEN_ELECTIVE_2_OPTIONS &&
           ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.ELECTIVE_2) ||
             !user.ELECTIVE_SELECTIONS) &&
           !submitted && (
             <ElectiveForm_5thSem
               setSubmitted={(value) => setSubmitted(value)}
               ELECTIVE_2_OPTIONS={user.ELECTIVE_2_OPTIONS!}
+              OPEN_ELECTIVE_2_OPTIONS={user.OPEN_ELECTIVE_2_OPTIONS}
             />
           )}
 
