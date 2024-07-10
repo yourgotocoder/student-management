@@ -19,11 +19,11 @@ export interface AllotmentData {
   REGNO: number;
   CGPA: number;
   [key: string]:
-  | {
-    TITLE: string;
-    CODE: string;
-  }
-  | number;
+    | {
+        TITLE: string;
+        CODE: string;
+      }
+    | number;
 }
 export interface AllocatedSubject {
   [key: string]: { TITLE: string; CODE: string };
@@ -130,7 +130,7 @@ const ElectiveSelections = (props: Props) => {
           ] && {
             THIRD_COLUMN:
               props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE_2"][
-              `OPTION_${index + 1}`
+                `OPTION_${index + 1}`
               ],
           }),
         });
@@ -180,7 +180,7 @@ const ElectiveSelections = (props: Props) => {
           ] && {
             FOURTH_COLUMN:
               props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE_2"][
-              `OPTION_${index + 1}`
+                `OPTION_${index + 1}`
               ],
           }),
         });
@@ -221,13 +221,14 @@ const ElectiveSelections = (props: Props) => {
                 <TableCell align="left">Elective VII</TableCell>
               )}
               {props.semester === 7 && (
+                <TableCell align="left">Open Elective II</TableCell>
+              )}
+
+              {props.semester === 7 && (
                 <TableCell align="left">Elective VIII</TableCell>
               )}
               {props.semester === 7 && (
                 <TableCell align="left">Elective IX</TableCell>
-              )}
-              {props.semester === 7 && (
-                <TableCell align="left">Open Elective II</TableCell>
               )}
 
               {/* {props.semester === 7 && ( */}
@@ -244,6 +245,16 @@ const ElectiveSelections = (props: Props) => {
                 <TableCell component="th" scope="row">
                   {option.FIRST_COLUMN}
                 </TableCell>
+                {option.FOURTH_COLUMN && (
+                  <TableCell component="th" scope="row">
+                    <ElectiveAlloted
+                      subject={option.FOURTH_COLUMN.TITLE as string}
+                      semester={props.semester as number}
+                      allotmentData={student as AllocatedSubject}
+                    ></ElectiveAlloted>
+                  </TableCell>
+                )}
+
                 {(option.SECOND_COLUMN && (
                   <TableCell component="th" scope="row">
                     <ElectiveAlloted
@@ -257,15 +268,6 @@ const ElectiveSelections = (props: Props) => {
                   <TableCell component="th" scope="row">
                     <ElectiveAlloted
                       subject={option.THIRD_COLUMN.TITLE as string}
-                      semester={props.semester as number}
-                      allotmentData={student as AllocatedSubject}
-                    ></ElectiveAlloted>
-                  </TableCell>
-                )}
-                {option.FOURTH_COLUMN && (
-                  <TableCell component="th" scope="row">
-                    <ElectiveAlloted
-                      subject={option.FOURTH_COLUMN.TITLE as string}
                       semester={props.semester as number}
                       allotmentData={student as AllocatedSubject}
                     ></ElectiveAlloted>
@@ -288,7 +290,7 @@ const ElectiveSelections = (props: Props) => {
               label="this repo"
               color="info"
               deleteIcon={<GitHubIcon color="action"></GitHubIcon>}
-              onDelete={() => { }}
+              onDelete={() => {}}
             ></Chip>
           </a>
         </Typography>

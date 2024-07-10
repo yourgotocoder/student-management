@@ -1,13 +1,12 @@
 const parser = require("simple-excel-to-json");
 const { MongoClient } = require("mongodb");
 require("dotenv").config();
-const elective_data = parser.parseXls2Json("./resources/_6thData.xlsx")[0];
+const elective_data = parser.parseXls2Json("./resources/AIML_DATA.xlsx")[0];
 
 const updateElective = async () => {
   const client = await MongoClient.connect(process.env.DB_CONNECTION);
   const db = client.db("cse");
   const collection = db.collection("student-data");
-  const data = await collection.find().toArray();
 
   const ELECTIVE_5_OPTIONS = [
     { CODE: "CS1659", TITLE: "Ethical Hacking" },

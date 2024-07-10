@@ -76,15 +76,11 @@ const updateElective = async () => {
   for (let [index, student] of _4thSemDataAIML.entries()) {
     console.log(`Updating for ${student.REGNO}`);
     let ELECTIVE_2_OPTIONS = [
-      { CODE: "CS302A3", TITLE: "Adv. JAVA Programming" },
-      { CODE: "CS314A3", TITLE: "Artificial Intelligence" },
-      { CODE: "CS309A3", TITLE: "Digital Image Processing" },
-      { CODE: "CS318A3", TITLE: "Social Network Analysis" },
-      { CODE: "CS312A3", TITLE: "Information Retrieval" },
-      {
-        CODE: "CS322A3",
-        TITLE: "Human Resource Development & Organization Behavior",
-      },
+      { CODE: "CSML302A3", TITLE: "Adv. JAVA Programming" },
+      { CODE: "CSML317A3", TITLE: "Soft Skills" },
+      { CODE: "CSML308A3", TITLE: "Digital Image Processing" },
+      { CODE: "CSML315A3", TITLE: "Social Network Analysis" },
+      { CODE: "CSML309A3", TITLE: "Information Retrieval" },
     ];
 
     let OPEN_ELECTIVE_2_OPTIONS = [
@@ -92,22 +88,22 @@ const updateElective = async () => {
       { CODE: "CE304A2", TITLE: "Air Pollution and Control" },
       { CODE: "EC3**A2", TITLE: "Introduction to Robotics" },
       { CODE: "EE303A2", TITLE: "Fuzzy Logic and Evolutionary Algorithm" },
-      { CODE: "IT321A2", TITLE: "Introduction to Artificial Intelligence" },
       { CODE: "ME301A2", TITLE: "Energy Management" },
     ];
 
     console.log(`Updating for ${student.REGNO}`);
     const elective_history = [];
     student.ELECTIVE_1 && elective_history.push(student.ELECTIVE_1);
+
     if (
-      student.MINOR_SPECIALIZATION &&
-      (student.MINOR_SPECIALIZATION === "ARTIFICIAL INTELLIGENCE" ||
-        student.MINOR_SPECIALIZATION === "DATA SCIENCE")
+      elective_history.findIndex((sub) => sub && sub.CODE === "CS202A3") === -1
     ) {
-      ELECTIVE_2_OPTIONS = ELECTIVE_2_OPTIONS.filter(
-        (sub) => sub.CODE !== "CS314A3",
-      );
+      OPEN_ELECTIVE_2_OPTIONS.push({
+        CODE: "CS301A2/CSML301A2",
+        TITLE: "Programming with JAVA",
+      });
     }
+
     await collection.updateOne(
       { REGNO: student.REGNO },
       {
