@@ -195,7 +195,7 @@ const Dashboard = (props: Props) => {
               setSubmitted={(value) => setSubmitted(value)}
               ELECTIVE_8_OPTIONS={user.ELECTIVE_8_OPTIONS!}
               ELECTIVE_9_OPTIONS={user.ELECTIVE_9_OPTIONS!}
-              OPEN_ELECTIVE_2_OPTIONS={user.OPEN_ELECTIVE_2_OPTIONS}
+              OPEN_ELECTIVE_2_OPTIONS={user.OPEN_ELECTIVE_2_OPTIONS!}
             />
           )}
         {user &&
