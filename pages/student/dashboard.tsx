@@ -234,16 +234,26 @@ const Dashboard = (props: Props) => {
             </Box>
           )}
         {user &&
-          (user.CURRENT_SEM === 7 || user.CURRENT_SEM === 5) &&
+          user.CURRENT_SEM === 7 &&
           user.ELECTIVE_SELECTIONS &&
-          (user.ELECTIVE_SELECTIONS.ELECTIVE_2 ||
-            user.ELECTIVE_SELECTIONS.ELECTIVE_9) && (
+          user.ELECTIVE_SELECTIONS.ELECTIVE_9 && (
             <ElectiveSelections
               REGNO={user.REGNO!}
               semester={user.CURRENT_SEM}
               ELECTIVE_SELECTIONS={user.ELECTIVE_SELECTIONS}
             />
           )}
+        {user &&
+          user.CURRENT_SEM === 5 &&
+          user.ELECTIVE_SELECTIONS &&
+          user.ELECTIVE_SELECTIONS.ELECTIVE_2 && (
+            <ElectiveSelections
+              REGNO={user.REGNO!}
+              semester={user.CURRENT_SEM}
+              ELECTIVE_SELECTIONS={user.ELECTIVE_SELECTIONS}
+            />
+          )}
+
         {user &&
           user.CURRENT_SEM === 6 &&
           user.ELECTIVE_SELECTIONS &&

@@ -2,12 +2,16 @@ const nodeoutlook = require("nodejs-nodemailer-outlook");
 const { MongoClient } = require("mongodb");
 require("dotenv").config();
 
-const sendMail = async () => {
+const sendMail = async (sem) => {
   const client = await MongoClient.connect(process.env.DB_CONNECTION);
   const db = client.db("cse");
   const collection = db.collection("student-data");
   const db_data = await collection.find().toArray();
-  const filtered_data = db_data.filter((student) => student.CURRENT_SEM === 4);
+
+  const filtered_data = db_data.filter(
+    (student) => student.CURRENT_SEM === sem,
+  );
+
   for (let [index, student] of filtered_data.entries()) {
     if (student.EMAIL_ID) {
       // Delay required to make sure Outlook email rate limit is not exceeded
@@ -37,6 +41,7 @@ const sendMail = async () => {
       console.log(`${student.REGNO} email does not exist`);
     }
   }
+  await client.close();
 };
 
-sendMail();
+sendMail(7).then(() => console.log(`Done sending emails to 7th sem`));
