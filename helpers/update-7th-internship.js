@@ -79,6 +79,9 @@ const updateElective = async () => {
         },
         $unset: {
           OPEN_ELECTIVE_2_OPTIONS: 0,
+          "ELECTIVE_SELECTIONS.ELECTIVE_8": 0,
+          "ELECTIVE_SELECTIONS.ELECTIVE_9": 0,
+          "ELECTIVE_SELECTIONS.OPEN_ELECTIVE_2": 0,
         },
       },
     );

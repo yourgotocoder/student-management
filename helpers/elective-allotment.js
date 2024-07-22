@@ -8,66 +8,26 @@ const updateElective = async () => {
   const db = client.db("cse");
   const collection = db.collection("student-data");
   const studentData = await collection.find().toArray();
-  const _4thData = studentData
-    .filter(
-      (student) =>
-        student.CURRENT_SEM === 4 &&
-        student.CGPA &&
-        student.ELECTIVE_SELECTIONS &&
-        student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE &&
-        student.BRANCH === "CSE"
-    )
-    .sort((a, b) => b.CGPA - a.CGPA)
-    .map((student) => ({
-      REGNO: student.REGNO,
-      CGPA: student.CGPA,
-      ELECTIVE_SELECTIONS: {
-        OPEN_ELECTIVE: student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE,
-      },
-    }));
-  const _4thDataAIML = studentData
-    .filter(
-      (student) =>
-        student.CURRENT_SEM === 4 &&
-        student.CGPA &&
-        student.ELECTIVE_SELECTIONS &&
-        student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE &&
-        student.BRANCH === "CSE(AI&ML)"
-    )
-    .sort((a, b) => b.CGPA - a.CGPA)
-    .map((student) => ({
-      REGNO: student.REGNO,
-      CGPA: student.CGPA,
-      ELECTIVE_SELECTIONS: {
-        OPEN_ELECTIVE: student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE,
-      },
-    }));
 
-  const _6thData = studentData
+  const _5thData = studentData
     .filter(
       (student) =>
-        student.CURRENT_SEM === 6 &&
+        student.CURRENT_SEM === 5 &&
+        student.BRANCH == "CSE" &&
         student.CGPA &&
         student.ELECTIVE_SELECTIONS &&
-        student.ELECTIVE_SELECTIONS.ELECTIVE_5
+        student.ELECTIVE_SELECTIONS.ELECTIVE_2,
     )
-    .sort((a, b) => b.CGPA - a.CGPA)
-    .map((student) => ({
+    .sort((a, b) => b.CGPA - a.CGPA);
+  const _5thXls = json2xls(
+    alloter(_5thData).map((student) => ({
       REGNO: student.REGNO,
       CGPA: student.CGPA,
-      ELECTIVE_SELECTIONS: {
-        ELECTIVE_5: student.ELECTIVE_SELECTIONS.ELECTIVE_5,
-        ELECTIVE_6: student.ELECTIVE_SELECTIONS.ELECTIVE_6,
-        ELECTIVE_7: student.ELECTIVE_SELECTIONS.ELECTIVE_7,
-      },
-    }));
-
-  const _6thXls = json2xls(alloter(_6thData));
-  const _4thXls = json2xls(alloter(_4thData));
-  const _4thAIXls = json2xls(alloter(_4thDataAIML));
-  writeFileSync("_6thData.xlsx", _6thXls, "binary");
-  writeFileSync("_4thData.xlsx", _4thXls, "binary");
-  writeFileSync("_4thDataAIML.xlsx", _4thAIXls, "binary");
+      ELECTIVE_2: student.ELECTIVE_2,
+      OPEN_ELECTIVE_2: student.OPEN_ELECTIVE_2,
+    })),
+  );
+  writeFileSync("_5thRevisedData.xlsx", _5thXls, "binary");
   await client.close();
 };
 
@@ -81,16 +41,29 @@ const alloter = (data) => {
         total_selections++;
         if (
           seats[elective_key][
-          student.ELECTIVE_SELECTIONS[elective_key][option_key]["TITLE"]
+            student.ELECTIVE_SELECTIONS[elective_key][option_key]["TITLE"]
           ]
         ) {
-          seats[elective_key][
-            student.ELECTIVE_SELECTIONS[elective_key][option_key]["TITLE"]
-          ]++;
+          continue;
         } else {
-          seats[elective_key][
-            student.ELECTIVE_SELECTIONS[elective_key][option_key]["TITLE"]
-          ] = 1;
+          if (elective_key === "OPEN_ELECTIVE_2") {
+            seats[elective_key][
+              student.ELECTIVE_SELECTIONS[elective_key][option_key]["TITLE"]
+            ] = 35;
+          } else {
+            if (
+              student.ELECTIVE_SELECTIONS[elective_key][option_key]["TITLE"] ===
+              "Digital Image Processing"
+            ) {
+              seats[elective_key][
+                student.ELECTIVE_SELECTIONS[elective_key][option_key]["TITLE"]
+              ] = 40;
+            } else {
+              seats[elective_key][
+                student.ELECTIVE_SELECTIONS[elective_key][option_key]["TITLE"]
+              ] = 45;
+            }
+          }
         }
       }
     }
@@ -99,18 +72,19 @@ const alloter = (data) => {
   const optimised_seats = {};
 
   for (let elective_key in seats) {
-    let total_selections = 0;
+    // let total_selections = 0;
+    // for (let key in seats[elective_key]) {
+    //   total_selections++;
+    // }
+    // for (let key in seats[elective_key]) {
+    //   optimised_seats[key] = 50;
+    // }
     for (let key in seats[elective_key]) {
-      total_selections++;
-    }
-    for (let key in seats[elective_key]) {
-      optimised_seats[key] = Math.ceil(
-        (seats[elective_key][key] / total_selections) * data.length
-      );
+      optimised_seats[key] = seats[elective_key][key];
     }
   }
 
-  console.log(optimised_seats);
+  // console.log(seats);
   const result = [];
   for (let student of data) {
     const student_obj = {
@@ -120,8 +94,18 @@ const alloter = (data) => {
     for (let elective_key in student.ELECTIVE_SELECTIONS) {
       for (let option in student.ELECTIVE_SELECTIONS[elective_key]) {
         if (
+          elective_key === "OPEN_ELECTIVE_2" &&
+          student_obj.ELECTIVE_2 &&
+          student_obj.ELECTIVE_2 === "Artificial Intelligence" &&
+          student.ELECTIVE_SELECTIONS["OPEN_ELECTIVE_2"][option]["TITLE"] ==
+            "Introduction to Artificial Intelligence"
+        ) {
+          console.log(student_obj, student.ELECTIVE_SELECTIONS[elective_key]);
+          continue;
+        }
+        if (
           optimised_seats[
-          student.ELECTIVE_SELECTIONS[elective_key][option]["TITLE"]
+            student.ELECTIVE_SELECTIONS[elective_key][option]["TITLE"]
           ] > 0
         ) {
           student_obj[elective_key] =
@@ -135,7 +119,7 @@ const alloter = (data) => {
     }
     result.push(student_obj);
   }
-  console.log(result);
+  // console.log(result);
   return result;
 };
 
