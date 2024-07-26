@@ -32,6 +32,7 @@ type UserType = {
   ELECTIVE_9_OPTIONS?: Subject[];
   OPEN_ELECTIVE_OPTIONS?: Subject[];
   OPEN_ELECTIVE_2_OPTIONS?: Subject[];
+  SPECIALIZATION_OPTIONS?: Subject[];
   ELECTIVE_SELECTIONS?: any;
 };
 

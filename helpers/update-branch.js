@@ -7,11 +7,13 @@ const updateElective = async () => {
   const collection = db.collection("student-data");
   const data = await collection.find().toArray();
   console.log(data);
-  for (let [index, student] of data.entries()) {
+  for (let [index, student] of data
+    .filter((s) => s.CURRENT_SEM === 3)
+    .entries()) {
     console.log(`Updating ${student.REGNO}`);
     await collection.updateOne(
       { REGNO: student.REGNO },
-      { $set: { CURRENT_SEM: student.CURRENT_SEM + 1, BRANCH: "CSE" } }
+      { $set: { BRANCH: student.BRANCH.trim() } },
     );
     console.log(`Done ${index + 1} of ${data.length}`);
   }

@@ -19,11 +19,11 @@ export interface AllotmentData {
   REGNO: number;
   CGPA: number;
   [key: string]:
-  | {
-    TITLE: string;
-    CODE: string;
-  }
-  | number;
+    | {
+        TITLE: string;
+        CODE: string;
+      }
+    | number;
 }
 export interface AllocatedSubject {
   [key: string]: { TITLE: string; CODE: string };
@@ -49,6 +49,17 @@ const ElectiveSelections = (props: Props) => {
       );
       console.log(studentData);
       switch (props.semester) {
+        case 3:
+          const _3rdranking = data.data
+            .filter((student) => student.ELECTIVE_1)
+            .findIndex((student) => student.REGNO === props.REGNO);
+          const _3rdsubmissions = data.data.filter(
+            (student) => student.ELECTIVE_1,
+          ).length;
+          setTotalSubmission(_3rdsubmissions);
+          setCurrentRanking(_3rdranking + 1);
+          break;
+
         case 5:
           const ranking = data.data
             .filter((student) => student.ELECTIVE_2)
@@ -107,7 +118,15 @@ const ElectiveSelections = (props: Props) => {
     }, 0);
     const rows: any[] = [];
     console.log(numberOfLoops);
-    if (props.semester === 4) {
+    if (props.semester === 3) {
+      for (let index = 0; index < numberOfLoops; index++) {
+        rows.push({
+          FIRST_COLUMN: `OPTION ${index + 1}`,
+          SECOND_COLUMN:
+            props.ELECTIVE_SELECTIONS["ELECTIVE_1"][`OPTION_${index + 1}`],
+        });
+      }
+    } else if (props.semester === 4) {
       for (let index = 0; index < numberOfLoops; index++) {
         rows.push({
           FIRST_COLUMN: `OPTION ${index + 1}`,
@@ -130,7 +149,7 @@ const ElectiveSelections = (props: Props) => {
           ] && {
             THIRD_COLUMN:
               props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE_2"][
-              `OPTION_${index + 1}`
+                `OPTION_${index + 1}`
               ],
           }),
         });
@@ -177,13 +196,13 @@ const ElectiveSelections = (props: Props) => {
           }),
           ...(props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE_2"] &&
             props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE_2"][
-            `OPTION_${index + 1}`
-            ] && {
-            FOURTH_COLUMN:
-              props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE_2"][
               `OPTION_${index + 1}`
-              ],
-          }),
+            ] && {
+              FOURTH_COLUMN:
+                props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE_2"][
+                  `OPTION_${index + 1}`
+                ],
+            }),
         });
       }
     }
@@ -203,6 +222,10 @@ const ElectiveSelections = (props: Props) => {
             </TableRow>
             <TableRow>
               <TableCell width={120}></TableCell>
+              {props.semester === 3 && (
+                <TableCell align="left">Elective I</TableCell>
+              )}
+
               {props.semester === 4 && (
                 <TableCell align="left">Elective I</TableCell>
               )}
@@ -292,7 +315,7 @@ const ElectiveSelections = (props: Props) => {
               label="this repo"
               color="info"
               deleteIcon={<GitHubIcon color="action"></GitHubIcon>}
-              onDelete={() => { }}
+              onDelete={() => {}}
             ></Chip>
           </a>
         </Typography>

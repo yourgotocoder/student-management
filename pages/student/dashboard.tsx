@@ -10,6 +10,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 
 import { Box, Button, Chip } from "@mui/material";
 import ElectiveForm_6thSem from "../../components/elective/forms/_6thSem";
+import ElectiveForm_3rdSem from "../../components/elective/forms/_3rdSem";
 import ElectiveForm_4thSem from "../../components/elective/forms/_4thSem";
 import ElectiveSelections from "../../components/elective/ElectiveSelections";
 import ElectiveForm_7thSem from "../../components/elective/forms/_7thSem";
@@ -186,6 +187,19 @@ const Dashboard = (props: Props) => {
             />
           )}
         {user &&
+          user.CURRENT_SEM === 3 &&
+          user.ELECTIVE_1_OPTIONS &&
+          user.SPECIALIZATION_OPTIONS &&
+          !user.ELECTIVE_SELECTIONS &&
+          !submitted && (
+            <ElectiveForm_3rdSem
+              setSubmitted={(value) => setSubmitted(value)}
+              ELECTIVE_1_OPTIONS={user.ELECTIVE_1_OPTIONS}
+              SPECIALIZATION_OPTIONS={user.SPECIALIZATION_OPTIONS}
+            />
+          )}
+
+        {user &&
           user.CURRENT_SEM === 7 &&
           user.ELECTIVE_8_OPTIONS &&
           ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.ELECTIVE_8) ||
@@ -233,6 +247,14 @@ const Dashboard = (props: Props) => {
               </Typography>
             </Box>
           )}
+
+        {user &&
+          user.CURRENT_SEM === 3 &&
+          user.ELECTIVE_SELECTIONS &&
+          user.ELECTIVE_SELECTIONS.ELECTIVE_1 && (
+            <p>Elective will be allocated soon</p>
+          )}
+
         {user &&
           user.CURRENT_SEM === 7 &&
           user.ELECTIVE_SELECTIONS &&

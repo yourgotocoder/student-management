@@ -4,23 +4,32 @@ const { MongoClient } = require("mongodb");
 const json2xls = require("json2xls");
 require("dotenv").config();
 
-const updateElective = async (data) => {
+const updateElective = async (data, sem) => {
   const client = await MongoClient.connect(process.env.DB_CONNECTION);
   const db = client.db("cse");
   const collection = db.collection("student-data");
-  const result = [];
-  for (let [index, student] of data.entries()) {
-    console.log(`Updating for ${student.REGNO}`);
-    const found = await collection.findOne({ REGNO: student.REGNO });
-    if (found) {
-      result.push({ ...student, NAME: found.NAME, BRANCH: found.BRANCH });
+  const student_data = await collection.find().toArray();
+  const filtered_data = student_data.filter(
+    (student) => student.CURRENT_SEM === sem,
+  );
+  for (let stdData of filtered_data) {
+    consoel.log(stdData.REGNO);
+    const { NAME, CGPA } = data.find((st) => st.REGNO === stdData.REGNO);
+    if (CGPA) {
+      await collection.updateOne(
+        { REGNO: stdData.REGNO },
+        {
+          $set: {
+            CGPA,
+          },
+        },
+      );
     }
-    console.log(`Updated ${index + 1} of ${data.length}`);
   }
-  const xlsData = json2xls(result);
-  fs.writeFileSync("_5thAIMLDataWithName.xlsx", xlsData, "binary");
+  console.log("Updated cgpa");
+  await client.close();
 };
 
-const studentsData = parser.parseXls2Json("./resources/_5thAIMLData.xlsx")[0];
+const studentsData = parser.parseXls2Json("./resources/CGPA_3rd_sem.xlsx")[0];
 
-updateElective(studentsData);
+updateElective(studentsData, 3);
