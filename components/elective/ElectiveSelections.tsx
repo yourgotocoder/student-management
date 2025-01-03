@@ -131,7 +131,9 @@ const ElectiveSelections = (props: Props) => {
         rows.push({
           FIRST_COLUMN: `OPTION ${index + 1}`,
           SECOND_COLUMN:
-            props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE"][`OPTION_${index + 1}`],
+            props.ELECTIVE_SELECTIONS["ELECTIVE_2"][`OPTION_${index + 1}`],
+          THIRD_COLUMN:
+            props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE_2"][`OPTION_${index + 1}`],
         });
       }
     } else if (props.semester === 5) {
@@ -158,23 +160,17 @@ const ElectiveSelections = (props: Props) => {
       for (let index = 0; index < numberOfLoops; index++) {
         rows.push({
           FIRST_COLUMN: `OPTION ${index + 1}`,
-          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_5"][
+          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_3"][
             `OPTION_${index + 1}`
           ] && {
             SECOND_COLUMN:
-              props.ELECTIVE_SELECTIONS["ELECTIVE_5"][`OPTION_${index + 1}`],
+              props.ELECTIVE_SELECTIONS["ELECTIVE_3"][`OPTION_${index + 1}`],
           }),
-          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_6"][
+          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_4"][
             `OPTION_${index + 1}`
           ] && {
             THIRD_COLUMN:
-              props.ELECTIVE_SELECTIONS["ELECTIVE_6"][`OPTION_${index + 1}`],
-          }),
-          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_7"][
-            `OPTION_${index + 1}`
-          ] && {
-            FOURTH_COLUMN:
-              props.ELECTIVE_SELECTIONS["ELECTIVE_7"][`OPTION_${index + 1}`],
+              props.ELECTIVE_SELECTIONS["ELECTIVE_4"][`OPTION_${index + 1}`],
           }),
         });
       }
@@ -205,7 +201,26 @@ const ElectiveSelections = (props: Props) => {
             }),
         });
       }
+    } else if (props.semester === 8) {
+      for (let index = 0; index < numberOfLoops; index++) {
+        rows.push({
+          FIRST_COLUMN: `OPTION ${index + 1}`,
+          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_10"][
+            `OPTION_${index + 1}`
+          ] && {
+            SECOND_COLUMN:
+              props.ELECTIVE_SELECTIONS["ELECTIVE_10"][`OPTION_${index + 1}`],
+          }),
+          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_11"][
+            `OPTION_${index + 1}`
+          ] && {
+            THIRD_COLUMN:
+              props.ELECTIVE_SELECTIONS["ELECTIVE_11"][`OPTION_${index + 1}`],
+          }),
+        });
+      }
     }
+
     return rows;
   };
 
@@ -227,8 +242,12 @@ const ElectiveSelections = (props: Props) => {
               )}
 
               {props.semester === 4 && (
-                <TableCell align="left">Elective I</TableCell>
+                <TableCell align="left">Elective II</TableCell>
               )}
+              {props.semester === 4 && (
+                <TableCell align="left">Open Elective II</TableCell>
+              )}
+
               {props.semester === 5 && (
                 <TableCell align="left">Elective II</TableCell>
               )}
@@ -236,14 +255,12 @@ const ElectiveSelections = (props: Props) => {
                 <TableCell align="left">Open Elective II</TableCell>
               )}
               {props.semester === 6 && (
-                <TableCell align="left">Elective V</TableCell>
+                <TableCell align="left">Elective III</TableCell>
               )}
               {props.semester === 6 && (
-                <TableCell align="left">Elective VI</TableCell>
+                <TableCell align="left">Elective IV</TableCell>
               )}
-              {props.semester === 6 && (
-                <TableCell align="left">Elective VII</TableCell>
-              )}
+
               {props.semester === 7 &&
                 props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE_2"] && (
                   <TableCell align="left">Open Elective II</TableCell>
@@ -254,6 +271,12 @@ const ElectiveSelections = (props: Props) => {
               )}
               {props.semester === 7 && (
                 <TableCell align="left">Elective IX</TableCell>
+              )}
+              {props.semester === 8 && (
+                <TableCell align="left">Elective X</TableCell>
+              )}
+              {props.semester === 8 && (
+                <TableCell align="left">Elective XI</TableCell>
               )}
 
               {/* {props.semester === 7 && ( */}

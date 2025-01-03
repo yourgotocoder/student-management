@@ -2,7 +2,7 @@ const { MongoClient } = require("mongodb");
 require("dotenv").config();
 const { appendFileSync } = require("fs");
 
-const sendMail = async () => {
+const updateStudentSemester = async () => {
   const client = await MongoClient.connect(process.env.DB_CONNECTION);
   const db = client.db("cse");
   const collection = db.collection("student-data");
@@ -17,11 +17,12 @@ const sendMail = async () => {
           $unset: { CURRENT_SEMESTER: 1 },
         },
       );
-      const logInfo = `${student.REGNO} (${student.NAME}) promoted from ${current_semester} to ${current_semester + 1}\n`;
+      const getDate = new Date();
+      const logInfo = `${student.REGNO} (${student.NAME}) promoted from ${current_semester} to ${current_semester + 1} on ${getDate.getDate()}\n`;
       appendFileSync(__dirname + "PromotionLog.txt", logInfo);
       console.log(`Updating record for ${student.NAME}`);
     }
   }
 };
 
-sendMail();
+updateStudentSemester();

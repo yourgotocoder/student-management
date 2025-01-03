@@ -39,3 +39,5 @@ next-env.d.ts
 helpers/resources
 .env
 test
+
+*.xlsx

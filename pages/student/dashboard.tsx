@@ -17,6 +17,7 @@ import ElectiveForm_7thSem from "../../components/elective/forms/_7thSem";
 import ElectiveForm_5thSem from "../../components/elective/forms/_5thSem";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import ElectiveForm_7thSem_Open from "../../components/elective/forms/_7thSemOpen";
+import ElectiveForm_8thSem from "../../components/elective/forms/_8thSem";
 type Props = {};
 
 interface IOption {
@@ -55,13 +56,24 @@ const Dashboard = (props: Props) => {
           ]);
         } else if (user.CURRENT_SEM === 4) {
           setOptions([
-            { title: "Elective I", subjects: user.OPEN_ELECTIVE_OPTIONS },
+            {
+              title: "Elective II",
+              subjects: user.ELECTIVE_2_OPTIONS,
+            },
+            {
+              title: "Open Elective II",
+              subjects: user.OPEN_ELECTIVE_2_OPTIONS,
+            },
           ]);
         } else if (user.CURRENT_SEM === 6) {
           setOptions([
-            { title: "Elective V", subjects: user.ELECTIVE_5_OPTIONS },
-            { title: "Elective VI", subjects: user.ELECTIVE_6_OPTIONS },
-            { title: "Elective VII", subjects: user.ELECTIVE_7_OPTIONS },
+            { title: "Elective III", subjects: user.ELECTIVE_3_OPTIONS },
+            { title: "Elective IV", subjects: user.ELECTIVE_4_OPTIONS },
+          ]);
+        } else if (user.CURRENT_SEM === 8) {
+          setOptions([
+            { title: "Elective X", subjects: user.ELECTIVE_10_OPTIONS },
+            { title: "Elective XI", subjects: user.ELECTIVE_11_OPTIONS },
           ]);
         }
       }
@@ -161,31 +173,47 @@ const Dashboard = (props: Props) => {
 
         {user &&
           user.CURRENT_SEM === 6 &&
-          user.ELECTIVE_5_OPTIONS &&
-          user.ELECTIVE_6_OPTIONS &&
-          user.ELECTIVE_7_OPTIONS &&
-          ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.ELECTIVE_5) ||
+          user.ELECTIVE_3_OPTIONS &&
+          user.ELECTIVE_4_OPTIONS &&
+          ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.ELECTIVE_3) ||
             !user.ELECTIVE_SELECTIONS) &&
           !submitted && (
             <ElectiveForm_6thSem
-              ELECTIVE_5_OPTIONS={user.ELECTIVE_5_OPTIONS}
-              ELECTIVE_6_OPTIONS={user.ELECTIVE_6_OPTIONS}
-              ELECTIVE_7_OPTIONS={user.ELECTIVE_7_OPTIONS}
+              ELECTIVE_3_OPTIONS={user.ELECTIVE_3_OPTIONS}
+              ELECTIVE_4_OPTIONS={user.ELECTIVE_4_OPTIONS}
               setSubmitted={(value) => setSubmitted(value)}
             />
           )}
         {user &&
           user.CURRENT_SEM === 4 &&
-          user.OPEN_ELECTIVE_OPTIONS &&
+          user.OPEN_ELECTIVE_2_OPTIONS &&
+          user.ELECTIVE_2_OPTIONS &&
           ((user.ELECTIVE_SELECTIONS &&
-            !user.ELECTIVE_SELECTIONS.OPEN_ELECTIVE) ||
+            !user.ELECTIVE_SELECTIONS.OPEN_ELECTIVE_2) ||
             !user.ELECTIVE_SELECTIONS) &&
           !submitted && (
             <ElectiveForm_4thSem
               setSubmitted={(value) => setSubmitted(value)}
-              ELECTIVE_1_OPTIONS={user.OPEN_ELECTIVE_OPTIONS}
+              ELECTIVE_2_OPTIONS={user.ELECTIVE_2_OPTIONS}
+              OPEN_ELECTIVE_2_OPTIONS={user.OPEN_ELECTIVE_2_OPTIONS}
             />
           )}
+
+        {user &&
+          user.CURRENT_SEM === 8 &&
+          user.ELECTIVE_10_OPTIONS &&
+          user.ELECTIVE_11_OPTIONS &&
+          ((user.ELECTIVE_SELECTIONS &&
+            !user.ELECTIVE_SELECTIONS.ELECTIVE_10) ||
+            !user.ELECTIVE_SELECTIONS) &&
+          !submitted && (
+            <ElectiveForm_8thSem
+              setSubmitted={(value) => setSubmitted(value)}
+              ELECTIVE_10_OPTIONS={user.ELECTIVE_10_OPTIONS}
+              ELECTIVE_11_OPTIONS={user.ELECTIVE_11_OPTIONS}
+            />
+          )}
+
         {user &&
           user.CURRENT_SEM === 3 &&
           user.ELECTIVE_1_OPTIONS &&
@@ -279,7 +307,7 @@ const Dashboard = (props: Props) => {
         {user &&
           user.CURRENT_SEM === 6 &&
           user.ELECTIVE_SELECTIONS &&
-          user.ELECTIVE_SELECTIONS.ELECTIVE_5 && (
+          user.ELECTIVE_SELECTIONS.ELECTIVE_3 && (
             <ElectiveSelections
               REGNO={user.REGNO!}
               semester={user.CURRENT_SEM}
@@ -289,7 +317,17 @@ const Dashboard = (props: Props) => {
         {user &&
           user.CURRENT_SEM === 4 &&
           user.ELECTIVE_SELECTIONS &&
-          user.ELECTIVE_SELECTIONS.OPEN_ELECTIVE && (
+          user.ELECTIVE_SELECTIONS.OPEN_ELECTIVE_2 && (
+            <ElectiveSelections
+              REGNO={user.REGNO!}
+              semester={user.CURRENT_SEM}
+              ELECTIVE_SELECTIONS={user.ELECTIVE_SELECTIONS}
+            />
+          )}
+        {user &&
+          user.CURRENT_SEM === 8 &&
+          user.ELECTIVE_SELECTIONS &&
+          user.ELECTIVE_SELECTIONS.ELECTIVE_10 && (
             <ElectiveSelections
               REGNO={user.REGNO!}
               semester={user.CURRENT_SEM}
