@@ -188,8 +188,7 @@ const Dashboard = (props: Props) => {
           user.CURRENT_SEM === 4 &&
           user.OPEN_ELECTIVE_2_OPTIONS &&
           user.ELECTIVE_2_OPTIONS &&
-          ((user.ELECTIVE_SELECTIONS &&
-            !user.ELECTIVE_SELECTIONS.OPEN_ELECTIVE_2) ||
+          ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.ELECTIVE_2) ||
             !user.ELECTIVE_SELECTIONS) &&
           !submitted && (
             <ElectiveForm_4thSem
@@ -317,7 +316,7 @@ const Dashboard = (props: Props) => {
         {user &&
           user.CURRENT_SEM === 4 &&
           user.ELECTIVE_SELECTIONS &&
-          user.ELECTIVE_SELECTIONS.OPEN_ELECTIVE_2 && (
+          user.ELECTIVE_SELECTIONS.ELECTIVE_2 && (
             <ElectiveSelections
               REGNO={user.REGNO!}
               semester={user.CURRENT_SEM}

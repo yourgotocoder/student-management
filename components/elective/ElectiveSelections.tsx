@@ -127,13 +127,12 @@ const ElectiveSelections = (props: Props) => {
         });
       }
     } else if (props.semester === 4) {
-      for (let index = 0; index < numberOfLoops; index++) {
+      //Made changes here
+      for (let index = 0; index < 7; index++) {
         rows.push({
           FIRST_COLUMN: `OPTION ${index + 1}`,
           SECOND_COLUMN:
             props.ELECTIVE_SELECTIONS["ELECTIVE_2"][`OPTION_${index + 1}`],
-          THIRD_COLUMN:
-            props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE_2"][`OPTION_${index + 1}`],
         });
       }
     } else if (props.semester === 5) {
@@ -243,9 +242,6 @@ const ElectiveSelections = (props: Props) => {
 
               {props.semester === 4 && (
                 <TableCell align="left">Elective II</TableCell>
-              )}
-              {props.semester === 4 && (
-                <TableCell align="left">Open Elective II</TableCell>
               )}
 
               {props.semester === 5 && (

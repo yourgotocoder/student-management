@@ -56,6 +56,27 @@ const updateElective = async () => {
       );
     }
 
+    if (student.MINOR_SPECIALIZATION === "AI") {
+      ELECTIVE_3_OPTIONS = ELECTIVE_3_OPTIONS.filter(
+        (sub) => sub.CODE !== "CS333A3",
+      );
+      ELECTIVE_3_OPTIONS = ELECTIVE_3_OPTIONS.filter(
+        (sub) => sub.CODE !== "CS340A3",
+      );
+      ELECTIVE_4_OPTIONS = ELECTIVE_4_OPTIONS.filter(
+        (sub) => sub.CODE !== "CS335A3",
+      );
+    }
+
+    if (student.MINOR_SPECIALIZATION === "CS") {
+      ELECTIVE_3_OPTIONS = ELECTIVE_3_OPTIONS.filter(
+        (sub) => sub.CODE !== "CS340A3",
+      );
+      ELECTIVE_4_OPTIONS = ELECTIVE_4_OPTIONS.filter(
+        (sub) => sub.CODE !== "CS349A3",
+      );
+    }
+
     await collection.updateOne(
       { REGNO: student.REGNO },
       {
