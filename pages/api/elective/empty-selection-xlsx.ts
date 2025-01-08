@@ -23,34 +23,51 @@ export default async function handler(
     const db = client.db("cse");
     const collection = db.collection("student-data");
     const sem = req.query.sem && +req.query.sem;
+    const branch = req.query.branch;
     const data = await collection.find().toArray();
     await client.close();
 
-    const _semData = data.filter((student) => student.CURRENT_SEM === sem);
+    const _semData = data.filter(
+      (student) => student.CURRENT_SEM === sem && student.BRANCH === branch,
+    );
     let finalData: { REGNO: number; NAME: string; CGPA?: number }[] = [];
     switch (sem) {
+      case 4:
+        finalData = _semData
+          .filter(
+            (student) =>
+              student.ELECTIVE_SELECTIONS &&
+              !student.ELECTIVE_SELECTIONS.ELECTIVE_2,
+          )
+          .map((student) => ({ REGNO: student.REGNO, NAME: student.NAME }));
+        break;
+
       case 5:
         finalData = _semData
           .filter(
             (student) =>
-              !student.ELECTIVE_SELECTIONS ||
-              (student.ELECTIVE_SELECTIONS &&
-                !student.ELECTIVE_SELECTIONS.ELECTIVE_3),
+              student.ELECTIVE_SELECTIONS &&
+              !student.ELECTIVE_SELECTIONS.ELECTIVE_3,
           )
-          .map((student) => ({
-            REGNO: student.REGNO,
-            NAME: student.NAME,
-            CGPA: student.CGPA,
-          }));
+          .map((student) => ({ REGNO: student.REGNO, NAME: student.NAME }));
+        break;
+
+      case 6:
+        finalData = _semData
+          .filter(
+            (student) =>
+              student.ELECTIVE_SELECTIONS &&
+              !student.ELECTIVE_SELECTIONS.ELECTIVE_4,
+          )
+          .map((student) => ({ REGNO: student.REGNO, NAME: student.NAME }));
         break;
 
       case 7:
         finalData = _semData
           .filter(
             (student) =>
-              !student.ELECTIVE_SELECTIONS ||
-              (student.ELECTIVE_SELECTIONS &&
-                !student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE),
+              student.ELECTIVE_SELECTIONS &&
+              !student.ELECTIVE_SELECTIONS.ELECTIVE_7,
           )
           .map((student) => ({ REGNO: student.REGNO, NAME: student.NAME }));
         break;

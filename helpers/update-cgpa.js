@@ -4,17 +4,20 @@ const { MongoClient } = require("mongodb");
 const json2xls = require("json2xls");
 require("dotenv").config();
 
-const updateElective = async (data, sem) => {
+const updateElective = async (data) => {
   const client = await MongoClient.connect(process.env.DB_CONNECTION);
   const db = client.db("cse");
   const collection = db.collection("student-data");
   const student_data = await collection.find().toArray();
-  const filtered_data = student_data.filter(
-    (student) => student.CURRENT_SEM === sem,
-  );
-  for (let stdData of filtered_data) {
-    consoel.log(stdData.REGNO);
-    const { NAME, CGPA } = data.find((st) => st.REGNO === stdData.REGNO);
+  console.log(student_data);
+
+  for (let stdData of student_data) {
+    console.log(stdData.REGNO);
+    const result = data.find((st) => st.REGNO === stdData.REGNO);
+    let CGPA;
+    if (result) {
+      CGPA = result.CGPA;
+    }
     if (CGPA) {
       await collection.updateOne(
         { REGNO: stdData.REGNO },
@@ -30,6 +33,6 @@ const updateElective = async (data, sem) => {
   await client.close();
 };
 
-const studentsData = parser.parseXls2Json("./resources/CGPA_3rd_sem.xlsx")[0];
+const studentsData = parser.parseXls2Json("./resources/cse.xlsx")[0];
 
-updateElective(studentsData, 3);
+updateElective(studentsData);

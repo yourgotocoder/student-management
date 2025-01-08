@@ -11,27 +11,51 @@ type Data = {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<Data>,
 ) {
   if (req.method === "GET") {
     const client = await MongoClient.connect(
-      process.env.DB_CONNECTION as string
+      process.env.DB_CONNECTION as string,
     );
     const db = client.db("cse");
     const collection = db.collection("student-data");
     const sem = req.query.sem && +req.query.sem;
+    const branch = req.query.branch;
+    console.log(branch);
     const data = await collection.find().toArray();
     await client.close();
 
-    const _semData = data.filter((student) => student.CURRENT_SEM === sem);
+    const _semData = data.filter(
+      (student) => student.CURRENT_SEM === sem && student.BRANCH === branch,
+    );
     let finalData: { REGNO: number; NAME: string }[] = [];
     switch (sem) {
+      case 4:
+        finalData = _semData
+          .filter(
+            (student) =>
+              student.ELECTIVE_SELECTIONS &&
+              !student.ELECTIVE_SELECTIONS.ELECTIVE_2,
+          )
+          .map((student) => ({ REGNO: student.REGNO, NAME: student.NAME }));
+        break;
+
       case 5:
         finalData = _semData
           .filter(
             (student) =>
               student.ELECTIVE_SELECTIONS &&
-              !student.ELECTIVE_SELECTIONS.ELECTIVE_3
+              !student.ELECTIVE_SELECTIONS.ELECTIVE_3,
+          )
+          .map((student) => ({ REGNO: student.REGNO, NAME: student.NAME }));
+        break;
+
+      case 6:
+        finalData = _semData
+          .filter(
+            (student) =>
+              student.ELECTIVE_SELECTIONS &&
+              !student.ELECTIVE_SELECTIONS.ELECTIVE_4,
           )
           .map((student) => ({ REGNO: student.REGNO, NAME: student.NAME }));
         break;
@@ -41,7 +65,7 @@ export default async function handler(
           .filter(
             (student) =>
               student.ELECTIVE_SELECTIONS &&
-              !student.ELECTIVE_SELECTIONS.ELECTIVE_7
+              !student.ELECTIVE_SELECTIONS.ELECTIVE_7,
           )
           .map((student) => ({ REGNO: student.REGNO, NAME: student.NAME }));
         break;

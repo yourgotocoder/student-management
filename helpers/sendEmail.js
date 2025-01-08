@@ -1,17 +1,14 @@
 const nodeoutlook = require("nodejs-nodemailer-outlook");
 const { MongoClient } = require("mongodb");
-const parser = require("simple-excel-to-json");
 require("dotenv").config();
 
 const sendMail = async (filePath) => {
   const client = await MongoClient.connect(process.env.DB_CONNECTION);
   const db = client.db("cse");
   const collection = db.collection("student-data");
-
-  const data = parser.parseXls2Json(filePath)[0];
-
-  for (let [index, student] of data.entries()) {
-    const studentData = await collection.findOne({ REGNO: student.REGNO });
+  const db_data = await collection.find().toArray();
+  const filteredData = db_data.filter((stuData) => stuData.CURRENT_SEM !== 8);
+  for (let [index, student] of filteredData.entries()) {
     // Delay required to make sure Outlook email rate limit is not exceeded
     setTimeout(
       () => {
@@ -21,15 +18,16 @@ const sendMail = async (filePath) => {
             pass: process.env.EMAIL_PASSWORD,
           },
           from: process.env.EMAIL_ID,
-          to: studentData.EMAIL_ID,
+          to: student.EMAIL_ID,
           subject: "Passcode for elective",
           html: `<p>Passcode for <a href="https://elective.csesmit.in/">Elective</a>.</p>
-                  <p><b>${studentData.DEFAULT_PASSWORD}</b></p>
+                  <p><b>${student.DEFAULT_PASSWORD}</b></p>
                   <p>Copy paste the above code to avoid typos!</p>
                   `,
           text: "Email Password",
           onError: (e) => console.log(e),
-          onSuccess: (i) => console.log(`${index + 1}/${data.length} done`),
+          onSuccess: (i) =>
+            console.log(`${index + 1}/${filteredData.length} done`),
         });
       },
       (index + 1) * 2000,
