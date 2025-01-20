@@ -22,6 +22,15 @@ const doThings = async () => {
         { CODE: "ME304A2", TITLE: "Financial Planning and Analysis" },
       ];
 
+      if (student.BRANCH === "CSE(AI&ML)") {
+        open_electives_options = open_electives_options.filter(
+          (sub) => sub.TITLE !== "Introduction to Machine Learning",
+        );
+        open_electives_options = open_electives_options.filter(
+          (sub) => sub.TITLE !== "Programming with Python",
+        );
+      }
+
       await collection.updateOne(
         { REGNO: student.REGNO },
         {
