@@ -55,7 +55,7 @@ export default async function handler(
           .filter(
             (student) =>
               student.ELECTIVE_SELECTIONS &&
-              !student.ELECTIVE_SELECTIONS.ELECTIVE_4,
+              !student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE_3,
           )
           .map((student) => ({ REGNO: student.REGNO, NAME: student.NAME }));
         break;

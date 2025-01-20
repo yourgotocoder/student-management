@@ -5,11 +5,11 @@ import XLSX from "xlsx";
 
 type Data =
   | {
-      size?: number;
-      data: { REGNO: number; NAME: string }[] | null;
-      error: boolean;
-      message: string;
-    }
+    size?: number;
+    data: { REGNO: number; NAME: string }[] | null;
+    error: boolean;
+    message: string;
+  }
   | Buffer;
 
 export default async function handler(
@@ -57,7 +57,7 @@ export default async function handler(
           .filter(
             (student) =>
               student.ELECTIVE_SELECTIONS &&
-              !student.ELECTIVE_SELECTIONS.ELECTIVE_4,
+              !student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE_3,
           )
           .map((student) => ({ REGNO: student.REGNO, NAME: student.NAME }));
         break;
