@@ -46,7 +46,18 @@ const map_electives_by_sem = (data, sem) => {
               ELECTIVE_4: student.ELECTIVE_SELECTIONS.ELECTIVE_4,
             },
           }))
-        : "Invalid Sem";
+        : sem === 8
+          ? data.map((student) => ({
+              REGNO: student.REGNO,
+              NAME: student.NAME,
+              BRANCH: student.BRANCH,
+              CGPA: student.CGPA,
+              ELECTIVE_SELECTIONS: {
+                ELECTIVE_10: student.ELECTIVE_SELECTIONS.ELECTIVE_10,
+                ELECTIVE_11: student.ELECTIVE_SELECTIONS.ELECTIVE_11,
+              },
+            }))
+          : "Invalid Option";
   return result;
 };
 
@@ -56,28 +67,39 @@ const updateElective = async () => {
   const collection = db.collection("student-data");
   const studentData = await collection.find().toArray();
 
-  const _4thData = map_electives_by_sem(
+  // const _4thData = map_electives_by_sem(
+  //   filter_for_missing_selections(
+  //     sort_by_cgpa(filter_by_key(filter_by_sem(studentData, 4), "CGPA")),
+  //     "ELECTIVE_2",
+  //   ),
+  //   4,
+  // );
+
+  const _8thData = map_electives_by_sem(
     filter_for_missing_selections(
-      sort_by_cgpa(filter_by_key(filter_by_sem(studentData, 4), "CGPA")),
-      "ELECTIVE_2",
+      sort_by_cgpa(filter_by_key(filter_by_sem(studentData, 8), "CGPA")),
+      "ELECTIVE_10",
     ),
-    4,
+    8,
   );
 
-  console.log(_4thData);
+  console.log(_8thData);
 
-  const _6thData = map_electives_by_sem(
-    filter_for_missing_selections(
-      sort_by_cgpa(filter_by_key(filter_by_sem(studentData, 6), "CGPA")),
-      "ELECTIVE_3",
-    ),
-    6,
-  );
+  // console.log(_4thData);
+  //
+  // const _6thData = map_electives_by_sem(
+  //   filter_for_missing_selections(
+  //     sort_by_cgpa(filter_by_key(filter_by_sem(studentData, 6), "CGPA")),
+  //     "ELECTIVE_3",
+  //   ),
+  //   6,
+  // );
 
   // const _6thElectives = alloter(_6thData, 50);
-  const _4thElectives = alloter(_4thData, 50);
+  // const _4thElectives = alloter(_4thData, 50);
+  const _8thElectives = alloter(_8thData, 10);
 
-  writeFileSync(`_4thElective.xlsx`, json2xls(_4thElectives.result), "binary");
+  writeFileSync(`_8thElective.xlsx`, json2xls(_8thElectives.result), "binary");
   await client.close();
 };
 
