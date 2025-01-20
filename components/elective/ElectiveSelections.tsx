@@ -19,11 +19,11 @@ export interface AllotmentData {
   REGNO: number;
   CGPA: number;
   [key: string]:
-    | {
-        TITLE: string;
-        CODE: string;
-      }
-    | number;
+  | {
+    TITLE: string;
+    CODE: string;
+  }
+  | number;
 }
 export interface AllocatedSubject {
   [key: string]: { TITLE: string; CODE: string };
@@ -150,7 +150,7 @@ const ElectiveSelections = (props: Props) => {
           ] && {
             THIRD_COLUMN:
               props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE_2"][
-                `OPTION_${index + 1}`
+              `OPTION_${index + 1}`
               ],
           }),
         });
@@ -159,17 +159,13 @@ const ElectiveSelections = (props: Props) => {
       for (let index = 0; index < numberOfLoops; index++) {
         rows.push({
           FIRST_COLUMN: `OPTION ${index + 1}`,
-          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_3"][
+          ...(props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE_3"][
             `OPTION_${index + 1}`
           ] && {
             SECOND_COLUMN:
-              props.ELECTIVE_SELECTIONS["ELECTIVE_3"][`OPTION_${index + 1}`],
-          }),
-          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_4"][
-            `OPTION_${index + 1}`
-          ] && {
-            THIRD_COLUMN:
-              props.ELECTIVE_SELECTIONS["ELECTIVE_4"][`OPTION_${index + 1}`],
+              props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE_3"][
+              `OPTION_${index + 1}`
+              ],
           }),
         });
       }
@@ -191,13 +187,13 @@ const ElectiveSelections = (props: Props) => {
           }),
           ...(props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE_2"] &&
             props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE_2"][
-              `OPTION_${index + 1}`
+            `OPTION_${index + 1}`
             ] && {
-              FOURTH_COLUMN:
-                props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE_2"][
-                  `OPTION_${index + 1}`
-                ],
-            }),
+            FOURTH_COLUMN:
+              props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE_2"][
+              `OPTION_${index + 1}`
+              ],
+          }),
         });
       }
     } else if (props.semester === 8) {
@@ -251,10 +247,7 @@ const ElectiveSelections = (props: Props) => {
                 <TableCell align="left">Open Elective II</TableCell>
               )}
               {props.semester === 6 && (
-                <TableCell align="left">Elective III</TableCell>
-              )}
-              {props.semester === 6 && (
-                <TableCell align="left">Elective IV</TableCell>
+                <TableCell align="left">Open Elective III</TableCell>
               )}
 
               {props.semester === 7 &&
@@ -334,7 +327,7 @@ const ElectiveSelections = (props: Props) => {
               label="this repo"
               color="info"
               deleteIcon={<GitHubIcon color="action"></GitHubIcon>}
-              onDelete={() => {}}
+              onDelete={() => { }}
             ></Chip>
           </a>
         </Typography>
