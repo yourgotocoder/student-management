@@ -48,11 +48,7 @@ const Dashboard = (props: Props) => {
           ]);
         } else if (user.CURRENT_SEM === 5) {
           setOptions([
-            { title: "Elective II", subjects: user.ELECTIVE_2_OPTIONS },
-            {
-              title: "Open Elective II",
-              subjects: user.OPEN_ELECTIVE_2_OPTIONS,
-            },
+            { title: "Elective III", subjects: user.ELECTIVE_3_OPTIONS },
           ]);
         } else if (user.CURRENT_SEM === 4) {
           setOptions([
@@ -239,15 +235,13 @@ const Dashboard = (props: Props) => {
           )}
         {user &&
           user.CURRENT_SEM === 5 &&
-          user.ELECTIVE_2_OPTIONS &&
-          user.OPEN_ELECTIVE_2_OPTIONS &&
-          ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.ELECTIVE_2) ||
+          user.ELECTIVE_3_OPTIONS &&
+          ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.ELECTIVE_3) ||
             !user.ELECTIVE_SELECTIONS) &&
           !submitted && (
             <ElectiveForm_5thSem
               setSubmitted={(value) => setSubmitted(value)}
-              ELECTIVE_2_OPTIONS={user.ELECTIVE_2_OPTIONS!}
-              OPEN_ELECTIVE_2_OPTIONS={user.OPEN_ELECTIVE_2_OPTIONS}
+              ELECTIVE_3_OPTIONS={user.ELECTIVE_3_OPTIONS!}
             />
           )}
 
@@ -293,13 +287,8 @@ const Dashboard = (props: Props) => {
         {user &&
           user.CURRENT_SEM === 5 &&
           user.ELECTIVE_SELECTIONS &&
-          user.ELECTIVE_SELECTIONS.ELECTIVE_2 && (
-            <ElectiveSelections
-              REGNO={user.REGNO!}
-              semester={user.CURRENT_SEM}
-              ELECTIVE_SELECTIONS={user.ELECTIVE_SELECTIONS}
-            />
-          )}
+          user.ELECTIVE_SELECTIONS.ELECTIVE_3 && (
+            <p>Electives will be allocated soon</p>)}
 
         {user &&
           user.CURRENT_SEM === 6 &&

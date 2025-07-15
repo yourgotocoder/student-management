@@ -6,14 +6,10 @@ const updateElective = async () => {
   const client = await MongoClient.connect(process.env.DB_CONNECTION);
   const db = client.db("cse");
   const collection = db.collection("student-data");
-  const data = parser.parseXls2Json("./resources/AIML_DATA.xlsx")[0];
+  const data = parser.parseXls2Json("./resources/history.xlsx")[0];
 
   for (let student of data) {
     const foundStudent = await collection.findOne({ REGNO: student.REGNO });
-    const OPEN_ELECTIVE_1 = {
-      CODE: student.OPEN_ELECTIVE_1_CODE,
-      TITLE: student.OPEN_ELECTIVE_1_TITLE,
-    };
     const ELECTIVE_1 = {
       CODE: student.ELECTIVE_1_CODE,
       TITLE: student.ELECTIVE_1_TITLE,
@@ -23,8 +19,6 @@ const updateElective = async () => {
         { REGNO: student.REGNO },
         {
           $set: {
-            MINOR_SPECIALIZATION: student.MINOR_SPECIALIZATION,
-            OPEN_ELECTIVE_1,
             ELECTIVE_1,
           },
         },
