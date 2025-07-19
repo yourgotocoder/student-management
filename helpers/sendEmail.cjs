@@ -2,13 +2,14 @@ const nodeoutlook = require("nodejs-nodemailer-outlook");
 const { MongoClient } = require("mongodb");
 require("dotenv").config();
 
-const sendMail = async (filePath) => {
+const sendMail = async () => {
   const client = await MongoClient.connect(process.env.DB_CONNECTION);
   const db = client.db("cse");
   const collection = db.collection("student-data");
   const db_data = await collection.find().toArray();
-  const filteredData = db_data.filter((stuData) => stuData.CURRENT_SEM !== 8);
+  const filteredData = db_data.filter((stuData) => stuData.CURRENT_SEM == 5 && !stuData.EMAIL_ID);
   for (let [index, student] of filteredData.entries()) {
+    console.log(student.REGNO)
     // Delay required to make sure Outlook email rate limit is not exceeded
     setTimeout(
       () => {
@@ -18,7 +19,8 @@ const sendMail = async (filePath) => {
             pass: process.env.EMAIL_PASSWORD,
           },
           from: process.env.EMAIL_ID,
-          to: student.EMAIL_ID,
+          // to: student.EMAIL_ID,
+          to: `${student.NAME.split(" ")[0]}_${student.REGNO}@smit.smu.edu.in`,
           subject: "Passcode for elective",
           html: `<p>Passcode for <a href="https://elective.csesmit.in/">Elective</a>.</p>
                   <p><b>${student.DEFAULT_PASSWORD}</b></p>
@@ -32,10 +34,11 @@ const sendMail = async (filePath) => {
       },
       (index + 1) * 2000,
     );
+
   }
   await client.close();
 };
 
-sendMail("./resources/8thSem.xlsx").then(() =>
+sendMail().then(() =>
   console.log(`Done sending emails to 7th sem`),
 );

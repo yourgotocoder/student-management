@@ -10,7 +10,7 @@ const updateElective = async () => {
   const _5thSemData = data.filter(
     (student) =>
       student.CURRENT_SEM &&
-      student.CURRENT_SEM == 5);
+      student.CURRENT_SEM == 5 && student.REGNO === 202200448);
 
 
   for (let [index, student] of _5thSemData.entries()) {
@@ -44,7 +44,7 @@ const updateElective = async () => {
         },
       },
     );
-    cosole.log(`Updated ${index + 1} of ${_5thSemData.length}`);
+    console.log(`Updated ${index + 1} of ${_5thSemData.length}`);
   }
 
   await client.close();

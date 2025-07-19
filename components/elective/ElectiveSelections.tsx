@@ -173,11 +173,11 @@ const ElectiveSelections = (props: Props) => {
       for (let index = 0; index < numberOfLoops; index++) {
         rows.push({
           FIRST_COLUMN: `OPTION ${index + 1}`,
-          ...(props.ELECTIVE_SELECTIONS["ELECTIVE_8"][
+          ...(props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE_4"][
             `OPTION_${index + 1}`
           ] && {
             SECOND_COLUMN:
-              props.ELECTIVE_SELECTIONS["ELECTIVE_8"][`OPTION_${index + 1}`],
+              props.ELECTIVE_SELECTIONS["OPEN_ELECTIVE_4"][`OPTION_${index + 1}`],
           }),
           ...(props.ELECTIVE_SELECTIONS["ELECTIVE_9"][
             `OPTION_${index + 1}`

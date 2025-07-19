@@ -42,9 +42,7 @@ const Dashboard = (props: Props) => {
       if (user) {
         if (user.CURRENT_SEM === 7) {
           setOptions([
-            { title: "Elective VIII", subjects: user.ELECTIVE_8_OPTIONS },
-            { title: "ELECTIVE IX", subjects: user.ELECTIVE_9_OPTIONS },
-            { title: "Open Elective", subjects: user.OPEN_ELECTIVE_2_OPTIONS },
+            { title: "Open Elective", subjects: user.OPEN_ELECTIVE_4_OPTIONS },
           ]);
         } else if (user.CURRENT_SEM === 5) {
           setOptions([
@@ -138,20 +136,20 @@ const Dashboard = (props: Props) => {
             <Chip label={user.ELECTIVE_2.TITLE} color="success"></Chip> {"  "}
           </Typography>
         )}
-        {user &&
-          user.CURRENT_SEM === 7 &&
-          user.ELECTIVE_8 &&
-          user.ELECTIVE_9 && (
-            <>
-              <Typography variant="h6" textAlign="center">
-                Your final electives are {"  "}
-                <br />
-                <Chip label={user.ELECTIVE_8.TITLE} color="success"></Chip>{" "}
-                {"  "},{"  "}
-                <Chip label={user.ELECTIVE_9.TITLE} color="success"></Chip>{" "}
-              </Typography>
-            </>
-          )}
+        {/* {user && */}
+        {/*   user.CURRENT_SEM === 7 && */}
+        {/*   user.ELECTIVE_8 && */}
+        {/*   user.ELECTIVE_9 && ( */}
+        {/*     <> */}
+        {/*       <Typography variant="h6" textAlign="center"> */}
+        {/*         Your final electives are {"  "} */}
+        {/*         <br /> */}
+        {/*         <Chip label={user.ELECTIVE_8.TITLE} color="success"></Chip>{" "} */}
+        {/*         {"  "},{"  "} */}
+        {/*         <Chip label={user.ELECTIVE_9.TITLE} color="success"></Chip>{" "} */}
+        {/*       </Typography> */}
+        {/*     </> */}
+        {/*   )} */}
 
         {/* {user && */}
         {/*   user.CURRENT_SEM === 7 && */}
@@ -222,15 +220,13 @@ const Dashboard = (props: Props) => {
 
         {user &&
           user.CURRENT_SEM === 7 &&
-          user.ELECTIVE_8_OPTIONS &&
-          ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.ELECTIVE_8) ||
+          user.OPEN_ELECTIVE_4_OPTIONS &&
+          ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.OPEN_ELECTIVE_4) ||
             !user.ELECTIVE_SELECTIONS) &&
           !submitted && (
             <ElectiveForm_7thSem
               setSubmitted={(value) => setSubmitted(value)}
-              ELECTIVE_8_OPTIONS={user.ELECTIVE_8_OPTIONS!}
-              ELECTIVE_9_OPTIONS={user.ELECTIVE_9_OPTIONS!}
-              OPEN_ELECTIVE_2_OPTIONS={user.OPEN_ELECTIVE_2_OPTIONS!}
+              OPEN_ELECTIVE_4_OPTIONS={user.OPEN_ELECTIVE_4_OPTIONS!}
             />
           )}
         {user &&
@@ -277,13 +273,8 @@ const Dashboard = (props: Props) => {
         {user &&
           user.CURRENT_SEM === 7 &&
           user.ELECTIVE_SELECTIONS &&
-          user.ELECTIVE_SELECTIONS.ELECTIVE_9 && (
-            <ElectiveSelections
-              REGNO={user.REGNO!}
-              semester={user.CURRENT_SEM}
-              ELECTIVE_SELECTIONS={user.ELECTIVE_SELECTIONS}
-            />
-          )}
+          user.ELECTIVE_SELECTIONS.OPEN_ELECTIVE_4 && (
+            <p>Electives will be allocated soon</p>)}
         {user &&
           user.CURRENT_SEM === 5 &&
           user.ELECTIVE_SELECTIONS &&

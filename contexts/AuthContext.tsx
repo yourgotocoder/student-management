@@ -35,6 +35,7 @@ type UserType = {
   OPEN_ELECTIVE_OPTIONS?: Subject[];
   OPEN_ELECTIVE_2_OPTIONS?: Subject[];
   OPEN_ELECTIVE_3_OPTIONS?: Subject[];
+  OPEN_ELECTIVE_4_OPTIONS?: Subject[];
   SPECIALIZATION_OPTIONS?: Subject[];
   ELECTIVE_SELECTIONS?: any;
 };
