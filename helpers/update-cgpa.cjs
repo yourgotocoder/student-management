@@ -11,7 +11,7 @@ const updateElective = async (data) => {
   const student_data = await collection.find().toArray();
   console.log(student_data);
 
-  for (let stdData of student_data) {
+  for (let stdData of student_data.filter(student => student.CURRENT_SEM === 3)) {
     console.log(stdData.REGNO);
     const result = data.find((st) => st.REGNO === stdData.REGNO);
     let CGPA;
@@ -33,6 +33,6 @@ const updateElective = async (data) => {
   await client.close();
 };
 
-const studentsData = parser.parseXls2Json("./resources/cse.xlsx")[0];
+const studentsData = parser.parseXls2Json("./resources/CGPA.xlsx")[0];
 
 updateElective(studentsData);
