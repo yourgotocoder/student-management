@@ -9,11 +9,13 @@ const updateElective = async () => {
 
   const ELECTIVE_1_OPTIONS = [
     { CODE: "CS201A3", TITLE: "JAVA Programming" },
-    { CODE: "CS202A3", TITLE: "Fundamentals of Web Technology" },
-    { CODE: "CS203A3", TITLE: "UI/UX Design" },
-    { CODE: "CS206A3", TITLE: "Microprocessor & Peripheral Devices" },
-    { CODE: "CS207A3", TITLE: "Information Systems & Security" },
+    { CODE: "CS204A3", TITLE: "Information Transmission and Coding Theory" },
+    { CODE: "CS205A3", TITLE: "Computer Graphics" },
+    { CODE: "CS206A3", TITLE: "Microprocessor and Peripheral devices" },
+    { CODE: "CS224A3", TITLE: "Information Systems and Security" },
+    { CODE: "CS227A3", TITLE: "Mathematical Foundation for Machine Learning" }
   ];
+
 
   const _3rdSemData = data.filter(
     (student) =>

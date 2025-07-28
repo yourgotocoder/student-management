@@ -24,9 +24,23 @@ const filter_for_missing_selections = (data, elective) => {
 };
 
 const map_electives_by_sem = (data, sem) => {
-  const result =
-    sem === 4
-      ? data.map((student) => ({
+  let result;
+
+  switch (sem) {
+    case 3:
+      result = data.map((student) => ({
+        REGNO: student.REGNO,
+        NAME: student.NAME,
+        BRANCH: student.BRANCH,
+        CGPA: student.CGPA,
+        ELECTIVE_SELECTIONS: {
+          ELECTIVE_1: student.ELECTIVE_SELECTIONS.ELECTIVE_1,
+        },
+      }));
+      break;
+
+    case 4:
+      result = data.map((student) => ({
         REGNO: student.REGNO,
         NAME: student.NAME,
         BRANCH: student.BRANCH,
@@ -34,30 +48,61 @@ const map_electives_by_sem = (data, sem) => {
         ELECTIVE_SELECTIONS: {
           ELECTIVE_2: student.ELECTIVE_SELECTIONS.ELECTIVE_2,
         },
-      }))
-      : sem === 6
-        ? data.map((student) => ({
-          REGNO: student.REGNO,
-          NAME: student.NAME,
-          BRANCH: student.BRANCH,
-          CGPA: student.CGPA,
-          ELECTIVE_SELECTIONS: {
-            OPEN_ELECTIVE_3: student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE_3,
-          },
-        }))
-        : sem === 8
-          ? data.map((student) => ({
-            REGNO: student.REGNO,
-            NAME: student.NAME,
-            BRANCH: student.BRANCH,
-            CGPA: student.CGPA,
-            ELECTIVE_SELECTIONS: {
-              ELECTIVE_10: student.ELECTIVE_SELECTIONS.ELECTIVE_10,
-              ELECTIVE_11: student.ELECTIVE_SELECTIONS.ELECTIVE_11,
-            },
-          }))
-          : "Invalid Option";
-  return result;
+      }));
+      break;
+
+    case 5:
+      result = data.map((student) => ({
+        REGNO: student.REGNO,
+        NAME: student.NAME,
+        BRANCH: student.BRANCH,
+        CGPA: student.CGPA,
+        ELECTIVE_SELECTIONS: {
+          ELECTIVE_3: student.ELECTIVE_SELECTIONS.ELECTIVE_3,
+        },
+      }));
+      break;
+
+    case 6:
+      result = data.map((student) => ({
+        REGNO: student.REGNO,
+        NAME: student.NAME,
+        BRANCH: student.BRANCH,
+        CGPA: student.CGPA,
+        ELECTIVE_SELECTIONS: {
+          OPEN_ELECTIVE_3: student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE_3,
+        },
+      }));
+      break;
+
+    case 7:
+      result = data.map((student) => ({
+        REGNO: student.REGNO,
+        NAME: student.NAME,
+        BRANCH: student.BRANCH,
+        CGPA: student.CGPA,
+        ELECTIVE_SELECTIONS: {
+          OPEN_ELECTIVE_4: student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE_4,
+        },
+      }));
+      break;
+
+    case 8:
+      result = data.map((student) => ({
+        REGNO: student.REGNO,
+        NAME: student.NAME,
+        BRANCH: student.BRANCH,
+        CGPA: student.CGPA,
+        ELECTIVE_SELECTIONS: {
+          ELECTIVE_10: student.ELECTIVE_SELECTIONS.ELECTIVE_10,
+          ELECTIVE_11: student.ELECTIVE_SELECTIONS.ELECTIVE_11,
+        },
+      }));
+      break;
+
+    default:
+      result = "Invalid Option";
+  }  return result;
 };
 
 const updateElective = async () => {
@@ -86,21 +131,21 @@ const updateElective = async () => {
 
   // console.log(_4thData);
   //
-  const _6thData = map_electives_by_sem(
+  const _7thData = map_electives_by_sem(
     filter_for_missing_selections(
-      sort_by_cgpa(filter_by_key(filter_by_sem(studentData, 6), "CGPA")),
-      "OPEN_ELECTIVE_3",
+      sort_by_cgpa(filter_by_key(filter_by_sem(studentData, 7), "CGPA")),
+      "OPEN_ELECTIVE_4",
     ),
-    6,
+    7,
   );
-
-  const _6thElectives = alloter(_6thData, 50);
+  console.log(_7thData)
+  const _7thElectives = alloter(_7thData, 60);
   // const _4thElectives = alloter(_4thData, 50);
   // const _8thElectives = alloter(_8thData, 10);
 
   writeFileSync(
-    `_6thOpenElective.xlsx`,
-    json2xls(_6thElectives.result),
+    `_7thElective.xlsx`,
+    json2xls(_7thElectives.result),
     "binary",
   );
   await client.close();
@@ -174,7 +219,6 @@ const alloter = (data, minSeats) => {
     }
     result.push(studentData);
   }
-
   return { result, seats };
 };
 

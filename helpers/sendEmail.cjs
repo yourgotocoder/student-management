@@ -7,7 +7,7 @@ const sendMail = async () => {
   const db = client.db("cse");
   const collection = db.collection("student-data");
   const db_data = await collection.find().toArray();
-  const filteredData = db_data.filter((stuData) => stuData.CURRENT_SEM == 5 && !stuData.EMAIL_ID);
+  const filteredData = db_data.filter((stuData) => stuData.CURRENT_SEM == 7);
   for (let [index, student] of filteredData.entries()) {
     console.log(student.REGNO)
     // Delay required to make sure Outlook email rate limit is not exceeded
@@ -19,8 +19,7 @@ const sendMail = async () => {
             pass: process.env.EMAIL_PASSWORD,
           },
           from: process.env.EMAIL_ID,
-          // to: student.EMAIL_ID,
-          to: `${student.NAME.split(" ")[0]}_${student.REGNO}@smit.smu.edu.in`,
+          to: student.EMAIL_ID,
           subject: "Passcode for elective",
           html: `<p>Passcode for <a href="https://elective.csesmit.in/">Elective</a>.</p>
                   <p><b>${student.DEFAULT_PASSWORD}</b></p>

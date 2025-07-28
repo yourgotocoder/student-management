@@ -27,7 +27,7 @@ type Props = {
 const elective_1 = "elective_1";
 const specialization = "specialization";
 
-const ElectiveForm_4thSem = (props: Props) => {
+const ElectiveForm_3rdSem = (props: Props) => {
   const [activeStep, setActiveStep] = React.useState(0);
 
   const [id, setId] = useState<string>();
@@ -44,6 +44,7 @@ const ElectiveForm_4thSem = (props: Props) => {
   const [elective_1_option_3, setElective1Option3] = useState<string>("");
   const [elective_1_option_4, setElective1Option4] = useState<string>("");
   const [elective_1_option_5, setElective1Option5] = useState<string>("");
+  const [elective_1_option_6, setElective1Option6] = useState<string>("");
 
   const [specialization_option_1, setSpecializationOption1] =
     useState<string>("");
@@ -91,6 +92,20 @@ const ElectiveForm_4thSem = (props: Props) => {
     useState<string>("");
   const [specialization_option_23, setSpecializationOption23] =
     useState<string>("");
+  const [specialization_option_24, setSpecializationOption24] =
+    useState<string>("");
+  const [specialization_option_25, setSpecializationOption25] =
+    useState<string>("");
+  const [specialization_option_26, setSpecializationOption26] =
+    useState<string>("");
+  const [specialization_option_27, setSpecializationOption27] =
+    useState<string>("");
+  const [specialization_option_28, setSpecializationOption28] =
+    useState<string>("");
+  const [specialization_option_29, setSpecializationOption29] =
+    useState<string>("");
+  const [specialization_option_30, setSpecializationOption30] =
+    useState<string>("");
 
   const [submitting, setSubmitting] = useState<boolean>(false);
 
@@ -125,6 +140,10 @@ const ElectiveForm_4thSem = (props: Props) => {
           case 5:
             setElective1Option5(event.target.value);
             break;
+          case 6:
+            setElective1Option6(event.target.value);
+            break;
+
         }
         break;
       case specialization:
@@ -198,6 +217,27 @@ const ElectiveForm_4thSem = (props: Props) => {
           case 23:
             setSpecializationOption23(event.target.value);
             break;
+          case 24:
+            setSpecializationOption24(event.target.value);
+            break;
+          case 25:
+            setSpecializationOption25(event.target.value);
+            break;
+          case 26:
+            setSpecializationOption26(event.target.value);
+            break;
+          case 27:
+            setSpecializationOption27(event.target.value);
+            break;
+          case 28:
+            setSpecializationOption28(event.target.value);
+            break;
+          case 29:
+            setSpecializationOption29(event.target.value);
+            break;
+          case 30:
+            setSpecializationOption30(event.target.value);
+            break;
         }
         break;
     }
@@ -233,6 +273,10 @@ const ElectiveForm_4thSem = (props: Props) => {
         ...(props.ELECTIVE_1_OPTIONS.length >= 5 && {
           OPTION_5: selected_subject_transformer(elective_1_option_5),
         }),
+        ...(props.ELECTIVE_1_OPTIONS.length >= 6 && {
+          OPTION_6: selected_subject_transformer(elective_1_option_6),
+        }),
+
       },
       SPECIALIZATION: {
         OPTION_1: selected_subject_transformer(specialization_option_1),
@@ -302,6 +346,27 @@ const ElectiveForm_4thSem = (props: Props) => {
         ...(props.SPECIALIZATION_OPTIONS.length >= 23 && {
           OPTION_23: selected_subject_transformer(specialization_option_23),
         }),
+        ...(props.SPECIALIZATION_OPTIONS.length >= 24 && {
+          OPTION_24: selected_subject_transformer(specialization_option_24),
+        }),
+        ...(props.SPECIALIZATION_OPTIONS.length >= 25 && {
+          OPTION_25: selected_subject_transformer(specialization_option_25),
+        }),
+        ...(props.SPECIALIZATION_OPTIONS.length >= 26 && {
+          OPTION_26: selected_subject_transformer(specialization_option_26),
+        }),
+        ...(props.SPECIALIZATION_OPTIONS.length >= 27 && {
+          OPTION_27: selected_subject_transformer(specialization_option_27),
+        }),
+        ...(props.SPECIALIZATION_OPTIONS.length >= 28 && {
+          OPTION_28: selected_subject_transformer(specialization_option_28),
+        }),
+        ...(props.SPECIALIZATION_OPTIONS.length >= 29 && {
+          OPTION_29: selected_subject_transformer(specialization_option_29),
+        }),
+        ...(props.SPECIALIZATION_OPTIONS.length >= 30 && {
+          OPTION_30: selected_subject_transformer(specialization_option_30),
+        }),
       },
     };
 
@@ -352,7 +417,9 @@ const ElectiveForm_4thSem = (props: Props) => {
                           elective_1_option_2 === subjectName ||
                           elective_1_option_3 === subjectName ||
                           elective_1_option_4 === subjectName ||
-                          elective_1_option_5 === subjectName
+                          elective_1_option_5 === subjectName ||
+                          elective_1_option_6 === subjectName
+
                         }
                       >
                         {subjectName}
@@ -387,7 +454,9 @@ const ElectiveForm_4thSem = (props: Props) => {
                           elective_1_option_2 === subjectName ||
                           elective_1_option_3 === subjectName ||
                           elective_1_option_4 === subjectName ||
-                          elective_1_option_5 === subjectName
+                          elective_1_option_5 === subjectName ||
+                          elective_1_option_6 === subjectName
+
                         }
                       >
                         {subjectName}
@@ -422,7 +491,9 @@ const ElectiveForm_4thSem = (props: Props) => {
                           elective_1_option_2 === subjectName ||
                           elective_1_option_3 === subjectName ||
                           elective_1_option_4 === subjectName ||
-                          elective_1_option_5 === subjectName
+                          elective_1_option_5 === subjectName ||
+                          elective_1_option_6 === subjectName
+
                         }
                       >
                         {subjectName}
@@ -458,7 +529,9 @@ const ElectiveForm_4thSem = (props: Props) => {
                             elective_1_option_2 === subjectName ||
                             elective_1_option_3 === subjectName ||
                             elective_1_option_4 === subjectName ||
-                            elective_1_option_5 === subjectName
+                            elective_1_option_5 === subjectName ||
+                            elective_1_option_6 === subjectName
+
                           }
                         >
                           {subjectName}
@@ -495,7 +568,9 @@ const ElectiveForm_4thSem = (props: Props) => {
                             elective_1_option_2 === subjectName ||
                             elective_1_option_3 === subjectName ||
                             elective_1_option_4 === subjectName ||
-                            elective_1_option_5 === subjectName
+                            elective_1_option_5 === subjectName ||
+                            elective_1_option_6 === subjectName
+
                           }
                         >
                           {subjectName}
@@ -505,6 +580,45 @@ const ElectiveForm_4thSem = (props: Props) => {
                   </Select>
                 </FormControl>
               )}
+
+              {/* Option 6 */}
+              {props.ELECTIVE_1_OPTIONS.length > 5 && (
+                <FormControl sx={{ m: 1, minWidth: 200 }}>
+                  <InputLabel id="demo-simple-select-helper-label">
+                    OPTION 6
+                  </InputLabel>
+                  <Select
+                    value={elective_1_option_6}
+                    onChange={(e: SelectChangeEvent) =>
+                      handleChange(elective_1, 6, e)
+                    }
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                    label="OPTION 6"
+                  >
+                    {props.ELECTIVE_1_OPTIONS.map((option) => {
+                      const subjectName = `${option.CODE} ${option.TITLE}`;
+                      return (
+                        <MenuItem
+                          value={subjectName}
+                          key={option.CODE}
+                          disabled={
+                            elective_1_option_1 === subjectName ||
+                            elective_1_option_2 === subjectName ||
+                            elective_1_option_3 === subjectName ||
+                            elective_1_option_4 === subjectName ||
+                            elective_1_option_5 === subjectName ||
+                            elective_1_option_6 === subjectName
+                          }
+                        >
+                          {subjectName}
+                        </MenuItem>
+                      );
+                    })}
+                  </Select>
+                </FormControl>
+              )}
+
               <Box sx={{ mb: 2 }}>
                 <div>
                   <Button
@@ -520,7 +634,10 @@ const ElectiveForm_4thSem = (props: Props) => {
                       (props.ELECTIVE_1_OPTIONS.length > 3 &&
                         elective_1_option_4 === "") ||
                       (props.ELECTIVE_1_OPTIONS.length > 4 &&
-                        elective_1_option_5 === "")
+                        elective_1_option_5 === "") ||
+                      (props.ELECTIVE_1_OPTIONS.length > 5 &&
+                        elective_1_option_6 === "")
+
                     }
                   >
                     Continue
@@ -577,7 +694,14 @@ const ElectiveForm_4thSem = (props: Props) => {
                           specialization_option_20 === subjectName ||
                           specialization_option_21 === subjectName ||
                           specialization_option_22 === subjectName ||
-                          specialization_option_23 === subjectName
+                          specialization_option_23 === subjectName ||
+                          specialization_option_24 === subjectName ||
+                          specialization_option_25 === subjectName ||
+                          specialization_option_26 === subjectName ||
+                          specialization_option_27 === subjectName ||
+                          specialization_option_28 === subjectName ||
+                          specialization_option_29 === subjectName ||
+                          specialization_option_30 === subjectName
                         }
                       >
                         {subjectName}
@@ -631,7 +755,14 @@ const ElectiveForm_4thSem = (props: Props) => {
                             specialization_option_20 === subjectName ||
                             specialization_option_21 === subjectName ||
                             specialization_option_22 === subjectName ||
-                            specialization_option_23 === subjectName
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
                           }
                         >
                           {subjectName}
@@ -686,7 +817,14 @@ const ElectiveForm_4thSem = (props: Props) => {
                             specialization_option_20 === subjectName ||
                             specialization_option_21 === subjectName ||
                             specialization_option_22 === subjectName ||
-                            specialization_option_23 === subjectName
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
                           }
                         >
                           {subjectName}
@@ -741,7 +879,14 @@ const ElectiveForm_4thSem = (props: Props) => {
                             specialization_option_20 === subjectName ||
                             specialization_option_21 === subjectName ||
                             specialization_option_22 === subjectName ||
-                            specialization_option_23 === subjectName
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
                           }
                         >
                           {subjectName}
@@ -796,7 +941,14 @@ const ElectiveForm_4thSem = (props: Props) => {
                             specialization_option_20 === subjectName ||
                             specialization_option_21 === subjectName ||
                             specialization_option_22 === subjectName ||
-                            specialization_option_23 === subjectName
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
                           }
                         >
                           {subjectName}
@@ -851,7 +1003,14 @@ const ElectiveForm_4thSem = (props: Props) => {
                             specialization_option_20 === subjectName ||
                             specialization_option_21 === subjectName ||
                             specialization_option_22 === subjectName ||
-                            specialization_option_23 === subjectName
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
                           }
                         >
                           {subjectName}
@@ -906,7 +1065,14 @@ const ElectiveForm_4thSem = (props: Props) => {
                             specialization_option_20 === subjectName ||
                             specialization_option_21 === subjectName ||
                             specialization_option_22 === subjectName ||
-                            specialization_option_23 === subjectName
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
                           }
                         >
                           {subjectName}
@@ -961,7 +1127,14 @@ const ElectiveForm_4thSem = (props: Props) => {
                             specialization_option_20 === subjectName ||
                             specialization_option_21 === subjectName ||
                             specialization_option_22 === subjectName ||
-                            specialization_option_23 === subjectName
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
                           }
                         >
                           {subjectName}
@@ -1016,7 +1189,14 @@ const ElectiveForm_4thSem = (props: Props) => {
                             specialization_option_20 === subjectName ||
                             specialization_option_21 === subjectName ||
                             specialization_option_22 === subjectName ||
-                            specialization_option_23 === subjectName
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
                           }
                         >
                           {subjectName}
@@ -1071,7 +1251,14 @@ const ElectiveForm_4thSem = (props: Props) => {
                             specialization_option_20 === subjectName ||
                             specialization_option_21 === subjectName ||
                             specialization_option_22 === subjectName ||
-                            specialization_option_23 === subjectName
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
                           }
                         >
                           {subjectName}
@@ -1126,7 +1313,14 @@ const ElectiveForm_4thSem = (props: Props) => {
                             specialization_option_20 === subjectName ||
                             specialization_option_21 === subjectName ||
                             specialization_option_22 === subjectName ||
-                            specialization_option_23 === subjectName
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
                           }
                         >
                           {subjectName}
@@ -1181,7 +1375,14 @@ const ElectiveForm_4thSem = (props: Props) => {
                             specialization_option_20 === subjectName ||
                             specialization_option_21 === subjectName ||
                             specialization_option_22 === subjectName ||
-                            specialization_option_23 === subjectName
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
                           }
                         >
                           {subjectName}
@@ -1236,7 +1437,14 @@ const ElectiveForm_4thSem = (props: Props) => {
                             specialization_option_20 === subjectName ||
                             specialization_option_21 === subjectName ||
                             specialization_option_22 === subjectName ||
-                            specialization_option_23 === subjectName
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
                           }
                         >
                           {subjectName}
@@ -1291,7 +1499,14 @@ const ElectiveForm_4thSem = (props: Props) => {
                             specialization_option_20 === subjectName ||
                             specialization_option_21 === subjectName ||
                             specialization_option_22 === subjectName ||
-                            specialization_option_23 === subjectName
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
                           }
                         >
                           {subjectName}
@@ -1346,7 +1561,14 @@ const ElectiveForm_4thSem = (props: Props) => {
                             specialization_option_20 === subjectName ||
                             specialization_option_21 === subjectName ||
                             specialization_option_22 === subjectName ||
-                            specialization_option_23 === subjectName
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
                           }
                         >
                           {subjectName}
@@ -1401,7 +1623,14 @@ const ElectiveForm_4thSem = (props: Props) => {
                             specialization_option_20 === subjectName ||
                             specialization_option_21 === subjectName ||
                             specialization_option_22 === subjectName ||
-                            specialization_option_23 === subjectName
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
                           }
                         >
                           {subjectName}
@@ -1456,7 +1685,14 @@ const ElectiveForm_4thSem = (props: Props) => {
                             specialization_option_20 === subjectName ||
                             specialization_option_21 === subjectName ||
                             specialization_option_22 === subjectName ||
-                            specialization_option_23 === subjectName
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
                           }
                         >
                           {subjectName}
@@ -1511,7 +1747,14 @@ const ElectiveForm_4thSem = (props: Props) => {
                             specialization_option_20 === subjectName ||
                             specialization_option_21 === subjectName ||
                             specialization_option_22 === subjectName ||
-                            specialization_option_23 === subjectName
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
                           }
                         >
                           {subjectName}
@@ -1566,7 +1809,14 @@ const ElectiveForm_4thSem = (props: Props) => {
                             specialization_option_20 === subjectName ||
                             specialization_option_21 === subjectName ||
                             specialization_option_22 === subjectName ||
-                            specialization_option_23 === subjectName
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
                           }
                         >
                           {subjectName}
@@ -1621,7 +1871,14 @@ const ElectiveForm_4thSem = (props: Props) => {
                             specialization_option_20 === subjectName ||
                             specialization_option_21 === subjectName ||
                             specialization_option_22 === subjectName ||
-                            specialization_option_23 === subjectName
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
                           }
                         >
                           {subjectName}
@@ -1676,7 +1933,14 @@ const ElectiveForm_4thSem = (props: Props) => {
                             specialization_option_20 === subjectName ||
                             specialization_option_21 === subjectName ||
                             specialization_option_22 === subjectName ||
-                            specialization_option_23 === subjectName
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
                           }
                         >
                           {subjectName}
@@ -1731,7 +1995,14 @@ const ElectiveForm_4thSem = (props: Props) => {
                             specialization_option_20 === subjectName ||
                             specialization_option_21 === subjectName ||
                             specialization_option_22 === subjectName ||
-                            specialization_option_23 === subjectName
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
                           }
                         >
                           {subjectName}
@@ -1786,7 +2057,14 @@ const ElectiveForm_4thSem = (props: Props) => {
                             specialization_option_20 === subjectName ||
                             specialization_option_21 === subjectName ||
                             specialization_option_22 === subjectName ||
-                            specialization_option_23 === subjectName
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
                           }
                         >
                           {subjectName}
@@ -1796,6 +2074,441 @@ const ElectiveForm_4thSem = (props: Props) => {
                   </Select>
                 </FormControl>
               )}
+
+              {/* OPTION 24 */}
+              {props.SPECIALIZATION_OPTIONS.length > 23 && (
+                <FormControl sx={{ m: 1, minWidth: 200 }}>
+                  <InputLabel id="demo-simple-select-helper-label">
+                    OPTION 24
+                  </InputLabel>
+                  <Select
+                    value={specialization_option_24}
+                    onChange={(e: SelectChangeEvent) =>
+                      handleChange(specialization, 24, e)
+                    }
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                    label="OPTION 24"
+                  >
+                    {props.SPECIALIZATION_OPTIONS.map((option) => {
+                      const subjectName = `${option.CODE} ${option.TITLE}`;
+                      return (
+                        <MenuItem
+                          value={subjectName}
+                          key={option.CODE}
+                          disabled={
+                            specialization_option_1 === subjectName ||
+                            specialization_option_2 === subjectName ||
+                            specialization_option_3 === subjectName ||
+                            specialization_option_4 === subjectName ||
+                            specialization_option_5 === subjectName ||
+                            specialization_option_6 === subjectName ||
+                            specialization_option_7 === subjectName ||
+                            specialization_option_8 === subjectName ||
+                            specialization_option_9 === subjectName ||
+                            specialization_option_10 === subjectName ||
+                            specialization_option_11 === subjectName ||
+                            specialization_option_12 === subjectName ||
+                            specialization_option_13 === subjectName ||
+                            specialization_option_14 === subjectName ||
+                            specialization_option_15 === subjectName ||
+                            specialization_option_16 === subjectName ||
+                            specialization_option_17 === subjectName ||
+                            specialization_option_18 === subjectName ||
+                            specialization_option_19 === subjectName ||
+                            specialization_option_20 === subjectName ||
+                            specialization_option_21 === subjectName ||
+                            specialization_option_22 === subjectName ||
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
+                          }
+                        >
+                          {subjectName}
+                        </MenuItem>
+                      );
+                    })}
+                  </Select>
+                </FormControl>
+              )}
+
+              {/* OPTION 25 */}
+              {props.SPECIALIZATION_OPTIONS.length > 24 && (
+                <FormControl sx={{ m: 1, minWidth: 200 }}>
+                  <InputLabel id="demo-simple-select-helper-label">
+                    OPTION 25
+                  </InputLabel>
+                  <Select
+                    value={specialization_option_25}
+                    onChange={(e: SelectChangeEvent) =>
+                      handleChange(specialization, 25, e)
+                    }
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                    label="OPTION 25"
+                  >
+                    {props.SPECIALIZATION_OPTIONS.map((option) => {
+                      const subjectName = `${option.CODE} ${option.TITLE}`;
+                      return (
+                        <MenuItem
+                          value={subjectName}
+                          key={option.CODE}
+                          disabled={
+                            specialization_option_1 === subjectName ||
+                            specialization_option_2 === subjectName ||
+                            specialization_option_3 === subjectName ||
+                            specialization_option_4 === subjectName ||
+                            specialization_option_5 === subjectName ||
+                            specialization_option_6 === subjectName ||
+                            specialization_option_7 === subjectName ||
+                            specialization_option_8 === subjectName ||
+                            specialization_option_9 === subjectName ||
+                            specialization_option_10 === subjectName ||
+                            specialization_option_11 === subjectName ||
+                            specialization_option_12 === subjectName ||
+                            specialization_option_13 === subjectName ||
+                            specialization_option_14 === subjectName ||
+                            specialization_option_15 === subjectName ||
+                            specialization_option_16 === subjectName ||
+                            specialization_option_17 === subjectName ||
+                            specialization_option_18 === subjectName ||
+                            specialization_option_19 === subjectName ||
+                            specialization_option_20 === subjectName ||
+                            specialization_option_21 === subjectName ||
+                            specialization_option_22 === subjectName ||
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
+                          }
+                        >
+                          {subjectName}
+                        </MenuItem>
+                      );
+                    })}
+                  </Select>
+                </FormControl>
+              )}
+
+              {/* OPTION 26 */}
+              {props.SPECIALIZATION_OPTIONS.length > 25 && (
+                <FormControl sx={{ m: 1, minWidth: 200 }}>
+                  <InputLabel id="demo-simple-select-helper-label">
+                    OPTION 26
+                  </InputLabel>
+                  <Select
+                    value={specialization_option_26}
+                    onChange={(e: SelectChangeEvent) =>
+                      handleChange(specialization, 26, e)
+                    }
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                    label="OPTION 26"
+                  >
+                    {props.SPECIALIZATION_OPTIONS.map((option) => {
+                      const subjectName = `${option.CODE} ${option.TITLE}`;
+                      return (
+                        <MenuItem
+                          value={subjectName}
+                          key={option.CODE}
+                          disabled={
+                            specialization_option_1 === subjectName ||
+                            specialization_option_2 === subjectName ||
+                            specialization_option_3 === subjectName ||
+                            specialization_option_4 === subjectName ||
+                            specialization_option_5 === subjectName ||
+                            specialization_option_6 === subjectName ||
+                            specialization_option_7 === subjectName ||
+                            specialization_option_8 === subjectName ||
+                            specialization_option_9 === subjectName ||
+                            specialization_option_10 === subjectName ||
+                            specialization_option_11 === subjectName ||
+                            specialization_option_12 === subjectName ||
+                            specialization_option_13 === subjectName ||
+                            specialization_option_14 === subjectName ||
+                            specialization_option_15 === subjectName ||
+                            specialization_option_16 === subjectName ||
+                            specialization_option_17 === subjectName ||
+                            specialization_option_18 === subjectName ||
+                            specialization_option_19 === subjectName ||
+                            specialization_option_20 === subjectName ||
+                            specialization_option_21 === subjectName ||
+                            specialization_option_22 === subjectName ||
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
+                          }
+                        >
+                          {subjectName}
+                        </MenuItem>
+                      );
+                    })}
+                  </Select>
+                </FormControl>
+              )}
+
+              {/* OPTION 27 */}
+              {props.SPECIALIZATION_OPTIONS.length > 26 && (
+                <FormControl sx={{ m: 1, minWidth: 200 }}>
+                  <InputLabel id="demo-simple-select-helper-label">
+                    OPTION 27
+                  </InputLabel>
+                  <Select
+                    value={specialization_option_27}
+                    onChange={(e: SelectChangeEvent) =>
+                      handleChange(specialization, 27, e)
+                    }
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                    label="OPTION 27"
+                  >
+                    {props.SPECIALIZATION_OPTIONS.map((option) => {
+                      const subjectName = `${option.CODE} ${option.TITLE}`;
+                      return (
+                        <MenuItem
+                          value={subjectName}
+                          key={option.CODE}
+                          disabled={
+                            specialization_option_1 === subjectName ||
+                            specialization_option_2 === subjectName ||
+                            specialization_option_3 === subjectName ||
+                            specialization_option_4 === subjectName ||
+                            specialization_option_5 === subjectName ||
+                            specialization_option_6 === subjectName ||
+                            specialization_option_7 === subjectName ||
+                            specialization_option_8 === subjectName ||
+                            specialization_option_9 === subjectName ||
+                            specialization_option_10 === subjectName ||
+                            specialization_option_11 === subjectName ||
+                            specialization_option_12 === subjectName ||
+                            specialization_option_13 === subjectName ||
+                            specialization_option_14 === subjectName ||
+                            specialization_option_15 === subjectName ||
+                            specialization_option_16 === subjectName ||
+                            specialization_option_17 === subjectName ||
+                            specialization_option_18 === subjectName ||
+                            specialization_option_19 === subjectName ||
+                            specialization_option_20 === subjectName ||
+                            specialization_option_21 === subjectName ||
+                            specialization_option_22 === subjectName ||
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
+                          }
+                        >
+                          {subjectName}
+                        </MenuItem>
+                      );
+                    })}
+                  </Select>
+                </FormControl>
+              )}
+
+              {/* OPTION 28 */}
+              {props.SPECIALIZATION_OPTIONS.length > 27 && (
+                <FormControl sx={{ m: 1, minWidth: 200 }}>
+                  <InputLabel id="demo-simple-select-helper-label">
+                    OPTION 28
+                  </InputLabel>
+                  <Select
+                    value={specialization_option_28}
+                    onChange={(e: SelectChangeEvent) =>
+                      handleChange(specialization, 28, e)
+                    }
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                    label="OPTION 28"
+                  >
+                    {props.SPECIALIZATION_OPTIONS.map((option) => {
+                      const subjectName = `${option.CODE} ${option.TITLE}`;
+                      return (
+                        <MenuItem
+                          value={subjectName}
+                          key={option.CODE}
+                          disabled={
+                            specialization_option_1 === subjectName ||
+                            specialization_option_2 === subjectName ||
+                            specialization_option_3 === subjectName ||
+                            specialization_option_4 === subjectName ||
+                            specialization_option_5 === subjectName ||
+                            specialization_option_6 === subjectName ||
+                            specialization_option_7 === subjectName ||
+                            specialization_option_8 === subjectName ||
+                            specialization_option_9 === subjectName ||
+                            specialization_option_10 === subjectName ||
+                            specialization_option_11 === subjectName ||
+                            specialization_option_12 === subjectName ||
+                            specialization_option_13 === subjectName ||
+                            specialization_option_14 === subjectName ||
+                            specialization_option_15 === subjectName ||
+                            specialization_option_16 === subjectName ||
+                            specialization_option_17 === subjectName ||
+                            specialization_option_18 === subjectName ||
+                            specialization_option_19 === subjectName ||
+                            specialization_option_20 === subjectName ||
+                            specialization_option_21 === subjectName ||
+                            specialization_option_22 === subjectName ||
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
+                          }
+                        >
+                          {subjectName}
+                        </MenuItem>
+                      );
+                    })}
+                  </Select>
+                </FormControl>
+              )}
+
+              {/* OPTION 29 */}
+              {props.SPECIALIZATION_OPTIONS.length > 28 && (
+                <FormControl sx={{ m: 1, minWidth: 200 }}>
+                  <InputLabel id="demo-simple-select-helper-label">
+                    OPTION 29
+                  </InputLabel>
+                  <Select
+                    value={specialization_option_29}
+                    onChange={(e: SelectChangeEvent) =>
+                      handleChange(specialization, 29, e)
+                    }
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                    label="OPTION 29"
+                  >
+                    {props.SPECIALIZATION_OPTIONS.map((option) => {
+                      const subjectName = `${option.CODE} ${option.TITLE}`;
+                      return (
+                        <MenuItem
+                          value={subjectName}
+                          key={option.CODE}
+                          disabled={
+                            specialization_option_1 === subjectName ||
+                            specialization_option_2 === subjectName ||
+                            specialization_option_3 === subjectName ||
+                            specialization_option_4 === subjectName ||
+                            specialization_option_5 === subjectName ||
+                            specialization_option_6 === subjectName ||
+                            specialization_option_7 === subjectName ||
+                            specialization_option_8 === subjectName ||
+                            specialization_option_9 === subjectName ||
+                            specialization_option_10 === subjectName ||
+                            specialization_option_11 === subjectName ||
+                            specialization_option_12 === subjectName ||
+                            specialization_option_13 === subjectName ||
+                            specialization_option_14 === subjectName ||
+                            specialization_option_15 === subjectName ||
+                            specialization_option_16 === subjectName ||
+                            specialization_option_17 === subjectName ||
+                            specialization_option_18 === subjectName ||
+                            specialization_option_19 === subjectName ||
+                            specialization_option_20 === subjectName ||
+                            specialization_option_21 === subjectName ||
+                            specialization_option_22 === subjectName ||
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
+                          }
+                        >
+                          {subjectName}
+                        </MenuItem>
+                      );
+                    })}
+                  </Select>
+                </FormControl>
+              )}
+
+              {/* OPTION 30 */}
+              {props.SPECIALIZATION_OPTIONS.length > 29 && (
+                <FormControl sx={{ m: 1, minWidth: 200 }}>
+                  <InputLabel id="demo-simple-select-helper-label">
+                    OPTION 30
+                  </InputLabel>
+                  <Select
+                    value={specialization_option_30}
+                    onChange={(e: SelectChangeEvent) =>
+                      handleChange(specialization, 30, e)
+                    }
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                    label="OPTION 30"
+                  >
+                    {props.SPECIALIZATION_OPTIONS.map((option) => {
+                      const subjectName = `${option.CODE} ${option.TITLE}`;
+                      return (
+                        <MenuItem
+                          value={subjectName}
+                          key={option.CODE}
+                          disabled={
+                            specialization_option_1 === subjectName ||
+                            specialization_option_2 === subjectName ||
+                            specialization_option_3 === subjectName ||
+                            specialization_option_4 === subjectName ||
+                            specialization_option_5 === subjectName ||
+                            specialization_option_6 === subjectName ||
+                            specialization_option_7 === subjectName ||
+                            specialization_option_8 === subjectName ||
+                            specialization_option_9 === subjectName ||
+                            specialization_option_10 === subjectName ||
+                            specialization_option_11 === subjectName ||
+                            specialization_option_12 === subjectName ||
+                            specialization_option_13 === subjectName ||
+                            specialization_option_14 === subjectName ||
+                            specialization_option_15 === subjectName ||
+                            specialization_option_16 === subjectName ||
+                            specialization_option_17 === subjectName ||
+                            specialization_option_18 === subjectName ||
+                            specialization_option_19 === subjectName ||
+                            specialization_option_20 === subjectName ||
+                            specialization_option_21 === subjectName ||
+                            specialization_option_22 === subjectName ||
+                            specialization_option_23 === subjectName ||
+                            specialization_option_24 === subjectName ||
+                            specialization_option_25 === subjectName ||
+                            specialization_option_26 === subjectName ||
+                            specialization_option_27 === subjectName ||
+                            specialization_option_28 === subjectName ||
+                            specialization_option_29 === subjectName ||
+                            specialization_option_30 === subjectName
+                          }
+                        >
+                          {subjectName}
+                        </MenuItem>
+                      );
+                    })}
+                  </Select>
+                </FormControl>
+              )}
+
 
               <Box sx={{ mb: 2 }}>
                 <div>
@@ -1848,7 +2561,21 @@ const ElectiveForm_4thSem = (props: Props) => {
                       (props.SPECIALIZATION_OPTIONS.length > 21 &&
                         specialization_option_22 === "") ||
                       (props.SPECIALIZATION_OPTIONS.length > 22 &&
-                        specialization_option_23 === "")
+                        specialization_option_23 === "") ||
+                      (props.SPECIALIZATION_OPTIONS.length > 23 &&
+                        specialization_option_24 === "") ||
+                      (props.SPECIALIZATION_OPTIONS.length > 24 &&
+                        specialization_option_25 === "") ||
+                      (props.SPECIALIZATION_OPTIONS.length > 25 &&
+                        specialization_option_26 === "") ||
+                      (props.SPECIALIZATION_OPTIONS.length > 26 &&
+                        specialization_option_27 === "") ||
+                      (props.SPECIALIZATION_OPTIONS.length > 27 &&
+                        specialization_option_28 === "") ||
+                      (props.SPECIALIZATION_OPTIONS.length > 28 &&
+                        specialization_option_29 === "") ||
+                      (props.SPECIALIZATION_OPTIONS.length > 29 &&
+                        specialization_option_30 === "")
                     }
                   >
                     Continue
@@ -1884,4 +2611,4 @@ const ElectiveForm_4thSem = (props: Props) => {
   );
 };
 
-export default ElectiveForm_4thSem;
+export default ElectiveForm_3rdSem;

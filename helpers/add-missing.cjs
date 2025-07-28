@@ -14,10 +14,10 @@ const updateDB = async () => {
   const collection = db.collection("student-data");
 
   let student = {
-    REGNO: 202311514,
-    NAME: "Amir Chettri",
-    EMAIL_ID: " amir_202311514@smit.smu.edu.in",
-    CURRENT_SEM: 5,
+    REGNO: 202500001,
+    NAME: "TESTER",
+    EMAIL_ID: " tester@smit.smu.edu.in",
+    CURRENT_SEM: 3,
     DEFAULT_PASSWORD: generatePassword.generate({ length: 10 }),
     BRANCH: "CSE",
   };
