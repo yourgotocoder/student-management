@@ -7,9 +7,14 @@ const sendMail = async () => {
   const db = client.db("cse");
   const collection = db.collection("student-data");
   const db_data = await collection.find().toArray();
-  const filteredData = db_data.filter((stuData) => stuData.CURRENT_SEM == 7);
+  const filteredData = db_data.filter(
+    (stuData) =>
+      (stuData.CURRENT_SEM == 8 && !stuData.ELECTIVE_SELECTIONS.ELECTIVE_5) ||
+      stuData.CURRENT_SEM == 4 ||
+      stuData.CURRENT_SEM == 6,
+  );
   for (let [index, student] of filteredData.entries()) {
-    console.log(student.REGNO)
+    console.log(student.REGNO);
     // Delay required to make sure Outlook email rate limit is not exceeded
     setTimeout(
       () => {
@@ -33,11 +38,8 @@ const sendMail = async () => {
       },
       (index + 1) * 2000,
     );
-
   }
   await client.close();
 };
 
-sendMail().then(() =>
-  console.log(`Done sending emails to 7th sem`),
-);
+sendMail().then(() => console.log(`Done sending emails to 7th sem`));

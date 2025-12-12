@@ -54,19 +54,15 @@ const Dashboard = (props: Props) => {
               title: "Elective II",
               subjects: user.ELECTIVE_2_OPTIONS,
             },
-            {
-              title: "Open Elective II",
-              subjects: user.OPEN_ELECTIVE_2_OPTIONS,
-            },
           ]);
         } else if (user.CURRENT_SEM === 6) {
           setOptions([
-            { title: "Elective IV", subjects: user.OPEN_ELECTIVE_3_OPTIONS },
+            { title: "Elective IV", subjects: user.ELECTIVE_4_OPTIONS },
+            { title: "Elective V", subjects: user.ELECTIVE_5_OPTIONS },
           ]);
         } else if (user.CURRENT_SEM === 8) {
           setOptions([
-            { title: "Elective X", subjects: user.ELECTIVE_10_OPTIONS },
-            { title: "Elective XI", subjects: user.ELECTIVE_11_OPTIONS },
+            { title: "Elective V", subjects: user.ELECTIVE_5_OPTIONS },
           ]);
         }
       }
@@ -166,19 +162,19 @@ const Dashboard = (props: Props) => {
 
         {user &&
           user.CURRENT_SEM === 6 &&
-          user.OPEN_ELECTIVE_3_OPTIONS &&
-          ((user.ELECTIVE_SELECTIONS &&
-            !user.ELECTIVE_SELECTIONS.OPEN_ELECTIVE_3) ||
+          user.ELECTIVE_4_OPTIONS &&
+          user.ELECTIVE_5_OPTIONS &&
+          ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.ELECTIVE_4) ||
             !user.ELECTIVE_SELECTIONS) &&
           !submitted && (
             <ElectiveForm_6thSem
-              OPEN_ELECTIVE_3_OPTIONS={user.OPEN_ELECTIVE_3_OPTIONS}
+              ELECTIVE_4_OPTIONS={user.ELECTIVE_4_OPTIONS}
+              ELECTIVE_5_OPTIONS={user.ELECTIVE_5_OPTIONS}
               setSubmitted={(value) => setSubmitted(value)}
             />
           )}
         {user &&
           user.CURRENT_SEM === 4 &&
-          user.OPEN_ELECTIVE_2_OPTIONS &&
           user.ELECTIVE_2_OPTIONS &&
           ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.ELECTIVE_2) ||
             !user.ELECTIVE_SELECTIONS) &&
@@ -186,22 +182,18 @@ const Dashboard = (props: Props) => {
             <ElectiveForm_4thSem
               setSubmitted={(value) => setSubmitted(value)}
               ELECTIVE_2_OPTIONS={user.ELECTIVE_2_OPTIONS}
-              OPEN_ELECTIVE_2_OPTIONS={user.OPEN_ELECTIVE_2_OPTIONS}
             />
           )}
 
         {user &&
           user.CURRENT_SEM === 8 &&
-          user.ELECTIVE_10_OPTIONS &&
-          user.ELECTIVE_11_OPTIONS &&
-          ((user.ELECTIVE_SELECTIONS &&
-            !user.ELECTIVE_SELECTIONS.ELECTIVE_10) ||
+          user.ELECTIVE_5_OPTIONS &&
+          ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.ELECTIVE_5) ||
             !user.ELECTIVE_SELECTIONS) &&
           !submitted && (
             <ElectiveForm_8thSem
               setSubmitted={(value) => setSubmitted(value)}
-              ELECTIVE_10_OPTIONS={user.ELECTIVE_10_OPTIONS}
-              ELECTIVE_11_OPTIONS={user.ELECTIVE_11_OPTIONS}
+              ELECTIVE_5_OPTIONS={user.ELECTIVE_5_OPTIONS}
             />
           )}
 
@@ -221,7 +213,8 @@ const Dashboard = (props: Props) => {
         {user &&
           user.CURRENT_SEM === 7 &&
           user.OPEN_ELECTIVE_4_OPTIONS &&
-          ((user.ELECTIVE_SELECTIONS && !user.ELECTIVE_SELECTIONS.OPEN_ELECTIVE_4) ||
+          ((user.ELECTIVE_SELECTIONS &&
+            !user.ELECTIVE_SELECTIONS.OPEN_ELECTIVE_4) ||
             !user.ELECTIVE_SELECTIONS) &&
           !submitted && (
             <ElectiveForm_7thSem
@@ -264,6 +257,66 @@ const Dashboard = (props: Props) => {
           )}
 
         {user &&
+          user.CURRENT_SEM === 4 &&
+          user.ELECTIVE_SELECTIONS &&
+          user.ELECTIVE_SELECTIONS.ELECTIVE_2 && (
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                flexDirection: "column",
+                alignItems: "center",
+                height: "100%",
+              }}
+            >
+              <Typography variant="h4">Thank you for your time.</Typography>
+              <Typography variant="h5">
+                Electives will be allocated soon.{" "}
+              </Typography>
+            </Box>
+          )}
+
+        {user &&
+          user.CURRENT_SEM === 6 &&
+          user.ELECTIVE_SELECTIONS &&
+          user.ELECTIVE_SELECTIONS.ELECTIVE_4 && (
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                flexDirection: "column",
+                alignItems: "center",
+                height: "100%",
+              }}
+            >
+              <Typography variant="h4">Thank you for your time.</Typography>
+              <Typography variant="h5">
+                Electives will be allocated soon.{" "}
+              </Typography>
+            </Box>
+          )}
+
+        {user &&
+          user.CURRENT_SEM === 8 &&
+          user.ELECTIVE_SELECTIONS &&
+          user.ELECTIVE_SELECTIONS.ELECTIVE_5 && (
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                flexDirection: "column",
+                alignItems: "center",
+                height: "100%",
+              }}
+            >
+              <Typography variant="h4">Thank you for your time.</Typography>
+              <Typography variant="h5">
+                Electives will be allocated soon.{" "}
+              </Typography>
+            </Box>
+          )}
+
+        {user &&
           user.CURRENT_SEM === 3 &&
           user.ELECTIVE_SELECTIONS &&
           user.ELECTIVE_SELECTIONS.ELECTIVE_1 && (
@@ -274,12 +327,14 @@ const Dashboard = (props: Props) => {
           user.CURRENT_SEM === 7 &&
           user.ELECTIVE_SELECTIONS &&
           user.ELECTIVE_SELECTIONS.OPEN_ELECTIVE_4 && (
-            <p>Electives will be allocated soon</p>)}
+            <p>Electives will be allocated soon</p>
+          )}
         {user &&
           user.CURRENT_SEM === 5 &&
           user.ELECTIVE_SELECTIONS &&
           user.ELECTIVE_SELECTIONS.ELECTIVE_3 && (
-            <p>Electives will be allocated soon</p>)}
+            <p>Electives will be allocated soon</p>
+          )}
 
         {user &&
           user.CURRENT_SEM === 6 &&

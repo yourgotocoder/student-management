@@ -1769,3 +1769,811 @@
 202300635 (Tanisha Ghosh) promoted from 4 to 5 on 15
 202411527 (Aron) promoted from 4 to 5 on 15
 202200448 (PRAKHAR) promoted from 6 to 7 on 15
+202100333 (KAUSTABH DAS) promoted from 7 to 8 on 12
+202200003 (YALAMBER RAI) promoted from 7 to 8 on 12
+202200021 (JUVAS MUKHIA) promoted from 7 to 8 on 12
+202200037 (RITIK) promoted from 7 to 8 on 12
+202200055 (PUNIT GAUTAM) promoted from 7 to 8 on 12
+202200059 (DIYA PATIDAR) promoted from 7 to 8 on 12
+202200070 (NAMAN AGARWAL) promoted from 7 to 8 on 12
+202200076 (KESHAV AGARWAL) promoted from 7 to 8 on 12
+202200082 (DEESHA PAUL) promoted from 7 to 8 on 12
+202200092 (RISHABH RATHI) promoted from 7 to 8 on 12
+202200093 (KARAN MISHRA) promoted from 7 to 8 on 12
+202200099 (DEVASHISH KHAWAS) promoted from 7 to 8 on 12
+202200100 (SNEHA SEAL) promoted from 7 to 8 on 12
+202200104 (KRITARTH OJHA SINHA) promoted from 7 to 8 on 12
+202200105 (SHAIL PRADHAN) promoted from 7 to 8 on 12
+202200108 (HARSH PRASAD) promoted from 7 to 8 on 12
+202200116 (SWAYAM PATRA) promoted from 7 to 8 on 12
+202200119 (VIDUSHI BAJPAI) promoted from 7 to 8 on 12
+202200121 (ANIRUDH TIWARI) promoted from 7 to 8 on 12
+202200124 (ARYAN VANSH) promoted from 7 to 8 on 12
+202200167 (PRASANTA SHARMA BHATTARAI) promoted from 7 to 8 on 12
+202200243 (RAJBIR RAY) promoted from 7 to 8 on 12
+202200245 (ASHMITA SEN ROY) promoted from 7 to 8 on 12
+202200256 (DEEPAK MANDA) promoted from 7 to 8 on 12
+202200267 (EROS SHRESTHA) promoted from 7 to 8 on 12
+202200276 (HARSH SINGH) promoted from 7 to 8 on 12
+202200302 (ANUBHAV HARSH SINHA) promoted from 7 to 8 on 12
+202200309 (PRAAGVUNSH RAJEEV) promoted from 7 to 8 on 12
+202200311 (MAYUR K T) promoted from 7 to 8 on 12
+202200332 (RUDRANIL CHOWDHURY) promoted from 7 to 8 on 12
+202200378 (BHABYA) promoted from 7 to 8 on 12
+202200383 (PARTH SARATHI SHARMA) promoted from 7 to 8 on 12
+202200393 (SHAMBHAVI GIRI) promoted from 7 to 8 on 12
+202200447 (YUVRAJ KUMAR SAH) promoted from 7 to 8 on 12
+202200455 (KRISH CHAUDHARY) promoted from 7 to 8 on 12
+202200457 (ASHISH KUMAR) promoted from 7 to 8 on 12
+202200468 (AYUSHI DUTTA) promoted from 7 to 8 on 12
+202200475 (PRATIK JHA) promoted from 7 to 8 on 12
+202200478 (DEEPAN SHARMA) promoted from 7 to 8 on 12
+202200486 (TEJAS) promoted from 7 to 8 on 12
+202200495 (WANGCHUK BHUTIA) promoted from 7 to 8 on 12
+202200502 (DRON BERIA) promoted from 7 to 8 on 12
+202200507 (PARASH TAMANG) promoted from 7 to 8 on 12
+202200509 (UJJAWAL KUMAR SHARMA) promoted from 7 to 8 on 12
+202200510 (TASHI RAPDEN BHUTIA) promoted from 7 to 8 on 12
+202200517 (NAVRAJ GHATANI) promoted from 7 to 8 on 12
+202200533 (SHUBHAM MALHOTRA) promoted from 7 to 8 on 12
+202200540 (PAWAN DAHAL) promoted from 7 to 8 on 12
+202311505 (OM SANJAY GUPTA) promoted from 7 to 8 on 12
+202200214 (UDITI MUKHIA) promoted from 7 to 8 on 12
+202200523 (ROHAN PRASAD**) promoted from 7 to 8 on 12
+202200525 (NIKET KR GUPTA*) promoted from 7 to 8 on 12
+202200064 (ADITYA KUMAR MOHANTY*) promoted from 7 to 8 on 12
+202200006 (SWEEN CHETTRI) promoted from 7 to 8 on 12
+202200007 (SIDHARTHA KHASNOBISH) promoted from 7 to 8 on 12
+202200012 (AAYUSHA BHATTACHARYYA) promoted from 7 to 8 on 12
+202200013 (TUHIN DHAR) promoted from 7 to 8 on 12
+202200015 (AADARSH SHARMA) promoted from 7 to 8 on 12
+202200016 (JYOTIRMOY DAS) promoted from 7 to 8 on 12
+202200017 (PAWAN LAMA) promoted from 7 to 8 on 12
+202200019 (ASHWEENA SUBBA) promoted from 7 to 8 on 12
+202200024 (SIDDHARTHA ROY) promoted from 7 to 8 on 12
+202200026 (SHARMA MAYANKRAJ RUPESH) promoted from 7 to 8 on 12
+202200028 (NAVYA SINHA) promoted from 7 to 8 on 12
+202200029 (HIMANI BHUTRA) promoted from 7 to 8 on 12
+202200031 (UTKARSH SINHA) promoted from 7 to 8 on 12
+202200033 (ABHISHEK KUMAR) promoted from 7 to 8 on 12
+202200035 (AARYAN PRADHAN) promoted from 7 to 8 on 12
+202200042 (DEBDYUTI RAY) promoted from 7 to 8 on 12
+202200043 (GOURAB MISHRA) promoted from 7 to 8 on 12
+202200044 (NISHIT BISTA) promoted from 7 to 8 on 12
+202200045 (ROHIL THAPA) promoted from 7 to 8 on 12
+202200046 (GUNMAY PAUL) promoted from 7 to 8 on 12
+202200050 (KUHITJEETA RAY) promoted from 7 to 8 on 12
+202200051 (SHRABANI ROY) promoted from 7 to 8 on 12
+202200052 (RISHI DAS) promoted from 7 to 8 on 12
+202200053 (ABHIJNYAN DAS) promoted from 7 to 8 on 12
+202200054 (SHUBAN V RAO) promoted from 7 to 8 on 12
+202200056 (DIVYANSHU TIWARI) promoted from 7 to 8 on 12
+202200061 (NANDINI ROY CHOWDHURY) promoted from 7 to 8 on 12
+202200062 (VIBHU GARG) promoted from 7 to 8 on 12
+202200063 (SHAMBHAVI KUMARI) promoted from 7 to 8 on 12
+202200065 (ADRIJA CHAKRABARTI) promoted from 7 to 8 on 12
+202200066 (ABHIPSHA ROY) promoted from 7 to 8 on 12
+202200079 (SMRITISH DAS) promoted from 7 to 8 on 12
+202200084 (ARNAB SARKAR) promoted from 7 to 8 on 12
+202200087 (ANUSHKA DAS) promoted from 7 to 8 on 12
+202200088 (RAHUL KUMAR) promoted from 7 to 8 on 12
+202200095 (ISHA) promoted from 7 to 8 on 12
+202200096 (ABHIGYAN BORAH) promoted from 7 to 8 on 12
+202200097 (AMIT KUMAR) promoted from 7 to 8 on 12
+202200112 (HARSH ADITYA RAJ) promoted from 7 to 8 on 12
+202200113 (UGEN DORJEE BHUTIA) promoted from 7 to 8 on 12
+202200120 (RITUSREE DAS) promoted from 7 to 8 on 12
+202200123 (VAIBHAV KUMAR) promoted from 7 to 8 on 12
+202200125 (MANASWI) promoted from 7 to 8 on 12
+202200127 (ADIT PANWAR) promoted from 7 to 8 on 12
+202200131 (SUMIT) promoted from 7 to 8 on 12
+202200134 (ATHARV GUPTA) promoted from 7 to 8 on 12
+202200135 (ELENA BARDALAI) promoted from 7 to 8 on 12
+202200137 (HIMANSHU GAURAV) promoted from 7 to 8 on 12
+202200139 (TANISHA ROY) promoted from 7 to 8 on 12
+202200141 (SIDDHARTH SINGH) promoted from 7 to 8 on 12
+202200142 (PRATEEK RAJ) promoted from 7 to 8 on 12
+202200143 (ANUBHAV BHATTACHARJEE) promoted from 7 to 8 on 12
+202200147 (ARCHY DAS) promoted from 7 to 8 on 12
+202200148 (ABDUR RAJJAK) promoted from 7 to 8 on 12
+202200149 (NAIBEDYA KUMAR DE) promoted from 7 to 8 on 12
+202200153 (ABHILASHA SNEHA) promoted from 7 to 8 on 12
+202200156 (PRAKHAR KISHORE) promoted from 7 to 8 on 12
+202200164 (ISHITA DEB ROY) promoted from 7 to 8 on 12
+202200165 (AMAN KUMAR) promoted from 7 to 8 on 12
+202200169 (ANKIT RANJAN) promoted from 7 to 8 on 12
+202200171 (RAHUL NANDAN) promoted from 7 to 8 on 12
+202200172 (AKRITI LOSALKA) promoted from 7 to 8 on 12
+202200174 (NIKITA KAR) promoted from 7 to 8 on 12
+202200175 (MEDHABRATA RAJKONWAR) promoted from 7 to 8 on 12
+202200179 (KHUSHI AGARWAL) promoted from 7 to 8 on 12
+202200180 (KUNJAN PANDEY) promoted from 7 to 8 on 12
+202200181 (RAGHAVENDRA KUMAR SINGH) promoted from 7 to 8 on 12
+202200186 (SOUPTIK TARAN) promoted from 7 to 8 on 12
+202200189 (RISHIKA AGARWAL) promoted from 7 to 8 on 12
+202200190 (SARANSH DEV) promoted from 7 to 8 on 12
+202200195 (SATWIK) promoted from 7 to 8 on 12
+202200197 (MUSKAN SHAH) promoted from 7 to 8 on 12
+202200198 (SANSKAR PRADHAN) promoted from 7 to 8 on 12
+202200199 (AARYAN VATS) promoted from 7 to 8 on 12
+202200202 (RAJ ARYAN SINGH) promoted from 7 to 8 on 12
+202200206 (DARPAN NIRAULA) promoted from 7 to 8 on 12
+202200207 (ASHMITA DEY) promoted from 7 to 8 on 12
+202200209 (DEBASHISH DUTTA) promoted from 7 to 8 on 12
+202200211 (SAMIKSHA) promoted from 7 to 8 on 12
+202200213 (SAIRIG DEBBARMA) promoted from 7 to 8 on 12
+202200218 (CHAHAT BAGLA) promoted from 7 to 8 on 12
+202200224 (ZAHID ALI AHMED) promoted from 7 to 8 on 12
+202200226 (RAJSHRI TAMANG) promoted from 7 to 8 on 12
+202200230 (KABINDRA BORAH) promoted from 7 to 8 on 12
+202200231 (SHUBHANSHU) promoted from 7 to 8 on 12
+202200235 (MD BASIT PERWAIZ) promoted from 7 to 8 on 12
+202200236 (KIREETI ROY) promoted from 7 to 8 on 12
+202200237 (MOAZZAM HAYAT KHAN) promoted from 7 to 8 on 12
+202200238 (PRIYANJANA PAUL) promoted from 7 to 8 on 12
+202200240 (TORSHA GUHA) promoted from 7 to 8 on 12
+202200244 (BHAVYA RAJ SUBEDI) promoted from 7 to 8 on 12
+202200248 (SWARNABHA HALDER) promoted from 7 to 8 on 12
+202200249 (AYUSH) promoted from 7 to 8 on 12
+202200252 (ANIRUDDHA CHAKRABORTY) promoted from 7 to 8 on 12
+202200254 (SANGAY BHUTIA) promoted from 7 to 8 on 12
+202200255 (ABHITASH) promoted from 7 to 8 on 12
+202200258 (AYUSH SHEKHAR) promoted from 7 to 8 on 12
+202200259 (MOHIT RANJAN) promoted from 7 to 8 on 12
+202200263 (ARNAB) promoted from 7 to 8 on 12
+202200264 (PRASHANT CHETTRI) promoted from 7 to 8 on 12
+202200278 (PANTHPREET DUTTA) promoted from 7 to 8 on 12
+202200279 (ROGER PUNGYAMBAM) promoted from 7 to 8 on 12
+202200282 (BINAPSA PRADHAN) promoted from 7 to 8 on 12
+202200283 (ISHAAN SHUKLA) promoted from 7 to 8 on 12
+202200284 (TANUSHKA SINGH) promoted from 7 to 8 on 12
+202200286 (PRADYUT SINGH) promoted from 7 to 8 on 12
+202200287 (ISHA SUDARSHINI) promoted from 7 to 8 on 12
+202200288 (ARCHI PRASAD) promoted from 7 to 8 on 12
+202200289 (ASHUTOSH PRADHAN) promoted from 7 to 8 on 12
+202200292 (DIGVIJAY NARAYAN PANDEY) promoted from 7 to 8 on 12
+202200294 (TUSHAR SHARMA) promoted from 7 to 8 on 12
+202200296 (GIRISH SHARMA) promoted from 7 to 8 on 12
+202200297 (SAYAN CHOUDHURY) promoted from 7 to 8 on 12
+202200300 (AYUSH AGARWAL) promoted from 7 to 8 on 12
+202200306 (PRIYANKA KARMAKAR) promoted from 7 to 8 on 12
+202200310 (DHRUV GUPTA) promoted from 7 to 8 on 12
+202200312 (ANISHA SINGH) promoted from 7 to 8 on 12
+202200313 (ANDRE ANTONY ANDREW) promoted from 7 to 8 on 12
+202200314 (KIRTI RAJ) promoted from 7 to 8 on 12
+202200317 (PRACHI SINGH) promoted from 7 to 8 on 12
+202200318 (NEHA SULTAN) promoted from 7 to 8 on 12
+202200319 (BEDANGSHU RAJ MUDIAR) promoted from 7 to 8 on 12
+202200323 (KARMANYA MOSOI) promoted from 7 to 8 on 12
+202200326 (MOHAN KRISHNA NAYAK) promoted from 7 to 8 on 12
+202200330 (EKTA BHARDWAJ) promoted from 7 to 8 on 12
+202200331 (MOITRINIKA MAITREYI) promoted from 7 to 8 on 12
+202200333 (SOUMYA VERMA) promoted from 7 to 8 on 12
+202200334 (APURVA ISHAN) promoted from 7 to 8 on 12
+202200339 (SURYA PRATAP VERMA) promoted from 7 to 8 on 12
+202200342 (MONDIT RAAJ BAROOAH) promoted from 7 to 8 on 12
+202200343 (SAMRAT MITRA) promoted from 7 to 8 on 12
+202200345 (AYUSH BENEDICT SINGH) promoted from 7 to 8 on 12
+202200350 (HARSH VERMA) promoted from 7 to 8 on 12
+202200352 (VOBBILIREDDI RUHIKA) promoted from 7 to 8 on 12
+202200354 (ANUSHKA SINGH) promoted from 7 to 8 on 12
+202200355 (CHETTIAR GARY JOHN) promoted from 7 to 8 on 12
+202200357 (SHASHWAT SHUKLA) promoted from 7 to 8 on 12
+202200359 (PADMA SINDHOORA AYYAGARI) promoted from 7 to 8 on 12
+202200360 (ALEX SHRESTHA) promoted from 7 to 8 on 12
+202200362 (ASMITA MUKHERJEE) promoted from 7 to 8 on 12
+202200364 (ARYAVEER TEWARI) promoted from 7 to 8 on 12
+202200367 (MOHAK DAS) promoted from 7 to 8 on 12
+202200371 (HIMANSHU JHA) promoted from 7 to 8 on 12
+202200372 (SAUMITRA VERMA) promoted from 7 to 8 on 12
+202200375 (ANSHUMAN SETH) promoted from 7 to 8 on 12
+202200376 (SANSKAR SINGH) promoted from 7 to 8 on 12
+202200380 (VAIDIK KHANDELWAL) promoted from 7 to 8 on 12
+202200382 (ASMITH DEB KANUNGO) promoted from 7 to 8 on 12
+202200386 (ABHIJEET KUMAR) promoted from 7 to 8 on 12
+202200387 (ISHAAN S. OSHIMA) promoted from 7 to 8 on 12
+202200388 (CHITRA KUMARI) promoted from 7 to 8 on 12
+202200392 (JHALAK GHOSH) promoted from 7 to 8 on 12
+202200394 (ADWEETIYA DUTTA) promoted from 7 to 8 on 12
+202200397 (SAMIKSHA GIRI) promoted from 7 to 8 on 12
+202200400 (ABHINAY GOURAV) promoted from 7 to 8 on 12
+202200402 (ABHU RAI) promoted from 7 to 8 on 12
+202200441 (JAHANVI) promoted from 7 to 8 on 12
+202200443 (ANIKET DEY) promoted from 7 to 8 on 12
+202200446 (ROHIL JHA) promoted from 7 to 8 on 12
+202200458 (VIBHUTI KUMAR) promoted from 7 to 8 on 12
+202200470 (A VEDANT RAJ) promoted from 7 to 8 on 12
+202200472 (KUNAL PAYENG) promoted from 7 to 8 on 12
+202200476 (NISHANT RAJ) promoted from 7 to 8 on 12
+202200480 (ADITYA KUMAR) promoted from 7 to 8 on 12
+202200484 (ARBAZ AFRIDI) promoted from 7 to 8 on 12
+202200487 (NIRZOR CHOWDHURY) promoted from 7 to 8 on 12
+202200488 (ASTRAEA DHAR) promoted from 7 to 8 on 12
+202200490 (KRISH BAM) promoted from 7 to 8 on 12
+202200493 (SANDHYA LAVANIA) promoted from 7 to 8 on 12
+202200501 (ADITYA TETERVE) promoted from 7 to 8 on 12
+202311501 (SUJAN NEPAL) promoted from 7 to 8 on 12
+202311502 (LEKH CHETTRI) promoted from 7 to 8 on 12
+202311503 (ABHIRAJ SINGH) promoted from 7 to 8 on 12
+202311504 (ABHISHEK KUMAR) promoted from 7 to 8 on 12
+202311506 (Sairaj Singh) promoted from 7 to 8 on 12
+202311508 (TSHERING THENDUP TAMANG) promoted from 7 to 8 on 12
+202311509 (ROHAN PRADHAN) promoted from 7 to 8 on 12
+202311510 (DEVENDRA SUBBA) promoted from 7 to 8 on 12
+202311511 (ANURAG SUBBA) promoted from 7 to 8 on 12
+202311513 (SANGEET SHARMA) promoted from 7 to 8 on 12
+202200462 (DHRUV BHUTRA) promoted from 7 to 8 on 12
+202200513 (MANASVI GUPTA) promoted from 7 to 8 on 12
+202200538 (YETING HERUKA LEPCHA) promoted from 7 to 8 on 12
+202200085 (ARPAN ARI) promoted from 7 to 8 on 12
+202200529 (ABHIJEET) promoted from 7 to 8 on 12
+202200295 (SIMRAN RAI) promoted from 7 to 8 on 12
+202200536 (SABEEL RAHMAN) promoted from 7 to 8 on 12
+202200532 (PRATYANSH PRATEEK SHANDILYA) promoted from 7 to 8 on 12
+202200522 (HARDIK PRASAD) promoted from 7 to 8 on 12
+202200543 (PIYUSH KUMAR) promoted from 7 to 8 on 12
+202200514 (ANURAG MEHTA) promoted from 7 to 8 on 12
+202200506 (BINAYAK CHETTRI) promoted from 7 to 8 on 12
+202311514 (AMIR CHETTRI) promoted from 7 to 8 on 12
+202300028 (KRITIKA CHAUHAN) promoted from 5 to 6 on 12
+202300111 (CHELSEA HAJARIMAYUM) promoted from 5 to 6 on 12
+202300134 (KRISHNA SUDRANIA) promoted from 5 to 6 on 12
+202300174 (ADITI SOUMYA) promoted from 5 to 6 on 12
+202300251 (SHAYAN LODH) promoted from 5 to 6 on 12
+202300304 (KRISH KUMAR) promoted from 5 to 6 on 12
+202300335 (SUBHADEEP CHOWDHURY) promoted from 5 to 6 on 12
+202300346 (GOPAL SHARMA) promoted from 5 to 6 on 12
+202300354 (PRARTHANA KUMAR) promoted from 5 to 6 on 12
+202300392 (SONAKSHI ) promoted from 5 to 6 on 12
+202300440 (NIKHIL SHISHIR DIXIT) promoted from 5 to 6 on 12
+202300446 (LIJA TAMANG) promoted from 5 to 6 on 12
+202300451 (SANIA CHHETRI) promoted from 5 to 6 on 12
+202300514 (KHUSHI KUMARI  PRASAD) promoted from 5 to 6 on 12
+202300539 (TANYA CHAUDHARY) promoted from 5 to 6 on 12
+202300552 (ANKIT KUMAR) promoted from 5 to 6 on 12
+202300559 (AKANKSHI DUBEY) promoted from 5 to 6 on 12
+202300568 (ABDULLAH AL MAMUN) promoted from 5 to 6 on 12
+202300573 (JIYA KUMARI) promoted from 5 to 6 on 12
+202300575 (ISWAR GEWALI) promoted from 5 to 6 on 12
+202300577 (SACHI SINGH) promoted from 5 to 6 on 12
+202300582 (ISHAN THAPA MAGAR) promoted from 5 to 6 on 12
+202300611 (SHREYANSH MISHRA) promoted from 5 to 6 on 12
+202300651 (ANJALI SINGH) promoted from 5 to 6 on 12
+202300002 (PRAVESH SHARMA) promoted from 5 to 6 on 12
+202300003 (PRIYANSHI CHAURASIA) promoted from 5 to 6 on 12
+202300009 (SPANDAN MAITRA) promoted from 5 to 6 on 12
+202300016 (DEVARGHA MITRA) promoted from 5 to 6 on 12
+202300018 (VANSHIKA AGARWAL) promoted from 5 to 6 on 12
+202300019 (SANTOSHI NIKITA KOTHI) promoted from 5 to 6 on 12
+202300021 (SOMNATH SHARMA) promoted from 5 to 6 on 12
+202300023 (PRANIKA KHATTRI) promoted from 5 to 6 on 12
+202300024 (RISHIKESH KUMAR GIRI) promoted from 5 to 6 on 12
+202300036 (ARCHITA PRADHAN) promoted from 5 to 6 on 12
+202300048 (RUDRA SINGH) promoted from 5 to 6 on 12
+202300058 (GARV MALL) promoted from 5 to 6 on 12
+202300064 (PRIYANKA LAMA) promoted from 5 to 6 on 12
+202300068 (KUMAR RATNESH) promoted from 5 to 6 on 12
+202300074 (ISHA DAS) promoted from 5 to 6 on 12
+202300076 (DRISTANTA DEB) promoted from 5 to 6 on 12
+202300078 (AFSA ZAFREEN ANSARI) promoted from 5 to 6 on 12
+202300086 (TSHERING DOLMA BHUTIA) promoted from 5 to 6 on 12
+202300087 (PRATEEK BHANDARI) promoted from 5 to 6 on 12
+202300091 (PRACHI KUMARI) promoted from 5 to 6 on 12
+202300101 (RUDRAKSH CHAKRABORTY) promoted from 5 to 6 on 12
+202300105 (SAKSHI PRIYA) promoted from 5 to 6 on 12
+202300108 (PIYUSH ARYAN) promoted from 5 to 6 on 12
+202300120 (ANUSHRIYA CHETTRI) promoted from 5 to 6 on 12
+202300128 (RONAK SAHA) promoted from 5 to 6 on 12
+202300132 (HARDIK KUMAR) promoted from 5 to 6 on 12
+202300139 (DINESH CHETTRI) promoted from 5 to 6 on 12
+202300146 (DRSIKA GUPTA) promoted from 5 to 6 on 12
+202300148 (KUNDANIKA BARUA) promoted from 5 to 6 on 12
+202300157 (ATUL BHARDWAJ) promoted from 5 to 6 on 12
+202300161 (PARI AGARWAL) promoted from 5 to 6 on 12
+202300169 (RAHUL GUPTA) promoted from 5 to 6 on 12
+202300171 (SUBHAM DEBNATH) promoted from 5 to 6 on 12
+202300172 (SAMEER SETHI) promoted from 5 to 6 on 12
+202300177 (BIRAN SUBBA) promoted from 5 to 6 on 12
+202300182 (MAHI KUMARI) promoted from 5 to 6 on 12
+202300184 (DEB KAMAL GHOSH ) promoted from 5 to 6 on 12
+202300186 (SHREYAS DEB) promoted from 5 to 6 on 12
+202300191 (AMLAN SARMAH) promoted from 5 to 6 on 12
+202300193 (NITYAM SHARMA) promoted from 5 to 6 on 12
+202300195 (TANISH SIDHU) promoted from 5 to 6 on 12
+202300196 (HARSH ) promoted from 5 to 6 on 12
+202300197 (UTKARSH RAJ) promoted from 5 to 6 on 12
+202300204 (SAFAL CHETTRI) promoted from 5 to 6 on 12
+202300216 (KUNAL GOSWAMI) promoted from 5 to 6 on 12
+202300219 (RITIKA KUMARI) promoted from 5 to 6 on 12
+202300220 (ABHINAV SAHA) promoted from 5 to 6 on 12
+202300224 (DIVYANSHU KUMAR) promoted from 5 to 6 on 12
+202300227 (JANVI KANT) promoted from 5 to 6 on 12
+202300239 (SNEHA SINHA) promoted from 5 to 6 on 12
+202300240 (HRISHIKESH DAS) promoted from 5 to 6 on 12
+202300244 (PRIYANKAR CHHETRI) promoted from 5 to 6 on 12
+202300246 (AYUSH HANG VERMA) promoted from 5 to 6 on 12
+202300247 (VIKASH PRASAD) promoted from 5 to 6 on 12
+202300254 (ARCHIT MISHRA) promoted from 5 to 6 on 12
+202300255 (AVI RAJ) promoted from 5 to 6 on 12
+202300256 (SHASHANK KUMAR) promoted from 5 to 6 on 12
+202300257 (JUHI  KUMARI GUPTA) promoted from 5 to 6 on 12
+202300260 (TUSHAR SINGH) promoted from 5 to 6 on 12
+202300264 (ABHINANDAN DEY) promoted from 5 to 6 on 12
+202300268 (SHINJINI DEY) promoted from 5 to 6 on 12
+202300273 (UDAYAN BHOWMICK) promoted from 5 to 6 on 12
+202300274 (SUBHAM KUMAR RAI) promoted from 5 to 6 on 12
+202300275 (ADITYA RAJ) promoted from 5 to 6 on 12
+202300277 (ABHISHEK ROY) promoted from 5 to 6 on 12
+202300279 (ROLAND SINGH) promoted from 5 to 6 on 12
+202300283 (PRAKHAR ROHATGI) promoted from 5 to 6 on 12
+202300285 (NEHA CHETTRI) promoted from 5 to 6 on 12
+202300290 (SHRUTI GOSWAMI) promoted from 5 to 6 on 12
+202300291 (SPANDITA DAS) promoted from 5 to 6 on 12
+202300294 (ISHANT PRADHAN) promoted from 5 to 6 on 12
+202300296 (TUHIN DEY) promoted from 5 to 6 on 12
+202300297 (APEKSHA CHOUDHARY) promoted from 5 to 6 on 12
+202300298 (AVYASH GHIMIREY) promoted from 5 to 6 on 12
+202300299 (ASHUTOSH CHAUHAN) promoted from 5 to 6 on 12
+202300300 (TSHERING TOPDEN LEPCHA) promoted from 5 to 6 on 12
+202300308 (DONISHA CHETRY) promoted from 5 to 6 on 12
+202300312 (RISHABH SHARMA) promoted from 5 to 6 on 12
+202300318 (KUMAR AKASH) promoted from 5 to 6 on 12
+202300320 (ADITYA RAJ) promoted from 5 to 6 on 12
+202300328 (KAUSTUBH SHRIVASTAVA) promoted from 5 to 6 on 12
+202300334 (SHUBHAM RAJ) promoted from 5 to 6 on 12
+202300338 (ARYA VERMA) promoted from 5 to 6 on 12
+202300342 (SHLOK BHATIA) promoted from 5 to 6 on 12
+202300347 (ANUSHKA ) promoted from 5 to 6 on 12
+202300348 (DIWAKAR CHETTRI) promoted from 5 to 6 on 12
+202300350 (MINAKSHI CHOUDHURY) promoted from 5 to 6 on 12
+202300358 (ANJALI SINGHAL) promoted from 5 to 6 on 12
+202300361 (ARPITA ROY) promoted from 5 to 6 on 12
+202300367 (ASMITA NATH) promoted from 5 to 6 on 12
+202300381 (TSHERING  ONGDI BHUTIA) promoted from 5 to 6 on 12
+202300395 (SUROSHI DUTTA) promoted from 5 to 6 on 12
+202300398 (PRIYAJIT CHAKRABORTY) promoted from 5 to 6 on 12
+202300408 (JAHANWEE SINGH) promoted from 5 to 6 on 12
+202300410 (DENNIS NINGOMBAM) promoted from 5 to 6 on 12
+202300411 (ARUNAV ROY) promoted from 5 to 6 on 12
+202300412 (KASTURI INDRANI KONWAR) promoted from 5 to 6 on 12
+202300414 (ADITYA UJWALL) promoted from 5 to 6 on 12
+202300419 (ASHWIT PRADHAN) promoted from 5 to 6 on 12
+202300423 (HIMESH RAJ) promoted from 5 to 6 on 12
+202300426 (SHRISTI) promoted from 5 to 6 on 12
+202300432 (ANUSHKA PRASAD) promoted from 5 to 6 on 12
+202300434 (MANISHA ROY) promoted from 5 to 6 on 12
+202300441 (JYOTISHMAN RABHA) promoted from 5 to 6 on 12
+202300444 (ADITYA KUMAR) promoted from 5 to 6 on 12
+202300449 (RIFAYED AL AMAN) promoted from 5 to 6 on 12
+202300455 (TANNU KUMARI) promoted from 5 to 6 on 12
+202300472 (SIDDHARTH KUMAR) promoted from 5 to 6 on 12
+202300473 (SHUBHANG AARYA) promoted from 5 to 6 on 12
+202300474 (RISHU KUMAR) promoted from 5 to 6 on 12
+202300481 (SIMRAN KUMARI) promoted from 5 to 6 on 12
+202300484 (SNEHA DAS) promoted from 5 to 6 on 12
+202300485 (BARUN SAHOO) promoted from 5 to 6 on 12
+202300490 (VIVEK YADAV) promoted from 5 to 6 on 12
+202300495 (AYUSHMAN SINGH) promoted from 5 to 6 on 12
+202300496 (PRIYANSHU SHEKHAR) promoted from 5 to 6 on 12
+202300499 (SHIKSHAH DAS) promoted from 5 to 6 on 12
+202300501 (ARUSHI THAKUR) promoted from 5 to 6 on 12
+202300502 (SANDEEP SARKAR) promoted from 5 to 6 on 12
+202300503 (NAINA PRADHAN) promoted from 5 to 6 on 12
+202300505 (BHUSAN SHARMA) promoted from 5 to 6 on 12
+202300508 (SHLOK GUPTA) promoted from 5 to 6 on 12
+202300510 (ABHISHEK KUMAR) promoted from 5 to 6 on 12
+202300511 (DHRITIMAN MANDAL) promoted from 5 to 6 on 12
+202300513 (ARKA BERA) promoted from 5 to 6 on 12
+202300517 (ROHIT KUMAR SAHA) promoted from 5 to 6 on 12
+202300518 (ADITYA KUMAR) promoted from 5 to 6 on 12
+202300521 (PUSHKAR PRASAD GUPTA) promoted from 5 to 6 on 12
+202300523 (TRYPHENA ANET CHETTRI) promoted from 5 to 6 on 12
+202300527 (YOJNA JAEL RAI) promoted from 5 to 6 on 12
+202300528 (LAKSHYA) promoted from 5 to 6 on 12
+202300530 (YASHU HANG SUBBA) promoted from 5 to 6 on 12
+202300531 (PRAKASH KUMAR) promoted from 5 to 6 on 12
+202300533 (AKSHYA ADITYA ) promoted from 5 to 6 on 12
+202300535 (P D PRADHIYUMNA ) promoted from 5 to 6 on 12
+202300542 (AAHELI GHOSH) promoted from 5 to 6 on 12
+202300543 (NIRAJ KUMAR ) promoted from 5 to 6 on 12
+202300544 (RICHA TELANG) promoted from 5 to 6 on 12
+202300548 (RISHAV KUMAR) promoted from 5 to 6 on 12
+202300549 (SHUBHANG MISHRA) promoted from 5 to 6 on 12
+202300551 (HARSH SINGH) promoted from 5 to 6 on 12
+202300554 (KESHAV PRADHAN) promoted from 5 to 6 on 12
+202300557 (ANSHIKA GUPTA) promoted from 5 to 6 on 12
+202300560 (PRABHAT KUMAR) promoted from 5 to 6 on 12
+202300564 (ARCHISHMAN HAZRA) promoted from 5 to 6 on 12
+202300565 (ANKIT LAMA) promoted from 5 to 6 on 12
+202300567 (SOUVIK RAY) promoted from 5 to 6 on 12
+202300569 (KHUSHI LOHIA) promoted from 5 to 6 on 12
+202300578 (HIMANSHU KUMAR) promoted from 5 to 6 on 12
+202300579 (SHUBHAM KUMAR) promoted from 5 to 6 on 12
+202300583 (KRISHA POKHAREL) promoted from 5 to 6 on 12
+202300601 (DISHANT DAS) promoted from 5 to 6 on 12
+202300607 (SULAGANA ACHARYA) promoted from 5 to 6 on 12
+202300608 (DIVYANSHI) promoted from 5 to 6 on 12
+202300609 (CHANDRA SEKHAR MADHAB DAS) promoted from 5 to 6 on 12
+202300616 (ANSH GUPTA) promoted from 5 to 6 on 12
+202300620 (SUHANA PRIYA) promoted from 5 to 6 on 12
+202300623 (SHIVANG JAGANNATH SINGH) promoted from 5 to 6 on 12
+202300624 (SAUMYAK ANAND) promoted from 5 to 6 on 12
+202300630 (JYOTIRADITIYA MISRA) promoted from 5 to 6 on 12
+202300644 (MD FARHAN ALAM) promoted from 5 to 6 on 12
+202300665 (ARNAV BHARDWAJ) promoted from 5 to 6 on 12
+202300666 (MASUM RAJ) promoted from 5 to 6 on 12
+202300667 (SHUBHAM KUMAR) promoted from 5 to 6 on 12
+202300670 (AYUSH KUMAR) promoted from 5 to 6 on 12
+202300217 (MRIDUMAY SAHA) promoted from 5 to 6 on 12
+202300292 (PALAK AGARWAL) promoted from 5 to 6 on 12
+202300263 (PRERANA DUTTA) promoted from 5 to 6 on 12
+202300476 (Neeyat Basnet) promoted from 5 to 6 on 12
+202300001 (DEBDEEP CHATTERJEE) promoted from 5 to 6 on 12
+202300007 (SAIMON CHETTRI) promoted from 5 to 6 on 12
+202300008 (VIPUL KUMAR) promoted from 5 to 6 on 12
+202300013 (PRATHAM PRADHAN) promoted from 5 to 6 on 12
+202300027 (PRAYASH SHARMA) promoted from 5 to 6 on 12
+202300029 (HARSHJIT SINGH DHAMI) promoted from 5 to 6 on 12
+202300038 (ARYAN KUMAR) promoted from 5 to 6 on 12
+202300041 (AVINASH KUMAR SINGH) promoted from 5 to 6 on 12
+202300053 (SHIVADITYA MEDHI) promoted from 5 to 6 on 12
+202300059 (AYUSSH RIZAL) promoted from 5 to 6 on 12
+202300061 (TUNG NATH  VERMA) promoted from 5 to 6 on 12
+202300073 (PRAKASH KUMAR) promoted from 5 to 6 on 12
+202300084 (KISHAN RAJ) promoted from 5 to 6 on 12
+202300088 (RAVI RAJ) promoted from 5 to 6 on 12
+202300099 (M MANDIRA SINGHA) promoted from 5 to 6 on 12
+202300103 (ABHINASH KUMAR) promoted from 5 to 6 on 12
+202300131 (SOYAM RAI) promoted from 5 to 6 on 12
+202300136 (SAHIL KUMAR) promoted from 5 to 6 on 12
+202300162 (ARYAN KUMAR) promoted from 5 to 6 on 12
+202300164 (YASHASVI SINGH) promoted from 5 to 6 on 12
+202300170 (SUJAL SAHA) promoted from 5 to 6 on 12
+202300173 (SIDDHARTH ANAND) promoted from 5 to 6 on 12
+202300202 (NAMMI  GHALAY SHERPA) promoted from 5 to 6 on 12
+202300206 (AURSH SINHA) promoted from 5 to 6 on 12
+202300211 (ANISH) promoted from 5 to 6 on 12
+202300230 (SARUP TIWARI) promoted from 5 to 6 on 12
+202300245 (VIJOL ANTHONY  LOBO) promoted from 5 to 6 on 12
+202300269 (CAMELIA GHOSH) promoted from 5 to 6 on 12
+202300276 (RISHEETA GURUNG) promoted from 5 to 6 on 12
+202300287 (YASH VARDHAN) promoted from 5 to 6 on 12
+202300289 (ANUSHKA MUKHERJEE) promoted from 5 to 6 on 12
+202300302 (NIKCHAYA LAMSAL) promoted from 5 to 6 on 12
+202300303 (RITESH UPRETY) promoted from 5 to 6 on 12
+202300307 (AMBAR BEZBARUAH) promoted from 5 to 6 on 12
+202300310 (SAIF BARUA) promoted from 5 to 6 on 12
+202300425 (KRITI KUMARI) promoted from 5 to 6 on 12
+202300436 (SIKHA SHARMA) promoted from 5 to 6 on 12
+202300522 (AKASH NATH) promoted from 5 to 6 on 12
+202300586 (ROHAN DEY) promoted from 5 to 6 on 12
+202300615 (PUSHPAM SARKAR) promoted from 5 to 6 on 12
+202300401 (ANIRBAN DEB) promoted from 5 to 6 on 12
+202300669 (DIBAKAR DEBNATH) promoted from 5 to 6 on 12
+202300442 (SRINJOY PODDAR) promoted from 5 to 6 on 12
+202300443 (MRIYAN GHOSH) promoted from 5 to 6 on 12
+202300445 (SANGADALA RAJDEEP VARMA ) promoted from 5 to 6 on 12
+202300450 (UJJASHINI BORAH) promoted from 5 to 6 on 12
+202300454 (SRISTY PAUL) promoted from 5 to 6 on 12
+202300458 (PAYAL KHANAL) promoted from 5 to 6 on 12
+202300460 (SHIVAM PANDEY) promoted from 5 to 6 on 12
+202300468 (SHRUTI JHA) promoted from 5 to 6 on 12
+202300475 (AYUSH GURUNG) promoted from 5 to 6 on 12
+202300486 (IBHAV MALVIYA) promoted from 5 to 6 on 12
+202300507 (AYUSH SHARMA) promoted from 5 to 6 on 12
+202300603 (MAITRI CHANDA) promoted from 5 to 6 on 12
+202300614 (SWAYAM GHOSH) promoted from 5 to 6 on 12
+202300619 (UTKARSH RAJAN) promoted from 5 to 6 on 12
+202300629 (KUMAR ARTH) promoted from 5 to 6 on 12
+202300633 (KARTIKEY RAJ) promoted from 5 to 6 on 12
+202300095 (ANJALI) promoted from 5 to 6 on 12
+202300625 (SHIVAM KUMAR SINGH) promoted from 5 to 6 on 12
+202300145 (RISHIRAJ AYENGIA) promoted from 5 to 6 on 12
+202300167 (ANIKET CHETTRI) promoted from 5 to 6 on 12
+202300238 (ADITYA RAJ) promoted from 5 to 6 on 12
+202411533 (Zimran Ch Momin) promoted from 5 to 6 on 12
+202411520 (Namsang Limboo) promoted from 5 to 6 on 12
+202411507 (Sonam Dorjee) promoted from 5 to 6 on 12
+202411537 (Sayan Karmakar (Lateral Entry)) promoted from 5 to 6 on 12
+202300270 (NEIL LOHIT GOGOI) promoted from 3 to 4 on 12
+202300353 (SATYAM KUMAR) promoted from 5 to 6 on 12
+202411504 (SAYAN KARMAKAR) promoted from 5 to 6 on 12
+202411534 (KARMA UGEN TENZING BHUTIA) promoted from 5 to 6 on 12
+202411531 (SAHIL TAMANG) promoted from 5 to 6 on 12
+202300537 (ANSH KUMAR SINGH) promoted from 5 to 6 on 12
+202300538 (SASHANK KUMAR) promoted from 5 to 6 on 12
+202300541 (RAJ HANS RAJ) promoted from 5 to 6 on 12
+202411530 (SNEHA KUMARI) promoted from 5 to 6 on 12
+202411538 (SANJAL RAI) promoted from 5 to 6 on 12
+202411503 (HRITIKA BHATTARAI) promoted from 5 to 6 on 12
+202411528 (SHARMILA RAI) promoted from 5 to 6 on 12
+202411529 (Namsang Limboo) promoted from 5 to 6 on 12
+202300271 (Sreejoy Garg) promoted from 5 to 6 on 12
+202300055 (Abhijeet Kumar Singh) promoted from 5 to 6 on 12
+202300115 (Roshan) promoted from 5 to 6 on 12
+202300610 (AYUSH BASU) promoted from 5 to 6 on 12
+202300639 (SUMAN SAURAV) promoted from 5 to 6 on 12
+202300014 (TENZING CHODEN SHERPA) promoted from 5 to 6 on 12
+202300439 (PIYUSH CHAUHAN) promoted from 5 to 6 on 12
+202300493 (SAKSHI SINGH) promoted from 5 to 6 on 12
+202300026 (SUKALPA CHAKRABORTY) promoted from 5 to 6 on 12
+202300135 (NISHCHAL GURUNG) promoted from 5 to 6 on 12
+202300407 (SUJAL POUDYAL) promoted from 5 to 6 on 12
+202300534 (REEWAZ GAZMER) promoted from 5 to 6 on 12
+202411533 (Zimran Ch momin) promoted from 4 to 5 on 12
+202411532 (Sonam Dorjee Gurung) promoted from 5 to 6 on 12
+202411534 (Karma ugen tenzing bhutia) promoted from 4 to 5 on 12
+202443503 (Yamima Magar Thapa) promoted from 5 to 6 on 12
+202443506 (Nasim Anwar Shah) promoted from 5 to 6 on 12
+202411536 (Hritika Bhattarai) promoted from 5 to 6 on 12
+202411535 (Dechen Lepcha) promoted from 5 to 6 on 12
+202300037 (Anmol Gohain Baruah) promoted from 5 to 6 on 12
+202300236 (Kirtika Verma) promoted from 5 to 6 on 12
+202411539 (Akshat Rawat) promoted from 5 to 6 on 12
+202300144 (Shahidul Islam) promoted from 5 to 6 on 12
+202411540 (Aritra Sawoo) promoted from 5 to 6 on 12
+202300635 (Tanisha Ghosh) promoted from 5 to 6 on 12
+202411527 (Aron) promoted from 5 to 6 on 12
+202200448 (PRAKHAR) promoted from 5 to 6 on 12
+202400006 (PRATHISTHA  PRADHAN) promoted from 3 to 4 on 12
+202400009 (ABHIGYA  DULAL) promoted from 3 to 4 on 12
+202400013 (ASHWINI  SINGH) promoted from 3 to 4 on 12
+202400015 (TENZIN WOESEL KUNSANG LAMA) promoted from 3 to 4 on 12
+202400023 (MRIDUL MAYANK JHA) promoted from 3 to 4 on 12
+202400024 (SANYA  SINHA) promoted from 3 to 4 on 12
+202400026 (SOUMADITYA  GHOSH) promoted from 3 to 4 on 12
+202400027 (TWINKLE  DWIVEDI) promoted from 3 to 4 on 12
+202400032 (VANI  PRIYA) promoted from 3 to 4 on 12
+202400042 (APARAJITA  CHATTOPADHYAY) promoted from 3 to 4 on 12
+202400048 (BHAGYA  OSI) promoted from 3 to 4 on 12
+202400050 (RISHAV  GHOSH) promoted from 3 to 4 on 12
+202400051 (KAUSHAL  KHARKA) promoted from 3 to 4 on 12
+202400063 (HARSH  RAJ) promoted from 3 to 4 on 12
+202400067 (SEMPA WANGCHUK DUKPA) promoted from 3 to 4 on 12
+202400079 (KUSHAGRA  TRIPATHI) promoted from 3 to 4 on 12
+202400084 (PRITAM  BARUA) promoted from 3 to 4 on 12
+202400087 (GAURAV) promoted from 3 to 4 on 12
+202400092 (ADITYA  RAJ) promoted from 3 to 4 on 12
+202400099 (PUSHKAR  MISHRA) promoted from 3 to 4 on 12
+202400104 (NIKHIL  KRISHANAN) promoted from 3 to 4 on 12
+202400105 (ARYAMAN  DAS) promoted from 3 to 4 on 12
+202400108 (SATYAM  GUPTA) promoted from 3 to 4 on 12
+202400109 (RUTH  RAI) promoted from 3 to 4 on 12
+202400111 (PRAPTI  DHAKAL) promoted from 3 to 4 on 12
+202400114 (AYUSHMAN  CHAKRAVARTY) promoted from 3 to 4 on 12
+202400117 (MRIGAKSHY  KALITA) promoted from 3 to 4 on 12
+202400123 (SHINAS  BASU) promoted from 3 to 4 on 12
+202400137 (PANKAJ KUMAR SINGH) promoted from 3 to 4 on 12
+202400150 (YUVRAJ VATSA) promoted from 3 to 4 on 12
+202400161 (ISHITA  NAG) promoted from 3 to 4 on 12
+202400162 (SOUMYADIP  JANA) promoted from 3 to 4 on 12
+202400164 (RAJORSHI  BHATTACHARJEE) promoted from 3 to 4 on 12
+202400173 (LAIBA  ALAM) promoted from 3 to 4 on 12
+202400175 (OLIVIA  GHOSH) promoted from 3 to 4 on 12
+202400178 (YAAJAT  KUMAR) promoted from 3 to 4 on 12
+202400179 (SWAPNEEL  POLLEY) promoted from 3 to 4 on 12
+202400180 (MOHIT  KUMAR) promoted from 3 to 4 on 12
+202400183 (MOHAMMAD SHAYAAN) promoted from 3 to 4 on 12
+202400187 (MILAN  SHARMA) promoted from 3 to 4 on 12
+202400191 (KUMAR AYUSH) promoted from 3 to 4 on 12
+202400195 (DHIMAN  BHARADWAJ) promoted from 3 to 4 on 12
+202400203 (FALGUNI  DAS) promoted from 3 to 4 on 12
+202400204 (SHRUTI  AGRAWAL) promoted from 3 to 4 on 12
+202400210 (ARUNESH KUMAR JHA) promoted from 3 to 4 on 12
+202400211 (KUMAR  SURYANSH) promoted from 3 to 4 on 12
+202400212 (SHREYA  SOMYA) promoted from 3 to 4 on 12
+202400214 (PRAYAS  MANGRATI) promoted from 3 to 4 on 12
+202400217 (RAISA  DAS) promoted from 3 to 4 on 12
+202400230 (NAMAN  SINGH) promoted from 3 to 4 on 12
+202400232 (SARAH  NEUPANE) promoted from 3 to 4 on 12
+202400233 (AMITAVA  SARKAR) promoted from 3 to 4 on 12
+202400237 (PRATIK  CHETTRI) promoted from 3 to 4 on 12
+202400239 (SEWAK  SHARMA) promoted from 3 to 4 on 12
+202400243 (SHAMBHAVI  PRIYA) promoted from 3 to 4 on 12
+202400245 (SAURAV  KUMAR) promoted from 3 to 4 on 12
+202400248 (PALAK  SHARMA) promoted from 3 to 4 on 12
+202400249 (AYUSH KUMAR RANJAN) promoted from 3 to 4 on 12
+202400256 (ADITYA ANAND JHA) promoted from 3 to 4 on 12
+202400260 (AASTHA  RANI) promoted from 3 to 4 on 12
+202400261 (KANAK  SHAKYA) promoted from 3 to 4 on 12
+202400263 (TENZING TSETEN LEPCHA) promoted from 3 to 4 on 12
+202400266 (VEDHA  TRIKHA) promoted from 3 to 4 on 12
+202400267 (AYUSH  KUMAR) promoted from 3 to 4 on 12
+202400268 (PARASAR  DHUNGEL) promoted from 3 to 4 on 12
+202400276 (SAURAV  KUMAR) promoted from 3 to 4 on 12
+202400277 (VEDIKA  VATS) promoted from 3 to 4 on 12
+202400282 (AGAM  JUNEJA) promoted from 3 to 4 on 12
+202400284 (ANANTRAJ  JOSHI) promoted from 3 to 4 on 12
+202400288 (SHASHWAT  PANT) promoted from 3 to 4 on 12
+202400293 (AHKONG TSHERING MOKTAN) promoted from 3 to 4 on 12
+202400301 (ARYAN KUMAR PITAMBER) promoted from 3 to 4 on 12
+202400316 (KISHALAY  DAS) promoted from 3 to 4 on 12
+202400329 (AMITABH  ATINDRA) promoted from 3 to 4 on 12
+202400334 (ADITYA  KARKIDHOLI) promoted from 3 to 4 on 12
+202400335 (SIMRAN  KUMARI) promoted from 3 to 4 on 12
+202400345 (SAAD MOHAMMED ASLAM ANSARI) promoted from 3 to 4 on 12
+202400347 (RUDRA KUMAR SINGH) promoted from 3 to 4 on 12
+202400348 (ESMRITI  GUPTA) promoted from 3 to 4 on 12
+202400349 (AAKANCHHA  KUMARI) promoted from 3 to 4 on 12
+202400354 (NENEE YADAV) promoted from 3 to 4 on 12
+202400358 (TANNISTHA  MUKHERJEE) promoted from 3 to 4 on 12
+202400359 (ANAND KUMAR PATEL) promoted from 3 to 4 on 12
+202400365 (BIJETRI  DAS) promoted from 3 to 4 on 12
+202400368 (SUPRITAM  PAL) promoted from 3 to 4 on 12
+202400373 (ASHISH  KUMAR) promoted from 3 to 4 on 12
+202400375 (ADITYA  PRAKASH) promoted from 3 to 4 on 12
+202400376 (SUBHECHHA  BAKSHI) promoted from 3 to 4 on 12
+202400377 (BINITA  BHARTI) promoted from 3 to 4 on 12
+202400378 (ARPIT  KUMAR) promoted from 3 to 4 on 12
+202400382 (ANAVI   BANIYA) promoted from 3 to 4 on 12
+202400387 (YASH  KUMAR) promoted from 3 to 4 on 12
+202400401 (SUMANT KUMAR SINGH) promoted from 3 to 4 on 12
+202400404 (VIVAAN  SAHA) promoted from 3 to 4 on 12
+202400406 (PIYUSH  RAJNISH) promoted from 3 to 4 on 12
+202400411 (KUNSANG DORJAY BHUTIA) promoted from 3 to 4 on 12
+202400420 (SUDARSHAN  CHETTRI) promoted from 3 to 4 on 12
+202400429 (ANSHU  DAYAL) promoted from 3 to 4 on 12
+202400430 (MANDEEP SINGH SURYA) promoted from 3 to 4 on 12
+202400431 (TIARI  NOATIA) promoted from 3 to 4 on 12
+202400433 (YOESAL DOLMA BHUTIA) promoted from 3 to 4 on 12
+202400436 (PRATYUSH  GUPTA) promoted from 3 to 4 on 12
+202400438 (ANISH  ARYA) promoted from 3 to 4 on 12
+202400444 (VINAYAK  PHUKAN) promoted from 3 to 4 on 12
+202400446 (KRITIKA  PANDEY) promoted from 3 to 4 on 12
+202400449 (KAUSTAV PRAN DEV  SARMA) promoted from 3 to 4 on 12
+202400453 (ADITYA  YADAV) promoted from 3 to 4 on 12
+202400454 (ASHISH  RANJAN) promoted from 3 to 4 on 12
+202400459 (PRATIK  GUPTA) promoted from 3 to 4 on 12
+202400464 (RAJ  VARDHAN) promoted from 3 to 4 on 12
+202400468 (VISHAL  SAGAR) promoted from 3 to 4 on 12
+202400486 (SHASWAT  TIWARI) promoted from 3 to 4 on 12
+202400487 (TANISHA  SHARMA) promoted from 3 to 4 on 12
+202400494 (ANKIT  KUMAR) promoted from 3 to 4 on 12
+202400498 (VIKAS  AWASTHI) promoted from 3 to 4 on 12
+202400502 (KRITARTHA  KAKATI) promoted from 3 to 4 on 12
+202400511 (NANDINI JHA) promoted from 3 to 4 on 12
+202400514 (Biwash Thapa) promoted from 3 to 4 on 12
+202400515 (SANKALP) promoted from 3 to 4 on 12
+202400517 (ANNSH KUMAR MISHRA) promoted from 3 to 4 on 12
+202400518 (AASHISH RAJ) promoted from 3 to 4 on 12
+202400522 (ARAV  THAKKAR) promoted from 3 to 4 on 12
+202400526 (ATHARV  PRATAP SINGH) promoted from 3 to 4 on 12
+202400527 (SIDHANT SAURAV BORA) promoted from 3 to 4 on 12
+202400529 (SUMIT MINTRI) promoted from 3 to 4 on 12
+202400531 (SAYYANIKA BASAK) promoted from 3 to 4 on 12
+202400539 (JEDIAEL JOY PRADHAN) promoted from 3 to 4 on 12
+202400541 (Aayush Nandan) promoted from 3 to 4 on 12
+202400542 (Harshit Gupta) promoted from 3 to 4 on 12
+202400546 (PALAK  PRIYADARSHANI) promoted from 3 to 4 on 12
+202400547 (AVI  SHARMA) promoted from 3 to 4 on 12
+202400550 (AASHISH  THAPA) promoted from 3 to 4 on 12
+202400551 (APURVA  ANIKET) promoted from 3 to 4 on 12
+202400552 (SHUVAYAN  ROY CHOWDHURY) promoted from 3 to 4 on 12
+202400558 (SHIKHA KUMARI SRIVASTAV) promoted from 3 to 4 on 12
+202400562 (ANGEL  GUPTA) promoted from 3 to 4 on 12
+202400565 (Puskar Tiwari) promoted from 3 to 4 on 12
+202400568 (MANOGYA KOIRALA) promoted from 3 to 4 on 12
+202400569 (PRAGYAN KHADKA) promoted from 3 to 4 on 12
+202400576 (SUDHANSU RAI) promoted from 3 to 4 on 12
+202400703 (RIDDHI BHAGAT) promoted from 3 to 4 on 12
+202400706 (PRASOON KUMAR) promoted from 3 to 4 on 12
+202400710 (SUBHAJIT SAHA) promoted from 3 to 4 on 12
+202400715 (RISHAV KUMAR DAS) promoted from 3 to 4 on 12
+202400716 (D SANJAY CHARAN) promoted from 3 to 4 on 12
+202400720 (HANAMEL MEBASHANSKHEM RISAW) promoted from 3 to 4 on 12
+202400722 (ANSHI KRITI) promoted from 3 to 4 on 12
+202400725 (ADITYA PAL) promoted from 3 to 4 on 12
+202400726 (VRUDHI PANDEY) promoted from 3 to 4 on 12
+202400733 (ABHIRUP BHATTACHARYA) promoted from 3 to 4 on 12
+202400737 (ARMAN SINGH ) promoted from 3 to 4 on 12
+202400739 (MADHAV JAIN) promoted from 3 to 4 on 12
+202400741 (SUMIT KUMAR) promoted from 3 to 4 on 12
+202400744 (ABHISHEK SINGH) promoted from 3 to 4 on 12
+202400745 (HARDIK PRATAP SINGH) promoted from 3 to 4 on 12
+202400749 (RIDDHIMAN DAS) promoted from 3 to 4 on 12
+202400751 (PUSHKAR RAJ) promoted from 3 to 4 on 12
+202400753 (ARSALAN SALEH) promoted from 3 to 4 on 12
+202400755 (ANSHU JHA) promoted from 3 to 4 on 12
+202400756 (MOHIT KUMAR TIWARY) promoted from 3 to 4 on 12
+202400760 (SHUBHAM SINGH) promoted from 3 to 4 on 12
+202400762 (KRISHANU MAITY) promoted from 3 to 4 on 12
+202400764 (laeeq ahmad ansari) promoted from 3 to 4 on 12
+202400768 (SAMEER ANAND) promoted from 3 to 4 on 12
+202400769 (SONAL RAJ) promoted from 3 to 4 on 12
+202400254 (AMARTYA BHASKAR) promoted from 3 to 4 on 12
+202400001 (ANITIK AARON MAHARANA) promoted from 3 to 4 on 12
+202400005 (ROHIT  SUBBA) promoted from 3 to 4 on 12
+202400018 (TANSHU PRIYA DAS) promoted from 3 to 4 on 12
+202400020 (SPANDAN  NATH) promoted from 3 to 4 on 12
+202400033 (HRISHI  KHAWAS) promoted from 3 to 4 on 12
+202400038 (RASHI  ACHARYA) promoted from 3 to 4 on 12
+202400044 (RAHAT KUMAR PRADHAN) promoted from 3 to 4 on 12
+202400045 (VANSHIKA  PRADHAN) promoted from 3 to 4 on 12
+202400056 (CHETAN  GOUDA) promoted from 3 to 4 on 12
+202400074 (DEVASHISH NILAYAM CHETTRI) promoted from 3 to 4 on 12
+202400077 (ASHUTOSH  ARYAN) promoted from 3 to 4 on 12
+202400096 (SOYOHANG AVIKRIT RAI) promoted from 3 to 4 on 12
+202400120 (ABISHEK  CHETTRI) promoted from 3 to 4 on 12
+202400127 (DIKSHA  BHUJEL) promoted from 3 to 4 on 12
+202400132 (SAGNICK  BHOWMICK) promoted from 3 to 4 on 12
+202400138 (DEBASISH  GHOSH) promoted from 3 to 4 on 12
+202400181 (SONAKSHI  PRIYA) promoted from 3 to 4 on 12
+202400186 (AYUSH  PRADHAN) promoted from 3 to 4 on 12
+202400193 (AYUSH JATUKARNA) promoted from 3 to 4 on 12
+202400223 (AKSHAT  AGARWAL) promoted from 3 to 4 on 12
+202400201 (ARYAN  SINHA) promoted from 3 to 4 on 12
+202400234 (PRATHAM  MAHESHWARI) promoted from 3 to 4 on 12
+202400251 (ABISHEK  BASNETT) promoted from 3 to 4 on 12
+202400258 (APOORV  VANSH) promoted from 3 to 4 on 12
+202400269 (AKASH  THAPA) promoted from 3 to 4 on 12
+202400271 (OM  MISHRA) promoted from 3 to 4 on 12
+202400291 (MD HAMID  ALAM) promoted from 3 to 4 on 12
+202400297 (SUJAY  SINHA) promoted from 3 to 4 on 12
+202400302 (KRITIRUPA  HAZARIKA) promoted from 3 to 4 on 12
+202400309 (PRASURJYA  THAKURIA) promoted from 3 to 4 on 12
+202400318 (SAYAK  SATPATHI) promoted from 3 to 4 on 12
+202400338 (NIRJARA  DAHAL) promoted from 3 to 4 on 12
+202400344 (SAKSHAM  PRADHAN) promoted from 3 to 4 on 12
+202400350 (SHUBHAM  KUMAR) promoted from 3 to 4 on 12
+202400355 (EEMON  MUKHERJEE) promoted from 3 to 4 on 12
+202400372 (AYUSHI  PANDEY) promoted from 3 to 4 on 12
+202400385 (PRAGYA  JAIN) promoted from 3 to 4 on 12
+202400390 (DEBJIT  SARKAR) promoted from 3 to 4 on 12
+202400400 (EVAN  CHOUDHURY) promoted from 3 to 4 on 12
+202400405 (KUNAL KAUSHICK BORAH) promoted from 3 to 4 on 12
+202400407 (SNEHA  CHETTRI) promoted from 3 to 4 on 12
+202400408 (YUGANK  GAURAV) promoted from 3 to 4 on 12
+202400410 (GIRISH  NIROLA CHHETRI) promoted from 3 to 4 on 12
+202400417 (SHANTANU KUMAR AZAD) promoted from 3 to 4 on 12
+202400421 (HIYAMONI  B. DAS) promoted from 3 to 4 on 12
+202400427 (RIKZING WONGCHUK BHUTIA) promoted from 3 to 4 on 12
+202400441 (PRAYASH  PRADHAN) promoted from 3 to 4 on 12
+202400451 (ABHINAV KUMAR MAHATO) promoted from 3 to 4 on 12
+202400456 (TUSHAR JYOTI SARMA) promoted from 3 to 4 on 12
+202400488 (ANURAG  KUMAR) promoted from 3 to 4 on 12
+202400493 (ARUNODOY  BANERJEE) promoted from 3 to 4 on 12
+202400508 (ARITRA CHOUDHURI) promoted from 3 to 4 on 12
+202400512 (SIDDHICHARAN RAI) promoted from 3 to 4 on 12
+202400533 (UPASHANA NEOPANEY) promoted from 3 to 4 on 12
+202400548 (MANISH  KALITA) promoted from 3 to 4 on 12
+202400701 (LOCHAN AGARWAL) promoted from 3 to 4 on 12
+202400709 (VENU KAUSHIK) promoted from 3 to 4 on 12
+202400717 (UTKARSH SRIVASTAVA) promoted from 3 to 4 on 12
+202400718 (JYOTIKA DEVIAH) promoted from 3 to 4 on 12
+202400719 (RASENDU AGARWAL) promoted from 3 to 4 on 12
+202400730 (SINGH YUKTI VINOD) promoted from 3 to 4 on 12
+202400734 (AYUSH PUROHIT) promoted from 3 to 4 on 12
+202400738 (ANIKET SINGH) promoted from 3 to 4 on 12
+202400740 (SWAPNAMAY MAHATA) promoted from 3 to 4 on 12
+202400763 (ARMOGHAN EJAZ) promoted from 3 to 4 on 12
+202400065 (KAUSHIK KUMAR BARMAN) promoted from 3 to 4 on 12
+202400101 (AAYUSH  BORA) promoted from 3 to 4 on 12
+202400118 (GARIMA GRACE RAI) promoted from 3 to 4 on 12
+202400141 (SIDHANT  SHARMA) promoted from 3 to 4 on 12
+202400177 (GUNNIDHI  SINGHI) promoted from 3 to 4 on 12
+202400235 (SHIVANSH  RANJAN) promoted from 3 to 4 on 12
+202400272 (AVINUM  PRADHAN) promoted from 3 to 4 on 12
+202400274 (SHIKHAR  SYANGDEN) promoted from 3 to 4 on 12
+202400279 (ARPITA  SINGH) promoted from 3 to 4 on 12
+202400304 (VAIBHAV  TIWARI) promoted from 3 to 4 on 12
+202400320 (DIVYANSHU  MISHRA) promoted from 3 to 4 on 12
+202400325 (ROUSHAN  SRIVASTAVA) promoted from 3 to 4 on 12
+202400327 (SHIVANG SHUBHRAJYOTI MONDAL) promoted from 3 to 4 on 12
+202400380 (HIMANSHU  KUMAR) promoted from 3 to 4 on 12
+202400445 (GAURAV  DEEP) promoted from 3 to 4 on 12
+202400564 (ADITYA RAJ SINGH) promoted from 3 to 4 on 12
+202400705 (SHOURYA SHARMA) promoted from 3 to 4 on 12
+202400765 (AYUSH VERMA) promoted from 3 to 4 on 12
+202400391 (Sunny Raj) promoted from 3 to 4 on 12
+202400343 (Samarjeet) promoted from 3 to 4 on 12
+202400252 (Krishnav Barman) promoted from 3 to 4 on 12
+202400076 (Manav Singh) promoted from 3 to 4 on 12
+202400060 (Swasthika) promoted from 3 to 4 on 12
+202400126 (Ojasvi) promoted from 3 to 4 on 12
+202400319 (Pritam) promoted from 3 to 4 on 12
+202400337 (Apoorv) promoted from 3 to 4 on 12
+202400412 (Tshering) promoted from 3 to 4 on 12
+202400463 (Prajeet) promoted from 3 to 4 on 12
+202400729 (Aditi) promoted from 3 to 4 on 12
+202400731 (Manas) promoted from 3 to 4 on 12
+202400752 (Anjsh) promoted from 3 to 4 on 12

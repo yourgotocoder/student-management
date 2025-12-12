@@ -23,6 +23,7 @@ const updateStudentSemester = async () => {
       console.log(`Updating record for ${student.NAME}`);
     }
   }
+  await client.close();
 };
 
 updateStudentSemester();

@@ -20,7 +20,6 @@ import Loading from "../../UI/Loading";
 
 type Props = {
   ELECTIVE_2_OPTIONS: Subject[];
-  OPEN_ELECTIVE_2_OPTIONS: Subject[];
   setSubmitted: (value: boolean) => void;
 };
 
@@ -44,7 +43,6 @@ const ElectiveForm_4thSem = (props: Props) => {
   const [elective_2_option_4, setElective2Option4] = useState<string>("");
   const [elective_2_option_5, setElective2Option5] = useState<string>("");
   const [elective_2_option_6, setElective2Option6] = useState<string>("");
-  const [elective_2_option_7, setElective2Option7] = useState<string>("");
 
   const [submitting, setSubmitting] = useState<boolean>(false);
 
@@ -81,9 +79,6 @@ const ElectiveForm_4thSem = (props: Props) => {
             break;
           case 6:
             setElective2Option6(event.target.value);
-            break;
-          case 7:
-            setElective2Option7(event.target.value);
             break;
         }
         break;
@@ -122,9 +117,6 @@ const ElectiveForm_4thSem = (props: Props) => {
         }),
         ...(props.ELECTIVE_2_OPTIONS.length >= 6 && {
           OPTION_6: selected_subject_transformer(elective_2_option_6),
-        }),
-        ...(props.ELECTIVE_2_OPTIONS.length >= 7 && {
-          OPTION_7: selected_subject_transformer(elective_2_option_7),
         }),
       },
     };
@@ -177,8 +169,7 @@ const ElectiveForm_4thSem = (props: Props) => {
                           elective_2_option_3 === subjectName ||
                           elective_2_option_4 === subjectName ||
                           elective_2_option_5 === subjectName ||
-                          elective_2_option_6 === subjectName ||
-                          elective_2_option_7 === subjectName
+                          elective_2_option_6 === subjectName
                         }
                       >
                         {subjectName}
@@ -215,8 +206,7 @@ const ElectiveForm_4thSem = (props: Props) => {
                             elective_2_option_3 === subjectName ||
                             elective_2_option_4 === subjectName ||
                             elective_2_option_5 === subjectName ||
-                            elective_2_option_6 === subjectName ||
-                            elective_2_option_7 === subjectName
+                            elective_2_option_6 === subjectName
                           }
                         >
                           {subjectName}
@@ -254,8 +244,7 @@ const ElectiveForm_4thSem = (props: Props) => {
                             elective_2_option_3 === subjectName ||
                             elective_2_option_4 === subjectName ||
                             elective_2_option_5 === subjectName ||
-                            elective_2_option_6 === subjectName ||
-                            elective_2_option_7 === subjectName
+                            elective_2_option_6 === subjectName
                           }
                         >
                           {subjectName}
@@ -293,8 +282,7 @@ const ElectiveForm_4thSem = (props: Props) => {
                             elective_2_option_3 === subjectName ||
                             elective_2_option_4 === subjectName ||
                             elective_2_option_5 === subjectName ||
-                            elective_2_option_6 === subjectName ||
-                            elective_2_option_7 === subjectName
+                            elective_2_option_6 === subjectName
                           }
                         >
                           {subjectName}
@@ -332,8 +320,7 @@ const ElectiveForm_4thSem = (props: Props) => {
                             elective_2_option_3 === subjectName ||
                             elective_2_option_4 === subjectName ||
                             elective_2_option_5 === subjectName ||
-                            elective_2_option_6 === subjectName ||
-                            elective_2_option_7 === subjectName
+                            elective_2_option_6 === subjectName
                           }
                         >
                           {subjectName}
@@ -371,47 +358,7 @@ const ElectiveForm_4thSem = (props: Props) => {
                             elective_2_option_3 === subjectName ||
                             elective_2_option_4 === subjectName ||
                             elective_2_option_5 === subjectName ||
-                            elective_2_option_6 === subjectName ||
-                            elective_2_option_7 === subjectName
-                          }
-                        >
-                          {subjectName}
-                        </MenuItem>
-                      );
-                    })}
-                  </Select>
-                </FormControl>
-              )}
-
-              {/* Option 7 */}
-              {props.ELECTIVE_2_OPTIONS.length > 6 && (
-                <FormControl sx={{ m: 1, minWidth: 200 }}>
-                  <InputLabel id="demo-simple-select-helper-label">
-                    OPTION 7
-                  </InputLabel>
-                  <Select
-                    value={elective_2_option_7}
-                    onChange={(e: SelectChangeEvent) =>
-                      handleChange(elective_2, 7, e)
-                    }
-                    displayEmpty
-                    inputProps={{ "aria-label": "Without label" }}
-                    label="OPTION 7"
-                  >
-                    {props.ELECTIVE_2_OPTIONS.map((option) => {
-                      const subjectName = `${option.CODE} ${option.TITLE}`;
-                      return (
-                        <MenuItem
-                          value={subjectName}
-                          key={option.CODE}
-                          disabled={
-                            elective_2_option_1 === subjectName ||
-                            elective_2_option_2 === subjectName ||
-                            elective_2_option_3 === subjectName ||
-                            elective_2_option_4 === subjectName ||
-                            elective_2_option_5 === subjectName ||
-                            elective_2_option_6 === subjectName ||
-                            elective_2_option_7 === subjectName
+                            elective_2_option_6 === subjectName
                           }
                         >
                           {subjectName}
@@ -439,9 +386,7 @@ const ElectiveForm_4thSem = (props: Props) => {
                       (props.ELECTIVE_2_OPTIONS.length > 4 &&
                         elective_2_option_5 === "") ||
                       (props.ELECTIVE_2_OPTIONS.length > 5 &&
-                        elective_2_option_6 === "") ||
-                      (props.ELECTIVE_2_OPTIONS.length > 6 &&
-                        elective_2_option_7 === "")
+                        elective_2_option_6 === "")
                     }
                   >
                     {activeStep === 2 ? "Finish" : "Continue"}
