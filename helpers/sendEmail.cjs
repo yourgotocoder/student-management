@@ -9,7 +9,9 @@ const sendMail = async () => {
   const db_data = await collection.find().toArray();
   const filteredData = db_data.filter(
     (stuData) =>
-      (stuData.CURRENT_SEM == 8 && !stuData.ELECTIVE_SELECTIONS.ELECTIVE_5) ||
+      (stuData.CURRENT_SEM == 8 &&
+        stuData.ELECTIVE_SELECTIONS &&
+        !stuData.ELECTIVE_SELECTIONS.ELECTIVE_5) ||
       stuData.CURRENT_SEM == 4 ||
       stuData.CURRENT_SEM == 6,
   );
@@ -42,4 +44,4 @@ const sendMail = async () => {
   await client.close();
 };
 
-sendMail().then(() => console.log(`Done sending emails to 7th sem`));
+sendMail().then(() => console.log(`Emails Sent Successfully`));

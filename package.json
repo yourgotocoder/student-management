@@ -25,6 +25,7 @@
     "mongodb": "^4.12.1",
     "mongoose": "^6.8.0",
     "next": "13.0.6",
+    "node-cron": "^4.2.1",
     "node-fetch": "^3.3.0",
     "nodejs-nodemailer-outlook": "^1.2.4",
     "nodemailer": "^6.9.3",
