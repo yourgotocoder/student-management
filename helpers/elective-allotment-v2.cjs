@@ -70,7 +70,8 @@ const map_electives_by_sem = (data, sem) => {
         BRANCH: student.BRANCH,
         CGPA: student.CGPA,
         ELECTIVE_SELECTIONS: {
-          OPEN_ELECTIVE_3: student.ELECTIVE_SELECTIONS.OPEN_ELECTIVE_3,
+          ELECTIVE_4: student.ELECTIVE_SELECTIONS.ELECTIVE_4,
+          ELECTIVE_5: student.ELECTIVE_SELECTIONS.ELECTIVE_5,
         },
       }));
       break;
@@ -94,15 +95,15 @@ const map_electives_by_sem = (data, sem) => {
         BRANCH: student.BRANCH,
         CGPA: student.CGPA,
         ELECTIVE_SELECTIONS: {
-          ELECTIVE_10: student.ELECTIVE_SELECTIONS.ELECTIVE_10,
-          ELECTIVE_11: student.ELECTIVE_SELECTIONS.ELECTIVE_11,
+          ELECTIVE_5: student.ELECTIVE_SELECTIONS.ELECTIVE_5,
         },
       }));
       break;
 
     default:
       result = "Invalid Option";
-  }  return result;
+  }
+  return result;
 };
 
 const updateElective = async () => {
@@ -111,43 +112,50 @@ const updateElective = async () => {
   const collection = db.collection("student-data");
   const studentData = await collection.find().toArray();
 
-  // const _4thData = map_electives_by_sem(
-  //   filter_for_missing_selections(
-  //     sort_by_cgpa(filter_by_key(filter_by_sem(studentData, 4), "CGPA")),
-  //     "ELECTIVE_2",
-  //   ),
-  //   4,
-  // );
+  const _4thData = map_electives_by_sem(
+    filter_for_missing_selections(
+      sort_by_cgpa(filter_by_key(filter_by_sem(studentData, 4), "CGPA")),
+      "ELECTIVE_2",
+    ),
+    4,
+  );
 
-  // const _8thData = map_electives_by_sem(
-  //   filter_for_missing_selections(
-  //     sort_by_cgpa(filter_by_key(filter_by_sem(studentData, 8), "CGPA")),
-  //     "ELECTIVE_10",
-  //   ),
-  //   8,
-  // );
+  const _6thData = map_electives_by_sem(
+    filter_for_missing_selections(
+      sort_by_cgpa(filter_by_key(filter_by_sem(studentData, 6), "CGPA")),
+      "ELECTIVE_4",
+    ),
+    6,
+  );
+
+  const _8thData = map_electives_by_sem(
+    filter_for_missing_selections(
+      sort_by_cgpa(filter_by_key(filter_by_sem(studentData, 8), "CGPA")),
+      "ELECTIVE_5",
+    ),
+    8,
+  );
 
   // console.log(_8thData);
 
   // console.log(_4thData);
   //
-  const _7thData = map_electives_by_sem(
-    filter_for_missing_selections(
-      sort_by_cgpa(filter_by_key(filter_by_sem(studentData, 7), "CGPA")),
-      "OPEN_ELECTIVE_4",
-    ),
-    7,
-  );
-  console.log(_7thData)
-  const _7thElectives = alloter(_7thData, 60);
-  // const _4thElectives = alloter(_4thData, 50);
-  // const _8thElectives = alloter(_8thData, 10);
+  // const _7thData = map_electives_by_sem(
+  //   filter_for_missing_selections(
+  //     sort_by_cgpa(filter_by_key(filter_by_sem(studentData, 7), "CGPA")),
+  //     "OPEN_ELECTIVE_4",
+  //   ),
+  //   7,
+  // );
+  // console.log(_7thData);
+  // const _7thElectives = alloter(_7thData, 60);
+  const _4thElectives = alloter(_4thData, 50);
+  const _6thElectives = alloter(_6thData, 50);
+  const _8thElectives = alloter(_8thData, 80);
 
-  writeFileSync(
-    `_7thElective.xlsx`,
-    json2xls(_7thElectives.result),
-    "binary",
-  );
+  writeFileSync(`_8thElective.xlsx`, json2xls(_8thElectives.result), "binary");
+  writeFileSync(`_6thElective.xlsx`, json2xls(_6thElectives.result), "binary");
+  writeFileSync(`_4thElective.xlsx`, json2xls(_4thElectives.result), "binary");
   await client.close();
 };
 

@@ -9,16 +9,15 @@ const updateElective = async (data) => {
   const db = client.db("cse");
   const collection = db.collection("student-data");
   const student_data = await collection.find().toArray();
-  console.log(student_data);
 
-  for (let stdData of student_data.filter(student => student.CURRENT_SEM === 3)) {
-    console.log(stdData.REGNO);
+  for (let stdData of student_data) {
     const result = data.find((st) => st.REGNO === stdData.REGNO);
     let CGPA;
     if (result) {
       CGPA = result.CGPA;
     }
     if (CGPA) {
+      console.log(`Updating CGPA for ${stdData.REGNO} (${stdData.NAME})`);
       await collection.updateOne(
         { REGNO: stdData.REGNO },
         {
@@ -33,6 +32,6 @@ const updateElective = async (data) => {
   await client.close();
 };
 
-const studentsData = parser.parseXls2Json("./resources/CGPA.xlsx")[0];
+const studentsData = parser.parseXls2Json(__dirname + "/CGPA_2026_Jan.xlsx")[0];
 
 updateElective(studentsData);
